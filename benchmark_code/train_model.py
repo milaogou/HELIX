@@ -36,6 +36,7 @@ SUPPORT_MODELS = {
     "FreTS": FreTS,
     "GPVAE": GPVAE,
     "GRUD": GRUD,
+    "HELIX": HELIX,
     "Informer": Informer,
     "iTransformer": iTransformer,
     "Koopa": Koopa,

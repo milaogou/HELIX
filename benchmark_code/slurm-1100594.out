@@ -1,0 +1,36 @@
+cuda-11.1 remove successful
+gcc-9.3.0 remove successful
+cuda-12.1 loaded successful
+gcc-9.3.0 loaded successful
+/home/bingxing2/home/scx7644/.conda/envs/py39_env/lib/python3.9/site-packages/transformers/utils/generic.py:441: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  _torch_pytree._register_pytree_node(
+/home/bingxing2/home/scx7644/.conda/envs/py39_env/lib/python3.9/site-packages/transformers/utils/generic.py:309: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  _torch_pytree._register_pytree_node(
+/home/bingxing2/home/scx7644/.conda/envs/py39_env/lib/python3.9/site-packages/transformers/utils/generic.py:309: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  _torch_pytree._register_pytree_node(
+[34m
+████████╗██╗███╗   ███╗███████╗    ███████╗███████╗██████╗ ██╗███████╗███████╗    █████╗ ██╗
+╚══██╔══╝██║████╗ ████║██╔════╝    ██╔════╝██╔════╝██╔══██╗██║██╔════╝██╔════╝   ██╔══██╗██║
+   ██║   ██║██╔████╔██║█████╗█████╗███████╗█████╗  ██████╔╝██║█████╗  ███████╗   ███████║██║
+   ██║   ██║██║╚██╔╝██║██╔══╝╚════╝╚════██║██╔══╝  ██╔══██╗██║██╔══╝  ╚════██║   ██╔══██║██║
+   ██║   ██║██║ ╚═╝ ██║███████╗    ███████║███████╗██║  ██║██║███████╗███████║██╗██║  ██║██║
+   ╚═╝   ╚═╝╚═╝     ╚═╝╚══════╝    ╚══════╝╚══════╝╚═╝  ╚═╝╚═╝╚══════╝╚══════╝╚═╝╚═╝  ╚═╝╚═╝
+ai4ts v0.0.3 - building AI for unified time-series analysis, https://time-series.ai [0m
+
+2025-12-21 21:45:32 [WARNING]: ‼️ `pypots.utils.metrics` is deprecated. Please import from `pypots.nn.functional` instead.
+2025-12-21 21:45:32 [INFO]: Have set the random seed as 2024 for numpy and pytorch.
+Traceback (most recent call last):
+  File "/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/train_model.py", line 125, in <module>
+    hyperparameters = HPO_RESULTS[args.dataset][args.model].copy()
+KeyError: 'HELIX'
+
+
+
+============ Job 1100594 Performance Details ============
+JobID: 1100594
+User: scx7644
+Nodes、GPU: N/A
+Time Range: 2025-12-21 21:45:09 - 2025-12-21 21:45:35
+Running time: 0d0H0M26S
+Get GPU mapping information failed，can not perform performance query。
+=========================================================

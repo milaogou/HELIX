@@ -209,6 +209,20 @@ BeijingAir = {
         'rnn_hidden_size': 1024, 
         'lr': 0.00024042971963822373
     },
+    'HELIX': {
+        'n_steps': 24,
+        'n_features': 132,
+        'epochs': 100,
+        'patience': 10,
+        'pe_dim': 16,
+        'd_model': 256,
+        'n_heads': 8,
+        'n_layers': 2,
+        'dropout': 0.1,
+        'ORT_weight': 1.0,
+        'MIT_weight': 1.0,
+        'lr': 0.001
+    },
     'StemGNN': {
         'n_steps': 24, 
         'n_features': 132,

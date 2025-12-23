@@ -1,0 +1,63 @@
+2025-12-23 15:49:21 [WARNING]: ‼️ `pypots.utils.metrics` is deprecated. Please import from `pypots.nn.functional` instead.
+2025-12-23 15:49:21 [INFO]: Have set the random seed as 2024 for numpy and pytorch.
+2025-12-23 15:49:21 [INFO]: Using the given device: cuda:0
+2025-12-23 15:49:21 [INFO]: Model files will be saved to reproduce_imputation/point01_log/BeijingAir_log/HELIX_BeijingAir/round_0/20251223_T154921
+2025-12-23 15:49:21 [INFO]: Tensorboard file will be saved to reproduce_imputation/point01_log/BeijingAir_log/HELIX_BeijingAir/round_0/20251223_T154921/tensorboard
+2025-12-23 15:49:21 [INFO]: Using customized MAE as the training loss function.
+2025-12-23 15:49:21 [INFO]: Using customized MSE as the validation metric function.
+2025-12-23 15:49:21 [INFO]: HELIX initialized with the given hyperparameters, the number of trainable parameters: 3,169,944
+2025-12-23 15:49:34 [INFO]: Epoch 001 - training loss (MAE): 2.5499, validation MSE: 1.0430
+2025-12-23 15:49:46 [INFO]: Epoch 002 - training loss (MAE): 0.7797, validation MSE: 0.4149
+2025-12-23 15:49:59 [INFO]: Epoch 003 - training loss (MAE): 0.4305, validation MSE: 0.2461
+2025-12-23 15:50:11 [INFO]: Epoch 004 - training loss (MAE): 0.2774, validation MSE: 0.2035
+2025-12-23 15:50:23 [INFO]: Epoch 005 - training loss (MAE): 0.2411, validation MSE: 0.1984
+2025-12-23 15:50:35 [INFO]: Epoch 006 - training loss (MAE): 0.2324, validation MSE: 0.1953
+2025-12-23 15:50:48 [INFO]: Epoch 007 - training loss (MAE): 0.2211, validation MSE: 0.1905
+2025-12-23 15:51:00 [INFO]: Epoch 008 - training loss (MAE): 0.2119, validation MSE: 0.1851
+2025-12-23 15:51:12 [INFO]: Epoch 009 - training loss (MAE): 0.2109, validation MSE: 0.1830
+2025-12-23 15:51:24 [INFO]: Epoch 010 - training loss (MAE): 0.2031, validation MSE: 0.1805
+2025-12-23 15:51:37 [INFO]: Epoch 011 - training loss (MAE): 0.2001, validation MSE: 0.1793
+2025-12-23 15:51:49 [INFO]: Epoch 012 - training loss (MAE): 0.2019, validation MSE: 0.1914
+2025-12-23 15:52:01 [INFO]: Epoch 013 - training loss (MAE): 0.2057, validation MSE: 0.1824
+2025-12-23 15:52:13 [INFO]: Epoch 014 - training loss (MAE): 0.1928, validation MSE: 0.1775
+2025-12-23 15:52:25 [INFO]: Epoch 015 - training loss (MAE): 0.1925, validation MSE: 0.1806
+2025-12-23 15:52:38 [INFO]: Epoch 016 - training loss (MAE): 0.1912, validation MSE: 0.1784
+2025-12-23 15:52:50 [INFO]: Epoch 017 - training loss (MAE): 0.1938, validation MSE: 0.1791
+2025-12-23 15:53:02 [INFO]: Epoch 018 - training loss (MAE): 0.1866, validation MSE: 0.1782
+2025-12-23 15:53:14 [INFO]: Epoch 019 - training loss (MAE): 0.1876, validation MSE: 0.1764
+2025-12-23 15:53:26 [INFO]: Epoch 020 - training loss (MAE): 0.1871, validation MSE: 0.1772
+2025-12-23 15:53:39 [INFO]: Epoch 021 - training loss (MAE): 0.1858, validation MSE: 0.1812
+2025-12-23 15:53:51 [INFO]: Epoch 022 - training loss (MAE): 0.1884, validation MSE: 0.1748
+2025-12-23 15:54:03 [INFO]: Epoch 023 - training loss (MAE): 0.1845, validation MSE: 0.1761
+2025-12-23 15:54:15 [INFO]: Epoch 024 - training loss (MAE): 0.1801, validation MSE: 0.1738
+Exception in thread Thread-1:
+Traceback (most recent call last):
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+    self.run()
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/tensorboard/summary/writer/event_file_writer.py", line 244, in run
+    self._run()
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/tensorboard/summary/writer/event_file_writer.py", line 275, in _run
+    self._record_writer.write(data)
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/tensorboard/summary/writer/record_writer.py", line 40, in write
+    self._writer.write(header + header_crc + data + footer_crc)
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/tensorboard/compat/tensorflow_stub/io/gfile.py", line 773, in write
+    self.fs.append(self.filename, file_content, self.binary_mode)
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/tensorboard/compat/tensorflow_stub/io/gfile.py", line 167, in append
+    self._write(filename, file_content, "ab" if binary_mode else "a")
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/tensorboard/compat/tensorflow_stub/io/gfile.py", line 171, in _write
+    with io.open(filename, mode, encoding=encoding) as f:
+FileNotFoundError: [Errno 2] No such file or directory: b'reproduce_imputation/point01_log/BeijingAir_log/HELIX_BeijingAir/round_0/20251223_T154921/tensorboard/events.out.tfevents.1766476161.paraai-n32-h-01-agent-9.844540.0.pypots'
+2025-12-23 15:54:24 [ERROR]: ❌ Exception: [Errno 2] No such file or directory: b'reproduce_imputation/point01_log/BeijingAir_log/HELIX_BeijingAir/round_0/20251223_T154921/tensorboard/events.out.tfevents.1766476161.paraai-n32-h-01-agent-9.844540.0.pypots'
+2025-12-23 15:54:24 [INFO]: Finished training. The best model is from epoch#24.
+2025-12-23 15:54:24 [INFO]: Successfully created the given path reproduce_imputation/point01_log/BeijingAir_log/HELIX_BeijingAir/round_0/20251223_T154921
+2025-12-23 15:54:24 [INFO]: Saved the model to reproduce_imputation/point01_log/BeijingAir_log/HELIX_BeijingAir/round_0/20251223_T154921/HELIX.pypots
+2025-12-23 15:54:25 [INFO]: Successfully saved to reproduce_imputation/point01_log/BeijingAir_log/HELIX_BeijingAir/round_0/imputation.pkl
+2025-12-23 15:54:25 [INFO]: Round0 - HELIX on BeijingAir: MAE=0.1195, MSE=0.2048, MRE=0.1588
+2025-12-23 15:54:25 [INFO]: Have set the random seed as 2025 for numpy and pytorch.
+2025-12-23 15:54:25 [INFO]: Using the given device: cuda:0
+2025-12-23 15:54:25 [INFO]: Model files will be saved to reproduce_imputation/point01_log/BeijingAir_log/HELIX_BeijingAir/round_1/20251223_T155425
+2025-12-23 15:54:25 [INFO]: Tensorboard file will be saved to reproduce_imputation/point01_log/BeijingAir_log/HELIX_BeijingAir/round_1/20251223_T155425/tensorboard
+2025-12-23 15:54:25 [INFO]: Using customized MAE as the training loss function.
+2025-12-23 15:54:25 [INFO]: Using customized MSE as the validation metric function.
+2025-12-23 15:54:25 [INFO]: HELIX initialized with the given hyperparameters, the number of trainable parameters: 3,169,944
+2025-12-23 15:54:37 [INFO]: Epoch 001 - training loss (MAE): 2.2113, validation MSE: 0.7109

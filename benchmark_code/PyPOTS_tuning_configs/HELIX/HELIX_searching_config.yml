@@ -2,18 +2,22 @@ experimentName: HELIX hyper-param searching
 authorName: MiBah Cat
 trialConcurrency: 1
 trainingServicePlatform: local
-searchSpacePath: HELIX_PhysioNet2012_tuning_space.json
+searchSpacePath: HELIX_physionet_2012_tuning_space.json
 multiThread: true
 useAnnotation: false
+maxExperimentDuration: 72h
+maxTrialNumber: 100
 tuner:
-    builtinTunerName: Random
+    builtinTunerName: TPE
+    classArgs:
+        optimize_mode: minimize
 
 trial:
-    command: enable_tuning=1 pypots-cli tuning --model pypots.imputation.HELIX --train_set ../../data/physionet_2012/train.h5 --val_set ../../data/physionet_2012/val.h5
+    command: enable_tuning=1 pypots-cli tuning --model pypots.imputation.HELIX --train_set ../../data/generated_datasets/physionet_2012_rate01_point/train.h5 --val_set ../../data/generated_datasets/physionet_2012_rate01_point/val.h5
     codeDir: .
     gpuNum: 1
 
 localConfig:
     useActiveGpu: true
-    maxTrialNumPerGpu: 20
-    gpuIndices: 0
+    maxTrialNumPerGpu: 1
+    gpuIndices: [0]

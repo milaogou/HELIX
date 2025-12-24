@@ -6,6 +6,20 @@
 # License: BSD-3-Clause
 
 PhysioNet2019 = {
+    'HELIX': {
+        'n_steps': 48,
+        'n_features': 33,
+        'epochs': 100,
+        'patience': 10,
+        'pe_dim': 16,
+        'd_model': 256,
+        'n_heads': 8,
+        'n_layers': 2,
+        'dropout': 0.1,
+        'ORT_weight': 1.0,
+        'MIT_weight': 1.0,
+        'lr': 0.001
+    },
     "iTransformer": {
         "n_steps": 48,
         "n_features": 33,

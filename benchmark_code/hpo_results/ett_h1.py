@@ -6,6 +6,21 @@
 # License: BSD-3-Clause
 
 ETT_h1 = {
+    'HELIX': {
+        'n_steps': 48,
+        'n_features': 7,
+        'epochs': 100,
+        'patience': 10,
+        'pe_dim': 8,
+        'd_model': 32,
+        'n_heads': 4,
+        'n_layers': 2,
+        'dropout': 0.1,
+        'ORT_weight': 1.0,
+        'MIT_weight': 1.0,
+        'lr': 0.001,
+        'batch_size': 2048,
+    },
     "Autoformer": {
         "n_steps": 48, 
         "n_features": 7, 

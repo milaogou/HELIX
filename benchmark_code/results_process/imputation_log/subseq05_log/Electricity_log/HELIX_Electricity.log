@@ -1,133 +1,163 @@
-2025-12-23 19:58:16 [WARNING]: ‼️ `pypots.utils.metrics` is deprecated. Please import from `pypots.nn.functional` instead.
-2025-12-23 19:58:16 [INFO]: Have set the random seed as 2024 for numpy and pytorch.
-2025-12-23 19:58:16 [INFO]: Using the given device: cuda:0
-2025-12-23 19:58:16 [INFO]: Model files will be saved to reproduce_imputation/subseq05_log/Electricity_log/HELIX_Electricity/round_0/20251223_T195816
-2025-12-23 19:58:16 [INFO]: Tensorboard file will be saved to reproduce_imputation/subseq05_log/Electricity_log/HELIX_Electricity/round_0/20251223_T195816/tensorboard
-2025-12-23 19:58:16 [INFO]: Using customized MAE as the training loss function.
-2025-12-23 19:58:16 [INFO]: Using customized MSE as the validation metric function.
-2025-12-23 19:58:16 [INFO]: HELIX initialized with the given hyperparameters, the number of trainable parameters: 52,030
-2025-12-23 19:58:44 [INFO]: Epoch 001 - training loss (MAE): 1.0656, validation MSE: 3.2289
-2025-12-23 19:59:12 [INFO]: Epoch 002 - training loss (MAE): 0.7194, validation MSE: 2.9641
-2025-12-23 19:59:39 [INFO]: Epoch 003 - training loss (MAE): 0.6011, validation MSE: 2.9364
-2025-12-23 20:00:07 [INFO]: Epoch 004 - training loss (MAE): 0.5018, validation MSE: 2.9226
-2025-12-23 20:00:34 [INFO]: Epoch 005 - training loss (MAE): 0.4244, validation MSE: 2.8926
-2025-12-23 20:01:01 [INFO]: Epoch 006 - training loss (MAE): 0.3676, validation MSE: 2.9197
-2025-12-23 20:01:29 [INFO]: Epoch 007 - training loss (MAE): 0.3271, validation MSE: 2.9361
-2025-12-23 20:01:56 [INFO]: Epoch 008 - training loss (MAE): 0.2967, validation MSE: 3.0159
-2025-12-23 20:02:24 [INFO]: Epoch 009 - training loss (MAE): 0.2730, validation MSE: 3.0790
-2025-12-23 20:02:51 [INFO]: Epoch 010 - training loss (MAE): 0.2581, validation MSE: 3.1364
-2025-12-23 20:03:18 [INFO]: Epoch 011 - training loss (MAE): 0.2487, validation MSE: 3.1807
-2025-12-23 20:03:46 [INFO]: Epoch 012 - training loss (MAE): 0.2395, validation MSE: 3.2064
-2025-12-23 20:04:13 [INFO]: Epoch 013 - training loss (MAE): 0.2330, validation MSE: 3.2483
-2025-12-23 20:04:40 [INFO]: Epoch 014 - training loss (MAE): 0.2279, validation MSE: 3.2430
-2025-12-23 20:05:08 [INFO]: Epoch 015 - training loss (MAE): 0.2222, validation MSE: 3.2661
-2025-12-23 20:05:08 [INFO]: Exceeded the training patience. Terminating the training procedure...
-2025-12-23 20:05:08 [INFO]: Finished training. The best model is from epoch#5.
-2025-12-23 20:05:08 [INFO]: Saved the model to reproduce_imputation/subseq05_log/Electricity_log/HELIX_Electricity/round_0/20251223_T195816/HELIX.pypots
-2025-12-23 20:05:11 [INFO]: Successfully saved to reproduce_imputation/subseq05_log/Electricity_log/HELIX_Electricity/round_0/imputation.pkl
-2025-12-23 20:05:11 [INFO]: Round0 - HELIX on Electricity: MAE=1.1589, MSE=2.8570, MRE=0.6147
-2025-12-23 20:05:11 [INFO]: Have set the random seed as 2025 for numpy and pytorch.
-2025-12-23 20:05:11 [INFO]: Using the given device: cuda:0
-2025-12-23 20:05:11 [INFO]: Model files will be saved to reproduce_imputation/subseq05_log/Electricity_log/HELIX_Electricity/round_1/20251223_T200511
-2025-12-23 20:05:11 [INFO]: Tensorboard file will be saved to reproduce_imputation/subseq05_log/Electricity_log/HELIX_Electricity/round_1/20251223_T200511/tensorboard
-2025-12-23 20:05:11 [INFO]: Using customized MAE as the training loss function.
-2025-12-23 20:05:11 [INFO]: Using customized MSE as the validation metric function.
-2025-12-23 20:05:11 [INFO]: HELIX initialized with the given hyperparameters, the number of trainable parameters: 52,030
-2025-12-23 20:05:38 [INFO]: Epoch 001 - training loss (MAE): 0.9934, validation MSE: 3.2309
-2025-12-23 20:06:06 [INFO]: Epoch 002 - training loss (MAE): 0.7165, validation MSE: 2.9328
-2025-12-23 20:06:33 [INFO]: Epoch 003 - training loss (MAE): 0.5561, validation MSE: 2.8992
-2025-12-23 20:07:00 [INFO]: Epoch 004 - training loss (MAE): 0.4541, validation MSE: 2.9180
-2025-12-23 20:07:28 [INFO]: Epoch 005 - training loss (MAE): 0.3920, validation MSE: 3.0968
-2025-12-23 20:07:55 [INFO]: Epoch 006 - training loss (MAE): 0.3493, validation MSE: 3.1723
-2025-12-23 20:08:23 [INFO]: Epoch 007 - training loss (MAE): 0.3194, validation MSE: 3.1663
-2025-12-23 20:08:50 [INFO]: Epoch 008 - training loss (MAE): 0.2949, validation MSE: 3.2069
-2025-12-23 20:09:17 [INFO]: Epoch 009 - training loss (MAE): 0.2728, validation MSE: 3.2390
-2025-12-23 20:09:45 [INFO]: Epoch 010 - training loss (MAE): 0.2552, validation MSE: 3.2613
-2025-12-23 20:10:12 [INFO]: Epoch 011 - training loss (MAE): 0.2407, validation MSE: 3.2202
-2025-12-23 20:10:39 [INFO]: Epoch 012 - training loss (MAE): 0.2294, validation MSE: 3.1746
-2025-12-23 20:11:07 [INFO]: Epoch 013 - training loss (MAE): 0.2216, validation MSE: 3.1269
-2025-12-23 20:11:07 [INFO]: Exceeded the training patience. Terminating the training procedure...
-2025-12-23 20:11:07 [INFO]: Finished training. The best model is from epoch#3.
-2025-12-23 20:11:07 [INFO]: Saved the model to reproduce_imputation/subseq05_log/Electricity_log/HELIX_Electricity/round_1/20251223_T200511/HELIX.pypots
-2025-12-23 20:11:10 [INFO]: Successfully saved to reproduce_imputation/subseq05_log/Electricity_log/HELIX_Electricity/round_1/imputation.pkl
-2025-12-23 20:11:10 [INFO]: Round1 - HELIX on Electricity: MAE=1.2573, MSE=3.2008, MRE=0.6669
-2025-12-23 20:11:10 [INFO]: Have set the random seed as 2026 for numpy and pytorch.
-2025-12-23 20:11:10 [INFO]: Using the given device: cuda:0
-2025-12-23 20:11:10 [INFO]: Model files will be saved to reproduce_imputation/subseq05_log/Electricity_log/HELIX_Electricity/round_2/20251223_T201110
-2025-12-23 20:11:10 [INFO]: Tensorboard file will be saved to reproduce_imputation/subseq05_log/Electricity_log/HELIX_Electricity/round_2/20251223_T201110/tensorboard
-2025-12-23 20:11:10 [INFO]: Using customized MAE as the training loss function.
-2025-12-23 20:11:10 [INFO]: Using customized MSE as the validation metric function.
-2025-12-23 20:11:10 [INFO]: HELIX initialized with the given hyperparameters, the number of trainable parameters: 52,030
-2025-12-23 20:11:37 [INFO]: Epoch 001 - training loss (MAE): 1.0330, validation MSE: 3.2579
-2025-12-23 20:12:05 [INFO]: Epoch 002 - training loss (MAE): 0.7083, validation MSE: 2.9892
-2025-12-23 20:12:32 [INFO]: Epoch 003 - training loss (MAE): 0.5673, validation MSE: 2.9427
-2025-12-23 20:12:59 [INFO]: Epoch 004 - training loss (MAE): 0.4558, validation MSE: 2.9819
-2025-12-23 20:13:27 [INFO]: Epoch 005 - training loss (MAE): 0.3905, validation MSE: 3.1931
-2025-12-23 20:13:54 [INFO]: Epoch 006 - training loss (MAE): 0.3494, validation MSE: 3.3163
-2025-12-23 20:14:22 [INFO]: Epoch 007 - training loss (MAE): 0.3224, validation MSE: 3.3492
-2025-12-23 20:14:49 [INFO]: Epoch 008 - training loss (MAE): 0.2998, validation MSE: 3.3550
-2025-12-23 20:15:16 [INFO]: Epoch 009 - training loss (MAE): 0.2801, validation MSE: 3.3475
-2025-12-23 20:15:44 [INFO]: Epoch 010 - training loss (MAE): 0.2619, validation MSE: 3.3601
-2025-12-23 20:16:11 [INFO]: Epoch 011 - training loss (MAE): 0.2450, validation MSE: 3.3573
-2025-12-23 20:16:38 [INFO]: Epoch 012 - training loss (MAE): 0.2322, validation MSE: 3.3651
-2025-12-23 20:17:06 [INFO]: Epoch 013 - training loss (MAE): 0.2244, validation MSE: 3.3616
-2025-12-23 20:17:06 [INFO]: Exceeded the training patience. Terminating the training procedure...
-2025-12-23 20:17:06 [INFO]: Finished training. The best model is from epoch#3.
-2025-12-23 20:17:06 [INFO]: Saved the model to reproduce_imputation/subseq05_log/Electricity_log/HELIX_Electricity/round_2/20251223_T201110/HELIX.pypots
-2025-12-23 20:17:09 [INFO]: Successfully saved to reproduce_imputation/subseq05_log/Electricity_log/HELIX_Electricity/round_2/imputation.pkl
-2025-12-23 20:17:09 [INFO]: Round2 - HELIX on Electricity: MAE=1.3066, MSE=3.3955, MRE=0.6931
-2025-12-23 20:17:09 [INFO]: Have set the random seed as 2027 for numpy and pytorch.
-2025-12-23 20:17:09 [INFO]: Using the given device: cuda:0
-2025-12-23 20:17:09 [INFO]: Model files will be saved to reproduce_imputation/subseq05_log/Electricity_log/HELIX_Electricity/round_3/20251223_T201709
-2025-12-23 20:17:09 [INFO]: Tensorboard file will be saved to reproduce_imputation/subseq05_log/Electricity_log/HELIX_Electricity/round_3/20251223_T201709/tensorboard
-2025-12-23 20:17:09 [INFO]: Using customized MAE as the training loss function.
-2025-12-23 20:17:09 [INFO]: Using customized MSE as the validation metric function.
-2025-12-23 20:17:09 [INFO]: HELIX initialized with the given hyperparameters, the number of trainable parameters: 52,030
-2025-12-23 20:17:36 [INFO]: Epoch 001 - training loss (MAE): 1.0551, validation MSE: 3.3148
-2025-12-23 20:18:04 [INFO]: Epoch 002 - training loss (MAE): 0.7083, validation MSE: 2.9264
-2025-12-23 20:18:31 [INFO]: Epoch 003 - training loss (MAE): 0.5611, validation MSE: 2.8905
-2025-12-23 20:18:59 [INFO]: Epoch 004 - training loss (MAE): 0.4676, validation MSE: 2.9665
-2025-12-23 20:19:26 [INFO]: Epoch 005 - training loss (MAE): 0.4086, validation MSE: 3.0190
-2025-12-23 20:19:53 [INFO]: Epoch 006 - training loss (MAE): 0.3716, validation MSE: 3.0172
-2025-12-23 20:20:21 [INFO]: Epoch 007 - training loss (MAE): 0.3396, validation MSE: 3.0752
-2025-12-23 20:20:48 [INFO]: Epoch 008 - training loss (MAE): 0.3128, validation MSE: 3.1417
-2025-12-23 20:21:16 [INFO]: Epoch 009 - training loss (MAE): 0.2888, validation MSE: 3.2261
-2025-12-23 20:21:43 [INFO]: Epoch 010 - training loss (MAE): 0.2658, validation MSE: 3.2695
-2025-12-23 20:22:10 [INFO]: Epoch 011 - training loss (MAE): 0.2505, validation MSE: 3.3125
-2025-12-23 20:22:38 [INFO]: Epoch 012 - training loss (MAE): 0.2393, validation MSE: 3.3320
-2025-12-23 20:23:05 [INFO]: Epoch 013 - training loss (MAE): 0.2309, validation MSE: 3.3482
-2025-12-23 20:23:05 [INFO]: Exceeded the training patience. Terminating the training procedure...
-2025-12-23 20:23:05 [INFO]: Finished training. The best model is from epoch#3.
-2025-12-23 20:23:06 [INFO]: Saved the model to reproduce_imputation/subseq05_log/Electricity_log/HELIX_Electricity/round_3/20251223_T201709/HELIX.pypots
-2025-12-23 20:23:09 [INFO]: Successfully saved to reproduce_imputation/subseq05_log/Electricity_log/HELIX_Electricity/round_3/imputation.pkl
-2025-12-23 20:23:09 [INFO]: Round3 - HELIX on Electricity: MAE=1.2261, MSE=3.0964, MRE=0.6504
-2025-12-23 20:23:09 [INFO]: Have set the random seed as 2028 for numpy and pytorch.
-2025-12-23 20:23:09 [INFO]: Using the given device: cuda:0
-2025-12-23 20:23:09 [INFO]: Model files will be saved to reproduce_imputation/subseq05_log/Electricity_log/HELIX_Electricity/round_4/20251223_T202309
-2025-12-23 20:23:09 [INFO]: Tensorboard file will be saved to reproduce_imputation/subseq05_log/Electricity_log/HELIX_Electricity/round_4/20251223_T202309/tensorboard
-2025-12-23 20:23:09 [INFO]: Using customized MAE as the training loss function.
-2025-12-23 20:23:09 [INFO]: Using customized MSE as the validation metric function.
-2025-12-23 20:23:09 [INFO]: HELIX initialized with the given hyperparameters, the number of trainable parameters: 52,030
-2025-12-23 20:23:36 [INFO]: Epoch 001 - training loss (MAE): 1.1871, validation MSE: 3.4179
-2025-12-23 20:24:04 [INFO]: Epoch 002 - training loss (MAE): 0.7574, validation MSE: 3.1071
-2025-12-23 20:24:31 [INFO]: Epoch 003 - training loss (MAE): 0.6096, validation MSE: 3.0980
-2025-12-23 20:24:58 [INFO]: Epoch 004 - training loss (MAE): 0.5185, validation MSE: 2.9862
-2025-12-23 20:25:26 [INFO]: Epoch 005 - training loss (MAE): 0.4444, validation MSE: 2.9455
-2025-12-23 20:25:53 [INFO]: Epoch 006 - training loss (MAE): 0.3889, validation MSE: 3.0439
-2025-12-23 20:26:20 [INFO]: Epoch 007 - training loss (MAE): 0.3557, validation MSE: 3.0379
-2025-12-23 20:26:48 [INFO]: Epoch 008 - training loss (MAE): 0.3306, validation MSE: 3.0653
-2025-12-23 20:27:15 [INFO]: Epoch 009 - training loss (MAE): 0.3042, validation MSE: 3.1492
-2025-12-23 20:27:43 [INFO]: Epoch 010 - training loss (MAE): 0.2774, validation MSE: 3.2090
-2025-12-23 20:28:10 [INFO]: Epoch 011 - training loss (MAE): 0.2550, validation MSE: 3.2295
-2025-12-23 20:28:37 [INFO]: Epoch 012 - training loss (MAE): 0.2410, validation MSE: 3.2545
-2025-12-23 20:29:05 [INFO]: Epoch 013 - training loss (MAE): 0.2304, validation MSE: 3.2917
-2025-12-23 20:29:32 [INFO]: Epoch 014 - training loss (MAE): 0.2230, validation MSE: 3.3258
-2025-12-23 20:29:59 [INFO]: Epoch 015 - training loss (MAE): 0.2165, validation MSE: 3.3467
-2025-12-23 20:29:59 [INFO]: Exceeded the training patience. Terminating the training procedure...
-2025-12-23 20:29:59 [INFO]: Finished training. The best model is from epoch#5.
-2025-12-23 20:29:59 [INFO]: Saved the model to reproduce_imputation/subseq05_log/Electricity_log/HELIX_Electricity/round_4/20251223_T202309/HELIX.pypots
-2025-12-23 20:30:02 [INFO]: Successfully saved to reproduce_imputation/subseq05_log/Electricity_log/HELIX_Electricity/round_4/imputation.pkl
-2025-12-23 20:30:02 [INFO]: Round4 - HELIX on Electricity: MAE=1.1858, MSE=3.0923, MRE=0.6290
-2025-12-23 20:30:02 [INFO]: Done! Final results:
-Averaged HELIX (52,030 params) on Electricity: MAE=1.2269 ± 0.05213754296191957, MSE=3.1284 ± 0.1746790305179852, MRE=0.6508 ± 0.027655991711101436, average inference time=2.69
-  0%|          | 0/11 [00:00<?, ?it/s]100%|██████████| 11/11 [00:00<00:00, 298.74it/s]
+2025-12-25 15:02:06 [WARNING]: ‼️ `pypots.utils.metrics` is deprecated. Please import from `pypots.nn.functional` instead.
+2025-12-25 15:02:06 [INFO]: Have set the random seed as 2024 for numpy and pytorch.
+2025-12-25 15:02:06 [INFO]: Using the given device: cuda:0
+2025-12-25 15:02:06 [INFO]: Model files will be saved to reproduce_imputation/subseq05_log/Electricity_log/HELIX_Electricity/round_0/20251225_T150206
+2025-12-25 15:02:06 [INFO]: Tensorboard file will be saved to reproduce_imputation/subseq05_log/Electricity_log/HELIX_Electricity/round_0/20251225_T150206/tensorboard
+2025-12-25 15:02:06 [INFO]: Using customized MAE as the training loss function.
+2025-12-25 15:02:06 [INFO]: Using customized MSE as the validation metric function.
+2025-12-25 15:02:06 [INFO]: HELIX initialized with the given hyperparameters, the number of trainable parameters: 52,400
+2025-12-25 15:02:07 [INFO]: 🎭 BERT-style masking enabled:
+2025-12-25 15:02:07 [INFO]:    - 80% replaced with learnable mask tokens
+2025-12-25 15:02:07 [INFO]:    - 10% kept as original values
+2025-12-25 15:02:07 [INFO]:    - 10% replaced with random values
+2025-12-25 15:04:27 [INFO]: Epoch 001 - training loss (MAE): 1.0891, validation MSE: 3.3543
+2025-12-25 15:06:46 [INFO]: Epoch 002 - training loss (MAE): 0.7616, validation MSE: 3.0128
+2025-12-25 15:09:06 [INFO]: Epoch 003 - training loss (MAE): 0.5535, validation MSE: 2.8522
+2025-12-25 15:11:25 [INFO]: Epoch 004 - training loss (MAE): 0.4485, validation MSE: 2.7681
+2025-12-25 15:13:44 [INFO]: Epoch 005 - training loss (MAE): 0.3838, validation MSE: 2.7427
+2025-12-25 15:16:04 [INFO]: Epoch 006 - training loss (MAE): 0.3442, validation MSE: 2.7641
+2025-12-25 15:18:23 [INFO]: Epoch 007 - training loss (MAE): 0.3113, validation MSE: 2.7902
+2025-12-25 15:20:43 [INFO]: Epoch 008 - training loss (MAE): 0.2826, validation MSE: 2.8129
+2025-12-25 15:23:02 [INFO]: Epoch 009 - training loss (MAE): 0.2596, validation MSE: 2.8447
+2025-12-25 15:25:22 [INFO]: Epoch 010 - training loss (MAE): 0.2462, validation MSE: 2.8596
+2025-12-25 15:27:42 [INFO]: Epoch 011 - training loss (MAE): 0.2364, validation MSE: 2.8784
+2025-12-25 15:30:01 [INFO]: Epoch 012 - training loss (MAE): 0.2294, validation MSE: 2.8826
+2025-12-25 15:32:21 [INFO]: Epoch 013 - training loss (MAE): 0.2231, validation MSE: 2.8966
+2025-12-25 15:34:40 [INFO]: Epoch 014 - training loss (MAE): 0.2186, validation MSE: 2.8949
+2025-12-25 15:37:00 [INFO]: Epoch 015 - training loss (MAE): 0.2142, validation MSE: 2.8892
+2025-12-25 15:37:00 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2025-12-25 15:37:00 [INFO]: Finished training. The best model is from epoch#5.
+2025-12-25 15:37:00 [INFO]: Saved the model to reproduce_imputation/subseq05_log/Electricity_log/HELIX_Electricity/round_0/20251225_T150206/HELIX.pypots
+2025-12-25 15:37:03 [INFO]: Successfully saved to reproduce_imputation/subseq05_log/Electricity_log/HELIX_Electricity/round_0/imputation.pkl
+2025-12-25 15:37:03 [INFO]: Round0 - HELIX on Electricity: MAE=1.0404, MSE=2.6259, MRE=0.5519
+2025-12-25 15:37:03 [INFO]: Have set the random seed as 2025 for numpy and pytorch.
+2025-12-25 15:37:03 [INFO]: Using the given device: cuda:0
+2025-12-25 15:37:03 [INFO]: Model files will be saved to reproduce_imputation/subseq05_log/Electricity_log/HELIX_Electricity/round_1/20251225_T153703
+2025-12-25 15:37:03 [INFO]: Tensorboard file will be saved to reproduce_imputation/subseq05_log/Electricity_log/HELIX_Electricity/round_1/20251225_T153703/tensorboard
+2025-12-25 15:37:03 [INFO]: Using customized MAE as the training loss function.
+2025-12-25 15:37:03 [INFO]: Using customized MSE as the validation metric function.
+2025-12-25 15:37:03 [INFO]: HELIX initialized with the given hyperparameters, the number of trainable parameters: 52,400
+2025-12-25 15:37:03 [INFO]: 🎭 BERT-style masking enabled:
+2025-12-25 15:37:03 [INFO]:    - 80% replaced with learnable mask tokens
+2025-12-25 15:37:03 [INFO]:    - 10% kept as original values
+2025-12-25 15:37:03 [INFO]:    - 10% replaced with random values
+2025-12-25 15:39:23 [INFO]: Epoch 001 - training loss (MAE): 1.2496, validation MSE: 3.6507
+2025-12-25 15:41:42 [INFO]: Epoch 002 - training loss (MAE): 0.8921, validation MSE: 3.2700
+2025-12-25 15:44:02 [INFO]: Epoch 003 - training loss (MAE): 0.6744, validation MSE: 3.0561
+2025-12-25 15:46:21 [INFO]: Epoch 004 - training loss (MAE): 0.5030, validation MSE: 2.9694
+2025-12-25 15:48:41 [INFO]: Epoch 005 - training loss (MAE): 0.4221, validation MSE: 2.9243
+2025-12-25 15:51:01 [INFO]: Epoch 006 - training loss (MAE): 0.3664, validation MSE: 2.8963
+2025-12-25 15:53:20 [INFO]: Epoch 007 - training loss (MAE): 0.3317, validation MSE: 2.9009
+2025-12-25 15:55:40 [INFO]: Epoch 008 - training loss (MAE): 0.3075, validation MSE: 2.9119
+2025-12-25 15:58:00 [INFO]: Epoch 009 - training loss (MAE): 0.2864, validation MSE: 2.9467
+2025-12-25 16:00:19 [INFO]: Epoch 010 - training loss (MAE): 0.2672, validation MSE: 3.0031
+2025-12-25 16:02:39 [INFO]: Epoch 011 - training loss (MAE): 0.2513, validation MSE: 3.0455
+2025-12-25 16:04:58 [INFO]: Epoch 012 - training loss (MAE): 0.2392, validation MSE: 3.0699
+2025-12-25 16:07:18 [INFO]: Epoch 013 - training loss (MAE): 0.2320, validation MSE: 3.1039
+2025-12-25 16:09:38 [INFO]: Epoch 014 - training loss (MAE): 0.2257, validation MSE: 3.1134
+2025-12-25 16:11:58 [INFO]: Epoch 015 - training loss (MAE): 0.2204, validation MSE: 3.1130
+2025-12-25 16:14:17 [INFO]: Epoch 016 - training loss (MAE): 0.2160, validation MSE: 3.1122
+2025-12-25 16:14:17 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2025-12-25 16:14:17 [INFO]: Finished training. The best model is from epoch#6.
+2025-12-25 16:14:17 [INFO]: Saved the model to reproduce_imputation/subseq05_log/Electricity_log/HELIX_Electricity/round_1/20251225_T153703/HELIX.pypots
+2025-12-25 16:14:20 [INFO]: Successfully saved to reproduce_imputation/subseq05_log/Electricity_log/HELIX_Electricity/round_1/imputation.pkl
+2025-12-25 16:14:20 [INFO]: Round1 - HELIX on Electricity: MAE=1.0266, MSE=2.5273, MRE=0.5445
+2025-12-25 16:14:20 [INFO]: Have set the random seed as 2026 for numpy and pytorch.
+2025-12-25 16:14:20 [INFO]: Using the given device: cuda:0
+2025-12-25 16:14:20 [INFO]: Model files will be saved to reproduce_imputation/subseq05_log/Electricity_log/HELIX_Electricity/round_2/20251225_T161420
+2025-12-25 16:14:20 [INFO]: Tensorboard file will be saved to reproduce_imputation/subseq05_log/Electricity_log/HELIX_Electricity/round_2/20251225_T161420/tensorboard
+2025-12-25 16:14:20 [INFO]: Using customized MAE as the training loss function.
+2025-12-25 16:14:20 [INFO]: Using customized MSE as the validation metric function.
+2025-12-25 16:14:20 [INFO]: HELIX initialized with the given hyperparameters, the number of trainable parameters: 52,400
+2025-12-25 16:14:20 [INFO]: 🎭 BERT-style masking enabled:
+2025-12-25 16:14:20 [INFO]:    - 80% replaced with learnable mask tokens
+2025-12-25 16:14:20 [INFO]:    - 10% kept as original values
+2025-12-25 16:14:20 [INFO]:    - 10% replaced with random values
+2025-12-25 16:16:40 [INFO]: Epoch 001 - training loss (MAE): 1.1970, validation MSE: 3.6588
+2025-12-25 16:18:59 [INFO]: Epoch 002 - training loss (MAE): 0.9009, validation MSE: 3.2576
+2025-12-25 16:21:19 [INFO]: Epoch 003 - training loss (MAE): 0.6698, validation MSE: 3.0169
+2025-12-25 16:23:39 [INFO]: Epoch 004 - training loss (MAE): 0.4998, validation MSE: 2.8970
+2025-12-25 16:25:58 [INFO]: Epoch 005 - training loss (MAE): 0.4126, validation MSE: 2.9663
+2025-12-25 16:28:18 [INFO]: Epoch 006 - training loss (MAE): 0.3416, validation MSE: 3.0183
+2025-12-25 16:30:37 [INFO]: Epoch 007 - training loss (MAE): 0.2946, validation MSE: 2.9560
+2025-12-25 16:32:57 [INFO]: Epoch 008 - training loss (MAE): 0.2705, validation MSE: 2.9483
+2025-12-25 16:35:16 [INFO]: Epoch 009 - training loss (MAE): 0.2524, validation MSE: 2.9446
+2025-12-25 16:37:36 [INFO]: Epoch 010 - training loss (MAE): 0.2409, validation MSE: 2.9357
+2025-12-25 16:39:56 [INFO]: Epoch 011 - training loss (MAE): 0.2330, validation MSE: 2.9324
+2025-12-25 16:42:15 [INFO]: Epoch 012 - training loss (MAE): 0.2262, validation MSE: 2.9290
+2025-12-25 16:44:35 [INFO]: Epoch 013 - training loss (MAE): 0.2205, validation MSE: 2.9350
+2025-12-25 16:46:54 [INFO]: Epoch 014 - training loss (MAE): 0.2153, validation MSE: 2.9305
+2025-12-25 16:46:54 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2025-12-25 16:46:54 [INFO]: Finished training. The best model is from epoch#4.
+2025-12-25 16:46:55 [INFO]: Saved the model to reproduce_imputation/subseq05_log/Electricity_log/HELIX_Electricity/round_2/20251225_T161420/HELIX.pypots
+2025-12-25 16:46:57 [INFO]: Successfully saved to reproduce_imputation/subseq05_log/Electricity_log/HELIX_Electricity/round_2/imputation.pkl
+2025-12-25 16:46:57 [INFO]: Round2 - HELIX on Electricity: MAE=1.1258, MSE=2.8304, MRE=0.5972
+2025-12-25 16:46:57 [INFO]: Have set the random seed as 2027 for numpy and pytorch.
+2025-12-25 16:46:57 [INFO]: Using the given device: cuda:0
+2025-12-25 16:46:57 [INFO]: Model files will be saved to reproduce_imputation/subseq05_log/Electricity_log/HELIX_Electricity/round_3/20251225_T164657
+2025-12-25 16:46:57 [INFO]: Tensorboard file will be saved to reproduce_imputation/subseq05_log/Electricity_log/HELIX_Electricity/round_3/20251225_T164657/tensorboard
+2025-12-25 16:46:57 [INFO]: Using customized MAE as the training loss function.
+2025-12-25 16:46:57 [INFO]: Using customized MSE as the validation metric function.
+2025-12-25 16:46:57 [INFO]: HELIX initialized with the given hyperparameters, the number of trainable parameters: 52,400
+2025-12-25 16:46:57 [INFO]: 🎭 BERT-style masking enabled:
+2025-12-25 16:46:57 [INFO]:    - 80% replaced with learnable mask tokens
+2025-12-25 16:46:57 [INFO]:    - 10% kept as original values
+2025-12-25 16:46:57 [INFO]:    - 10% replaced with random values
+2025-12-25 16:49:17 [INFO]: Epoch 001 - training loss (MAE): 1.1816, validation MSE: 3.6649
+2025-12-25 16:51:36 [INFO]: Epoch 002 - training loss (MAE): 0.8764, validation MSE: 3.2505
+2025-12-25 16:53:56 [INFO]: Epoch 003 - training loss (MAE): 0.6467, validation MSE: 3.0841
+2025-12-25 16:56:16 [INFO]: Epoch 004 - training loss (MAE): 0.4979, validation MSE: 3.0228
+2025-12-25 16:58:35 [INFO]: Epoch 005 - training loss (MAE): 0.4238, validation MSE: 3.0774
+2025-12-25 17:00:55 [INFO]: Epoch 006 - training loss (MAE): 0.3685, validation MSE: 3.1236
+2025-12-25 17:03:14 [INFO]: Epoch 007 - training loss (MAE): 0.3330, validation MSE: 3.0502
+2025-12-25 17:05:34 [INFO]: Epoch 008 - training loss (MAE): 0.3013, validation MSE: 3.0066
+2025-12-25 17:07:53 [INFO]: Epoch 009 - training loss (MAE): 0.2731, validation MSE: 2.9657
+2025-12-25 17:10:12 [INFO]: Epoch 010 - training loss (MAE): 0.2530, validation MSE: 2.9151
+2025-12-25 17:12:32 [INFO]: Epoch 011 - training loss (MAE): 0.2428, validation MSE: 2.9099
+2025-12-25 17:14:51 [INFO]: Epoch 012 - training loss (MAE): 0.2332, validation MSE: 2.9215
+2025-12-25 17:17:11 [INFO]: Epoch 013 - training loss (MAE): 0.2280, validation MSE: 2.9401
+2025-12-25 17:19:31 [INFO]: Epoch 014 - training loss (MAE): 0.2215, validation MSE: 2.9401
+2025-12-25 17:21:50 [INFO]: Epoch 015 - training loss (MAE): 0.2180, validation MSE: 2.9484
+2025-12-25 17:24:09 [INFO]: Epoch 016 - training loss (MAE): 0.2132, validation MSE: 2.9466
+2025-12-25 17:26:29 [INFO]: Epoch 017 - training loss (MAE): 0.2089, validation MSE: 2.9449
+2025-12-25 17:28:48 [INFO]: Epoch 018 - training loss (MAE): 0.2060, validation MSE: 2.9516
+2025-12-25 17:31:08 [INFO]: Epoch 019 - training loss (MAE): 0.2030, validation MSE: 2.9535
+2025-12-25 17:33:28 [INFO]: Epoch 020 - training loss (MAE): 0.2006, validation MSE: 2.9573
+2025-12-25 17:35:47 [INFO]: Epoch 021 - training loss (MAE): 0.1982, validation MSE: 2.9568
+2025-12-25 17:35:47 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2025-12-25 17:35:47 [INFO]: Finished training. The best model is from epoch#11.
+2025-12-25 17:35:47 [INFO]: Saved the model to reproduce_imputation/subseq05_log/Electricity_log/HELIX_Electricity/round_3/20251225_T164657/HELIX.pypots
+2025-12-25 17:35:50 [INFO]: Successfully saved to reproduce_imputation/subseq05_log/Electricity_log/HELIX_Electricity/round_3/imputation.pkl
+2025-12-25 17:35:50 [INFO]: Round3 - HELIX on Electricity: MAE=1.1280, MSE=2.9481, MRE=0.5984
+2025-12-25 17:35:50 [INFO]: Have set the random seed as 2028 for numpy and pytorch.
+2025-12-25 17:35:50 [INFO]: Using the given device: cuda:0
+2025-12-25 17:35:50 [INFO]: Model files will be saved to reproduce_imputation/subseq05_log/Electricity_log/HELIX_Electricity/round_4/20251225_T173550
+2025-12-25 17:35:50 [INFO]: Tensorboard file will be saved to reproduce_imputation/subseq05_log/Electricity_log/HELIX_Electricity/round_4/20251225_T173550/tensorboard
+2025-12-25 17:35:50 [INFO]: Using customized MAE as the training loss function.
+2025-12-25 17:35:50 [INFO]: Using customized MSE as the validation metric function.
+2025-12-25 17:35:50 [INFO]: HELIX initialized with the given hyperparameters, the number of trainable parameters: 52,400
+2025-12-25 17:35:50 [INFO]: 🎭 BERT-style masking enabled:
+2025-12-25 17:35:50 [INFO]:    - 80% replaced with learnable mask tokens
+2025-12-25 17:35:50 [INFO]:    - 10% kept as original values
+2025-12-25 17:35:50 [INFO]:    - 10% replaced with random values
+2025-12-25 17:38:10 [INFO]: Epoch 001 - training loss (MAE): 1.0284, validation MSE: 3.4054
+2025-12-25 17:40:30 [INFO]: Epoch 002 - training loss (MAE): 0.7651, validation MSE: 3.0177
+2025-12-25 17:42:49 [INFO]: Epoch 003 - training loss (MAE): 0.5382, validation MSE: 2.8639
+2025-12-25 17:45:09 [INFO]: Epoch 004 - training loss (MAE): 0.4344, validation MSE: 2.8512
+2025-12-25 17:47:28 [INFO]: Epoch 005 - training loss (MAE): 0.3676, validation MSE: 2.9034
+2025-12-25 17:49:48 [INFO]: Epoch 006 - training loss (MAE): 0.3216, validation MSE: 2.9261
+2025-12-25 17:52:07 [INFO]: Epoch 007 - training loss (MAE): 0.2841, validation MSE: 2.9178
+2025-12-25 17:54:26 [INFO]: Epoch 008 - training loss (MAE): 0.2625, validation MSE: 2.9144
+2025-12-25 17:56:46 [INFO]: Epoch 009 - training loss (MAE): 0.2478, validation MSE: 2.9182
+2025-12-25 17:59:06 [INFO]: Epoch 010 - training loss (MAE): 0.2374, validation MSE: 2.9188
+2025-12-25 18:01:25 [INFO]: Epoch 011 - training loss (MAE): 0.2289, validation MSE: 2.9185
+2025-12-25 18:03:45 [INFO]: Epoch 012 - training loss (MAE): 0.2236, validation MSE: 2.9173
+2025-12-25 18:06:05 [INFO]: Epoch 013 - training loss (MAE): 0.2174, validation MSE: 2.9046
+2025-12-25 18:08:24 [INFO]: Epoch 014 - training loss (MAE): 0.2130, validation MSE: 2.9094
+2025-12-25 18:08:24 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2025-12-25 18:08:24 [INFO]: Finished training. The best model is from epoch#4.
+2025-12-25 18:08:24 [INFO]: Saved the model to reproduce_imputation/subseq05_log/Electricity_log/HELIX_Electricity/round_4/20251225_T173550/HELIX.pypots
+2025-12-25 18:08:28 [INFO]: Successfully saved to reproduce_imputation/subseq05_log/Electricity_log/HELIX_Electricity/round_4/imputation.pkl
+2025-12-25 18:08:28 [INFO]: Round4 - HELIX on Electricity: MAE=1.1799, MSE=3.0022, MRE=0.6259
+2025-12-25 18:08:28 [INFO]: Done! Final results:
+Averaged HELIX (52,400 params) on Electricity: MAE=1.1001 ± 0.05794197875419876, MSE=2.7868 ± 0.1830744987625644, MRE=0.5836 ± 0.030734913713163153, average inference time=2.66

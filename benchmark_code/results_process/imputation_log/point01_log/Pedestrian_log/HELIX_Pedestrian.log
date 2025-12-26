@@ -1,347 +1,301 @@
-2025-12-23 20:04:06 [WARNING]: ‼️ `pypots.utils.metrics` is deprecated. Please import from `pypots.nn.functional` instead.
-2025-12-23 20:04:07 [INFO]: Have set the random seed as 2024 for numpy and pytorch.
-2025-12-23 20:04:07 [INFO]: Using the given device: cuda:0
-2025-12-23 20:04:07 [INFO]: Model files will be saved to reproduce_imputation/point01_log/Pedestrian_log/HELIX_Pedestrian/round_0/20251223_T200407
-2025-12-23 20:04:07 [INFO]: Tensorboard file will be saved to reproduce_imputation/point01_log/Pedestrian_log/HELIX_Pedestrian/round_0/20251223_T200407/tensorboard
-2025-12-23 20:04:07 [INFO]: Using customized MAE as the training loss function.
-2025-12-23 20:04:07 [INFO]: Using customized MSE as the validation metric function.
-2025-12-23 20:04:07 [INFO]: HELIX initialized with the given hyperparameters, the number of trainable parameters: 51,661
-2025-12-23 20:04:07 [INFO]: Epoch 001 - training loss (MAE): 1.7974, validation MSE: 1.0866
-2025-12-23 20:04:08 [INFO]: Epoch 002 - training loss (MAE): 1.2501, validation MSE: 0.9712
-2025-12-23 20:04:08 [INFO]: Epoch 003 - training loss (MAE): 1.3320, validation MSE: 0.9924
-2025-12-23 20:04:08 [INFO]: Epoch 004 - training loss (MAE): 1.3927, validation MSE: 0.9684
-2025-12-23 20:04:08 [INFO]: Epoch 005 - training loss (MAE): 1.3285, validation MSE: 0.9268
-2025-12-23 20:04:08 [INFO]: Epoch 006 - training loss (MAE): 1.1897, validation MSE: 0.9166
-2025-12-23 20:04:09 [INFO]: Epoch 007 - training loss (MAE): 1.0710, validation MSE: 0.9527
-2025-12-23 20:04:09 [INFO]: Epoch 008 - training loss (MAE): 1.0417, validation MSE: 0.9911
-2025-12-23 20:04:09 [INFO]: Epoch 009 - training loss (MAE): 1.0552, validation MSE: 0.9821
-2025-12-23 20:04:09 [INFO]: Epoch 010 - training loss (MAE): 1.0438, validation MSE: 0.9220
-2025-12-23 20:04:09 [INFO]: Epoch 011 - training loss (MAE): 0.9653, validation MSE: 0.8454
-2025-12-23 20:04:09 [INFO]: Epoch 012 - training loss (MAE): 0.8850, validation MSE: 0.7945
-2025-12-23 20:04:10 [INFO]: Epoch 013 - training loss (MAE): 0.8207, validation MSE: 0.7817
-2025-12-23 20:04:10 [INFO]: Epoch 014 - training loss (MAE): 0.8649, validation MSE: 0.7674
-2025-12-23 20:04:10 [INFO]: Epoch 015 - training loss (MAE): 0.8773, validation MSE: 0.7391
-2025-12-23 20:04:10 [INFO]: Epoch 016 - training loss (MAE): 0.8128, validation MSE: 0.7376
-2025-12-23 20:04:10 [INFO]: Epoch 017 - training loss (MAE): 0.7738, validation MSE: 0.7842
-2025-12-23 20:04:11 [INFO]: Epoch 018 - training loss (MAE): 0.7602, validation MSE: 0.8436
-2025-12-23 20:04:11 [INFO]: Epoch 019 - training loss (MAE): 0.7948, validation MSE: 0.8631
-2025-12-23 20:04:11 [INFO]: Epoch 020 - training loss (MAE): 0.7971, validation MSE: 0.8330
-2025-12-23 20:04:11 [INFO]: Epoch 021 - training loss (MAE): 0.7568, validation MSE: 0.7819
-2025-12-23 20:04:11 [INFO]: Epoch 022 - training loss (MAE): 0.7159, validation MSE: 0.7406
-2025-12-23 20:04:11 [INFO]: Epoch 023 - training loss (MAE): 0.7216, validation MSE: 0.7230
-2025-12-23 20:04:12 [INFO]: Epoch 024 - training loss (MAE): 0.7499, validation MSE: 0.7271
-2025-12-23 20:04:12 [INFO]: Epoch 025 - training loss (MAE): 0.7517, validation MSE: 0.7548
-2025-12-23 20:04:12 [INFO]: Epoch 026 - training loss (MAE): 0.7233, validation MSE: 0.8026
-2025-12-23 20:04:12 [INFO]: Epoch 027 - training loss (MAE): 0.7060, validation MSE: 0.8486
-2025-12-23 20:04:12 [INFO]: Epoch 028 - training loss (MAE): 0.7165, validation MSE: 0.8698
-2025-12-23 20:04:12 [INFO]: Epoch 029 - training loss (MAE): 0.7097, validation MSE: 0.8530
-2025-12-23 20:04:13 [INFO]: Epoch 030 - training loss (MAE): 0.7278, validation MSE: 0.8066
-2025-12-23 20:04:13 [INFO]: Epoch 031 - training loss (MAE): 0.7148, validation MSE: 0.7548
-2025-12-23 20:04:13 [INFO]: Epoch 032 - training loss (MAE): 0.6806, validation MSE: 0.7179
-2025-12-23 20:04:13 [INFO]: Epoch 033 - training loss (MAE): 0.7019, validation MSE: 0.6984
-2025-12-23 20:04:13 [INFO]: Epoch 034 - training loss (MAE): 0.6910, validation MSE: 0.6946
-2025-12-23 20:04:13 [INFO]: Epoch 035 - training loss (MAE): 0.6991, validation MSE: 0.7040
-2025-12-23 20:04:14 [INFO]: Epoch 036 - training loss (MAE): 0.6720, validation MSE: 0.7200
-2025-12-23 20:04:14 [INFO]: Epoch 037 - training loss (MAE): 0.6722, validation MSE: 0.7258
-2025-12-23 20:04:14 [INFO]: Epoch 038 - training loss (MAE): 0.6854, validation MSE: 0.7161
-2025-12-23 20:04:14 [INFO]: Epoch 039 - training loss (MAE): 0.6637, validation MSE: 0.6925
-2025-12-23 20:04:14 [INFO]: Epoch 040 - training loss (MAE): 0.6696, validation MSE: 0.6675
-2025-12-23 20:04:15 [INFO]: Epoch 041 - training loss (MAE): 0.6650, validation MSE: 0.6501
-2025-12-23 20:04:15 [INFO]: Epoch 042 - training loss (MAE): 0.6760, validation MSE: 0.6450
-2025-12-23 20:04:15 [INFO]: Epoch 043 - training loss (MAE): 0.6662, validation MSE: 0.6513
-2025-12-23 20:04:15 [INFO]: Epoch 044 - training loss (MAE): 0.6523, validation MSE: 0.6679
-2025-12-23 20:04:15 [INFO]: Epoch 045 - training loss (MAE): 0.6419, validation MSE: 0.6856
-2025-12-23 20:04:15 [INFO]: Epoch 046 - training loss (MAE): 0.6477, validation MSE: 0.6951
-2025-12-23 20:04:16 [INFO]: Epoch 047 - training loss (MAE): 0.6604, validation MSE: 0.6882
-2025-12-23 20:04:16 [INFO]: Epoch 048 - training loss (MAE): 0.6523, validation MSE: 0.6685
-2025-12-23 20:04:16 [INFO]: Epoch 049 - training loss (MAE): 0.6449, validation MSE: 0.6505
-2025-12-23 20:04:16 [INFO]: Epoch 050 - training loss (MAE): 0.6276, validation MSE: 0.6446
-2025-12-23 20:04:16 [INFO]: Epoch 051 - training loss (MAE): 0.6172, validation MSE: 0.6514
-2025-12-23 20:04:17 [INFO]: Epoch 052 - training loss (MAE): 0.6349, validation MSE: 0.6647
-2025-12-23 20:04:17 [INFO]: Epoch 053 - training loss (MAE): 0.6203, validation MSE: 0.6704
-2025-12-23 20:04:17 [INFO]: Epoch 054 - training loss (MAE): 0.6125, validation MSE: 0.6612
-2025-12-23 20:04:17 [INFO]: Epoch 055 - training loss (MAE): 0.6083, validation MSE: 0.6418
-2025-12-23 20:04:17 [INFO]: Epoch 056 - training loss (MAE): 0.5981, validation MSE: 0.6266
-2025-12-23 20:04:17 [INFO]: Epoch 057 - training loss (MAE): 0.6092, validation MSE: 0.6200
-2025-12-23 20:04:18 [INFO]: Epoch 058 - training loss (MAE): 0.6056, validation MSE: 0.6217
-2025-12-23 20:04:18 [INFO]: Epoch 059 - training loss (MAE): 0.5908, validation MSE: 0.6254
-2025-12-23 20:04:18 [INFO]: Epoch 060 - training loss (MAE): 0.5904, validation MSE: 0.6223
-2025-12-23 20:04:18 [INFO]: Epoch 061 - training loss (MAE): 0.5826, validation MSE: 0.6149
-2025-12-23 20:04:18 [INFO]: Epoch 062 - training loss (MAE): 0.5816, validation MSE: 0.6053
-2025-12-23 20:04:18 [INFO]: Epoch 063 - training loss (MAE): 0.5861, validation MSE: 0.5997
-2025-12-23 20:04:19 [INFO]: Epoch 064 - training loss (MAE): 0.5672, validation MSE: 0.6035
-2025-12-23 20:04:19 [INFO]: Epoch 065 - training loss (MAE): 0.5737, validation MSE: 0.6101
-2025-12-23 20:04:19 [INFO]: Epoch 066 - training loss (MAE): 0.5652, validation MSE: 0.6079
-2025-12-23 20:04:19 [INFO]: Epoch 067 - training loss (MAE): 0.5645, validation MSE: 0.5974
-2025-12-23 20:04:19 [INFO]: Epoch 068 - training loss (MAE): 0.5685, validation MSE: 0.5872
-2025-12-23 20:04:19 [INFO]: Epoch 069 - training loss (MAE): 0.5486, validation MSE: 0.5836
-2025-12-23 20:04:20 [INFO]: Epoch 070 - training loss (MAE): 0.5444, validation MSE: 0.5803
-2025-12-23 20:04:20 [INFO]: Epoch 071 - training loss (MAE): 0.5493, validation MSE: 0.5766
-2025-12-23 20:04:20 [INFO]: Epoch 072 - training loss (MAE): 0.5524, validation MSE: 0.5736
-2025-12-23 20:04:20 [INFO]: Epoch 073 - training loss (MAE): 0.5557, validation MSE: 0.5738
-2025-12-23 20:04:20 [INFO]: Epoch 074 - training loss (MAE): 0.5440, validation MSE: 0.5761
-2025-12-23 20:04:21 [INFO]: Epoch 075 - training loss (MAE): 0.5350, validation MSE: 0.5720
-2025-12-23 20:04:21 [INFO]: Epoch 076 - training loss (MAE): 0.5211, validation MSE: 0.5717
-2025-12-23 20:04:21 [INFO]: Epoch 077 - training loss (MAE): 0.5284, validation MSE: 0.5695
-2025-12-23 20:04:21 [INFO]: Epoch 078 - training loss (MAE): 0.5327, validation MSE: 0.5619
-2025-12-23 20:04:21 [INFO]: Epoch 079 - training loss (MAE): 0.5287, validation MSE: 0.5581
-2025-12-23 20:04:22 [INFO]: Epoch 080 - training loss (MAE): 0.5234, validation MSE: 0.5555
-2025-12-23 20:04:22 [INFO]: Epoch 081 - training loss (MAE): 0.5250, validation MSE: 0.5513
-2025-12-23 20:04:22 [INFO]: Epoch 082 - training loss (MAE): 0.5153, validation MSE: 0.5473
-2025-12-23 20:04:22 [INFO]: Epoch 083 - training loss (MAE): 0.5215, validation MSE: 0.5500
-2025-12-23 20:04:22 [INFO]: Epoch 084 - training loss (MAE): 0.5107, validation MSE: 0.5563
-2025-12-23 20:04:22 [INFO]: Epoch 085 - training loss (MAE): 0.5085, validation MSE: 0.5557
-2025-12-23 20:04:23 [INFO]: Epoch 086 - training loss (MAE): 0.5195, validation MSE: 0.5549
-2025-12-23 20:04:23 [INFO]: Epoch 087 - training loss (MAE): 0.5194, validation MSE: 0.5530
-2025-12-23 20:04:23 [INFO]: Epoch 088 - training loss (MAE): 0.5071, validation MSE: 0.5461
-2025-12-23 20:04:23 [INFO]: Epoch 089 - training loss (MAE): 0.5147, validation MSE: 0.5465
-2025-12-23 20:04:23 [INFO]: Epoch 090 - training loss (MAE): 0.5079, validation MSE: 0.5559
-2025-12-23 20:04:23 [INFO]: Epoch 091 - training loss (MAE): 0.5176, validation MSE: 0.5558
-2025-12-23 20:04:24 [INFO]: Epoch 092 - training loss (MAE): 0.5091, validation MSE: 0.5564
-2025-12-23 20:04:24 [INFO]: Epoch 093 - training loss (MAE): 0.5075, validation MSE: 0.5534
-2025-12-23 20:04:24 [INFO]: Epoch 094 - training loss (MAE): 0.4935, validation MSE: 0.5548
-2025-12-23 20:04:24 [INFO]: Epoch 095 - training loss (MAE): 0.5142, validation MSE: 0.5595
-2025-12-23 20:04:24 [INFO]: Epoch 096 - training loss (MAE): 0.5080, validation MSE: 0.5603
-2025-12-23 20:04:24 [INFO]: Epoch 097 - training loss (MAE): 0.5072, validation MSE: 0.5574
-2025-12-23 20:04:25 [INFO]: Epoch 098 - training loss (MAE): 0.5206, validation MSE: 0.5461
-2025-12-23 20:04:25 [INFO]: Exceeded the training patience. Terminating the training procedure...
-2025-12-23 20:04:25 [INFO]: Finished training. The best model is from epoch#88.
-2025-12-23 20:04:25 [INFO]: Saved the model to reproduce_imputation/point01_log/Pedestrian_log/HELIX_Pedestrian/round_0/20251223_T200407/HELIX.pypots
-2025-12-23 20:04:25 [INFO]: Successfully saved to reproduce_imputation/point01_log/Pedestrian_log/HELIX_Pedestrian/round_0/imputation.pkl
-2025-12-23 20:04:25 [INFO]: Round0 - HELIX on Pedestrian: MAE=0.4524, MSE=0.5964, MRE=0.6044
-2025-12-23 20:04:25 [INFO]: Have set the random seed as 2025 for numpy and pytorch.
-2025-12-23 20:04:25 [INFO]: Using the given device: cuda:0
-2025-12-23 20:04:25 [INFO]: Model files will be saved to reproduce_imputation/point01_log/Pedestrian_log/HELIX_Pedestrian/round_1/20251223_T200425
-2025-12-23 20:04:25 [INFO]: Tensorboard file will be saved to reproduce_imputation/point01_log/Pedestrian_log/HELIX_Pedestrian/round_1/20251223_T200425/tensorboard
-2025-12-23 20:04:25 [INFO]: Using customized MAE as the training loss function.
-2025-12-23 20:04:25 [INFO]: Using customized MSE as the validation metric function.
-2025-12-23 20:04:25 [INFO]: HELIX initialized with the given hyperparameters, the number of trainable parameters: 51,661
-2025-12-23 20:04:25 [INFO]: Epoch 001 - training loss (MAE): 2.2798, validation MSE: 1.0109
-2025-12-23 20:04:25 [INFO]: Epoch 002 - training loss (MAE): 1.8139, validation MSE: 1.1399
-2025-12-23 20:04:26 [INFO]: Epoch 003 - training loss (MAE): 1.5280, validation MSE: 1.4771
-2025-12-23 20:04:26 [INFO]: Epoch 004 - training loss (MAE): 1.4930, validation MSE: 1.6582
-2025-12-23 20:04:26 [INFO]: Epoch 005 - training loss (MAE): 1.5525, validation MSE: 1.6211
-2025-12-23 20:04:26 [INFO]: Epoch 006 - training loss (MAE): 1.5148, validation MSE: 1.4733
-2025-12-23 20:04:26 [INFO]: Epoch 007 - training loss (MAE): 1.3993, validation MSE: 1.3020
-2025-12-23 20:04:26 [INFO]: Epoch 008 - training loss (MAE): 1.3224, validation MSE: 1.1607
-2025-12-23 20:04:27 [INFO]: Epoch 009 - training loss (MAE): 1.2650, validation MSE: 1.0686
-2025-12-23 20:04:27 [INFO]: Epoch 010 - training loss (MAE): 1.2640, validation MSE: 1.0176
-2025-12-23 20:04:27 [INFO]: Epoch 011 - training loss (MAE): 1.2619, validation MSE: 0.9926
-2025-12-23 20:04:27 [INFO]: Epoch 012 - training loss (MAE): 1.2496, validation MSE: 0.9837
-2025-12-23 20:04:27 [INFO]: Epoch 013 - training loss (MAE): 1.2110, validation MSE: 0.9889
-2025-12-23 20:04:27 [INFO]: Epoch 014 - training loss (MAE): 1.1552, validation MSE: 1.0115
-2025-12-23 20:04:28 [INFO]: Epoch 015 - training loss (MAE): 1.0679, validation MSE: 1.0539
-2025-12-23 20:04:28 [INFO]: Epoch 016 - training loss (MAE): 0.9988, validation MSE: 1.1006
-2025-12-23 20:04:28 [INFO]: Epoch 017 - training loss (MAE): 0.9821, validation MSE: 1.1096
-2025-12-23 20:04:28 [INFO]: Epoch 018 - training loss (MAE): 0.9642, validation MSE: 1.0511
-2025-12-23 20:04:28 [INFO]: Epoch 019 - training loss (MAE): 0.8663, validation MSE: 0.9467
-2025-12-23 20:04:28 [INFO]: Epoch 020 - training loss (MAE): 0.7861, validation MSE: 0.8483
-2025-12-23 20:04:29 [INFO]: Epoch 021 - training loss (MAE): 0.7782, validation MSE: 0.7992
-2025-12-23 20:04:29 [INFO]: Epoch 022 - training loss (MAE): 0.8046, validation MSE: 0.7870
-2025-12-23 20:04:29 [INFO]: Epoch 023 - training loss (MAE): 0.7857, validation MSE: 0.8137
-2025-12-23 20:04:29 [INFO]: Epoch 024 - training loss (MAE): 0.7942, validation MSE: 0.8521
-2025-12-23 20:04:29 [INFO]: Epoch 025 - training loss (MAE): 0.8391, validation MSE: 0.8519
-2025-12-23 20:04:29 [INFO]: Epoch 026 - training loss (MAE): 0.8332, validation MSE: 0.8054
-2025-12-23 20:04:30 [INFO]: Epoch 027 - training loss (MAE): 0.8247, validation MSE: 0.7507
-2025-12-23 20:04:30 [INFO]: Epoch 028 - training loss (MAE): 0.7845, validation MSE: 0.7207
-2025-12-23 20:04:30 [INFO]: Epoch 029 - training loss (MAE): 0.7810, validation MSE: 0.7215
-2025-12-23 20:04:30 [INFO]: Epoch 030 - training loss (MAE): 0.7794, validation MSE: 0.7471
-2025-12-23 20:04:30 [INFO]: Epoch 031 - training loss (MAE): 0.7529, validation MSE: 0.7936
-2025-12-23 20:04:31 [INFO]: Epoch 032 - training loss (MAE): 0.7196, validation MSE: 0.8378
-2025-12-23 20:04:31 [INFO]: Epoch 033 - training loss (MAE): 0.7423, validation MSE: 0.8553
-2025-12-23 20:04:31 [INFO]: Epoch 034 - training loss (MAE): 0.7141, validation MSE: 0.8425
-2025-12-23 20:04:31 [INFO]: Epoch 035 - training loss (MAE): 0.7358, validation MSE: 0.8106
-2025-12-23 20:04:31 [INFO]: Epoch 036 - training loss (MAE): 0.7265, validation MSE: 0.7848
-2025-12-23 20:04:31 [INFO]: Epoch 037 - training loss (MAE): 0.7264, validation MSE: 0.7721
-2025-12-23 20:04:32 [INFO]: Epoch 038 - training loss (MAE): 0.7241, validation MSE: 0.7733
-2025-12-23 20:04:32 [INFO]: Exceeded the training patience. Terminating the training procedure...
-2025-12-23 20:04:32 [INFO]: Finished training. The best model is from epoch#28.
-2025-12-23 20:04:32 [INFO]: Saved the model to reproduce_imputation/point01_log/Pedestrian_log/HELIX_Pedestrian/round_1/20251223_T200425/HELIX.pypots
-2025-12-23 20:04:32 [INFO]: Successfully saved to reproduce_imputation/point01_log/Pedestrian_log/HELIX_Pedestrian/round_1/imputation.pkl
-2025-12-23 20:04:32 [INFO]: Round1 - HELIX on Pedestrian: MAE=0.5205, MSE=0.7347, MRE=0.6954
-2025-12-23 20:04:32 [INFO]: Have set the random seed as 2026 for numpy and pytorch.
-2025-12-23 20:04:32 [INFO]: Using the given device: cuda:0
-2025-12-23 20:04:32 [INFO]: Model files will be saved to reproduce_imputation/point01_log/Pedestrian_log/HELIX_Pedestrian/round_2/20251223_T200432
-2025-12-23 20:04:32 [INFO]: Tensorboard file will be saved to reproduce_imputation/point01_log/Pedestrian_log/HELIX_Pedestrian/round_2/20251223_T200432/tensorboard
-2025-12-23 20:04:32 [INFO]: Using customized MAE as the training loss function.
-2025-12-23 20:04:32 [INFO]: Using customized MSE as the validation metric function.
-2025-12-23 20:04:32 [INFO]: HELIX initialized with the given hyperparameters, the number of trainable parameters: 51,661
-2025-12-23 20:04:32 [INFO]: Epoch 001 - training loss (MAE): 1.4058, validation MSE: 1.3776
-2025-12-23 20:04:32 [INFO]: Epoch 002 - training loss (MAE): 1.3707, validation MSE: 1.1636
-2025-12-23 20:04:32 [INFO]: Epoch 003 - training loss (MAE): 1.2395, validation MSE: 1.0422
-2025-12-23 20:04:33 [INFO]: Epoch 004 - training loss (MAE): 1.2011, validation MSE: 1.0082
-2025-12-23 20:04:33 [INFO]: Epoch 005 - training loss (MAE): 1.1315, validation MSE: 1.0094
-2025-12-23 20:04:33 [INFO]: Epoch 006 - training loss (MAE): 1.0121, validation MSE: 1.0203
-2025-12-23 20:04:33 [INFO]: Epoch 007 - training loss (MAE): 0.9809, validation MSE: 0.9599
-2025-12-23 20:04:33 [INFO]: Epoch 008 - training loss (MAE): 0.9056, validation MSE: 0.8762
-2025-12-23 20:04:34 [INFO]: Epoch 009 - training loss (MAE): 0.8617, validation MSE: 0.8348
-2025-12-23 20:04:34 [INFO]: Epoch 010 - training loss (MAE): 0.8566, validation MSE: 0.8240
-2025-12-23 20:04:34 [INFO]: Epoch 011 - training loss (MAE): 0.8252, validation MSE: 0.8600
-2025-12-23 20:04:34 [INFO]: Epoch 012 - training loss (MAE): 0.8104, validation MSE: 0.8949
-2025-12-23 20:04:34 [INFO]: Epoch 013 - training loss (MAE): 0.8280, validation MSE: 0.8646
-2025-12-23 20:04:34 [INFO]: Epoch 014 - training loss (MAE): 0.8033, validation MSE: 0.8037
-2025-12-23 20:04:35 [INFO]: Epoch 015 - training loss (MAE): 0.7703, validation MSE: 0.7786
-2025-12-23 20:04:35 [INFO]: Epoch 016 - training loss (MAE): 0.7686, validation MSE: 0.8066
-2025-12-23 20:04:35 [INFO]: Epoch 017 - training loss (MAE): 0.7652, validation MSE: 0.8693
-2025-12-23 20:04:35 [INFO]: Epoch 018 - training loss (MAE): 0.7424, validation MSE: 0.9032
-2025-12-23 20:04:35 [INFO]: Epoch 019 - training loss (MAE): 0.7305, validation MSE: 0.8714
-2025-12-23 20:04:35 [INFO]: Epoch 020 - training loss (MAE): 0.7195, validation MSE: 0.8105
-2025-12-23 20:04:36 [INFO]: Epoch 021 - training loss (MAE): 0.7311, validation MSE: 0.7644
-2025-12-23 20:04:36 [INFO]: Epoch 022 - training loss (MAE): 0.7121, validation MSE: 0.7543
-2025-12-23 20:04:36 [INFO]: Epoch 023 - training loss (MAE): 0.7084, validation MSE: 0.7587
-2025-12-23 20:04:36 [INFO]: Epoch 024 - training loss (MAE): 0.6861, validation MSE: 0.7583
-2025-12-23 20:04:36 [INFO]: Epoch 025 - training loss (MAE): 0.6856, validation MSE: 0.7331
-2025-12-23 20:04:37 [INFO]: Epoch 026 - training loss (MAE): 0.6837, validation MSE: 0.6919
-2025-12-23 20:04:37 [INFO]: Epoch 027 - training loss (MAE): 0.6680, validation MSE: 0.6579
-2025-12-23 20:04:37 [INFO]: Epoch 028 - training loss (MAE): 0.6780, validation MSE: 0.6392
-2025-12-23 20:04:37 [INFO]: Epoch 029 - training loss (MAE): 0.6720, validation MSE: 0.6331
-2025-12-23 20:04:37 [INFO]: Epoch 030 - training loss (MAE): 0.6678, validation MSE: 0.6376
-2025-12-23 20:04:37 [INFO]: Epoch 031 - training loss (MAE): 0.6638, validation MSE: 0.6435
-2025-12-23 20:04:38 [INFO]: Epoch 032 - training loss (MAE): 0.6437, validation MSE: 0.6437
-2025-12-23 20:04:38 [INFO]: Epoch 033 - training loss (MAE): 0.6492, validation MSE: 0.6333
-2025-12-23 20:04:38 [INFO]: Epoch 034 - training loss (MAE): 0.6368, validation MSE: 0.6227
-2025-12-23 20:04:38 [INFO]: Epoch 035 - training loss (MAE): 0.6440, validation MSE: 0.6221
-2025-12-23 20:04:38 [INFO]: Epoch 036 - training loss (MAE): 0.6346, validation MSE: 0.6327
-2025-12-23 20:04:39 [INFO]: Epoch 037 - training loss (MAE): 0.6352, validation MSE: 0.6403
-2025-12-23 20:04:39 [INFO]: Epoch 038 - training loss (MAE): 0.6296, validation MSE: 0.6360
-2025-12-23 20:04:39 [INFO]: Epoch 039 - training loss (MAE): 0.6298, validation MSE: 0.6187
-2025-12-23 20:04:39 [INFO]: Epoch 040 - training loss (MAE): 0.6074, validation MSE: 0.6022
-2025-12-23 20:04:39 [INFO]: Epoch 041 - training loss (MAE): 0.6021, validation MSE: 0.5937
-2025-12-23 20:04:39 [INFO]: Epoch 042 - training loss (MAE): 0.5969, validation MSE: 0.5909
-2025-12-23 20:04:40 [INFO]: Epoch 043 - training loss (MAE): 0.5892, validation MSE: 0.5894
-2025-12-23 20:04:40 [INFO]: Epoch 044 - training loss (MAE): 0.5991, validation MSE: 0.5828
-2025-12-23 20:04:40 [INFO]: Epoch 045 - training loss (MAE): 0.5983, validation MSE: 0.5748
-2025-12-23 20:04:40 [INFO]: Epoch 046 - training loss (MAE): 0.5799, validation MSE: 0.5776
-2025-12-23 20:04:40 [INFO]: Epoch 047 - training loss (MAE): 0.5749, validation MSE: 0.5825
-2025-12-23 20:04:40 [INFO]: Epoch 048 - training loss (MAE): 0.5594, validation MSE: 0.5842
-2025-12-23 20:04:41 [INFO]: Epoch 049 - training loss (MAE): 0.5738, validation MSE: 0.5821
-2025-12-23 20:04:41 [INFO]: Epoch 050 - training loss (MAE): 0.5708, validation MSE: 0.5783
-2025-12-23 20:04:41 [INFO]: Epoch 051 - training loss (MAE): 0.5497, validation MSE: 0.5801
-2025-12-23 20:04:41 [INFO]: Epoch 052 - training loss (MAE): 0.5608, validation MSE: 0.5770
-2025-12-23 20:04:41 [INFO]: Epoch 053 - training loss (MAE): 0.5567, validation MSE: 0.5675
-2025-12-23 20:04:42 [INFO]: Epoch 054 - training loss (MAE): 0.5455, validation MSE: 0.5625
-2025-12-23 20:04:42 [INFO]: Epoch 055 - training loss (MAE): 0.5536, validation MSE: 0.5585
-2025-12-23 20:04:42 [INFO]: Epoch 056 - training loss (MAE): 0.5556, validation MSE: 0.5586
-2025-12-23 20:04:42 [INFO]: Epoch 057 - training loss (MAE): 0.5507, validation MSE: 0.5595
-2025-12-23 20:04:42 [INFO]: Epoch 058 - training loss (MAE): 0.5444, validation MSE: 0.5591
-2025-12-23 20:04:42 [INFO]: Epoch 059 - training loss (MAE): 0.5403, validation MSE: 0.5635
-2025-12-23 20:04:43 [INFO]: Epoch 060 - training loss (MAE): 0.5317, validation MSE: 0.5541
-2025-12-23 20:04:43 [INFO]: Epoch 061 - training loss (MAE): 0.5415, validation MSE: 0.5485
-2025-12-23 20:04:43 [INFO]: Epoch 062 - training loss (MAE): 0.5343, validation MSE: 0.5446
-2025-12-23 20:04:43 [INFO]: Epoch 063 - training loss (MAE): 0.5234, validation MSE: 0.5461
-2025-12-23 20:04:43 [INFO]: Epoch 064 - training loss (MAE): 0.5364, validation MSE: 0.5439
-2025-12-23 20:04:43 [INFO]: Epoch 065 - training loss (MAE): 0.5099, validation MSE: 0.5539
-2025-12-23 20:04:44 [INFO]: Epoch 066 - training loss (MAE): 0.5303, validation MSE: 0.5550
-2025-12-23 20:04:44 [INFO]: Epoch 067 - training loss (MAE): 0.5259, validation MSE: 0.5434
-2025-12-23 20:04:44 [INFO]: Epoch 068 - training loss (MAE): 0.5202, validation MSE: 0.5436
-2025-12-23 20:04:44 [INFO]: Epoch 069 - training loss (MAE): 0.5219, validation MSE: 0.5440
-2025-12-23 20:04:44 [INFO]: Epoch 070 - training loss (MAE): 0.5279, validation MSE: 0.5395
-2025-12-23 20:04:45 [INFO]: Epoch 071 - training loss (MAE): 0.5225, validation MSE: 0.5412
-2025-12-23 20:04:45 [INFO]: Epoch 072 - training loss (MAE): 0.5242, validation MSE: 0.5555
-2025-12-23 20:04:45 [INFO]: Epoch 073 - training loss (MAE): 0.5174, validation MSE: 0.5404
-2025-12-23 20:04:45 [INFO]: Epoch 074 - training loss (MAE): 0.5271, validation MSE: 0.5405
-2025-12-23 20:04:45 [INFO]: Epoch 075 - training loss (MAE): 0.5107, validation MSE: 0.5470
-2025-12-23 20:04:45 [INFO]: Epoch 076 - training loss (MAE): 0.5182, validation MSE: 0.5320
-2025-12-23 20:04:46 [INFO]: Epoch 077 - training loss (MAE): 0.5256, validation MSE: 0.5334
-2025-12-23 20:04:46 [INFO]: Epoch 078 - training loss (MAE): 0.5026, validation MSE: 0.5527
-2025-12-23 20:04:46 [INFO]: Epoch 079 - training loss (MAE): 0.5215, validation MSE: 0.5453
-2025-12-23 20:04:46 [INFO]: Epoch 080 - training loss (MAE): 0.5099, validation MSE: 0.5473
-2025-12-23 20:04:46 [INFO]: Epoch 081 - training loss (MAE): 0.5145, validation MSE: 0.5656
-2025-12-23 20:04:46 [INFO]: Epoch 082 - training loss (MAE): 0.5135, validation MSE: 0.5426
-2025-12-23 20:04:47 [INFO]: Epoch 083 - training loss (MAE): 0.5231, validation MSE: 0.5304
-2025-12-23 20:04:47 [INFO]: Epoch 084 - training loss (MAE): 0.5154, validation MSE: 0.5407
-2025-12-23 20:04:47 [INFO]: Epoch 085 - training loss (MAE): 0.5069, validation MSE: 0.5437
-2025-12-23 20:04:47 [INFO]: Epoch 086 - training loss (MAE): 0.5249, validation MSE: 0.5376
-2025-12-23 20:04:47 [INFO]: Epoch 087 - training loss (MAE): 0.5084, validation MSE: 0.5548
-2025-12-23 20:04:48 [INFO]: Epoch 088 - training loss (MAE): 0.4925, validation MSE: 0.5529
-2025-12-23 20:04:48 [INFO]: Epoch 089 - training loss (MAE): 0.5215, validation MSE: 0.5384
-2025-12-23 20:04:48 [INFO]: Epoch 090 - training loss (MAE): 0.5093, validation MSE: 0.5409
-2025-12-23 20:04:48 [INFO]: Epoch 091 - training loss (MAE): 0.5119, validation MSE: 0.5454
-2025-12-23 20:04:48 [INFO]: Epoch 092 - training loss (MAE): 0.5108, validation MSE: 0.5311
-2025-12-23 20:04:48 [INFO]: Epoch 093 - training loss (MAE): 0.5169, validation MSE: 0.5388
-2025-12-23 20:04:48 [INFO]: Exceeded the training patience. Terminating the training procedure...
-2025-12-23 20:04:48 [INFO]: Finished training. The best model is from epoch#83.
-2025-12-23 20:04:49 [INFO]: Saved the model to reproduce_imputation/point01_log/Pedestrian_log/HELIX_Pedestrian/round_2/20251223_T200432/HELIX.pypots
-2025-12-23 20:04:49 [INFO]: Successfully saved to reproduce_imputation/point01_log/Pedestrian_log/HELIX_Pedestrian/round_2/imputation.pkl
-2025-12-23 20:04:49 [INFO]: Round2 - HELIX on Pedestrian: MAE=0.4484, MSE=0.5914, MRE=0.5991
-2025-12-23 20:04:49 [INFO]: Have set the random seed as 2027 for numpy and pytorch.
-2025-12-23 20:04:49 [INFO]: Using the given device: cuda:0
-2025-12-23 20:04:49 [INFO]: Model files will be saved to reproduce_imputation/point01_log/Pedestrian_log/HELIX_Pedestrian/round_3/20251223_T200449
-2025-12-23 20:04:49 [INFO]: Tensorboard file will be saved to reproduce_imputation/point01_log/Pedestrian_log/HELIX_Pedestrian/round_3/20251223_T200449/tensorboard
-2025-12-23 20:04:49 [INFO]: Using customized MAE as the training loss function.
-2025-12-23 20:04:49 [INFO]: Using customized MSE as the validation metric function.
-2025-12-23 20:04:49 [INFO]: HELIX initialized with the given hyperparameters, the number of trainable parameters: 51,661
-2025-12-23 20:04:49 [INFO]: Epoch 001 - training loss (MAE): 1.3920, validation MSE: 1.2079
-2025-12-23 20:04:49 [INFO]: Epoch 002 - training loss (MAE): 1.2646, validation MSE: 1.2144
-2025-12-23 20:04:49 [INFO]: Epoch 003 - training loss (MAE): 1.2567, validation MSE: 1.1223
-2025-12-23 20:04:50 [INFO]: Epoch 004 - training loss (MAE): 1.1698, validation MSE: 1.0588
-2025-12-23 20:04:50 [INFO]: Epoch 005 - training loss (MAE): 1.1321, validation MSE: 1.0362
-2025-12-23 20:04:50 [INFO]: Epoch 006 - training loss (MAE): 1.1127, validation MSE: 1.0180
-2025-12-23 20:04:50 [INFO]: Epoch 007 - training loss (MAE): 1.0586, validation MSE: 1.0118
-2025-12-23 20:04:50 [INFO]: Epoch 008 - training loss (MAE): 0.9643, validation MSE: 1.0216
-2025-12-23 20:04:50 [INFO]: Epoch 009 - training loss (MAE): 0.9381, validation MSE: 1.0013
-2025-12-23 20:04:51 [INFO]: Epoch 010 - training loss (MAE): 0.8780, validation MSE: 0.9428
-2025-12-23 20:04:51 [INFO]: Epoch 011 - training loss (MAE): 0.8347, validation MSE: 0.8967
-2025-12-23 20:04:51 [INFO]: Epoch 012 - training loss (MAE): 0.8432, validation MSE: 0.8807
-2025-12-23 20:04:51 [INFO]: Epoch 013 - training loss (MAE): 0.8329, validation MSE: 0.9067
-2025-12-23 20:04:51 [INFO]: Epoch 014 - training loss (MAE): 0.7922, validation MSE: 0.9653
-2025-12-23 20:04:51 [INFO]: Epoch 015 - training loss (MAE): 0.8081, validation MSE: 0.9824
-2025-12-23 20:04:52 [INFO]: Epoch 016 - training loss (MAE): 0.7879, validation MSE: 0.9488
-2025-12-23 20:04:52 [INFO]: Epoch 017 - training loss (MAE): 0.7525, validation MSE: 0.9109
-2025-12-23 20:04:52 [INFO]: Epoch 018 - training loss (MAE): 0.7793, validation MSE: 0.9130
-2025-12-23 20:04:52 [INFO]: Epoch 019 - training loss (MAE): 0.7622, validation MSE: 0.9556
-2025-12-23 20:04:52 [INFO]: Epoch 020 - training loss (MAE): 0.7399, validation MSE: 1.0091
-2025-12-23 20:04:52 [INFO]: Epoch 021 - training loss (MAE): 0.7403, validation MSE: 1.0244
-2025-12-23 20:04:53 [INFO]: Epoch 022 - training loss (MAE): 0.7545, validation MSE: 0.9841
-2025-12-23 20:04:53 [INFO]: Exceeded the training patience. Terminating the training procedure...
-2025-12-23 20:04:53 [INFO]: Finished training. The best model is from epoch#12.
-2025-12-23 20:04:53 [INFO]: Saved the model to reproduce_imputation/point01_log/Pedestrian_log/HELIX_Pedestrian/round_3/20251223_T200449/HELIX.pypots
-2025-12-23 20:04:53 [INFO]: Successfully saved to reproduce_imputation/point01_log/Pedestrian_log/HELIX_Pedestrian/round_3/imputation.pkl
-2025-12-23 20:04:53 [INFO]: Round3 - HELIX on Pedestrian: MAE=0.6389, MSE=0.9156, MRE=0.8537
-2025-12-23 20:04:53 [INFO]: Have set the random seed as 2028 for numpy and pytorch.
-2025-12-23 20:04:53 [INFO]: Using the given device: cuda:0
-2025-12-23 20:04:53 [INFO]: Model files will be saved to reproduce_imputation/point01_log/Pedestrian_log/HELIX_Pedestrian/round_4/20251223_T200453
-2025-12-23 20:04:53 [INFO]: Tensorboard file will be saved to reproduce_imputation/point01_log/Pedestrian_log/HELIX_Pedestrian/round_4/20251223_T200453/tensorboard
-2025-12-23 20:04:53 [INFO]: Using customized MAE as the training loss function.
-2025-12-23 20:04:53 [INFO]: Using customized MSE as the validation metric function.
-2025-12-23 20:04:53 [INFO]: HELIX initialized with the given hyperparameters, the number of trainable parameters: 51,661
-2025-12-23 20:04:53 [INFO]: Epoch 001 - training loss (MAE): 1.9338, validation MSE: 1.2351
-2025-12-23 20:04:53 [INFO]: Epoch 002 - training loss (MAE): 1.5432, validation MSE: 1.6183
-2025-12-23 20:04:53 [INFO]: Epoch 003 - training loss (MAE): 1.5560, validation MSE: 1.5790
-2025-12-23 20:04:54 [INFO]: Epoch 004 - training loss (MAE): 1.5494, validation MSE: 1.3486
-2025-12-23 20:04:54 [INFO]: Epoch 005 - training loss (MAE): 1.3734, validation MSE: 1.1410
-2025-12-23 20:04:54 [INFO]: Epoch 006 - training loss (MAE): 1.2830, validation MSE: 1.0301
-2025-12-23 20:04:54 [INFO]: Epoch 007 - training loss (MAE): 1.2846, validation MSE: 0.9868
-2025-12-23 20:04:54 [INFO]: Epoch 008 - training loss (MAE): 1.2632, validation MSE: 0.9676
-2025-12-23 20:04:55 [INFO]: Epoch 009 - training loss (MAE): 1.2126, validation MSE: 0.9603
-2025-12-23 20:04:55 [INFO]: Epoch 010 - training loss (MAE): 1.1010, validation MSE: 0.9750
-2025-12-23 20:04:55 [INFO]: Epoch 011 - training loss (MAE): 1.0445, validation MSE: 0.9893
-2025-12-23 20:04:55 [INFO]: Epoch 012 - training loss (MAE): 1.0389, validation MSE: 0.9573
-2025-12-23 20:04:55 [INFO]: Epoch 013 - training loss (MAE): 1.0077, validation MSE: 0.8870
-2025-12-23 20:04:55 [INFO]: Epoch 014 - training loss (MAE): 0.9235, validation MSE: 0.8311
-2025-12-23 20:04:56 [INFO]: Epoch 015 - training loss (MAE): 0.8876, validation MSE: 0.8096
-2025-12-23 20:04:56 [INFO]: Epoch 016 - training loss (MAE): 0.9115, validation MSE: 0.7849
-2025-12-23 20:04:56 [INFO]: Epoch 017 - training loss (MAE): 0.8581, validation MSE: 0.7898
-2025-12-23 20:04:56 [INFO]: Epoch 018 - training loss (MAE): 0.7993, validation MSE: 0.8489
-2025-12-23 20:04:56 [INFO]: Epoch 019 - training loss (MAE): 0.8140, validation MSE: 0.8947
-2025-12-23 20:04:56 [INFO]: Epoch 020 - training loss (MAE): 0.8225, validation MSE: 0.8709
-2025-12-23 20:04:57 [INFO]: Epoch 021 - training loss (MAE): 0.7741, validation MSE: 0.8135
-2025-12-23 20:04:57 [INFO]: Epoch 022 - training loss (MAE): 0.7625, validation MSE: 0.7759
-2025-12-23 20:04:57 [INFO]: Epoch 023 - training loss (MAE): 0.7788, validation MSE: 0.7817
-2025-12-23 20:04:57 [INFO]: Epoch 024 - training loss (MAE): 0.7734, validation MSE: 0.8340
-2025-12-23 20:04:57 [INFO]: Epoch 025 - training loss (MAE): 0.7450, validation MSE: 0.9155
-2025-12-23 20:04:57 [INFO]: Epoch 026 - training loss (MAE): 0.7490, validation MSE: 0.9596
-2025-12-23 20:04:58 [INFO]: Epoch 027 - training loss (MAE): 0.7506, validation MSE: 0.9362
-2025-12-23 20:04:58 [INFO]: Epoch 028 - training loss (MAE): 0.7156, validation MSE: 0.8796
-2025-12-23 20:04:58 [INFO]: Epoch 029 - training loss (MAE): 0.7164, validation MSE: 0.8303
-2025-12-23 20:04:58 [INFO]: Epoch 030 - training loss (MAE): 0.7195, validation MSE: 0.8086
-2025-12-23 20:04:58 [INFO]: Epoch 031 - training loss (MAE): 0.7231, validation MSE: 0.8104
-2025-12-23 20:04:59 [INFO]: Epoch 032 - training loss (MAE): 0.6875, validation MSE: 0.8290
-2025-12-23 20:04:59 [INFO]: Exceeded the training patience. Terminating the training procedure...
-2025-12-23 20:04:59 [INFO]: Finished training. The best model is from epoch#22.
-2025-12-23 20:04:59 [INFO]: Saved the model to reproduce_imputation/point01_log/Pedestrian_log/HELIX_Pedestrian/round_4/20251223_T200453/HELIX.pypots
-2025-12-23 20:04:59 [INFO]: Successfully saved to reproduce_imputation/point01_log/Pedestrian_log/HELIX_Pedestrian/round_4/imputation.pkl
-2025-12-23 20:04:59 [INFO]: Round4 - HELIX on Pedestrian: MAE=0.5106, MSE=0.7257, MRE=0.6822
-2025-12-23 20:04:59 [INFO]: Done! Final results:
-Averaged HELIX (51,661 params) on Pedestrian: MAE=0.5142 ± 0.06893423042271347, MSE=0.7128 ± 0.11835410773008824, MRE=0.6870 ± 0.09210290810596557, average inference time=0.13
-  0%|          | 0/11 [00:00<?, ?it/s]100%|██████████| 11/11 [00:00<00:00, 315.74it/s]
+2025-12-25 15:02:32 [WARNING]: ‼️ `pypots.utils.metrics` is deprecated. Please import from `pypots.nn.functional` instead.
+2025-12-25 15:02:32 [INFO]: Have set the random seed as 2024 for numpy and pytorch.
+2025-12-25 15:02:32 [INFO]: Using the given device: cuda:0
+2025-12-25 15:02:33 [INFO]: Model files will be saved to reproduce_imputation/point01_log/Pedestrian_log/HELIX_Pedestrian/round_0/20251225_T150233
+2025-12-25 15:02:33 [INFO]: Tensorboard file will be saved to reproduce_imputation/point01_log/Pedestrian_log/HELIX_Pedestrian/round_0/20251225_T150233/tensorboard
+2025-12-25 15:02:33 [INFO]: Using customized MAE as the training loss function.
+2025-12-25 15:02:33 [INFO]: Using customized MSE as the validation metric function.
+2025-12-25 15:02:33 [INFO]: HELIX initialized with the given hyperparameters, the number of trainable parameters: 51,662
+2025-12-25 15:02:33 [INFO]: 🎭 BERT-style masking enabled:
+2025-12-25 15:02:33 [INFO]:    - 80% replaced with learnable mask tokens
+2025-12-25 15:02:33 [INFO]:    - 10% kept as original values
+2025-12-25 15:02:33 [INFO]:    - 10% replaced with random values
+2025-12-25 15:02:36 [INFO]: Epoch 001 - training loss (MAE): 1.6121, validation MSE: 0.9271
+2025-12-25 15:02:39 [INFO]: Epoch 002 - training loss (MAE): 1.2998, validation MSE: 0.9864
+2025-12-25 15:02:41 [INFO]: Epoch 003 - training loss (MAE): 1.3974, validation MSE: 1.0009
+2025-12-25 15:02:44 [INFO]: Epoch 004 - training loss (MAE): 1.3853, validation MSE: 0.9229
+2025-12-25 15:02:46 [INFO]: Epoch 005 - training loss (MAE): 1.3005, validation MSE: 0.8725
+2025-12-25 15:02:49 [INFO]: Epoch 006 - training loss (MAE): 1.1894, validation MSE: 0.8618
+2025-12-25 15:02:52 [INFO]: Epoch 007 - training loss (MAE): 1.1750, validation MSE: 0.8634
+2025-12-25 15:02:54 [INFO]: Epoch 008 - training loss (MAE): 1.2158, validation MSE: 0.8443
+2025-12-25 15:02:57 [INFO]: Epoch 009 - training loss (MAE): 1.1860, validation MSE: 0.8146
+2025-12-25 15:03:00 [INFO]: Epoch 010 - training loss (MAE): 1.1238, validation MSE: 0.7892
+2025-12-25 15:03:02 [INFO]: Epoch 011 - training loss (MAE): 1.0481, validation MSE: 0.7637
+2025-12-25 15:03:05 [INFO]: Epoch 012 - training loss (MAE): 1.0536, validation MSE: 0.7617
+2025-12-25 15:03:07 [INFO]: Epoch 013 - training loss (MAE): 1.0544, validation MSE: 0.7262
+2025-12-25 15:03:10 [INFO]: Epoch 014 - training loss (MAE): 1.0291, validation MSE: 0.7128
+2025-12-25 15:03:13 [INFO]: Epoch 015 - training loss (MAE): 0.9656, validation MSE: 0.6808
+2025-12-25 15:03:15 [INFO]: Epoch 016 - training loss (MAE): 0.9110, validation MSE: 0.6982
+2025-12-25 15:03:18 [INFO]: Epoch 017 - training loss (MAE): 0.9066, validation MSE: 0.7095
+2025-12-25 15:03:21 [INFO]: Epoch 018 - training loss (MAE): 0.8971, validation MSE: 0.6863
+2025-12-25 15:03:23 [INFO]: Epoch 019 - training loss (MAE): 0.8507, validation MSE: 0.6227
+2025-12-25 15:03:26 [INFO]: Epoch 020 - training loss (MAE): 0.8073, validation MSE: 0.5843
+2025-12-25 15:03:28 [INFO]: Epoch 021 - training loss (MAE): 0.7986, validation MSE: 0.5719
+2025-12-25 15:03:31 [INFO]: Epoch 022 - training loss (MAE): 0.7898, validation MSE: 0.5696
+2025-12-25 15:03:34 [INFO]: Epoch 023 - training loss (MAE): 0.7704, validation MSE: 0.6305
+2025-12-25 15:03:36 [INFO]: Epoch 024 - training loss (MAE): 0.7771, validation MSE: 0.6850
+2025-12-25 15:03:39 [INFO]: Epoch 025 - training loss (MAE): 0.8020, validation MSE: 0.6462
+2025-12-25 15:03:41 [INFO]: Epoch 026 - training loss (MAE): 0.7700, validation MSE: 0.5924
+2025-12-25 15:03:44 [INFO]: Epoch 027 - training loss (MAE): 0.7456, validation MSE: 0.5542
+2025-12-25 15:03:46 [INFO]: Epoch 028 - training loss (MAE): 0.7492, validation MSE: 0.5265
+2025-12-25 15:03:49 [INFO]: Epoch 029 - training loss (MAE): 0.7215, validation MSE: 0.5301
+2025-12-25 15:03:52 [INFO]: Epoch 030 - training loss (MAE): 0.7048, validation MSE: 0.5633
+2025-12-25 15:03:54 [INFO]: Epoch 031 - training loss (MAE): 0.6814, validation MSE: 0.6285
+2025-12-25 15:03:57 [INFO]: Epoch 032 - training loss (MAE): 0.6812, validation MSE: 0.5863
+2025-12-25 15:03:59 [INFO]: Epoch 033 - training loss (MAE): 0.6722, validation MSE: 0.5397
+2025-12-25 15:04:02 [INFO]: Epoch 034 - training loss (MAE): 0.6671, validation MSE: 0.5599
+2025-12-25 15:04:05 [INFO]: Epoch 035 - training loss (MAE): 0.6795, validation MSE: 0.5426
+2025-12-25 15:04:07 [INFO]: Epoch 036 - training loss (MAE): 0.6568, validation MSE: 0.5429
+2025-12-25 15:04:10 [INFO]: Epoch 037 - training loss (MAE): 0.6527, validation MSE: 0.5361
+2025-12-25 15:04:12 [INFO]: Epoch 038 - training loss (MAE): 0.6145, validation MSE: 0.5584
+2025-12-25 15:04:12 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2025-12-25 15:04:12 [INFO]: Finished training. The best model is from epoch#28.
+2025-12-25 15:04:13 [INFO]: Saved the model to reproduce_imputation/point01_log/Pedestrian_log/HELIX_Pedestrian/round_0/20251225_T150233/HELIX.pypots
+2025-12-25 15:04:13 [INFO]: Successfully saved to reproduce_imputation/point01_log/Pedestrian_log/HELIX_Pedestrian/round_0/imputation.pkl
+2025-12-25 15:04:13 [INFO]: Round0 - HELIX on Pedestrian: MAE=0.5785, MSE=0.8974, MRE=0.7730
+2025-12-25 15:04:13 [INFO]: Have set the random seed as 2025 for numpy and pytorch.
+2025-12-25 15:04:13 [INFO]: Using the given device: cuda:0
+2025-12-25 15:04:13 [INFO]: Model files will be saved to reproduce_imputation/point01_log/Pedestrian_log/HELIX_Pedestrian/round_1/20251225_T150413
+2025-12-25 15:04:13 [INFO]: Tensorboard file will be saved to reproduce_imputation/point01_log/Pedestrian_log/HELIX_Pedestrian/round_1/20251225_T150413/tensorboard
+2025-12-25 15:04:13 [INFO]: Using customized MAE as the training loss function.
+2025-12-25 15:04:13 [INFO]: Using customized MSE as the validation metric function.
+2025-12-25 15:04:13 [INFO]: HELIX initialized with the given hyperparameters, the number of trainable parameters: 51,662
+2025-12-25 15:04:13 [INFO]: 🎭 BERT-style masking enabled:
+2025-12-25 15:04:13 [INFO]:    - 80% replaced with learnable mask tokens
+2025-12-25 15:04:13 [INFO]:    - 10% kept as original values
+2025-12-25 15:04:13 [INFO]:    - 10% replaced with random values
+2025-12-25 15:04:15 [INFO]: Epoch 001 - training loss (MAE): 2.2958, validation MSE: 1.0993
+2025-12-25 15:04:18 [INFO]: Epoch 002 - training loss (MAE): 1.8325, validation MSE: 1.2055
+2025-12-25 15:04:20 [INFO]: Epoch 003 - training loss (MAE): 1.5321, validation MSE: 1.5065
+2025-12-25 15:04:23 [INFO]: Epoch 004 - training loss (MAE): 1.5022, validation MSE: 1.6646
+2025-12-25 15:04:26 [INFO]: Epoch 005 - training loss (MAE): 1.5585, validation MSE: 1.6087
+2025-12-25 15:04:28 [INFO]: Epoch 006 - training loss (MAE): 1.4888, validation MSE: 1.4430
+2025-12-25 15:04:31 [INFO]: Epoch 007 - training loss (MAE): 1.3841, validation MSE: 1.2521
+2025-12-25 15:04:34 [INFO]: Epoch 008 - training loss (MAE): 1.2855, validation MSE: 1.1038
+2025-12-25 15:04:36 [INFO]: Epoch 009 - training loss (MAE): 1.2305, validation MSE: 1.0025
+2025-12-25 15:04:39 [INFO]: Epoch 010 - training loss (MAE): 1.2234, validation MSE: 0.9632
+2025-12-25 15:04:41 [INFO]: Epoch 011 - training loss (MAE): 1.2313, validation MSE: 0.8942
+2025-12-25 15:04:44 [INFO]: Epoch 012 - training loss (MAE): 1.1976, validation MSE: 0.9207
+2025-12-25 15:04:46 [INFO]: Epoch 013 - training loss (MAE): 1.1372, validation MSE: 0.8600
+2025-12-25 15:04:49 [INFO]: Epoch 014 - training loss (MAE): 1.0553, validation MSE: 0.8156
+2025-12-25 15:04:51 [INFO]: Epoch 015 - training loss (MAE): 0.9621, validation MSE: 0.8685
+2025-12-25 15:04:54 [INFO]: Epoch 016 - training loss (MAE): 0.9161, validation MSE: 0.8878
+2025-12-25 15:04:57 [INFO]: Epoch 017 - training loss (MAE): 0.8957, validation MSE: 0.8696
+2025-12-25 15:05:00 [INFO]: Epoch 018 - training loss (MAE): 0.8469, validation MSE: 0.7383
+2025-12-25 15:05:02 [INFO]: Epoch 019 - training loss (MAE): 0.7544, validation MSE: 0.7463
+2025-12-25 15:05:05 [INFO]: Epoch 020 - training loss (MAE): 0.7020, validation MSE: 0.6539
+2025-12-25 15:05:07 [INFO]: Epoch 021 - training loss (MAE): 0.7637, validation MSE: 0.6085
+2025-12-25 15:05:10 [INFO]: Epoch 022 - training loss (MAE): 0.7647, validation MSE: 0.6518
+2025-12-25 15:05:12 [INFO]: Epoch 023 - training loss (MAE): 0.7403, validation MSE: 0.6838
+2025-12-25 15:05:15 [INFO]: Epoch 024 - training loss (MAE): 0.7521, validation MSE: 0.6662
+2025-12-25 15:05:17 [INFO]: Epoch 025 - training loss (MAE): 0.7778, validation MSE: 0.6971
+2025-12-25 15:05:20 [INFO]: Epoch 026 - training loss (MAE): 0.7825, validation MSE: 0.7556
+2025-12-25 15:05:22 [INFO]: Epoch 027 - training loss (MAE): 0.7383, validation MSE: 0.6480
+2025-12-25 15:05:25 [INFO]: Epoch 028 - training loss (MAE): 0.6842, validation MSE: 0.6790
+2025-12-25 15:05:27 [INFO]: Epoch 029 - training loss (MAE): 0.6945, validation MSE: 0.5681
+2025-12-25 15:05:30 [INFO]: Epoch 030 - training loss (MAE): 0.6714, validation MSE: 0.6720
+2025-12-25 15:05:33 [INFO]: Epoch 031 - training loss (MAE): 0.6818, validation MSE: 0.6634
+2025-12-25 15:05:35 [INFO]: Epoch 032 - training loss (MAE): 0.6613, validation MSE: 0.7593
+2025-12-25 15:05:38 [INFO]: Epoch 033 - training loss (MAE): 0.6831, validation MSE: 0.7558
+2025-12-25 15:05:40 [INFO]: Epoch 034 - training loss (MAE): 0.6723, validation MSE: 0.7443
+2025-12-25 15:05:43 [INFO]: Epoch 035 - training loss (MAE): 0.6854, validation MSE: 0.7109
+2025-12-25 15:05:46 [INFO]: Epoch 036 - training loss (MAE): 0.6757, validation MSE: 0.7889
+2025-12-25 15:05:48 [INFO]: Epoch 037 - training loss (MAE): 0.6503, validation MSE: 0.6976
+2025-12-25 15:05:51 [INFO]: Epoch 038 - training loss (MAE): 0.6631, validation MSE: 0.6890
+2025-12-25 15:05:53 [INFO]: Epoch 039 - training loss (MAE): 0.6560, validation MSE: 0.6701
+2025-12-25 15:05:53 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2025-12-25 15:05:53 [INFO]: Finished training. The best model is from epoch#29.
+2025-12-25 15:05:53 [INFO]: Saved the model to reproduce_imputation/point01_log/Pedestrian_log/HELIX_Pedestrian/round_1/20251225_T150413/HELIX.pypots
+2025-12-25 15:05:53 [INFO]: Successfully saved to reproduce_imputation/point01_log/Pedestrian_log/HELIX_Pedestrian/round_1/imputation.pkl
+2025-12-25 15:05:53 [INFO]: Round1 - HELIX on Pedestrian: MAE=0.5563, MSE=0.8377, MRE=0.7432
+2025-12-25 15:05:53 [INFO]: Have set the random seed as 2026 for numpy and pytorch.
+2025-12-25 15:05:53 [INFO]: Using the given device: cuda:0
+2025-12-25 15:05:54 [INFO]: Model files will be saved to reproduce_imputation/point01_log/Pedestrian_log/HELIX_Pedestrian/round_2/20251225_T150553
+2025-12-25 15:05:54 [INFO]: Tensorboard file will be saved to reproduce_imputation/point01_log/Pedestrian_log/HELIX_Pedestrian/round_2/20251225_T150553/tensorboard
+2025-12-25 15:05:54 [INFO]: Using customized MAE as the training loss function.
+2025-12-25 15:05:54 [INFO]: Using customized MSE as the validation metric function.
+2025-12-25 15:05:54 [INFO]: HELIX initialized with the given hyperparameters, the number of trainable parameters: 51,662
+2025-12-25 15:05:54 [INFO]: 🎭 BERT-style masking enabled:
+2025-12-25 15:05:54 [INFO]:    - 80% replaced with learnable mask tokens
+2025-12-25 15:05:54 [INFO]:    - 10% kept as original values
+2025-12-25 15:05:54 [INFO]:    - 10% replaced with random values
+2025-12-25 15:05:56 [INFO]: Epoch 001 - training loss (MAE): 1.4059, validation MSE: 1.1207
+2025-12-25 15:05:59 [INFO]: Epoch 002 - training loss (MAE): 1.3460, validation MSE: 0.9923
+2025-12-25 15:06:02 [INFO]: Epoch 003 - training loss (MAE): 1.2379, validation MSE: 0.9514
+2025-12-25 15:06:04 [INFO]: Epoch 004 - training loss (MAE): 1.2213, validation MSE: 0.9200
+2025-12-25 15:06:07 [INFO]: Epoch 005 - training loss (MAE): 1.1430, validation MSE: 0.8881
+2025-12-25 15:06:09 [INFO]: Epoch 006 - training loss (MAE): 1.0983, validation MSE: 0.9068
+2025-12-25 15:06:12 [INFO]: Epoch 007 - training loss (MAE): 1.0694, validation MSE: 0.8801
+2025-12-25 15:06:14 [INFO]: Epoch 008 - training loss (MAE): 1.0313, validation MSE: 0.8476
+2025-12-25 15:06:17 [INFO]: Epoch 009 - training loss (MAE): 1.0205, validation MSE: 0.8216
+2025-12-25 15:06:20 [INFO]: Epoch 010 - training loss (MAE): 0.9989, validation MSE: 0.7978
+2025-12-25 15:06:22 [INFO]: Epoch 011 - training loss (MAE): 0.9780, validation MSE: 0.7911
+2025-12-25 15:06:25 [INFO]: Epoch 012 - training loss (MAE): 0.9450, validation MSE: 0.7839
+2025-12-25 15:06:27 [INFO]: Epoch 013 - training loss (MAE): 0.9129, validation MSE: 0.7959
+2025-12-25 15:06:30 [INFO]: Epoch 014 - training loss (MAE): 0.9000, validation MSE: 0.8370
+2025-12-25 15:06:33 [INFO]: Epoch 015 - training loss (MAE): 0.8751, validation MSE: 0.8779
+2025-12-25 15:06:35 [INFO]: Epoch 016 - training loss (MAE): 0.8736, validation MSE: 0.8533
+2025-12-25 15:06:38 [INFO]: Epoch 017 - training loss (MAE): 0.8454, validation MSE: 0.7529
+2025-12-25 15:06:40 [INFO]: Epoch 018 - training loss (MAE): 0.8243, validation MSE: 0.6645
+2025-12-25 15:06:43 [INFO]: Epoch 019 - training loss (MAE): 0.8007, validation MSE: 0.6304
+2025-12-25 15:06:45 [INFO]: Epoch 020 - training loss (MAE): 0.7707, validation MSE: 0.6216
+2025-12-25 15:06:48 [INFO]: Epoch 021 - training loss (MAE): 0.7530, validation MSE: 0.6082
+2025-12-25 15:06:51 [INFO]: Epoch 022 - training loss (MAE): 0.7339, validation MSE: 0.6020
+2025-12-25 15:06:53 [INFO]: Epoch 023 - training loss (MAE): 0.7167, validation MSE: 0.5865
+2025-12-25 15:06:56 [INFO]: Epoch 024 - training loss (MAE): 0.6882, validation MSE: 0.5582
+2025-12-25 15:06:59 [INFO]: Epoch 025 - training loss (MAE): 0.6887, validation MSE: 0.5640
+2025-12-25 15:07:01 [INFO]: Epoch 026 - training loss (MAE): 0.6899, validation MSE: 0.5964
+2025-12-25 15:07:04 [INFO]: Epoch 027 - training loss (MAE): 0.6709, validation MSE: 0.5877
+2025-12-25 15:07:07 [INFO]: Epoch 028 - training loss (MAE): 0.6499, validation MSE: 0.5494
+2025-12-25 15:07:09 [INFO]: Epoch 029 - training loss (MAE): 0.6200, validation MSE: 0.5152
+2025-12-25 15:07:12 [INFO]: Epoch 030 - training loss (MAE): 0.6245, validation MSE: 0.5090
+2025-12-25 15:07:15 [INFO]: Epoch 031 - training loss (MAE): 0.6161, validation MSE: 0.5244
+2025-12-25 15:07:17 [INFO]: Epoch 032 - training loss (MAE): 0.6195, validation MSE: 0.5366
+2025-12-25 15:07:20 [INFO]: Epoch 033 - training loss (MAE): 0.6112, validation MSE: 0.5321
+2025-12-25 15:07:22 [INFO]: Epoch 034 - training loss (MAE): 0.5864, validation MSE: 0.5148
+2025-12-25 15:07:25 [INFO]: Epoch 035 - training loss (MAE): 0.5809, validation MSE: 0.5177
+2025-12-25 15:07:27 [INFO]: Epoch 036 - training loss (MAE): 0.5729, validation MSE: 0.5496
+2025-12-25 15:07:30 [INFO]: Epoch 037 - training loss (MAE): 0.5616, validation MSE: 0.5684
+2025-12-25 15:07:33 [INFO]: Epoch 038 - training loss (MAE): 0.5509, validation MSE: 0.5563
+2025-12-25 15:07:35 [INFO]: Epoch 039 - training loss (MAE): 0.5455, validation MSE: 0.4984
+2025-12-25 15:07:38 [INFO]: Epoch 040 - training loss (MAE): 0.5503, validation MSE: 0.4966
+2025-12-25 15:07:40 [INFO]: Epoch 041 - training loss (MAE): 0.5262, validation MSE: 0.5413
+2025-12-25 15:07:43 [INFO]: Epoch 042 - training loss (MAE): 0.5308, validation MSE: 0.5219
+2025-12-25 15:07:45 [INFO]: Epoch 043 - training loss (MAE): 0.5272, validation MSE: 0.5207
+2025-12-25 15:07:48 [INFO]: Epoch 044 - training loss (MAE): 0.5086, validation MSE: 0.5461
+2025-12-25 15:07:51 [INFO]: Epoch 045 - training loss (MAE): 0.5072, validation MSE: 0.5470
+2025-12-25 15:07:54 [INFO]: Epoch 046 - training loss (MAE): 0.5124, validation MSE: 0.5179
+2025-12-25 15:07:56 [INFO]: Epoch 047 - training loss (MAE): 0.5154, validation MSE: 0.5154
+2025-12-25 15:07:59 [INFO]: Epoch 048 - training loss (MAE): 0.4977, validation MSE: 0.5295
+2025-12-25 15:08:01 [INFO]: Epoch 049 - training loss (MAE): 0.5058, validation MSE: 0.5444
+2025-12-25 15:08:04 [INFO]: Epoch 050 - training loss (MAE): 0.5124, validation MSE: 0.5094
+2025-12-25 15:08:04 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2025-12-25 15:08:04 [INFO]: Finished training. The best model is from epoch#40.
+2025-12-25 15:08:04 [INFO]: Saved the model to reproduce_imputation/point01_log/Pedestrian_log/HELIX_Pedestrian/round_2/20251225_T150553/HELIX.pypots
+2025-12-25 15:08:04 [INFO]: Successfully saved to reproduce_imputation/point01_log/Pedestrian_log/HELIX_Pedestrian/round_2/imputation.pkl
+2025-12-25 15:08:04 [INFO]: Round2 - HELIX on Pedestrian: MAE=0.5851, MSE=0.8972, MRE=0.7817
+2025-12-25 15:08:04 [INFO]: Have set the random seed as 2027 for numpy and pytorch.
+2025-12-25 15:08:04 [INFO]: Using the given device: cuda:0
+2025-12-25 15:08:04 [INFO]: Model files will be saved to reproduce_imputation/point01_log/Pedestrian_log/HELIX_Pedestrian/round_3/20251225_T150804
+2025-12-25 15:08:04 [INFO]: Tensorboard file will be saved to reproduce_imputation/point01_log/Pedestrian_log/HELIX_Pedestrian/round_3/20251225_T150804/tensorboard
+2025-12-25 15:08:04 [INFO]: Using customized MAE as the training loss function.
+2025-12-25 15:08:04 [INFO]: Using customized MSE as the validation metric function.
+2025-12-25 15:08:04 [INFO]: HELIX initialized with the given hyperparameters, the number of trainable parameters: 51,662
+2025-12-25 15:08:04 [INFO]: 🎭 BERT-style masking enabled:
+2025-12-25 15:08:04 [INFO]:    - 80% replaced with learnable mask tokens
+2025-12-25 15:08:04 [INFO]:    - 10% kept as original values
+2025-12-25 15:08:04 [INFO]:    - 10% replaced with random values
+2025-12-25 15:08:07 [INFO]: Epoch 001 - training loss (MAE): 1.2663, validation MSE: 1.2236
+2025-12-25 15:08:10 [INFO]: Epoch 002 - training loss (MAE): 1.1981, validation MSE: 1.1685
+2025-12-25 15:08:12 [INFO]: Epoch 003 - training loss (MAE): 1.0902, validation MSE: 1.0694
+2025-12-25 15:08:15 [INFO]: Epoch 004 - training loss (MAE): 1.0097, validation MSE: 0.8942
+2025-12-25 15:08:17 [INFO]: Epoch 005 - training loss (MAE): 0.9669, validation MSE: 0.9578
+2025-12-25 15:08:20 [INFO]: Epoch 006 - training loss (MAE): 0.8810, validation MSE: 1.0354
+2025-12-25 15:08:23 [INFO]: Epoch 007 - training loss (MAE): 0.7842, validation MSE: 1.0525
+2025-12-25 15:08:25 [INFO]: Epoch 008 - training loss (MAE): 0.7880, validation MSE: 1.0169
+2025-12-25 15:08:28 [INFO]: Epoch 009 - training loss (MAE): 0.7398, validation MSE: 0.8722
+2025-12-25 15:08:31 [INFO]: Epoch 010 - training loss (MAE): 0.7540, validation MSE: 0.9083
+2025-12-25 15:08:33 [INFO]: Epoch 011 - training loss (MAE): 0.7688, validation MSE: 0.9335
+2025-12-25 15:08:36 [INFO]: Epoch 012 - training loss (MAE): 0.7510, validation MSE: 0.9743
+2025-12-25 15:08:38 [INFO]: Epoch 013 - training loss (MAE): 0.7505, validation MSE: 0.9619
+2025-12-25 15:08:41 [INFO]: Epoch 014 - training loss (MAE): 0.7151, validation MSE: 0.8742
+2025-12-25 15:08:44 [INFO]: Epoch 015 - training loss (MAE): 0.7019, validation MSE: 0.9278
+2025-12-25 15:08:46 [INFO]: Epoch 016 - training loss (MAE): 0.6857, validation MSE: 0.8888
+2025-12-25 15:08:49 [INFO]: Epoch 017 - training loss (MAE): 0.6683, validation MSE: 0.8789
+2025-12-25 15:08:52 [INFO]: Epoch 018 - training loss (MAE): 0.6442, validation MSE: 0.9242
+2025-12-25 15:08:54 [INFO]: Epoch 019 - training loss (MAE): 0.6909, validation MSE: 0.9457
+2025-12-25 15:08:54 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2025-12-25 15:08:54 [INFO]: Finished training. The best model is from epoch#9.
+2025-12-25 15:08:54 [INFO]: Saved the model to reproduce_imputation/point01_log/Pedestrian_log/HELIX_Pedestrian/round_3/20251225_T150804/HELIX.pypots
+2025-12-25 15:08:54 [INFO]: Successfully saved to reproduce_imputation/point01_log/Pedestrian_log/HELIX_Pedestrian/round_3/imputation.pkl
+2025-12-25 15:08:54 [INFO]: Round3 - HELIX on Pedestrian: MAE=0.8555, MSE=1.1303, MRE=1.1430
+2025-12-25 15:08:54 [INFO]: Have set the random seed as 2028 for numpy and pytorch.
+2025-12-25 15:08:54 [INFO]: Using the given device: cuda:0
+2025-12-25 15:08:54 [INFO]: Model files will be saved to reproduce_imputation/point01_log/Pedestrian_log/HELIX_Pedestrian/round_4/20251225_T150854
+2025-12-25 15:08:54 [INFO]: Tensorboard file will be saved to reproduce_imputation/point01_log/Pedestrian_log/HELIX_Pedestrian/round_4/20251225_T150854/tensorboard
+2025-12-25 15:08:54 [INFO]: Using customized MAE as the training loss function.
+2025-12-25 15:08:54 [INFO]: Using customized MSE as the validation metric function.
+2025-12-25 15:08:54 [INFO]: HELIX initialized with the given hyperparameters, the number of trainable parameters: 51,662
+2025-12-25 15:08:54 [INFO]: 🎭 BERT-style masking enabled:
+2025-12-25 15:08:54 [INFO]:    - 80% replaced with learnable mask tokens
+2025-12-25 15:08:54 [INFO]:    - 10% kept as original values
+2025-12-25 15:08:54 [INFO]:    - 10% replaced with random values
+2025-12-25 15:08:57 [INFO]: Epoch 001 - training loss (MAE): 1.8719, validation MSE: 1.4172
+2025-12-25 15:08:59 [INFO]: Epoch 002 - training loss (MAE): 1.5687, validation MSE: 1.5115
+2025-12-25 15:09:02 [INFO]: Epoch 003 - training loss (MAE): 1.5154, validation MSE: 1.3255
+2025-12-25 15:09:05 [INFO]: Epoch 004 - training loss (MAE): 1.4074, validation MSE: 1.1042
+2025-12-25 15:09:07 [INFO]: Epoch 005 - training loss (MAE): 1.2857, validation MSE: 0.9559
+2025-12-25 15:09:10 [INFO]: Epoch 006 - training loss (MAE): 1.2322, validation MSE: 0.9259
+2025-12-25 15:09:13 [INFO]: Epoch 007 - training loss (MAE): 1.2098, validation MSE: 0.8960
+2025-12-25 15:09:15 [INFO]: Epoch 008 - training loss (MAE): 1.1695, validation MSE: 0.8977
+2025-12-25 15:09:18 [INFO]: Epoch 009 - training loss (MAE): 1.1270, validation MSE: 0.8675
+2025-12-25 15:09:20 [INFO]: Epoch 010 - training loss (MAE): 1.1097, validation MSE: 0.8920
+2025-12-25 15:09:23 [INFO]: Epoch 011 - training loss (MAE): 1.0977, validation MSE: 0.9027
+2025-12-25 15:09:26 [INFO]: Epoch 012 - training loss (MAE): 1.0394, validation MSE: 0.9079
+2025-12-25 15:09:28 [INFO]: Epoch 013 - training loss (MAE): 1.0591, validation MSE: 0.8279
+2025-12-25 15:09:31 [INFO]: Epoch 014 - training loss (MAE): 1.0285, validation MSE: 0.8092
+2025-12-25 15:09:33 [INFO]: Epoch 015 - training loss (MAE): 1.0010, validation MSE: 0.7493
+2025-12-25 15:09:36 [INFO]: Epoch 016 - training loss (MAE): 0.9985, validation MSE: 0.7318
+2025-12-25 15:09:38 [INFO]: Epoch 017 - training loss (MAE): 0.9712, validation MSE: 0.7290
+2025-12-25 15:09:41 [INFO]: Epoch 018 - training loss (MAE): 0.9387, validation MSE: 0.7103
+2025-12-25 15:09:44 [INFO]: Epoch 019 - training loss (MAE): 0.9210, validation MSE: 0.7128
+2025-12-25 15:09:46 [INFO]: Epoch 020 - training loss (MAE): 0.9028, validation MSE: 0.7203
+2025-12-25 15:09:49 [INFO]: Epoch 021 - training loss (MAE): 0.8811, validation MSE: 0.7209
+2025-12-25 15:09:52 [INFO]: Epoch 022 - training loss (MAE): 0.8759, validation MSE: 0.7414
+2025-12-25 15:09:54 [INFO]: Epoch 023 - training loss (MAE): 0.8542, validation MSE: 0.7259
+2025-12-25 15:09:56 [INFO]: Epoch 024 - training loss (MAE): 0.8326, validation MSE: 0.6835
+2025-12-25 15:09:59 [INFO]: Epoch 025 - training loss (MAE): 0.8046, validation MSE: 0.6251
+2025-12-25 15:10:02 [INFO]: Epoch 026 - training loss (MAE): 0.7945, validation MSE: 0.6130
+2025-12-25 15:10:04 [INFO]: Epoch 027 - training loss (MAE): 0.7893, validation MSE: 0.6269
+2025-12-25 15:10:07 [INFO]: Epoch 028 - training loss (MAE): 0.7509, validation MSE: 0.6151
+2025-12-25 15:10:09 [INFO]: Epoch 029 - training loss (MAE): 0.7437, validation MSE: 0.5688
+2025-12-25 15:10:12 [INFO]: Epoch 030 - training loss (MAE): 0.7344, validation MSE: 0.5671
+2025-12-25 15:10:15 [INFO]: Epoch 031 - training loss (MAE): 0.7290, validation MSE: 0.5270
+2025-12-25 15:10:17 [INFO]: Epoch 032 - training loss (MAE): 0.7150, validation MSE: 0.5442
+2025-12-25 15:10:20 [INFO]: Epoch 033 - training loss (MAE): 0.7082, validation MSE: 0.5795
+2025-12-25 15:10:23 [INFO]: Epoch 034 - training loss (MAE): 0.6892, validation MSE: 0.5578
+2025-12-25 15:10:25 [INFO]: Epoch 035 - training loss (MAE): 0.6809, validation MSE: 0.5603
+2025-12-25 15:10:28 [INFO]: Epoch 036 - training loss (MAE): 0.6557, validation MSE: 0.5420
+2025-12-25 15:10:30 [INFO]: Epoch 037 - training loss (MAE): 0.6586, validation MSE: 0.5803
+2025-12-25 15:10:33 [INFO]: Epoch 038 - training loss (MAE): 0.6597, validation MSE: 0.5530
+2025-12-25 15:10:36 [INFO]: Epoch 039 - training loss (MAE): 0.6595, validation MSE: 0.5074
+2025-12-25 15:10:38 [INFO]: Epoch 040 - training loss (MAE): 0.6366, validation MSE: 0.5083
+2025-12-25 15:10:41 [INFO]: Epoch 041 - training loss (MAE): 0.6499, validation MSE: 0.5268
+2025-12-25 15:10:43 [INFO]: Epoch 042 - training loss (MAE): 0.6218, validation MSE: 0.5300
+2025-12-25 15:10:46 [INFO]: Epoch 043 - training loss (MAE): 0.6265, validation MSE: 0.5378
+2025-12-25 15:10:49 [INFO]: Epoch 044 - training loss (MAE): 0.6184, validation MSE: 0.4980
+2025-12-25 15:10:51 [INFO]: Epoch 045 - training loss (MAE): 0.6072, validation MSE: 0.5046
+2025-12-25 15:10:54 [INFO]: Epoch 046 - training loss (MAE): 0.5964, validation MSE: 0.5638
+2025-12-25 15:10:56 [INFO]: Epoch 047 - training loss (MAE): 0.5924, validation MSE: 0.5209
+2025-12-25 15:10:59 [INFO]: Epoch 048 - training loss (MAE): 0.5799, validation MSE: 0.5573
+2025-12-25 15:11:02 [INFO]: Epoch 049 - training loss (MAE): 0.5879, validation MSE: 0.5429
+2025-12-25 15:11:04 [INFO]: Epoch 050 - training loss (MAE): 0.5588, validation MSE: 0.4762
+2025-12-25 15:11:07 [INFO]: Epoch 051 - training loss (MAE): 0.5497, validation MSE: 0.5424
+2025-12-25 15:11:09 [INFO]: Epoch 052 - training loss (MAE): 0.5495, validation MSE: 0.4991
+2025-12-25 15:11:12 [INFO]: Epoch 053 - training loss (MAE): 0.5161, validation MSE: 0.4545
+2025-12-25 15:11:15 [INFO]: Epoch 054 - training loss (MAE): 0.5353, validation MSE: 0.5074
+2025-12-25 15:11:17 [INFO]: Epoch 055 - training loss (MAE): 0.5211, validation MSE: 0.5159
+2025-12-25 15:11:20 [INFO]: Epoch 056 - training loss (MAE): 0.5163, validation MSE: 0.5313
+2025-12-25 15:11:23 [INFO]: Epoch 057 - training loss (MAE): 0.5149, validation MSE: 0.4750
+2025-12-25 15:11:25 [INFO]: Epoch 058 - training loss (MAE): 0.5086, validation MSE: 0.5336
+2025-12-25 15:11:28 [INFO]: Epoch 059 - training loss (MAE): 0.4904, validation MSE: 0.4881
+2025-12-25 15:11:31 [INFO]: Epoch 060 - training loss (MAE): 0.4993, validation MSE: 0.5181
+2025-12-25 15:11:33 [INFO]: Epoch 061 - training loss (MAE): 0.4954, validation MSE: 0.4417
+2025-12-25 15:11:36 [INFO]: Epoch 062 - training loss (MAE): 0.4849, validation MSE: 0.5378
+2025-12-25 15:11:38 [INFO]: Epoch 063 - training loss (MAE): 0.4954, validation MSE: 0.4961
+2025-12-25 15:11:41 [INFO]: Epoch 064 - training loss (MAE): 0.4959, validation MSE: 0.5264
+2025-12-25 15:11:44 [INFO]: Epoch 065 - training loss (MAE): 0.4906, validation MSE: 0.5100
+2025-12-25 15:11:46 [INFO]: Epoch 066 - training loss (MAE): 0.4960, validation MSE: 0.5095
+2025-12-25 15:11:49 [INFO]: Epoch 067 - training loss (MAE): 0.4800, validation MSE: 0.5161
+2025-12-25 15:11:51 [INFO]: Epoch 068 - training loss (MAE): 0.4808, validation MSE: 0.5159
+2025-12-25 15:11:54 [INFO]: Epoch 069 - training loss (MAE): 0.4904, validation MSE: 0.4838
+2025-12-25 15:11:57 [INFO]: Epoch 070 - training loss (MAE): 0.4762, validation MSE: 0.5056
+2025-12-25 15:11:59 [INFO]: Epoch 071 - training loss (MAE): 0.4775, validation MSE: 0.5027
+2025-12-25 15:11:59 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2025-12-25 15:11:59 [INFO]: Finished training. The best model is from epoch#61.
+2025-12-25 15:11:59 [INFO]: Saved the model to reproduce_imputation/point01_log/Pedestrian_log/HELIX_Pedestrian/round_4/20251225_T150854/HELIX.pypots
+2025-12-25 15:11:59 [INFO]: Successfully saved to reproduce_imputation/point01_log/Pedestrian_log/HELIX_Pedestrian/round_4/imputation.pkl
+2025-12-25 15:11:59 [INFO]: Round4 - HELIX on Pedestrian: MAE=0.5272, MSE=0.8810, MRE=0.7044
+2025-12-25 15:11:59 [INFO]: Done! Final results:
+Averaged HELIX (51,662 params) on Pedestrian: MAE=0.6205 ± 0.1192193255034802, MSE=0.9287 ± 0.10314754377009482, MRE=0.8291 ± 0.1592887381779522, average inference time=0.16
+  0%|          | 0/11 [00:00<?, ?it/s]100%|██████████| 11/11 [00:00<00:00, 309.68it/s]

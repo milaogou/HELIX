@@ -25,7 +25,7 @@ dataset_folders = [
     # 'beijing_air_quality_rate00_step24_block_blocklen6',
     # 'beijing_air_quality_rate01_step24_point',
     # 'beijing_air_quality_rate05_step24_point',
-    # 'beijing_air_quality_rate05_step24_subseq_seqlen18',
+    'beijing_air_quality_rate05_step24_subseq_seqlen18',
     # 'beijing_air_quality_rate09_step24_point',
     # 'electricity_load_diagrams_rate00_step96_block_blocklen8',
     # 'electricity_load_diagrams_rate01_step96_point',
@@ -50,7 +50,7 @@ dataset_folders = [
     # 'pems_traffic_rate05_step24_point',
     # 'pems_traffic_rate05_step24_subseq_seqlen18',
     # 'pems_traffic_rate09_step24_point',
-    'physionet_2012_rate01_point',
+    # 'physionet_2012_rate01_point',
 ]
 
 def parse_dataset_info(folder_name):

@@ -7,6 +7,21 @@
 # License: BSD-3-Clause
 
 BeijingAir = {
+    'HELIX': {
+        'n_steps': 24,
+        'n_features': 132,
+        'epochs': 1000,
+        'patience': 20,
+        'pe_dim': 6,
+        'd_model': 48,
+        'n_heads': 6,
+        'n_layers': 2,
+        'dropout': 0.1,
+        'ORT_weight': 1.0,
+        'MIT_weight': 1.0,
+        'lr': 0.01,
+        'batch_size': 256,
+    },
     'MICN': {
         'n_steps': 24, 
         'n_features': 132, 
@@ -208,21 +223,6 @@ BeijingAir = {
         'patience': 10, 
         'rnn_hidden_size': 1024, 
         'lr': 0.00024042971963822373
-    },
-    'HELIX': {
-        'n_steps': 24,
-        'n_features': 132,
-        'epochs': 100,
-        'patience': 10,
-        'pe_dim': 8,
-        'd_model': 32,
-        'n_heads': 4,
-        'n_layers': 2,
-        'dropout': 0.1,
-        'ORT_weight': 1.0,
-        'MIT_weight': 1.0,
-        'lr': 0.001,
-        'batch_size': 384,
     },
     'StemGNN': {
         'n_steps': 24, 

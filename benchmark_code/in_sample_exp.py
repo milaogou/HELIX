@@ -22,11 +22,11 @@ BASE_DIR = "/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code
 
 # 获取所有数据集文件夹
 dataset_folders = [
-    # 'beijing_air_quality_rate00_step24_block_blocklen6',
+    'beijing_air_quality_rate00_step24_block_blocklen6',
     # 'beijing_air_quality_rate01_step24_point',
-    # 'beijing_air_quality_rate05_step24_point',
+    'beijing_air_quality_rate05_step24_point',
     'beijing_air_quality_rate05_step24_subseq_seqlen18',
-    # 'beijing_air_quality_rate09_step24_point',
+    'beijing_air_quality_rate09_step24_point',
     # 'electricity_load_diagrams_rate00_step96_block_blocklen8',
     # 'electricity_load_diagrams_rate01_step96_point',
     # 'electricity_load_diagrams_rate05_step96_point',

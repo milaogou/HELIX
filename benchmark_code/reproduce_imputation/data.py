@@ -135,22 +135,16 @@ for dataset in ["BeijingAir", "Electricity", "ETT_h1", "ItalyAir", "PeMS"]:
     os.makedirs("results_csv/imputation/point09", exist_ok=True)
     df.to_csv(f"results_csv/imputation/point09/{dataset}.csv", index=False)
 
-block_datasets = ["BeijingAir", "Electricity", "ETT_h1", "ItalyAir", "PeMS"]
 os.makedirs("results_csv/imputation/block05", exist_ok=True)
 
 # 处理 block00
-for dataset in block_datasets:
+for dataset in ["BeijingAir", "Electricity", "ItalyAir", "PeMS"]:
     df = process_dataset_logs(dataset, "block00_log")
     df.to_csv(f"results_csv/imputation/block05/{dataset}.csv", index=False)
 
 # 处理 block03
-for dataset in block_datasets:
+for dataset in ["ETT_h1"]:
     df = process_dataset_logs(dataset, "block03_log")
-    df.to_csv(f"results_csv/imputation/block05/{dataset}.csv", index=False)
-
-# 处理 block05
-for dataset in block_datasets:
-    df = process_dataset_logs(dataset, "block05_log")
     df.to_csv(f"results_csv/imputation/block05/{dataset}.csv", index=False)
 
 # subseq05实验

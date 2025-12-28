@@ -10,3 +10,105 @@
 2025-12-28 16:40:09 [INFO]: PatchTST initialized with the given hyperparameters, the number of trainable parameters: 30,342,300
 2025-12-28 16:40:58 [INFO]: Epoch 001 - training loss (MAE): 1.3267, validation MSE: 0.6167
 2025-12-28 16:41:47 [INFO]: Epoch 002 - training loss (MAE): 0.7849, validation MSE: 0.4228
+2025-12-28 16:42:36 [INFO]: Epoch 003 - training loss (MAE): 0.6415, validation MSE: 0.3662
+2025-12-28 16:43:24 [INFO]: Epoch 004 - training loss (MAE): 0.5762, validation MSE: 0.3448
+2025-12-28 16:44:13 [INFO]: Epoch 005 - training loss (MAE): 0.5336, validation MSE: 0.3359
+2025-12-28 16:45:01 [INFO]: Epoch 006 - training loss (MAE): 0.5067, validation MSE: 0.3308
+2025-12-28 16:45:50 [INFO]: Epoch 007 - training loss (MAE): 0.4833, validation MSE: 0.3244
+2025-12-28 16:46:39 [INFO]: Epoch 008 - training loss (MAE): 0.4629, validation MSE: 0.3254
+2025-12-28 16:47:27 [INFO]: Epoch 009 - training loss (MAE): 0.4475, validation MSE: 0.3227
+2025-12-28 16:48:16 [INFO]: Epoch 010 - training loss (MAE): 0.4393, validation MSE: 0.3268
+2025-12-28 16:49:05 [INFO]: Epoch 011 - training loss (MAE): 0.4283, validation MSE: 0.3254
+2025-12-28 16:49:53 [INFO]: Epoch 012 - training loss (MAE): 0.4256, validation MSE: 0.3433
+2025-12-28 16:50:42 [INFO]: Epoch 013 - training loss (MAE): 0.4193, validation MSE: 0.3571
+2025-12-28 16:51:31 [INFO]: Epoch 014 - training loss (MAE): 0.4119, validation MSE: 0.3477
+2025-12-28 16:52:20 [INFO]: Epoch 015 - training loss (MAE): 0.4077, validation MSE: 0.3536
+2025-12-28 16:53:08 [INFO]: Epoch 016 - training loss (MAE): 0.4051, validation MSE: 0.3409
+2025-12-28 16:53:57 [INFO]: Epoch 017 - training loss (MAE): 0.3995, validation MSE: 0.3548
+2025-12-28 16:54:46 [INFO]: Epoch 018 - training loss (MAE): 0.3980, validation MSE: 0.3795
+2025-12-28 16:55:34 [INFO]: Epoch 019 - training loss (MAE): 0.3971, validation MSE: 0.3697
+2025-12-28 16:55:34 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2025-12-28 16:55:34 [INFO]: Finished training. The best model is from epoch#9.
+2025-12-28 16:55:34 [INFO]: Saved the model to reproduce_imputation/subseq05_log/BeijingAir_log/PatchTST_BeijingAir/round_0/20251228_T164009/PatchTST.pypots
+2025-12-28 16:55:39 [INFO]: Successfully saved to reproduce_imputation/subseq05_log/BeijingAir_log/PatchTST_BeijingAir/round_0/imputation.pkl
+2025-12-28 16:55:39 [INFO]: Round0 - PatchTST on BeijingAir: MAE=0.2991, MSE=0.3842, MRE=0.3963
+2025-12-28 16:55:39 [INFO]: Have set the random seed as 2025 for numpy and pytorch.
+2025-12-28 16:55:39 [INFO]: Using the given device: cuda:0
+2025-12-28 16:55:39 [INFO]: Model files will be saved to reproduce_imputation/subseq05_log/BeijingAir_log/PatchTST_BeijingAir/round_1/20251228_T165539
+2025-12-28 16:55:39 [INFO]: Tensorboard file will be saved to reproduce_imputation/subseq05_log/BeijingAir_log/PatchTST_BeijingAir/round_1/20251228_T165539/tensorboard
+2025-12-28 16:55:39 [INFO]: Using customized MAE as the training loss function.
+2025-12-28 16:55:39 [INFO]: Using customized MSE as the validation metric function.
+2025-12-28 16:55:39 [WARNING]: ‼️ d_model must = n_heads * d_k, it should be divisible by n_heads and the result should be equal to d_k, but got d_model=64, n_heads=8, d_k=256
+2025-12-28 16:55:39 [WARNING]: ⚠️ d_model is reset to 2048 = n_heads (8) * d_k (256)
+2025-12-28 16:55:40 [INFO]: PatchTST initialized with the given hyperparameters, the number of trainable parameters: 30,342,300
+2025-12-28 16:56:28 [INFO]: Epoch 001 - training loss (MAE): 1.2227, validation MSE: 0.5197
+2025-12-28 16:57:17 [INFO]: Epoch 002 - training loss (MAE): 0.7369, validation MSE: 0.4170
+2025-12-28 16:58:06 [INFO]: Epoch 003 - training loss (MAE): 0.6273, validation MSE: 0.3853
+2025-12-28 16:58:54 [INFO]: Epoch 004 - training loss (MAE): 0.5712, validation MSE: 0.3411
+2025-12-28 16:59:43 [INFO]: Epoch 005 - training loss (MAE): 0.5326, validation MSE: 0.3349
+2025-12-28 17:00:32 [INFO]: Epoch 006 - training loss (MAE): 0.5028, validation MSE: 0.3335
+2025-12-28 17:01:21 [INFO]: Epoch 007 - training loss (MAE): 0.4845, validation MSE: 0.3243
+2025-12-28 17:02:09 [INFO]: Epoch 008 - training loss (MAE): 0.4631, validation MSE: 0.3216
+2025-12-28 17:02:58 [INFO]: Epoch 009 - training loss (MAE): 0.4471, validation MSE: 0.3280
+2025-12-28 17:03:46 [INFO]: Epoch 010 - training loss (MAE): 0.4378, validation MSE: 0.3291
+2025-12-28 17:04:35 [INFO]: Epoch 011 - training loss (MAE): 0.4258, validation MSE: 0.3251
+2025-12-28 17:05:24 [INFO]: Epoch 012 - training loss (MAE): 0.4212, validation MSE: 0.3497
+2025-12-28 17:06:12 [INFO]: Epoch 013 - training loss (MAE): 0.4152, validation MSE: 0.3403
+2025-12-28 17:07:01 [INFO]: Epoch 014 - training loss (MAE): 0.4084, validation MSE: 0.3381
+2025-12-28 17:07:50 [INFO]: Epoch 015 - training loss (MAE): 0.4074, validation MSE: 0.3480
+2025-12-28 17:08:38 [INFO]: Epoch 016 - training loss (MAE): 0.4026, validation MSE: 0.3538
+2025-12-28 17:09:27 [INFO]: Epoch 017 - training loss (MAE): 0.3980, validation MSE: 0.3599
+2025-12-28 17:10:16 [INFO]: Epoch 018 - training loss (MAE): 0.3983, validation MSE: 0.3626
+2025-12-28 17:10:16 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2025-12-28 17:10:16 [INFO]: Finished training. The best model is from epoch#8.
+2025-12-28 17:10:16 [INFO]: Saved the model to reproduce_imputation/subseq05_log/BeijingAir_log/PatchTST_BeijingAir/round_1/20251228_T165539/PatchTST.pypots
+2025-12-28 17:10:21 [INFO]: Successfully saved to reproduce_imputation/subseq05_log/BeijingAir_log/PatchTST_BeijingAir/round_1/imputation.pkl
+2025-12-28 17:10:21 [INFO]: Round1 - PatchTST on BeijingAir: MAE=0.3039, MSE=0.3782, MRE=0.4027
+2025-12-28 17:10:21 [INFO]: Have set the random seed as 2026 for numpy and pytorch.
+2025-12-28 17:10:21 [INFO]: Using the given device: cuda:0
+2025-12-28 17:10:21 [INFO]: Model files will be saved to reproduce_imputation/subseq05_log/BeijingAir_log/PatchTST_BeijingAir/round_2/20251228_T171021
+2025-12-28 17:10:21 [INFO]: Tensorboard file will be saved to reproduce_imputation/subseq05_log/BeijingAir_log/PatchTST_BeijingAir/round_2/20251228_T171021/tensorboard
+2025-12-28 17:10:21 [INFO]: Using customized MAE as the training loss function.
+2025-12-28 17:10:21 [INFO]: Using customized MSE as the validation metric function.
+2025-12-28 17:10:21 [WARNING]: ‼️ d_model must = n_heads * d_k, it should be divisible by n_heads and the result should be equal to d_k, but got d_model=64, n_heads=8, d_k=256
+2025-12-28 17:10:21 [WARNING]: ⚠️ d_model is reset to 2048 = n_heads (8) * d_k (256)
+2025-12-28 17:10:21 [INFO]: PatchTST initialized with the given hyperparameters, the number of trainable parameters: 30,342,300
+2025-12-28 17:11:10 [INFO]: Epoch 001 - training loss (MAE): 1.2341, validation MSE: 0.5164
+2025-12-28 17:11:59 [INFO]: Epoch 002 - training loss (MAE): 0.7442, validation MSE: 0.4170
+2025-12-28 17:12:47 [INFO]: Epoch 003 - training loss (MAE): 0.6313, validation MSE: 0.3800
+2025-12-28 17:13:36 [INFO]: Epoch 004 - training loss (MAE): 0.5717, validation MSE: 0.3475
+2025-12-28 17:14:25 [INFO]: Epoch 005 - training loss (MAE): 0.5285, validation MSE: 0.3363
+2025-12-28 17:15:13 [INFO]: Epoch 006 - training loss (MAE): 0.5064, validation MSE: 0.3328
+2025-12-28 17:16:02 [INFO]: Epoch 007 - training loss (MAE): 0.4819, validation MSE: 0.3270
+2025-12-28 17:16:51 [INFO]: Epoch 008 - training loss (MAE): 0.4593, validation MSE: 0.3234
+2025-12-28 17:17:39 [INFO]: Epoch 009 - training loss (MAE): 0.4480, validation MSE: 0.3219
+2025-12-28 17:18:28 [INFO]: Epoch 010 - training loss (MAE): 0.4353, validation MSE: 0.3293
+2025-12-28 17:19:16 [INFO]: Epoch 011 - training loss (MAE): 0.4256, validation MSE: 0.3399
+2025-12-28 17:20:05 [INFO]: Epoch 012 - training loss (MAE): 0.4169, validation MSE: 0.3324
+2025-12-28 17:20:54 [INFO]: Epoch 013 - training loss (MAE): 0.4114, validation MSE: 0.3436
+2025-12-28 17:21:43 [INFO]: Epoch 014 - training loss (MAE): 0.4091, validation MSE: 0.3519
+2025-12-28 17:22:31 [INFO]: Epoch 015 - training loss (MAE): 0.4042, validation MSE: 0.3524
+2025-12-28 17:23:20 [INFO]: Epoch 016 - training loss (MAE): 0.4032, validation MSE: 0.3846
+2025-12-28 17:24:09 [INFO]: Epoch 017 - training loss (MAE): 0.3994, validation MSE: 0.3562
+2025-12-28 17:24:57 [INFO]: Epoch 018 - training loss (MAE): 0.3976, validation MSE: 0.3496
+2025-12-28 17:25:46 [INFO]: Epoch 019 - training loss (MAE): 0.3968, validation MSE: 0.3628
+2025-12-28 17:25:46 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2025-12-28 17:25:46 [INFO]: Finished training. The best model is from epoch#9.
+2025-12-28 17:25:46 [INFO]: Saved the model to reproduce_imputation/subseq05_log/BeijingAir_log/PatchTST_BeijingAir/round_2/20251228_T171021/PatchTST.pypots
+2025-12-28 17:25:51 [INFO]: Successfully saved to reproduce_imputation/subseq05_log/BeijingAir_log/PatchTST_BeijingAir/round_2/imputation.pkl
+2025-12-28 17:25:51 [INFO]: Round2 - PatchTST on BeijingAir: MAE=0.2968, MSE=0.3800, MRE=0.3933
+2025-12-28 17:25:51 [INFO]: Have set the random seed as 2027 for numpy and pytorch.
+2025-12-28 17:25:51 [INFO]: Using the given device: cuda:0
+2025-12-28 17:25:51 [INFO]: Model files will be saved to reproduce_imputation/subseq05_log/BeijingAir_log/PatchTST_BeijingAir/round_3/20251228_T172551
+2025-12-28 17:25:51 [INFO]: Tensorboard file will be saved to reproduce_imputation/subseq05_log/BeijingAir_log/PatchTST_BeijingAir/round_3/20251228_T172551/tensorboard
+2025-12-28 17:25:51 [INFO]: Using customized MAE as the training loss function.
+2025-12-28 17:25:51 [INFO]: Using customized MSE as the validation metric function.
+2025-12-28 17:25:51 [WARNING]: ‼️ d_model must = n_heads * d_k, it should be divisible by n_heads and the result should be equal to d_k, but got d_model=64, n_heads=8, d_k=256
+2025-12-28 17:25:51 [WARNING]: ⚠️ d_model is reset to 2048 = n_heads (8) * d_k (256)
+2025-12-28 17:25:51 [INFO]: PatchTST initialized with the given hyperparameters, the number of trainable parameters: 30,342,300
+2025-12-28 17:26:40 [INFO]: Epoch 001 - training loss (MAE): 1.1838, validation MSE: 0.5229
+2025-12-28 17:27:29 [INFO]: Epoch 002 - training loss (MAE): 0.7375, validation MSE: 0.4049
+2025-12-28 17:28:17 [INFO]: Epoch 003 - training loss (MAE): 0.6314, validation MSE: 0.3683
+2025-12-28 17:29:06 [INFO]: Epoch 004 - training loss (MAE): 0.5690, validation MSE: 0.3562
+2025-12-28 17:29:55 [INFO]: Epoch 005 - training loss (MAE): 0.5304, validation MSE: 0.3479
+2025-12-28 17:30:43 [INFO]: Epoch 006 - training loss (MAE): 0.5043, validation MSE: 0.3265

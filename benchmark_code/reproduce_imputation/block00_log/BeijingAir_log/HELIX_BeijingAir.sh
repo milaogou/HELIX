@@ -7,5 +7,7 @@ module purge
 module load miniforge3/24.1 
 module load compilers/cuda/12.1   compilers/gcc/11.3.0   cudnn/8.8.1.3_cuda12.x
 source activate py310pots
-export PYTHONUNBUFFERED=1   
-python -u train_model.py --model HELIX --dataset BeijingAir --dataset_fold_path data/generated_datasets/beijing_air_quality_rate00_step24_block_blocklen6 --saving_path reproduce_imputation/block00_log/BeijingAir_log --device cuda:0
+export PYTHONUNBUFFERED=1
+export http_proxy=http://u-cEoRwn:EDvFuZTe@172.16.4.9:3128
+export https_proxy=http://u-cEoRwn:EDvFuZTe@172.16.4.9:3128   
+python -u train_model.py --model HELIX --dataset BeijingAir --dataset_fold_path data/generated_datasets/beijing_air_quality_rate00_step24_block_blocklen6 --saving_path reproduce_imputation/block00_log/BeijingAir_log --device cuda:0 --config_version without_LR_decay

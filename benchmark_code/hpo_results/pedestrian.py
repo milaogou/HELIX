@@ -6,7 +6,7 @@
 # License: BSD-3-Clause
 
 Pedestrian = {
-        'HELIX': {
+    'HELIX': {
         'n_steps': 24,
         'n_features': 1,
         'epochs': 1000,
@@ -20,8 +20,6 @@ Pedestrian = {
         'ORT_weight': 1.0,
         'MIT_weight': 1.0,
         'lr': 0.001,
-        'lr_decay_patience': 3,
-        'min_lr': 1e-6,
         'batch_size': 8,
     },
     'PatchTST': {

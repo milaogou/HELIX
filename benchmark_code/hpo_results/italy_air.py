@@ -21,8 +21,6 @@ ItalyAir = {
         'ORT_weight': 1.0,
         'MIT_weight': 1.0,
         'lr': 0.001,
-        'lr_decay_patience': 3,
-        'min_lr': 1e-6,
         'batch_size': 8,
     },
    'PatchTST': {

@@ -107,6 +107,12 @@ if __name__ == "__main__":
         help="whether to impute all sets or only the test set",
         action="store_true",
     )
+    parser.add_argument(
+    "--config_version",
+    type=str,
+    help="configuration version suffix for output path, e.g., 'no_lr_decay', 'lr_decay'",
+    default="",
+    )
     args = parser.parse_args()
 
     # set the number of threads for pytorch
@@ -124,7 +130,10 @@ if __name__ == "__main__":
     mre_collector = []
     time_collector = []
 
-    result_saving_path = os.path.join(args.saving_path, f"{args.model}_{args.dataset}")
+    if args.config_version:
+        result_saving_path = os.path.join(args.saving_path, f"{args.model}_{args.dataset}_{args.config_version}")
+    else:
+        result_saving_path = os.path.join(args.saving_path, f"{args.model}_{args.dataset}")
     for n_round in range(args.n_rounds):
         set_random_seed(RANDOM_SEEDS[n_round])
         round_saving_path = os.path.join(result_saving_path, f"round_{n_round}")

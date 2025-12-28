@@ -3,13 +3,28 @@ import re
 import pandas as pd
 
 model_names = [
+    'HELIX',
+    'TEFN',
+    'TimeMixerPP',
+    'TimeLLM',
+    'MOMENT',
+    'TimeMixer',
+    'ModernTCN',
+    'ImputeFormer',
+    'TOTEM',
+    'PatchTST',
     "iTransformer", "SAITS", "NonstationaryTransformer", "ETSformer", "PatchTST", "Crossformer", "Informer", "Autoformer", "Pyraformer", "Transformer", 
-    "BRITS", "MRNN", "GRUD", "HELIX",
+    "BRITS", "MRNN", "GRUD",
     "TimesNet", "MICN", "SCINet", 
     "StemGNN", 
     "FreTS", "Koopa", "DLinear", "FiLM", 
     "CSDI", "USGAN", "GPVAE"
 ]
+
+# 定义模型的config_version映射（用于查找对应的log文件）
+MODEL_CONFIG_VERSIONS = {
+    'HELIX': 'without_LR_decay',  # HELIX的新版本后缀
+}
 
 metrics_pattern = re.compile(r"MAE=(\d+\.\d+) ± (\d+\.\d+), MSE=(\d+\.\d+) ± (\d+\.\d+), MRE=(\d+\.\d+) ± (\d+\.\d+), average inference time=(\d+\.\d+)")
 params_pattern = re.compile(r"the number of trainable parameters: ([\d,]+)")
@@ -47,9 +62,10 @@ def extract_and_format_naive_classification(content):
         final_data["ROC_AUC w Transformer"].append(formatted_data[method][5])
     
     return final_data
-for dataset in ["BeijingAir", "Electricity", "ETT_h1", "ItalyAir", "Pedestrian", "PeMS", "PhysioNet2012", "PhysioNet2019"]:
-    log_dir = f"./imputation_log/point01_log/{dataset}_log"
-    # Dictionary to store the results
+def process_dataset_logs(dataset, log_pattern):
+    """处理单个数据集的日志文件"""
+    log_dir = f"./imputation_log/{log_pattern}/{dataset}_log"
+    
     results = {
         "Model": [],
         "Size": [],
@@ -59,13 +75,24 @@ for dataset in ["BeijingAir", "Electricity", "ETT_h1", "ItalyAir", "Pedestrian",
         "Time": []
     }
 
-    # Loop through each model's log file and extract metrics
     for model in model_names:
-        file_path = os.path.join(log_dir, f"{model}_{dataset}.log")
+        # 获取该模型的config_version后缀
+        config_version = MODEL_CONFIG_VERSIONS.get(model, "")
+        
+        # 构建文件名，如果有config_version则添加后缀
+        if config_version:
+            file_name = f"{model}_{dataset}_{config_version}.log"
+        else:
+            file_name = f"{model}_{dataset}.log"
+        
+        file_path = os.path.join(log_dir, file_name)
+        
         if os.path.exists(file_path):
             with open(file_path, 'r') as file:
                 lines = file.readlines()
                 params = "0"
+                found_metrics = False
+                
                 for line in lines:
                     if params_pattern.search(line):
                         params_match = params_pattern.search(line)
@@ -80,8 +107,10 @@ for dataset in ["BeijingAir", "Electricity", "ETT_h1", "ItalyAir", "Pedestrian",
                             results["MSE"].append(f"{float(mse):.3f} ({float(mse_std):.3f})")
                             results["MRE"].append(f"{float(mre):.3f} ({float(mre_std):.3f})")
                             results["Time"].append(time)
+                            found_metrics = True
                             break
-                else:
+                
+                if not found_metrics:
                     results["Model"].append(model)
                     results["Size"].append(params)
                     results["MAE"].append("0")
@@ -96,217 +125,36 @@ for dataset in ["BeijingAir", "Electricity", "ETT_h1", "ItalyAir", "Pedestrian",
             results["MRE"].append("0")
             results["Time"].append("0")
 
-    # Create a DataFrame from the results
-    df = pd.DataFrame(results)
+    return pd.DataFrame(results)
+
+# point01实验
+for dataset in ["BeijingAir", "Electricity", "ETT_h1", "ItalyAir", "PeMS", "PhysioNet2012"]:
+    df = process_dataset_logs(dataset, "point01_log")
+    os.makedirs("./results_csv/imputation/point01", exist_ok=True)
     df.to_csv(f"./results_csv/imputation/point01/{dataset}.csv", index=False)
+
+# point05实验
 for dataset in ["BeijingAir", "Electricity", "ETT_h1", "ItalyAir", "Pedestrian", "PeMS"]:
-    log_dir = f"./imputation_log/point05_log/{dataset}_log"
-
-    results = {
-        "Model": [],
-        "Size": [],
-        "MAE": [],
-        "MSE": [],
-        "MRE": [],
-        "Time": []
-    }
-
-    # Loop through each model's log file and extract metrics
-    for model in model_names:
-        file_path = os.path.join(log_dir, f"{model}_{dataset}.log")
-        if os.path.exists(file_path):
-            with open(file_path, 'r') as file:
-                lines = file.readlines()
-                params = "0"
-                for line in lines:
-                    if params_pattern.search(line):
-                        params_match = params_pattern.search(line)
-                        params = params_match.group(1)
-                    if metrics_pattern.search(line):
-                        metrics_match = metrics_pattern.search(line)
-                        if metrics_match:
-                            mae, mae_std, mse, mse_std, mre, mre_std, time = metrics_match.groups()
-                            results["Model"].append(model)
-                            results["Size"].append(params)
-                            results["MAE"].append(f"{float(mae):.3f} ({float(mae_std):.3f})")
-                            results["MSE"].append(f"{float(mse):.3f} ({float(mse_std):.3f})")
-                            results["MRE"].append(f"{float(mre):.3f} ({float(mre_std):.3f})")
-                            results["Time"].append(time)
-                            break
-                else:
-                    results["Model"].append(model)
-                    results["Size"].append(params)
-                    results["MAE"].append("0")
-                    results["MSE"].append("0")
-                    results["MRE"].append("0")
-                    results["Time"].append("0")
-        else:
-            results["Model"].append(model)
-            results["Size"].append("0")
-            results["MAE"].append("0")
-            results["MSE"].append("0")
-            results["MRE"].append("0")
-            results["Time"].append("0")
-
-    # Create a DataFrame from the results
-    df = pd.DataFrame(results)
+    df = process_dataset_logs(dataset, "point05_log")
+    os.makedirs("./results_csv/imputation/point05", exist_ok=True)
     df.to_csv(f"./results_csv/imputation/point05/{dataset}.csv", index=False)
+
+# point09实验
 for dataset in ["BeijingAir", "Electricity", "ETT_h1", "ItalyAir", "Pedestrian", "PeMS"]:
-    log_dir = f"./imputation_log/point09_log/{dataset}_log"
-
-    # Dictionary to store the results
-    results = {
-        "Model": [],
-        "Size": [],
-        "MAE": [],
-        "MSE": [],
-        "MRE": [],
-        "Time": []
-    }
-
-    # Loop through each model's log file and extract metrics
-    for model in model_names:
-        file_path = os.path.join(log_dir, f"{model}_{dataset}.log")
-        if os.path.exists(file_path):
-            with open(file_path, 'r') as file:
-                lines = file.readlines()
-                params = "0"
-                for line in lines:
-                    if params_pattern.search(line):
-                        params_match = params_pattern.search(line)
-                        params = params_match.group(1)
-                    if metrics_pattern.search(line):
-                        metrics_match = metrics_pattern.search(line)
-                        if metrics_match:
-                            mae, mae_std, mse, mse_std, mre, mre_std, time = metrics_match.groups()
-                            results["Model"].append(model)
-                            results["Size"].append(params)
-                            results["MAE"].append(f"{float(mae):.3f} ({float(mae_std):.3f})")
-                            results["MSE"].append(f"{float(mse):.3f} ({float(mse_std):.3f})")
-                            results["MRE"].append(f"{float(mre):.3f} ({float(mre_std):.3f})")
-                            results["Time"].append(time)
-                            break
-                else:
-                    results["Model"].append(model)
-                    results["Size"].append(params)
-                    results["MAE"].append("0")
-                    results["MSE"].append("0")
-                    results["MRE"].append("0")
-                    results["Time"].append("0")
-        else:
-            results["Model"].append(model)
-            results["Size"].append("0")
-            results["MAE"].append("0")
-            results["MSE"].append("0")
-            results["MRE"].append("0")
-            results["Time"].append("0")
-
-    # Create a DataFrame from the results
-    df = pd.DataFrame(results)
+    df = process_dataset_logs(dataset, "point09_log")
+    os.makedirs("./results_csv/imputation/point09", exist_ok=True)
     df.to_csv(f"./results_csv/imputation/point09/{dataset}.csv", index=False)
+
+# block05实验
 for dataset in ["BeijingAir", "Electricity", "ETT_h1", "ItalyAir", "PeMS"]:
-    log_dir = f"./imputation_log/block05_log/{dataset}_log"
-
-    # Dictionary to store the results
-    results = {
-        "Model": [],
-        "Size": [],
-        "MAE": [],
-        "MSE": [],
-        "MRE": [],
-        "Time": []
-    }
-
-    # Loop through each model's log file and extract metrics
-    for model in model_names:
-        file_path = os.path.join(log_dir, f"{model}_{dataset}.log")
-        if os.path.exists(file_path):
-            with open(file_path, 'r') as file:
-                lines = file.readlines()
-                params = "0"
-                for line in lines:
-                    if params_pattern.search(line):
-                        params_match = params_pattern.search(line)
-                        params = params_match.group(1)
-                    if metrics_pattern.search(line):
-                        metrics_match = metrics_pattern.search(line)
-                        if metrics_match:
-                            mae, mae_std, mse, mse_std, mre, mre_std, time = metrics_match.groups()
-                            results["Model"].append(model)
-                            results["Size"].append(params)
-                            results["MAE"].append(f"{float(mae):.3f} ({float(mae_std):.3f})")
-                            results["MSE"].append(f"{float(mse):.3f} ({float(mse_std):.3f})")
-                            results["MRE"].append(f"{float(mre):.3f} ({float(mre_std):.3f})")
-                            results["Time"].append(time)
-                            break
-                else:
-                    results["Model"].append(model)
-                    results["Size"].append(params)
-                    results["MAE"].append("0")
-                    results["MSE"].append("0")
-                    results["MRE"].append("0")
-                    results["Time"].append("0")
-        else:
-            results["Model"].append(model)
-            results["Size"].append("0")
-            results["MAE"].append("0")
-            results["MSE"].append("0")
-            results["MRE"].append("0")
-            results["Time"].append("0")
-
-    # Create a DataFrame from the results
-    df = pd.DataFrame(results)
+    df = process_dataset_logs(dataset, "block05_log")
+    os.makedirs("./results_csv/imputation/block05", exist_ok=True)
     df.to_csv(f"./results_csv/imputation/block05/{dataset}.csv", index=False)
+
+# subseq05实验
 for dataset in ["BeijingAir", "Electricity", "ETT_h1", "ItalyAir", "Pedestrian", "PeMS"]:
-    log_dir = f"./imputation_log/subseq05_log/{dataset}_log"
-
-    # Dictionary to store the results
-    results = {
-        "Model": [],
-        "Size": [],
-        "MAE": [],
-        "MSE": [],
-        "MRE": [],
-        "Time": []
-    }
-
-    # Loop through each model's log file and extract metrics
-    for model in model_names:
-        file_path = os.path.join(log_dir, f"{model}_{dataset}.log")
-        if os.path.exists(file_path):
-            with open(file_path, 'r') as file:
-                lines = file.readlines()
-                params = "0"
-                for line in lines:
-                    if params_pattern.search(line):
-                        params_match = params_pattern.search(line)
-                        params = params_match.group(1)
-                    if metrics_pattern.search(line):
-                        metrics_match = metrics_pattern.search(line)
-                        if metrics_match:
-                            mae, mae_std, mse, mse_std, mre, mre_std, time = metrics_match.groups()
-                            results["Model"].append(model)
-                            results["Size"].append(params)
-                            results["MAE"].append(f"{float(mae):.3f} ({float(mae_std):.3f})")
-                            results["MSE"].append(f"{float(mse):.3f} ({float(mse_std):.3f})")
-                            results["MRE"].append(f"{float(mre):.3f} ({float(mre_std):.3f})")
-                            results["Time"].append(time)
-                            break
-                else:
-                    results["Model"].append(model)
-                    results["Size"].append(params)
-                    results["MAE"].append("0")
-                    results["MSE"].append("0")
-                    results["MRE"].append("0")
-                    results["Time"].append("0")
-        else:
-            results["Model"].append(model)
-            results["Size"].append("0")
-            results["MAE"].append("0")
-            results["MSE"].append("0")
-            results["MRE"].append("0")
-            results["Time"].append("0")
-
-    # Create a DataFrame from the results
-    df = pd.DataFrame(results)
+    df = process_dataset_logs(dataset, "subseq05_log")
+    os.makedirs("./results_csv/imputation/subseq05", exist_ok=True)
     df.to_csv(f"./results_csv/imputation/subseq05/{dataset}.csv", index=False)
+
+print("所有结果已处理完成！")

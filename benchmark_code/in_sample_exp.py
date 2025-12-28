@@ -6,15 +6,6 @@ import subprocess
 
 
 SKIP_COMBINATIONS = {
-    # Pedestrian单变量数据集 - 跳过所有新模型
-    ('Pedestrian', 'TEFN'),
-    ('Pedestrian', 'TimeMixerPP'),
-    ('Pedestrian', 'TimeLLM'),
-    ('Pedestrian', 'MOMENT'),
-    ('Pedestrian', 'TimeMixer'),
-    ('Pedestrian', 'ModernTCN'),
-    ('Pedestrian', 'ImputeFormer'),
-    ('Pedestrian', 'TOTEM'),
     # ItalyAir序列太短
     ('ItalyAir', 'MOMENT'),
     # PeMS特征太多(862) - TimeLLM/MOMENT/TimeMixerPP处理不了
@@ -32,10 +23,16 @@ DATASET_NAME_MAP = {
     'electricity_load_diagrams': 'Electricity',
     'ett': 'ETT_h1',
     'italy_air_quality': 'ItalyAir',
+    # Pedestrian单变量数据集 - 跳过所有新模型
     # 'melbourne_pedestrian': 'Pedestrian',
     'pems_traffic': 'PeMS',
     'physionet_2012': 'PhysioNet2012',
     'physionet_2019': 'PhysioNet2019',
+}
+
+MODEL_CONFIG_VERSIONS = {
+    'HELIX': 'without_LR_decay',  # HELIX使用without_LR_decay版本
+    # 其他模型默认为空字符串，即不添加后缀
 }
 
 DATA_BASE_PATH = "data/generated_datasets"
@@ -44,6 +41,7 @@ BASE_DIR = "/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code
 
 # 模型列表
 MODELS = [
+    'HELIX',
     # 'TEFN',
     # 'TimeMixerPP',
     # 'TimeLLM',
@@ -56,7 +54,7 @@ MODELS = [
     # 'SAITS',
     # 'FreTS',
     # 'NonstationaryTransformer',
-    'PatchTST',
+    # 'PatchTST',
     
     
 ]
@@ -114,10 +112,11 @@ def parse_dataset_info(folder_name):
     
     return dataset_name, rate, pattern
 
-def create_sbatch_script(model_name, folder_name, dataset_name, rate, pattern):
+def create_sbatch_script(model_name, folder_name, dataset_name, rate, pattern, config_version):
     log_dir = f"{pattern}{rate}_log"
     dataset_log_dir = f"{log_dir}/{dataset_name}_log"
-    
+    # 添加config_version参数
+    version_flag = f"--config_version {config_version}" if config_version else ""
     script_content = f"""#!/bin/bash
 #SBATCH -x paraai-n32-h-01-agent-[1,4,8,16,17,25,27,28,29,30,31]
 #SBATCH --job-name={model_name}_{dataset_name}_{pattern}{rate}
@@ -130,11 +129,12 @@ source activate py310pots
 export PYTHONUNBUFFERED=1
 export http_proxy=http://u-cEoRwn:EDvFuZTe@172.16.4.9:3128
 export https_proxy=http://u-cEoRwn:EDvFuZTe@172.16.4.9:3128   
-python -u train_model.py --model {model_name} --dataset {dataset_name} --dataset_fold_path {DATA_BASE_PATH}/{folder_name} --saving_path {OUTPUT_BASE_PATH}/{dataset_log_dir} --device cuda:0
+python -u train_model.py --model {model_name} --dataset {dataset_name} --dataset_fold_path {DATA_BASE_PATH}/{folder_name} --saving_path {OUTPUT_BASE_PATH}/{dataset_log_dir} --device cuda:0 {version_flag}
 """
     return script_content, dataset_log_dir
 
 submitted_count = 0
+skipped_count =0
 total_tasks = len(MODELS) * len(dataset_folders)
 
 print(f"准备提交 {len(MODELS)} 个新模型 × {len(dataset_folders)} 个数据集 = {total_tasks} 个任务\n")
@@ -148,7 +148,16 @@ for model_name in MODELS:
         
         dataset_name, rate, pattern = result
         
-        script_content, dataset_log_dir = create_sbatch_script(model_name, folder_name, dataset_name, rate, pattern)
+        # 检查是否需要跳过
+        if (dataset_name, model_name) in SKIP_COMBINATIONS:
+            print(f"[SKIP] {model_name} on {dataset_name} (incompatible)")
+            skipped_count += 1
+            continue
+        
+        # 获取该模型的config_version
+        config_version = MODEL_CONFIG_VERSIONS.get(model_name, "")
+        
+        script_content, dataset_log_dir = create_sbatch_script(model_name, folder_name, dataset_name, rate, pattern, config_version)
         
         output_dir = f"{OUTPUT_BASE_PATH}/{dataset_log_dir}"
         os.makedirs(output_dir, exist_ok=True)

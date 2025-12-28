@@ -1,0 +1,44 @@
+2025-12-28 17:41:58 [WARNING]: ‼️ `pypots.utils.metrics` is deprecated. Please import from `pypots.nn.functional` instead.
+2025-12-28 17:41:58 [INFO]: Have set the random seed as 2024 for numpy and pytorch.
+2025-12-28 17:41:58 [INFO]: Using the given device: cuda:0
+2025-12-28 17:41:58 [INFO]: Model files will be saved to reproduce_imputation/block00_log/Electricity_log/HELIX_Electricity/round_0/20251228_T174158
+2025-12-28 17:41:58 [INFO]: Tensorboard file will be saved to reproduce_imputation/block00_log/Electricity_log/HELIX_Electricity/round_0/20251228_T174158/tensorboard
+2025-12-28 17:41:58 [INFO]: Using customized MAE as the training loss function.
+2025-12-28 17:41:58 [INFO]: Using customized MSE as the validation metric function.
+2025-12-28 17:41:58 [INFO]: ============================================================
+2025-12-28 17:41:58 [INFO]: HELIX Model Configuration:
+2025-12-28 17:41:58 [INFO]: ============================================================
+2025-12-28 17:41:58 [INFO]: Data dimensions:
+2025-12-28 17:41:58 [INFO]:   - n_steps: 96
+2025-12-28 17:41:58 [INFO]:   - n_features: 370
+2025-12-28 17:41:58 [INFO]: Model architecture:
+2025-12-28 17:41:58 [INFO]:   - pe_dim: 8
+2025-12-28 17:41:58 [INFO]:   - feature_embed_dim: 28
+2025-12-28 17:41:58 [INFO]:   - d_model: 456
+2025-12-28 17:41:58 [INFO]:   - n_heads: 12
+2025-12-28 17:41:58 [INFO]:   - n_layers: 2
+2025-12-28 17:41:58 [INFO]:   - dropout: 0.1
+2025-12-28 17:41:58 [INFO]: Training configuration:
+2025-12-28 17:41:58 [INFO]:   - ORT_weight: 1.0
+2025-12-28 17:41:58 [INFO]:   - MIT_weight: 1.0
+2025-12-28 17:41:58 [INFO]:   - batch_size: 1
+2025-12-28 17:41:58 [INFO]:   - epochs: 1000
+2025-12-28 17:41:58 [INFO]:   - patience: 10
+2025-12-28 17:41:58 [INFO]: Optimizer configuration:
+2025-12-28 17:41:58 [INFO]:   - initial_lr: 0.001
+2025-12-28 17:41:58 [INFO]:   - lr_decay: disabled
+2025-12-28 17:41:58 [INFO]: Other settings:
+2025-12-28 17:41:58 [INFO]:   - num_workers: 0
+2025-12-28 17:41:58 [INFO]:   - device: cuda:0
+2025-12-28 17:41:58 [INFO]:   - model_saving_strategy: best
+2025-12-28 17:41:58 [INFO]: ============================================================
+2025-12-28 17:41:58 [INFO]: HELIX initialized with the given hyperparameters, the number of trainable parameters: 10,051,519
+2025-12-28 17:41:59 [INFO]: Learning rate scheduler disabled (lr_decay_patience not set)
+2025-12-28 17:49:07 [INFO]: Epoch 001 - train_loss: 0.3439, val_loss: 1.5962, lr: 0.001000
+2025-12-28 17:56:15 [INFO]: Epoch 002 - train_loss: 0.1969, val_loss: 1.6421, lr: 0.001000
+2025-12-28 18:03:22 [INFO]: Epoch 003 - train_loss: 0.1804, val_loss: 1.5793, lr: 0.001000
+2025-12-28 18:10:29 [INFO]: Epoch 004 - train_loss: 0.1780, val_loss: 1.5861, lr: 0.001000
+2025-12-28 18:17:35 [INFO]: Epoch 005 - train_loss: 0.1714, val_loss: 1.5022, lr: 0.001000
+2025-12-28 18:24:42 [INFO]: Epoch 006 - train_loss: 0.1686, val_loss: 1.5302, lr: 0.001000
+2025-12-28 18:31:49 [INFO]: Epoch 007 - train_loss: 0.1641, val_loss: 1.5221, lr: 0.001000
+2025-12-28 18:38:55 [INFO]: Epoch 008 - train_loss: 0.1629, val_loss: 1.6184, lr: 0.001000

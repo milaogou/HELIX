@@ -169,3 +169,14 @@
 2025-12-28 17:30:42 [INFO]: Epoch 029 - training loss (MAE): 1.6555, validation MSE: 4.1198
 2025-12-28 17:31:45 [INFO]: Epoch 030 - training loss (MAE): 1.6554, validation MSE: 4.1149
 2025-12-28 17:32:49 [INFO]: Epoch 031 - training loss (MAE): 1.6555, validation MSE: 4.1169
+2025-12-28 17:33:52 [INFO]: Epoch 032 - training loss (MAE): 1.6560, validation MSE: 4.1183
+2025-12-28 17:34:55 [INFO]: Epoch 033 - training loss (MAE): 1.6554, validation MSE: 4.1147
+2025-12-28 17:35:58 [INFO]: Epoch 034 - training loss (MAE): 1.6557, validation MSE: 4.1178
+2025-12-28 17:35:58 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2025-12-28 17:35:58 [INFO]: Finished training. The best model is from epoch#24.
+2025-12-28 17:35:58 [INFO]: Saved the model to reproduce_imputation/point05_log/Electricity_log/ImputeFormer_Electricity/round_4/20251228_T165943/ImputeFormer.pypots
+2025-12-28 17:36:05 [INFO]: Successfully saved to reproduce_imputation/point05_log/Electricity_log/ImputeFormer_Electricity/round_4/imputation.pkl
+2025-12-28 17:36:05 [INFO]: Round4 - ImputeFormer on Electricity: MAE=0.3032, MSE=0.8714, MRE=0.1624
+2025-12-28 17:36:05 [INFO]: Done! Final results:
+Averaged ImputeFormer (30,839,297 params) on Electricity: MAE=0.3637 ± 0.05649499189393372, MSE=1.0470 ± 0.14080072291813064, MRE=0.1948 ± 0.03025356748830511, average inference time=6.70
+  0%|          | 0/22 [00:00<?, ?it/s]100%|██████████| 22/22 [00:00<00:00, 445.30it/s]

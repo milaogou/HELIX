@@ -340,3 +340,21 @@ Using eos_token, but it is not set yet.
 2025-12-28 17:31:52 [INFO]: Epoch 040 - training loss (MAE): 0.6000, validation MSE: 0.7093
 2025-12-28 17:32:30 [INFO]: Epoch 041 - training loss (MAE): 0.5868, validation MSE: 0.6997
 2025-12-28 17:33:08 [INFO]: Epoch 042 - training loss (MAE): 0.5963, validation MSE: 0.6202
+2025-12-28 17:33:46 [INFO]: Epoch 043 - training loss (MAE): 0.6022, validation MSE: 0.6351
+2025-12-28 17:34:24 [INFO]: Epoch 044 - training loss (MAE): 0.6172, validation MSE: 0.6592
+2025-12-28 17:35:02 [INFO]: Epoch 045 - training loss (MAE): 0.5950, validation MSE: 0.7032
+2025-12-28 17:35:40 [INFO]: Epoch 046 - training loss (MAE): 0.5987, validation MSE: 0.7004
+2025-12-28 17:36:18 [INFO]: Epoch 047 - training loss (MAE): 0.5900, validation MSE: 0.6832
+2025-12-28 17:36:56 [INFO]: Epoch 048 - training loss (MAE): 0.5913, validation MSE: 0.6444
+2025-12-28 17:37:34 [INFO]: Epoch 049 - training loss (MAE): 0.5851, validation MSE: 0.6546
+2025-12-28 17:38:12 [INFO]: Epoch 050 - training loss (MAE): 0.5865, validation MSE: 0.6715
+2025-12-28 17:38:50 [INFO]: Epoch 051 - training loss (MAE): 0.6000, validation MSE: 0.6722
+2025-12-28 17:39:27 [INFO]: Epoch 052 - training loss (MAE): 0.5887, validation MSE: 0.6695
+2025-12-28 17:39:27 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2025-12-28 17:39:27 [INFO]: Finished training. The best model is from epoch#42.
+2025-12-28 17:39:28 [INFO]: Saved the model to reproduce_imputation/point05_log/ItalyAir_log/TimeLLM_ItalyAir/round_4/20251228_T170631/TimeLLM.pypots
+2025-12-28 17:39:37 [INFO]: Successfully saved to reproduce_imputation/point05_log/ItalyAir_log/TimeLLM_ItalyAir/round_4/imputation.pkl
+2025-12-28 17:39:37 [INFO]: Round4 - TimeLLM on ItalyAir: MAE=0.4422, MSE=0.5321, MRE=0.5714
+2025-12-28 17:39:37 [INFO]: Done! Final results:
+Averaged TimeLLM (31,125,764 params) on ItalyAir: MAE=0.4364 ± 0.015832716865549754, MSE=0.5334 ± 0.020686097182906652, MRE=0.5639 ± 0.020456507398879508, average inference time=9.19
+  0%|          | 0/22 [00:00<?, ?it/s]100%|██████████| 22/22 [00:00<00:00, 454.25it/s]

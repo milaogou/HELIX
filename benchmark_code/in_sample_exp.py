@@ -31,7 +31,7 @@ DATASET_NAME_MAP = {
 }
 
 MODEL_CONFIG_VERSIONS = {
-    'HELIX': 'without_LR_decay',  # HELIX使用without_LR_decay版本
+    # 'HELIX': 'with_LR_decay',  # HELIX使用without_LR_decay版本
     # 其他模型默认为空字符串，即不添加后缀
 }
 

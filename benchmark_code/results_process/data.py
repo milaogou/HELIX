@@ -13,17 +13,18 @@ model_names = [
     'ImputeFormer',
     'TOTEM',
     'PatchTST',
-    "iTransformer", "SAITS", "NonstationaryTransformer", "ETSformer", "PatchTST", "Crossformer", "Informer", "Autoformer", "Pyraformer", "Transformer", 
-    "BRITS", "MRNN", "GRUD",
-    "TimesNet", "MICN", "SCINet", 
-    "StemGNN", 
-    "FreTS", "Koopa", "DLinear", "FiLM", 
-    "CSDI", "USGAN", "GPVAE"
+    "iTransformer", "SAITS", "NonstationaryTransformer", "ETSformer", "PatchTST", 
+    # "Crossformer", "Informer", "Autoformer", "Pyraformer", "Transformer", 
+    # "BRITS", "MRNN", "GRUD",
+    # "TimesNet", "MICN", "SCINet", 
+    # "StemGNN", 
+    # "FreTS", "Koopa", "DLinear", "FiLM", 
+    # "CSDI", "USGAN", "GPVAE"
 ]
 
 # 定义模型的config_version映射（用于查找对应的log文件）
 MODEL_CONFIG_VERSIONS = {
-    'HELIX': 'without_LR_decay',  # HELIX的新版本后缀
+    # 'HELIX': 'with_LR_decay',  # HELIX的新版本后缀
 }
 
 metrics_pattern = re.compile(r"MAE=(\d+\.\d+) ± (\d+\.\d+), MSE=(\d+\.\d+) ± (\d+\.\d+), MRE=(\d+\.\d+) ± (\d+\.\d+), average inference time=(\d+\.\d+)")

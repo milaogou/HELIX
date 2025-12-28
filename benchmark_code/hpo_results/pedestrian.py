@@ -22,26 +22,6 @@ Pedestrian = {
         'lr': 0.001,
         'batch_size': 8,
     },
-    'PatchTST': {
-    'n_steps': 24,
-    'n_features': 1,
-    'patch_size': 8,
-    'patch_stride': 8,
-    'n_layers': 2,
-    'd_model': 24,  # 调整为可以被n_heads整除
-    'n_heads': 3,
-    'd_k': 8,  # d_model / n_heads = 24/3
-    'd_v': 8,
-    'd_ffn': 48,
-    'dropout': 0.1,
-    'attn_dropout': 0.1,
-    'ORT_weight': 1.0,
-    'MIT_weight': 1.0,
-    'epochs': 1000,
-    'patience': 10,
-    'batch_size': 8,
-    'lr': 0.001,
-    },
         'TEFN': {
         'n_steps': 24,
         'n_features': 1,

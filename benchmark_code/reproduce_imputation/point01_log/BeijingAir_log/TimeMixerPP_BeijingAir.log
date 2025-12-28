@@ -84,3 +84,38 @@
 2025-12-28 14:13:42 [INFO]: Epoch 005 - training loss (MAE): 0.0753, validation MSE: 1.0252
 2025-12-28 14:14:59 [INFO]: Epoch 006 - training loss (MAE): 0.0523, validation MSE: 1.0279
 2025-12-28 14:16:16 [INFO]: Epoch 007 - training loss (MAE): 0.0560, validation MSE: 1.0629
+2025-12-28 14:17:34 [INFO]: Epoch 008 - training loss (MAE): 0.0550, validation MSE: 1.0173
+2025-12-28 14:18:51 [INFO]: Epoch 009 - training loss (MAE): 0.0452, validation MSE: 1.1246
+2025-12-28 14:20:08 [INFO]: Epoch 010 - training loss (MAE): 0.0450, validation MSE: 1.0894
+2025-12-28 14:21:26 [INFO]: Epoch 011 - training loss (MAE): 0.0449, validation MSE: 1.1136
+2025-12-28 14:21:26 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2025-12-28 14:21:26 [INFO]: Finished training. The best model is from epoch#1.
+2025-12-28 14:21:26 [INFO]: Saved the model to reproduce_imputation/point01_log/BeijingAir_log/TimeMixerPP_BeijingAir/round_3/20251228_T140713/TimeMixerPP.pypots
+2025-12-28 14:21:37 [INFO]: Successfully saved to reproduce_imputation/point01_log/BeijingAir_log/TimeMixerPP_BeijingAir/round_3/imputation.pkl
+2025-12-28 14:21:37 [INFO]: Round3 - TimeMixerPP on BeijingAir: MAE=0.4875, MSE=0.6710, MRE=0.6478
+2025-12-28 14:21:37 [INFO]: Have set the random seed as 2028 for numpy and pytorch.
+2025-12-28 14:21:37 [INFO]: Using the given device: cuda:0
+2025-12-28 14:21:37 [INFO]: Model files will be saved to reproduce_imputation/point01_log/BeijingAir_log/TimeMixerPP_BeijingAir/round_4/20251228_T142137
+2025-12-28 14:21:37 [INFO]: Tensorboard file will be saved to reproduce_imputation/point01_log/BeijingAir_log/TimeMixerPP_BeijingAir/round_4/20251228_T142137/tensorboard
+2025-12-28 14:21:37 [INFO]: Using customized MAE as the training loss function.
+2025-12-28 14:21:37 [INFO]: Using customized MSE as the validation metric function.
+2025-12-28 14:21:39 [INFO]: TimeMixerPP initialized with the given hyperparameters, the number of trainable parameters: 75,313,765
+2025-12-28 14:22:57 [INFO]: Epoch 001 - training loss (MAE): 0.3185, validation MSE: 0.7111
+2025-12-28 14:24:14 [INFO]: Epoch 002 - training loss (MAE): 0.1287, validation MSE: 0.8760
+2025-12-28 14:25:31 [INFO]: Epoch 003 - training loss (MAE): 0.0955, validation MSE: 0.9398
+2025-12-28 14:26:49 [INFO]: Epoch 004 - training loss (MAE): 0.0879, validation MSE: 1.0388
+2025-12-28 14:28:06 [INFO]: Epoch 005 - training loss (MAE): 0.0697, validation MSE: 1.0306
+2025-12-28 14:29:23 [INFO]: Epoch 006 - training loss (MAE): 0.0663, validation MSE: 1.0970
+2025-12-28 14:30:40 [INFO]: Epoch 007 - training loss (MAE): 0.0576, validation MSE: 1.0672
+2025-12-28 14:31:58 [INFO]: Epoch 008 - training loss (MAE): 0.0653, validation MSE: 1.0910
+2025-12-28 14:33:15 [INFO]: Epoch 009 - training loss (MAE): 0.0540, validation MSE: 1.0861
+2025-12-28 14:34:32 [INFO]: Epoch 010 - training loss (MAE): 0.0491, validation MSE: 1.0838
+2025-12-28 14:35:50 [INFO]: Epoch 011 - training loss (MAE): 0.0470, validation MSE: 1.1215
+2025-12-28 14:35:50 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2025-12-28 14:35:50 [INFO]: Finished training. The best model is from epoch#1.
+2025-12-28 14:35:50 [INFO]: Saved the model to reproduce_imputation/point01_log/BeijingAir_log/TimeMixerPP_BeijingAir/round_4/20251228_T142137/TimeMixerPP.pypots
+2025-12-28 14:36:01 [INFO]: Successfully saved to reproduce_imputation/point01_log/BeijingAir_log/TimeMixerPP_BeijingAir/round_4/imputation.pkl
+2025-12-28 14:36:01 [INFO]: Round4 - TimeMixerPP on BeijingAir: MAE=0.5720, MSE=0.7370, MRE=0.7601
+2025-12-28 14:36:01 [INFO]: Done! Final results:
+Averaged TimeMixerPP (75,313,765 params) on BeijingAir: MAE=0.5257 ± 0.04563628667104605, MSE=0.6852 ± 0.07333659496982602, MRE=0.6986 ± 0.060645641880070364, average inference time=10.29
+  0%|          | 0/11 [00:00<?, ?it/s]100%|██████████| 11/11 [00:00<00:00, 220.30it/s]

@@ -1,0 +1,138 @@
+2025-12-28 16:09:13 [WARNING]: ‼️ `pypots.utils.metrics` is deprecated. Please import from `pypots.nn.functional` instead.
+2025-12-28 16:09:13 [INFO]: Have set the random seed as 2024 for numpy and pytorch.
+2025-12-28 16:09:13 [INFO]: Using the given device: cuda:0
+2025-12-28 16:09:13 [INFO]: Model files will be saved to reproduce_imputation/point09_log/Electricity_log/NonstationaryTransformer_Electricity/round_0/20251228_T160913
+2025-12-28 16:09:13 [INFO]: Tensorboard file will be saved to reproduce_imputation/point09_log/Electricity_log/NonstationaryTransformer_Electricity/round_0/20251228_T160913/tensorboard
+2025-12-28 16:09:13 [INFO]: Using customized MAE as the training loss function.
+2025-12-28 16:09:13 [INFO]: Using customized MSE as the validation metric function.
+2025-12-28 16:09:14 [INFO]: NonstationaryTransformer initialized with the given hyperparameters, the number of trainable parameters: 24,811,090
+2025-12-28 16:09:17 [INFO]: Epoch 001 - training loss (MAE): 1.0431, validation MSE: 1.7576
+2025-12-28 16:09:20 [INFO]: Epoch 002 - training loss (MAE): 0.8738, validation MSE: 1.4712
+2025-12-28 16:09:22 [INFO]: Epoch 003 - training loss (MAE): 0.8643, validation MSE: 1.8591
+2025-12-28 16:09:24 [INFO]: Epoch 004 - training loss (MAE): 0.8661, validation MSE: 1.7132
+2025-12-28 16:09:26 [INFO]: Epoch 005 - training loss (MAE): 0.8626, validation MSE: 1.5600
+2025-12-28 16:09:28 [INFO]: Epoch 006 - training loss (MAE): 0.8562, validation MSE: 1.5825
+2025-12-28 16:09:30 [INFO]: Epoch 007 - training loss (MAE): 0.8536, validation MSE: 1.8525
+2025-12-28 16:09:32 [INFO]: Epoch 008 - training loss (MAE): 0.8514, validation MSE: 1.5459
+2025-12-28 16:09:35 [INFO]: Epoch 009 - training loss (MAE): 0.8505, validation MSE: 1.6243
+2025-12-28 16:09:37 [INFO]: Epoch 010 - training loss (MAE): 0.8492, validation MSE: 1.6354
+2025-12-28 16:09:39 [INFO]: Epoch 011 - training loss (MAE): 0.8489, validation MSE: 1.6425
+2025-12-28 16:09:41 [INFO]: Epoch 012 - training loss (MAE): 0.8483, validation MSE: 1.4779
+2025-12-28 16:09:41 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2025-12-28 16:09:41 [INFO]: Finished training. The best model is from epoch#2.
+2025-12-28 16:09:41 [INFO]: Saved the model to reproduce_imputation/point09_log/Electricity_log/NonstationaryTransformer_Electricity/round_0/20251228_T160913/NonstationaryTransformer.pypots
+2025-12-28 16:09:42 [INFO]: Successfully saved to reproduce_imputation/point09_log/Electricity_log/NonstationaryTransformer_Electricity/round_0/imputation.pkl
+2025-12-28 16:09:42 [INFO]: Round0 - NonstationaryTransformer on Electricity: MAE=0.2338, MSE=0.2526, MRE=0.1251
+2025-12-28 16:09:42 [INFO]: Have set the random seed as 2025 for numpy and pytorch.
+2025-12-28 16:09:42 [INFO]: Using the given device: cuda:0
+2025-12-28 16:09:42 [INFO]: Model files will be saved to reproduce_imputation/point09_log/Electricity_log/NonstationaryTransformer_Electricity/round_1/20251228_T160942
+2025-12-28 16:09:42 [INFO]: Tensorboard file will be saved to reproduce_imputation/point09_log/Electricity_log/NonstationaryTransformer_Electricity/round_1/20251228_T160942/tensorboard
+2025-12-28 16:09:42 [INFO]: Using customized MAE as the training loss function.
+2025-12-28 16:09:42 [INFO]: Using customized MSE as the validation metric function.
+2025-12-28 16:09:42 [INFO]: NonstationaryTransformer initialized with the given hyperparameters, the number of trainable parameters: 24,811,090
+2025-12-28 16:09:44 [INFO]: Epoch 001 - training loss (MAE): 1.0509, validation MSE: 1.5801
+2025-12-28 16:09:46 [INFO]: Epoch 002 - training loss (MAE): 0.8548, validation MSE: 1.8555
+2025-12-28 16:09:48 [INFO]: Epoch 003 - training loss (MAE): 0.8454, validation MSE: 1.5998
+2025-12-28 16:09:50 [INFO]: Epoch 004 - training loss (MAE): 0.8466, validation MSE: 1.7761
+2025-12-28 16:09:53 [INFO]: Epoch 005 - training loss (MAE): 0.8435, validation MSE: 1.4080
+2025-12-28 16:09:55 [INFO]: Epoch 006 - training loss (MAE): 0.8409, validation MSE: 1.3589
+2025-12-28 16:09:57 [INFO]: Epoch 007 - training loss (MAE): 0.8410, validation MSE: 1.2564
+2025-12-28 16:09:59 [INFO]: Epoch 008 - training loss (MAE): 0.8409, validation MSE: 1.3826
+2025-12-28 16:10:01 [INFO]: Epoch 009 - training loss (MAE): 0.8393, validation MSE: 1.5805
+2025-12-28 16:10:03 [INFO]: Epoch 010 - training loss (MAE): 0.8364, validation MSE: 1.4407
+2025-12-28 16:10:05 [INFO]: Epoch 011 - training loss (MAE): 0.8377, validation MSE: 1.4704
+2025-12-28 16:10:07 [INFO]: Epoch 012 - training loss (MAE): 0.8369, validation MSE: 1.4500
+2025-12-28 16:10:10 [INFO]: Epoch 013 - training loss (MAE): 0.8360, validation MSE: 1.5525
+2025-12-28 16:10:12 [INFO]: Epoch 014 - training loss (MAE): 0.8355, validation MSE: 1.4792
+2025-12-28 16:10:14 [INFO]: Epoch 015 - training loss (MAE): 0.8449, validation MSE: 1.4891
+2025-12-28 16:10:16 [INFO]: Epoch 016 - training loss (MAE): 0.8468, validation MSE: 1.5295
+2025-12-28 16:10:18 [INFO]: Epoch 017 - training loss (MAE): 0.8319, validation MSE: 1.4983
+2025-12-28 16:10:18 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2025-12-28 16:10:18 [INFO]: Finished training. The best model is from epoch#7.
+2025-12-28 16:10:18 [INFO]: Saved the model to reproduce_imputation/point09_log/Electricity_log/NonstationaryTransformer_Electricity/round_1/20251228_T160942/NonstationaryTransformer.pypots
+2025-12-28 16:10:19 [INFO]: Successfully saved to reproduce_imputation/point09_log/Electricity_log/NonstationaryTransformer_Electricity/round_1/imputation.pkl
+2025-12-28 16:10:19 [INFO]: Round1 - NonstationaryTransformer on Electricity: MAE=0.2316, MSE=0.2475, MRE=0.1240
+2025-12-28 16:10:19 [INFO]: Have set the random seed as 2026 for numpy and pytorch.
+2025-12-28 16:10:19 [INFO]: Using the given device: cuda:0
+2025-12-28 16:10:19 [INFO]: Model files will be saved to reproduce_imputation/point09_log/Electricity_log/NonstationaryTransformer_Electricity/round_2/20251228_T161019
+2025-12-28 16:10:19 [INFO]: Tensorboard file will be saved to reproduce_imputation/point09_log/Electricity_log/NonstationaryTransformer_Electricity/round_2/20251228_T161019/tensorboard
+2025-12-28 16:10:19 [INFO]: Using customized MAE as the training loss function.
+2025-12-28 16:10:19 [INFO]: Using customized MSE as the validation metric function.
+2025-12-28 16:10:19 [INFO]: NonstationaryTransformer initialized with the given hyperparameters, the number of trainable parameters: 24,811,090
+2025-12-28 16:10:21 [INFO]: Epoch 001 - training loss (MAE): 0.9442, validation MSE: 1.6491
+2025-12-28 16:10:23 [INFO]: Epoch 002 - training loss (MAE): 0.7734, validation MSE: 1.5893
+2025-12-28 16:10:25 [INFO]: Epoch 003 - training loss (MAE): 0.7571, validation MSE: 1.4677
+2025-12-28 16:10:27 [INFO]: Epoch 004 - training loss (MAE): 0.7547, validation MSE: 1.6776
+2025-12-28 16:10:29 [INFO]: Epoch 005 - training loss (MAE): 0.7517, validation MSE: 1.5639
+2025-12-28 16:10:32 [INFO]: Epoch 006 - training loss (MAE): 0.7491, validation MSE: 1.2766
+2025-12-28 16:10:34 [INFO]: Epoch 007 - training loss (MAE): 0.7499, validation MSE: 1.3004
+2025-12-28 16:10:36 [INFO]: Epoch 008 - training loss (MAE): 0.7483, validation MSE: 1.4191
+2025-12-28 16:10:38 [INFO]: Epoch 009 - training loss (MAE): 0.7457, validation MSE: 1.3024
+2025-12-28 16:10:40 [INFO]: Epoch 010 - training loss (MAE): 0.7457, validation MSE: 1.3383
+2025-12-28 16:10:42 [INFO]: Epoch 011 - training loss (MAE): 0.7455, validation MSE: 1.3917
+2025-12-28 16:10:44 [INFO]: Epoch 012 - training loss (MAE): 0.7439, validation MSE: 1.4403
+2025-12-28 16:10:46 [INFO]: Epoch 013 - training loss (MAE): 0.7428, validation MSE: 1.4935
+2025-12-28 16:10:48 [INFO]: Epoch 014 - training loss (MAE): 0.7417, validation MSE: 1.4121
+2025-12-28 16:10:51 [INFO]: Epoch 015 - training loss (MAE): 0.7706, validation MSE: 1.3100
+2025-12-28 16:10:53 [INFO]: Epoch 016 - training loss (MAE): 0.7979, validation MSE: 1.5119
+2025-12-28 16:10:53 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2025-12-28 16:10:53 [INFO]: Finished training. The best model is from epoch#6.
+2025-12-28 16:10:53 [INFO]: Saved the model to reproduce_imputation/point09_log/Electricity_log/NonstationaryTransformer_Electricity/round_2/20251228_T161019/NonstationaryTransformer.pypots
+2025-12-28 16:10:53 [INFO]: Successfully saved to reproduce_imputation/point09_log/Electricity_log/NonstationaryTransformer_Electricity/round_2/imputation.pkl
+2025-12-28 16:10:53 [INFO]: Round2 - NonstationaryTransformer on Electricity: MAE=0.2131, MSE=0.2106, MRE=0.1141
+2025-12-28 16:10:53 [INFO]: Have set the random seed as 2027 for numpy and pytorch.
+2025-12-28 16:10:53 [INFO]: Using the given device: cuda:0
+2025-12-28 16:10:53 [INFO]: Model files will be saved to reproduce_imputation/point09_log/Electricity_log/NonstationaryTransformer_Electricity/round_3/20251228_T161053
+2025-12-28 16:10:53 [INFO]: Tensorboard file will be saved to reproduce_imputation/point09_log/Electricity_log/NonstationaryTransformer_Electricity/round_3/20251228_T161053/tensorboard
+2025-12-28 16:10:53 [INFO]: Using customized MAE as the training loss function.
+2025-12-28 16:10:53 [INFO]: Using customized MSE as the validation metric function.
+2025-12-28 16:10:54 [INFO]: NonstationaryTransformer initialized with the given hyperparameters, the number of trainable parameters: 24,811,090
+2025-12-28 16:10:56 [INFO]: Epoch 001 - training loss (MAE): 1.0405, validation MSE: 1.5191
+2025-12-28 16:10:58 [INFO]: Epoch 002 - training loss (MAE): 0.9235, validation MSE: 1.6689
+2025-12-28 16:11:00 [INFO]: Epoch 003 - training loss (MAE): 0.9285, validation MSE: 1.4752
+2025-12-28 16:11:02 [INFO]: Epoch 004 - training loss (MAE): 0.9792, validation MSE: 1.5856
+2025-12-28 16:11:04 [INFO]: Epoch 005 - training loss (MAE): 0.9571, validation MSE: 1.5312
+2025-12-28 16:11:06 [INFO]: Epoch 006 - training loss (MAE): 0.9457, validation MSE: 1.9958
+2025-12-28 16:11:08 [INFO]: Epoch 007 - training loss (MAE): 0.9415, validation MSE: 1.7206
+2025-12-28 16:11:11 [INFO]: Epoch 008 - training loss (MAE): 0.9404, validation MSE: 1.5761
+2025-12-28 16:11:13 [INFO]: Epoch 009 - training loss (MAE): 0.9379, validation MSE: 1.7308
+2025-12-28 16:11:15 [INFO]: Epoch 010 - training loss (MAE): 0.9390, validation MSE: 1.7107
+2025-12-28 16:11:17 [INFO]: Epoch 011 - training loss (MAE): 0.9383, validation MSE: 1.6194
+2025-12-28 16:11:19 [INFO]: Epoch 012 - training loss (MAE): 0.9381, validation MSE: 1.6606
+2025-12-28 16:11:21 [INFO]: Epoch 013 - training loss (MAE): 0.9427, validation MSE: 1.6410
+2025-12-28 16:11:21 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2025-12-28 16:11:21 [INFO]: Finished training. The best model is from epoch#3.
+2025-12-28 16:11:21 [INFO]: Saved the model to reproduce_imputation/point09_log/Electricity_log/NonstationaryTransformer_Electricity/round_3/20251228_T161053/NonstationaryTransformer.pypots
+2025-12-28 16:11:22 [INFO]: Successfully saved to reproduce_imputation/point09_log/Electricity_log/NonstationaryTransformer_Electricity/round_3/imputation.pkl
+2025-12-28 16:11:22 [INFO]: Round3 - NonstationaryTransformer on Electricity: MAE=0.3153, MSE=0.3960, MRE=0.1688
+2025-12-28 16:11:22 [INFO]: Have set the random seed as 2028 for numpy and pytorch.
+2025-12-28 16:11:22 [INFO]: Using the given device: cuda:0
+2025-12-28 16:11:22 [INFO]: Model files will be saved to reproduce_imputation/point09_log/Electricity_log/NonstationaryTransformer_Electricity/round_4/20251228_T161122
+2025-12-28 16:11:22 [INFO]: Tensorboard file will be saved to reproduce_imputation/point09_log/Electricity_log/NonstationaryTransformer_Electricity/round_4/20251228_T161122/tensorboard
+2025-12-28 16:11:22 [INFO]: Using customized MAE as the training loss function.
+2025-12-28 16:11:22 [INFO]: Using customized MSE as the validation metric function.
+2025-12-28 16:11:22 [INFO]: NonstationaryTransformer initialized with the given hyperparameters, the number of trainable parameters: 24,811,090
+2025-12-28 16:11:24 [INFO]: Epoch 001 - training loss (MAE): 1.0908, validation MSE: 2.1045
+2025-12-28 16:11:26 [INFO]: Epoch 002 - training loss (MAE): 1.0263, validation MSE: 1.7957
+2025-12-28 16:11:28 [INFO]: Epoch 003 - training loss (MAE): 1.0265, validation MSE: 1.8256
+2025-12-28 16:11:31 [INFO]: Epoch 004 - training loss (MAE): 1.0857, validation MSE: 1.5165
+2025-12-28 16:11:33 [INFO]: Epoch 005 - training loss (MAE): 0.8699, validation MSE: 1.4515
+2025-12-28 16:11:35 [INFO]: Epoch 006 - training loss (MAE): 0.8588, validation MSE: 1.3674
+2025-12-28 16:11:37 [INFO]: Epoch 007 - training loss (MAE): 0.8572, validation MSE: 1.5291
+2025-12-28 16:11:39 [INFO]: Epoch 008 - training loss (MAE): 0.8566, validation MSE: 1.5100
+2025-12-28 16:11:41 [INFO]: Epoch 009 - training loss (MAE): 0.8571, validation MSE: 1.7492
+2025-12-28 16:11:43 [INFO]: Epoch 010 - training loss (MAE): 0.8571, validation MSE: 1.5967
+2025-12-28 16:11:45 [INFO]: Epoch 011 - training loss (MAE): 0.8580, validation MSE: 1.5061
+2025-12-28 16:11:47 [INFO]: Epoch 012 - training loss (MAE): 0.8569, validation MSE: 1.5073
+2025-12-28 16:11:50 [INFO]: Epoch 013 - training loss (MAE): 0.8578, validation MSE: 1.7561
+2025-12-28 16:11:52 [INFO]: Epoch 014 - training loss (MAE): 0.8559, validation MSE: 1.7290
+2025-12-28 16:11:54 [INFO]: Epoch 015 - training loss (MAE): 0.8553, validation MSE: 1.4534
+2025-12-28 16:11:56 [INFO]: Epoch 016 - training loss (MAE): 0.8564, validation MSE: 1.5167
+2025-12-28 16:11:56 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2025-12-28 16:11:56 [INFO]: Finished training. The best model is from epoch#6.
+2025-12-28 16:11:56 [INFO]: Saved the model to reproduce_imputation/point09_log/Electricity_log/NonstationaryTransformer_Electricity/round_4/20251228_T161122/NonstationaryTransformer.pypots
+2025-12-28 16:11:56 [INFO]: Successfully saved to reproduce_imputation/point09_log/Electricity_log/NonstationaryTransformer_Electricity/round_4/imputation.pkl
+2025-12-28 16:11:56 [INFO]: Round4 - NonstationaryTransformer on Electricity: MAE=0.2340, MSE=0.2522, MRE=0.1253
+2025-12-28 16:11:56 [INFO]: Done! Final results:
+Averaged NonstationaryTransformer (24,811,090 params) on Electricity: MAE=0.2456 ± 0.03573814002175608, MSE=0.2718 ± 0.06404293638727054, MRE=0.1315 ± 0.01913259304024656, average inference time=0.18
+  0%|          | 0/11 [00:00<?, ?it/s]100%|██████████| 11/11 [00:00<00:00, 311.07it/s]

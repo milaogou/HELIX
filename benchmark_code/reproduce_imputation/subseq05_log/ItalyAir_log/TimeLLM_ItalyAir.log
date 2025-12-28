@@ -1,0 +1,126 @@
+2025-12-28 14:37:28 [WARNING]: ‼️ `pypots.utils.metrics` is deprecated. Please import from `pypots.nn.functional` instead.
+2025-12-28 14:37:28 [INFO]: Have set the random seed as 2024 for numpy and pytorch.
+2025-12-28 14:37:28 [INFO]: Using the given device: cuda:0
+2025-12-28 14:37:29 [INFO]: Model files will be saved to reproduce_imputation/subseq05_log/ItalyAir_log/TimeLLM_ItalyAir/round_0/20251228_T143728
+2025-12-28 14:37:29 [INFO]: Tensorboard file will be saved to reproduce_imputation/subseq05_log/ItalyAir_log/TimeLLM_ItalyAir/round_0/20251228_T143728/tensorboard
+2025-12-28 14:37:29 [INFO]: Using customized MAE as the training loss function.
+2025-12-28 14:37:29 [INFO]: Using customized MSE as the validation metric function.
+/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Using eos_token, but it is not set yet.
+2025-12-28 14:37:33 [INFO]: TimeLLM initialized with the given hyperparameters, the number of trainable parameters: 31,125,764
+2025-12-28 14:38:12 [INFO]: Epoch 001 - training loss (MAE): 0.8180, validation MSE: 1.4072
+2025-12-28 14:38:49 [INFO]: Epoch 002 - training loss (MAE): 0.6276, validation MSE: 1.5292
+2025-12-28 14:39:26 [INFO]: Epoch 003 - training loss (MAE): 0.6013, validation MSE: 1.5392
+2025-12-28 14:40:03 [INFO]: Epoch 004 - training loss (MAE): 0.5769, validation MSE: 1.4953
+2025-12-28 14:40:40 [INFO]: Epoch 005 - training loss (MAE): 0.5973, validation MSE: 1.5173
+2025-12-28 14:41:17 [INFO]: Epoch 006 - training loss (MAE): 0.5695, validation MSE: 1.5360
+2025-12-28 14:41:54 [INFO]: Epoch 007 - training loss (MAE): 0.5711, validation MSE: 1.5805
+2025-12-28 14:42:31 [INFO]: Epoch 008 - training loss (MAE): 0.5707, validation MSE: 1.5874
+2025-12-28 14:43:09 [INFO]: Epoch 009 - training loss (MAE): 0.5629, validation MSE: 1.5808
+2025-12-28 14:43:46 [INFO]: Epoch 010 - training loss (MAE): 0.5558, validation MSE: 1.6594
+2025-12-28 14:44:23 [INFO]: Epoch 011 - training loss (MAE): 0.5604, validation MSE: 1.6098
+2025-12-28 14:44:23 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2025-12-28 14:44:23 [INFO]: Finished training. The best model is from epoch#1.
+2025-12-28 14:44:23 [INFO]: Saved the model to reproduce_imputation/subseq05_log/ItalyAir_log/TimeLLM_ItalyAir/round_0/20251228_T143728/TimeLLM.pypots
+2025-12-28 14:44:32 [INFO]: Successfully saved to reproduce_imputation/subseq05_log/ItalyAir_log/TimeLLM_ItalyAir/round_0/imputation.pkl
+2025-12-28 14:44:32 [INFO]: Round0 - TimeLLM on ItalyAir: MAE=0.6307, MSE=1.0610, MRE=0.8126
+2025-12-28 14:44:32 [INFO]: Have set the random seed as 2025 for numpy and pytorch.
+2025-12-28 14:44:32 [INFO]: Using the given device: cuda:0
+2025-12-28 14:44:32 [INFO]: Model files will be saved to reproduce_imputation/subseq05_log/ItalyAir_log/TimeLLM_ItalyAir/round_1/20251228_T144432
+2025-12-28 14:44:32 [INFO]: Tensorboard file will be saved to reproduce_imputation/subseq05_log/ItalyAir_log/TimeLLM_ItalyAir/round_1/20251228_T144432/tensorboard
+2025-12-28 14:44:32 [INFO]: Using customized MAE as the training loss function.
+2025-12-28 14:44:32 [INFO]: Using customized MSE as the validation metric function.
+Using eos_token, but it is not set yet.
+2025-12-28 14:44:36 [INFO]: TimeLLM initialized with the given hyperparameters, the number of trainable parameters: 31,125,764
+2025-12-28 14:45:13 [INFO]: Epoch 001 - training loss (MAE): 0.8112, validation MSE: 1.3684
+2025-12-28 14:45:50 [INFO]: Epoch 002 - training loss (MAE): 0.6391, validation MSE: 1.5464
+2025-12-28 14:46:27 [INFO]: Epoch 003 - training loss (MAE): 0.5883, validation MSE: 1.5747
+2025-12-28 14:47:05 [INFO]: Epoch 004 - training loss (MAE): 0.5964, validation MSE: 1.6313
+2025-12-28 14:47:42 [INFO]: Epoch 005 - training loss (MAE): 0.5722, validation MSE: 1.5507
+2025-12-28 14:48:19 [INFO]: Epoch 006 - training loss (MAE): 0.5783, validation MSE: 1.6317
+2025-12-28 14:48:57 [INFO]: Epoch 007 - training loss (MAE): 0.5697, validation MSE: 1.5871
+2025-12-28 14:49:34 [INFO]: Epoch 008 - training loss (MAE): 0.5665, validation MSE: 1.5312
+2025-12-28 14:50:11 [INFO]: Epoch 009 - training loss (MAE): 0.5675, validation MSE: 1.5906
+2025-12-28 14:50:49 [INFO]: Epoch 010 - training loss (MAE): 0.5611, validation MSE: 1.6623
+2025-12-28 14:51:26 [INFO]: Epoch 011 - training loss (MAE): 0.5665, validation MSE: 1.6311
+2025-12-28 14:51:26 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2025-12-28 14:51:26 [INFO]: Finished training. The best model is from epoch#1.
+2025-12-28 14:51:26 [INFO]: Saved the model to reproduce_imputation/subseq05_log/ItalyAir_log/TimeLLM_ItalyAir/round_1/20251228_T144432/TimeLLM.pypots
+2025-12-28 14:51:35 [INFO]: Successfully saved to reproduce_imputation/subseq05_log/ItalyAir_log/TimeLLM_ItalyAir/round_1/imputation.pkl
+2025-12-28 14:51:35 [INFO]: Round1 - TimeLLM on ItalyAir: MAE=0.6210, MSE=0.9980, MRE=0.8000
+2025-12-28 14:51:35 [INFO]: Have set the random seed as 2026 for numpy and pytorch.
+2025-12-28 14:51:35 [INFO]: Using the given device: cuda:0
+2025-12-28 14:51:35 [INFO]: Model files will be saved to reproduce_imputation/subseq05_log/ItalyAir_log/TimeLLM_ItalyAir/round_2/20251228_T145135
+2025-12-28 14:51:35 [INFO]: Tensorboard file will be saved to reproduce_imputation/subseq05_log/ItalyAir_log/TimeLLM_ItalyAir/round_2/20251228_T145135/tensorboard
+2025-12-28 14:51:35 [INFO]: Using customized MAE as the training loss function.
+2025-12-28 14:51:35 [INFO]: Using customized MSE as the validation metric function.
+Using eos_token, but it is not set yet.
+2025-12-28 14:51:38 [INFO]: TimeLLM initialized with the given hyperparameters, the number of trainable parameters: 31,125,764
+2025-12-28 14:52:15 [INFO]: Epoch 001 - training loss (MAE): 0.7858, validation MSE: 1.4283
+2025-12-28 14:52:52 [INFO]: Epoch 002 - training loss (MAE): 0.6073, validation MSE: 1.4638
+2025-12-28 14:53:30 [INFO]: Epoch 003 - training loss (MAE): 0.6004, validation MSE: 1.4507
+2025-12-28 14:54:07 [INFO]: Epoch 004 - training loss (MAE): 0.5842, validation MSE: 1.5215
+2025-12-28 14:54:44 [INFO]: Epoch 005 - training loss (MAE): 0.5857, validation MSE: 1.5661
+2025-12-28 14:55:21 [INFO]: Epoch 006 - training loss (MAE): 0.5758, validation MSE: 1.5322
+2025-12-28 14:55:58 [INFO]: Epoch 007 - training loss (MAE): 0.5682, validation MSE: 1.5700
+2025-12-28 14:56:36 [INFO]: Epoch 008 - training loss (MAE): 0.5751, validation MSE: 1.5504
+2025-12-28 14:57:13 [INFO]: Epoch 009 - training loss (MAE): 0.5635, validation MSE: 1.6002
+2025-12-28 14:57:50 [INFO]: Epoch 010 - training loss (MAE): 0.5596, validation MSE: 1.5901
+2025-12-28 14:58:27 [INFO]: Epoch 011 - training loss (MAE): 0.5619, validation MSE: 1.5841
+2025-12-28 14:58:27 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2025-12-28 14:58:27 [INFO]: Finished training. The best model is from epoch#1.
+2025-12-28 14:58:27 [INFO]: Saved the model to reproduce_imputation/subseq05_log/ItalyAir_log/TimeLLM_ItalyAir/round_2/20251228_T145135/TimeLLM.pypots
+2025-12-28 14:58:36 [INFO]: Successfully saved to reproduce_imputation/subseq05_log/ItalyAir_log/TimeLLM_ItalyAir/round_2/imputation.pkl
+2025-12-28 14:58:36 [INFO]: Round2 - TimeLLM on ItalyAir: MAE=0.6262, MSE=1.0406, MRE=0.8067
+2025-12-28 14:58:36 [INFO]: Have set the random seed as 2027 for numpy and pytorch.
+2025-12-28 14:58:36 [INFO]: Using the given device: cuda:0
+2025-12-28 14:58:36 [INFO]: Model files will be saved to reproduce_imputation/subseq05_log/ItalyAir_log/TimeLLM_ItalyAir/round_3/20251228_T145836
+2025-12-28 14:58:36 [INFO]: Tensorboard file will be saved to reproduce_imputation/subseq05_log/ItalyAir_log/TimeLLM_ItalyAir/round_3/20251228_T145836/tensorboard
+2025-12-28 14:58:36 [INFO]: Using customized MAE as the training loss function.
+2025-12-28 14:58:36 [INFO]: Using customized MSE as the validation metric function.
+Using eos_token, but it is not set yet.
+2025-12-28 14:58:45 [INFO]: TimeLLM initialized with the given hyperparameters, the number of trainable parameters: 31,125,764
+2025-12-28 14:59:22 [INFO]: Epoch 001 - training loss (MAE): 0.7905, validation MSE: 1.3556
+2025-12-28 15:00:00 [INFO]: Epoch 002 - training loss (MAE): 0.6177, validation MSE: 1.5071
+2025-12-28 15:00:37 [INFO]: Epoch 003 - training loss (MAE): 0.5851, validation MSE: 1.5525
+2025-12-28 15:01:14 [INFO]: Epoch 004 - training loss (MAE): 0.5850, validation MSE: 1.5502
+2025-12-28 15:01:51 [INFO]: Epoch 005 - training loss (MAE): 0.5881, validation MSE: 1.5311
+2025-12-28 15:02:29 [INFO]: Epoch 006 - training loss (MAE): 0.5757, validation MSE: 1.5298
+2025-12-28 15:03:06 [INFO]: Epoch 007 - training loss (MAE): 0.5631, validation MSE: 1.5042
+2025-12-28 15:03:43 [INFO]: Epoch 008 - training loss (MAE): 0.5682, validation MSE: 1.5629
+2025-12-28 15:04:21 [INFO]: Epoch 009 - training loss (MAE): 0.5625, validation MSE: 1.5769
+2025-12-28 15:04:58 [INFO]: Epoch 010 - training loss (MAE): 0.5613, validation MSE: 1.5258
+2025-12-28 15:05:35 [INFO]: Epoch 011 - training loss (MAE): 0.5569, validation MSE: 1.5390
+2025-12-28 15:05:35 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2025-12-28 15:05:35 [INFO]: Finished training. The best model is from epoch#1.
+2025-12-28 15:05:35 [INFO]: Saved the model to reproduce_imputation/subseq05_log/ItalyAir_log/TimeLLM_ItalyAir/round_3/20251228_T145836/TimeLLM.pypots
+2025-12-28 15:05:44 [INFO]: Successfully saved to reproduce_imputation/subseq05_log/ItalyAir_log/TimeLLM_ItalyAir/round_3/imputation.pkl
+2025-12-28 15:05:44 [INFO]: Round3 - TimeLLM on ItalyAir: MAE=0.6208, MSE=1.0001, MRE=0.7997
+2025-12-28 15:05:44 [INFO]: Have set the random seed as 2028 for numpy and pytorch.
+2025-12-28 15:05:44 [INFO]: Using the given device: cuda:0
+2025-12-28 15:05:44 [INFO]: Model files will be saved to reproduce_imputation/subseq05_log/ItalyAir_log/TimeLLM_ItalyAir/round_4/20251228_T150544
+2025-12-28 15:05:44 [INFO]: Tensorboard file will be saved to reproduce_imputation/subseq05_log/ItalyAir_log/TimeLLM_ItalyAir/round_4/20251228_T150544/tensorboard
+2025-12-28 15:05:44 [INFO]: Using customized MAE as the training loss function.
+2025-12-28 15:05:44 [INFO]: Using customized MSE as the validation metric function.
+Using eos_token, but it is not set yet.
+2025-12-28 15:05:47 [INFO]: TimeLLM initialized with the given hyperparameters, the number of trainable parameters: 31,125,764
+2025-12-28 15:06:24 [INFO]: Epoch 001 - training loss (MAE): 0.7615, validation MSE: 1.4142
+2025-12-28 15:07:02 [INFO]: Epoch 002 - training loss (MAE): 0.6082, validation MSE: 1.4918
+2025-12-28 15:07:39 [INFO]: Epoch 003 - training loss (MAE): 0.5903, validation MSE: 1.4996
+2025-12-28 15:08:16 [INFO]: Epoch 004 - training loss (MAE): 0.5882, validation MSE: 1.5228
+2025-12-28 15:08:53 [INFO]: Epoch 005 - training loss (MAE): 0.5780, validation MSE: 1.5251
+2025-12-28 15:09:31 [INFO]: Epoch 006 - training loss (MAE): 0.5793, validation MSE: 1.5681
+2025-12-28 15:10:08 [INFO]: Epoch 007 - training loss (MAE): 0.5647, validation MSE: 1.5735
+2025-12-28 15:10:45 [INFO]: Epoch 008 - training loss (MAE): 0.5673, validation MSE: 1.5558
+2025-12-28 15:11:22 [INFO]: Epoch 009 - training loss (MAE): 0.5697, validation MSE: 1.5580
+2025-12-28 15:12:00 [INFO]: Epoch 010 - training loss (MAE): 0.5715, validation MSE: 1.5827
+2025-12-28 15:12:37 [INFO]: Epoch 011 - training loss (MAE): 0.5627, validation MSE: 1.5677
+2025-12-28 15:12:37 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2025-12-28 15:12:37 [INFO]: Finished training. The best model is from epoch#1.
+2025-12-28 15:12:37 [INFO]: Saved the model to reproduce_imputation/subseq05_log/ItalyAir_log/TimeLLM_ItalyAir/round_4/20251228_T150544/TimeLLM.pypots
+2025-12-28 15:12:46 [INFO]: Successfully saved to reproduce_imputation/subseq05_log/ItalyAir_log/TimeLLM_ItalyAir/round_4/imputation.pkl
+2025-12-28 15:12:46 [INFO]: Round4 - TimeLLM on ItalyAir: MAE=0.6290, MSE=1.0381, MRE=0.8103
+2025-12-28 15:12:46 [INFO]: Done! Final results:
+Averaged TimeLLM (31,125,764 params) on ItalyAir: MAE=0.6255 ± 0.004065353726019041, MSE=1.0276 ± 0.024611995063116305, MRE=0.8059 ± 0.005237336515520023, average inference time=8.96
+  0%|          | 0/11 [00:00<?, ?it/s]100%|██████████| 11/11 [00:00<00:00, 285.24it/s]

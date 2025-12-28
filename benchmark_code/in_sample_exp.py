@@ -4,12 +4,35 @@ import os
 import time
 import subprocess
 
+
+SKIP_COMBINATIONS = {
+    # Pedestrian单变量数据集 - 跳过所有新模型
+    ('Pedestrian', 'TEFN'),
+    ('Pedestrian', 'TimeMixerPP'),
+    ('Pedestrian', 'TimeLLM'),
+    ('Pedestrian', 'MOMENT'),
+    ('Pedestrian', 'TimeMixer'),
+    ('Pedestrian', 'ModernTCN'),
+    ('Pedestrian', 'ImputeFormer'),
+    ('Pedestrian', 'TOTEM'),
+    # ItalyAir序列太短
+    ('ItalyAir', 'MOMENT'),
+    # PeMS特征太多(862) - TimeLLM/MOMENT/TimeMixerPP处理不了
+    ('PeMS', 'MOMENT'),
+    ('PeMS', 'TimeLLM'),
+    ('PeMS', 'TimeMixerPP'),
+    # Electricity特征太多(370) - TimeLLM/MOMENT/TimeMixerPP处理不了
+    ('Electricity', 'MOMENT'),
+    ('Electricity', 'TimeLLM'),
+    ('Electricity', 'TimeMixerPP'),
+}
+
 DATASET_NAME_MAP = {
     'beijing_air_quality': 'BeijingAir',
     'electricity_load_diagrams': 'Electricity',
     'ett': 'ETT_h1',
     'italy_air_quality': 'ItalyAir',
-    'melbourne_pedestrian': 'Pedestrian',
+    # 'melbourne_pedestrian': 'Pedestrian',
     'pems_traffic': 'PeMS',
     'physionet_2012': 'PhysioNet2012',
     'physionet_2019': 'PhysioNet2019',
@@ -19,50 +42,52 @@ DATA_BASE_PATH = "data/generated_datasets"
 OUTPUT_BASE_PATH = "reproduce_imputation"
 BASE_DIR = "/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code"
 
-# 新增模型列表
-NEW_MODELS = [
-    'TEFN',
-    'TimeMixerPP',
-    'TimeLLM',
-    'MOMENT',
-    'TimeMixer',
-    'ModernTCN',
-    'ImputeFormer',
-    'TOTEM',
+# 模型列表
+MODELS = [
+    # 'TEFN',
+    # 'TimeMixerPP',
+    # 'TimeLLM',
+    # 'MOMENT',
+    # 'TimeMixer',
+    # 'ModernTCN',
+    # 'ImputeFormer',
+    # 'TOTEM',
+    # 'iTransformer',
+    # 'SAITS',
+    # 'FreTS',
+    # 'NonstationaryTransformer',
+    'PatchTST',
+    
+    
 ]
 
 dataset_folders = [
-    # 'beijing_air_quality_rate00_step24_block_blocklen6',
-    # 'beijing_air_quality_rate01_step24_point',
-    # 'beijing_air_quality_rate05_step24_point',
-    # 'beijing_air_quality_rate05_step24_subseq_seqlen18',
-    # 'beijing_air_quality_rate09_step24_point',
-    # 'electricity_load_diagrams_rate00_step96_block_blocklen8',
-    # 'electricity_load_diagrams_rate01_step96_point',
-    # 'electricity_load_diagrams_rate05_step96_point',
-    # 'electricity_load_diagrams_rate05_step96_subseq_seqlen72',
-    # 'electricity_load_diagrams_rate09_step96_point',
-    # 'ett_rate01_step48_point',
-    # 'ett_rate03_step48_block_blocklen6',
+    'beijing_air_quality_rate00_step24_block_blocklen6',
+    'beijing_air_quality_rate01_step24_point',
+    'beijing_air_quality_rate05_step24_point',
+    'beijing_air_quality_rate05_step24_subseq_seqlen18',
+    'beijing_air_quality_rate09_step24_point',
+    'electricity_load_diagrams_rate00_step96_block_blocklen8',
+    'electricity_load_diagrams_rate01_step96_point',
+    'electricity_load_diagrams_rate05_step96_point',
+    'electricity_load_diagrams_rate05_step96_subseq_seqlen72',
+    'electricity_load_diagrams_rate09_step96_point',
+    'ett_rate01_step48_point',
+    'ett_rate03_step48_block_blocklen6',
     'ett_rate05_step48_point',
     'ett_rate05_step48_subseq_seqlen36',
     'ett_rate09_step48_point',
-    # 'italy_air_quality_rate00_step12_block_blocklen4',
-    # 'italy_air_quality_rate01_step12_point',
-    # 'italy_air_quality_rate05_step12_point',
-    # 'italy_air_quality_rate05_step12_subseq_seqlen8',
-    # 'italy_air_quality_rate09_step12_point',
-    # 'melbourne_pedestrian_rate01_step24_point',
-    # 'melbourne_pedestrian_rate05_step24_point',
-    # 'melbourne_pedestrian_rate05_step24_subseq_seqlen18',
-    # 'melbourne_pedestrian_rate09_step24_point',
-    # 'pems_traffic_rate00_step24_block_blocklen6',
-    # 'pems_traffic_rate01_step24_point',
-    # 'pems_traffic_rate05_step24_point',
-    # 'pems_traffic_rate05_step24_subseq_seqlen18',
-    # 'pems_traffic_rate09_step24_point',
-    # 'physionet_2012_rate01_point',
-    # 'physionet_2019_rate01_point',
+    'italy_air_quality_rate00_step12_block_blocklen4',
+    'italy_air_quality_rate01_step12_point',
+    'italy_air_quality_rate05_step12_point',
+    'italy_air_quality_rate05_step12_subseq_seqlen8',
+    'italy_air_quality_rate09_step12_point',
+    'pems_traffic_rate00_step24_block_blocklen6',
+    'pems_traffic_rate01_step24_point',
+    'pems_traffic_rate05_step24_point',
+    'pems_traffic_rate05_step24_subseq_seqlen18',
+    'pems_traffic_rate09_step24_point',
+    'physionet_2012_rate01_point',
 ]
 
 def parse_dataset_info(folder_name):
@@ -110,11 +135,11 @@ python -u train_model.py --model {model_name} --dataset {dataset_name} --dataset
     return script_content, dataset_log_dir
 
 submitted_count = 0
-total_tasks = len(NEW_MODELS) * len(dataset_folders)
+total_tasks = len(MODELS) * len(dataset_folders)
 
-print(f"准备提交 {len(NEW_MODELS)} 个新模型 × {len(dataset_folders)} 个数据集 = {total_tasks} 个任务\n")
+print(f"准备提交 {len(MODELS)} 个新模型 × {len(dataset_folders)} 个数据集 = {total_tasks} 个任务\n")
 
-for model_name in NEW_MODELS:
+for model_name in MODELS:
     for folder_name in dataset_folders:
         result = parse_dataset_info(folder_name)
         if result is None:

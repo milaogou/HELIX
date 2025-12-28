@@ -1,0 +1,139 @@
+2025-12-28 14:18:00 [WARNING]: ‼️ `pypots.utils.metrics` is deprecated. Please import from `pypots.nn.functional` instead.
+2025-12-28 14:18:00 [INFO]: Have set the random seed as 2024 for numpy and pytorch.
+2025-12-28 14:18:00 [INFO]: Using the given device: cuda:0
+2025-12-28 14:18:01 [INFO]: Model files will be saved to reproduce_imputation/block03_log/ETT_h1_log/TimeLLM_ETT_h1/round_0/20251228_T141801
+2025-12-28 14:18:01 [INFO]: Tensorboard file will be saved to reproduce_imputation/block03_log/ETT_h1_log/TimeLLM_ETT_h1/round_0/20251228_T141801/tensorboard
+2025-12-28 14:18:01 [INFO]: Using customized MAE as the training loss function.
+2025-12-28 14:18:01 [INFO]: Using customized MSE as the validation metric function.
+/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Using eos_token, but it is not set yet.
+2025-12-28 14:18:04 [INFO]: TimeLLM initialized with the given hyperparameters, the number of trainable parameters: 31,138,344
+2025-12-28 14:18:19 [INFO]: Epoch 001 - training loss (MAE): 1.0932, validation MSE: 0.6302
+2025-12-28 14:18:34 [INFO]: Epoch 002 - training loss (MAE): 1.0116, validation MSE: 0.5940
+2025-12-28 14:18:49 [INFO]: Epoch 003 - training loss (MAE): 0.9237, validation MSE: 0.5770
+2025-12-28 14:19:03 [INFO]: Epoch 004 - training loss (MAE): 0.8502, validation MSE: 0.5698
+2025-12-28 14:19:18 [INFO]: Epoch 005 - training loss (MAE): 0.7998, validation MSE: 0.5883
+2025-12-28 14:19:32 [INFO]: Epoch 006 - training loss (MAE): 0.7553, validation MSE: 0.5902
+2025-12-28 14:19:47 [INFO]: Epoch 007 - training loss (MAE): 0.7260, validation MSE: 0.6051
+2025-12-28 14:20:02 [INFO]: Epoch 008 - training loss (MAE): 0.7120, validation MSE: 0.6109
+2025-12-28 14:20:17 [INFO]: Epoch 009 - training loss (MAE): 0.6855, validation MSE: 0.6140
+2025-12-28 14:20:31 [INFO]: Epoch 010 - training loss (MAE): 0.6839, validation MSE: 0.6215
+2025-12-28 14:20:46 [INFO]: Epoch 011 - training loss (MAE): 0.6744, validation MSE: 0.6518
+2025-12-28 14:21:01 [INFO]: Epoch 012 - training loss (MAE): 0.6798, validation MSE: 0.6400
+2025-12-28 14:21:16 [INFO]: Epoch 013 - training loss (MAE): 0.6699, validation MSE: 0.6383
+2025-12-28 14:21:30 [INFO]: Epoch 014 - training loss (MAE): 0.6656, validation MSE: 0.6434
+2025-12-28 14:21:30 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2025-12-28 14:21:30 [INFO]: Finished training. The best model is from epoch#4.
+2025-12-28 14:21:31 [INFO]: Saved the model to reproduce_imputation/block03_log/ETT_h1_log/TimeLLM_ETT_h1/round_0/20251228_T141801/TimeLLM.pypots
+2025-12-28 14:21:34 [INFO]: Successfully saved to reproduce_imputation/block03_log/ETT_h1_log/TimeLLM_ETT_h1/round_0/imputation.pkl
+2025-12-28 14:21:34 [INFO]: Round0 - TimeLLM on ETT_h1: MAE=0.6037, MSE=0.6612, MRE=0.7458
+2025-12-28 14:21:34 [INFO]: Have set the random seed as 2025 for numpy and pytorch.
+2025-12-28 14:21:34 [INFO]: Using the given device: cuda:0
+2025-12-28 14:21:34 [INFO]: Model files will be saved to reproduce_imputation/block03_log/ETT_h1_log/TimeLLM_ETT_h1/round_1/20251228_T142134
+2025-12-28 14:21:34 [INFO]: Tensorboard file will be saved to reproduce_imputation/block03_log/ETT_h1_log/TimeLLM_ETT_h1/round_1/20251228_T142134/tensorboard
+2025-12-28 14:21:34 [INFO]: Using customized MAE as the training loss function.
+2025-12-28 14:21:34 [INFO]: Using customized MSE as the validation metric function.
+Using eos_token, but it is not set yet.
+2025-12-28 14:21:36 [INFO]: TimeLLM initialized with the given hyperparameters, the number of trainable parameters: 31,138,344
+2025-12-28 14:21:51 [INFO]: Epoch 001 - training loss (MAE): 1.1011, validation MSE: 0.6374
+2025-12-28 14:22:06 [INFO]: Epoch 002 - training loss (MAE): 1.0387, validation MSE: 0.6309
+2025-12-28 14:22:20 [INFO]: Epoch 003 - training loss (MAE): 0.9386, validation MSE: 0.5961
+2025-12-28 14:22:35 [INFO]: Epoch 004 - training loss (MAE): 0.8448, validation MSE: 0.5850
+2025-12-28 14:22:50 [INFO]: Epoch 005 - training loss (MAE): 0.7962, validation MSE: 0.6008
+2025-12-28 14:23:04 [INFO]: Epoch 006 - training loss (MAE): 0.7583, validation MSE: 0.5987
+2025-12-28 14:23:19 [INFO]: Epoch 007 - training loss (MAE): 0.7203, validation MSE: 0.6173
+2025-12-28 14:23:33 [INFO]: Epoch 008 - training loss (MAE): 0.7242, validation MSE: 0.6107
+2025-12-28 14:23:48 [INFO]: Epoch 009 - training loss (MAE): 0.7027, validation MSE: 0.6280
+2025-12-28 14:24:03 [INFO]: Epoch 010 - training loss (MAE): 0.6943, validation MSE: 0.6321
+2025-12-28 14:24:17 [INFO]: Epoch 011 - training loss (MAE): 0.6755, validation MSE: 0.6251
+2025-12-28 14:24:32 [INFO]: Epoch 012 - training loss (MAE): 0.6825, validation MSE: 0.6490
+2025-12-28 14:24:47 [INFO]: Epoch 013 - training loss (MAE): 0.6669, validation MSE: 0.6497
+2025-12-28 14:25:01 [INFO]: Epoch 014 - training loss (MAE): 0.6657, validation MSE: 0.6642
+2025-12-28 14:25:01 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2025-12-28 14:25:01 [INFO]: Finished training. The best model is from epoch#4.
+2025-12-28 14:25:01 [INFO]: Saved the model to reproduce_imputation/block03_log/ETT_h1_log/TimeLLM_ETT_h1/round_1/20251228_T142134/TimeLLM.pypots
+2025-12-28 14:25:05 [INFO]: Successfully saved to reproduce_imputation/block03_log/ETT_h1_log/TimeLLM_ETT_h1/round_1/imputation.pkl
+2025-12-28 14:25:05 [INFO]: Round1 - TimeLLM on ETT_h1: MAE=0.6100, MSE=0.6756, MRE=0.7537
+2025-12-28 14:25:05 [INFO]: Have set the random seed as 2026 for numpy and pytorch.
+2025-12-28 14:25:05 [INFO]: Using the given device: cuda:0
+2025-12-28 14:25:05 [INFO]: Model files will be saved to reproduce_imputation/block03_log/ETT_h1_log/TimeLLM_ETT_h1/round_2/20251228_T142505
+2025-12-28 14:25:05 [INFO]: Tensorboard file will be saved to reproduce_imputation/block03_log/ETT_h1_log/TimeLLM_ETT_h1/round_2/20251228_T142505/tensorboard
+2025-12-28 14:25:05 [INFO]: Using customized MAE as the training loss function.
+2025-12-28 14:25:05 [INFO]: Using customized MSE as the validation metric function.
+Using eos_token, but it is not set yet.
+2025-12-28 14:25:08 [INFO]: TimeLLM initialized with the given hyperparameters, the number of trainable parameters: 31,138,344
+2025-12-28 14:25:22 [INFO]: Epoch 001 - training loss (MAE): 1.0946, validation MSE: 0.6208
+2025-12-28 14:25:37 [INFO]: Epoch 002 - training loss (MAE): 0.9700, validation MSE: 0.5951
+2025-12-28 14:25:51 [INFO]: Epoch 003 - training loss (MAE): 0.8840, validation MSE: 0.5861
+2025-12-28 14:26:06 [INFO]: Epoch 004 - training loss (MAE): 0.8054, validation MSE: 0.5909
+2025-12-28 14:26:20 [INFO]: Epoch 005 - training loss (MAE): 0.7733, validation MSE: 0.5990
+2025-12-28 14:26:35 [INFO]: Epoch 006 - training loss (MAE): 0.7405, validation MSE: 0.6001
+2025-12-28 14:26:49 [INFO]: Epoch 007 - training loss (MAE): 0.7108, validation MSE: 0.6105
+2025-12-28 14:27:04 [INFO]: Epoch 008 - training loss (MAE): 0.7142, validation MSE: 0.6087
+2025-12-28 14:27:19 [INFO]: Epoch 009 - training loss (MAE): 0.6919, validation MSE: 0.6191
+2025-12-28 14:27:33 [INFO]: Epoch 010 - training loss (MAE): 0.6807, validation MSE: 0.6268
+2025-12-28 14:27:48 [INFO]: Epoch 011 - training loss (MAE): 0.6827, validation MSE: 0.6484
+2025-12-28 14:28:03 [INFO]: Epoch 012 - training loss (MAE): 0.6699, validation MSE: 0.6426
+2025-12-28 14:28:18 [INFO]: Epoch 013 - training loss (MAE): 0.6705, validation MSE: 0.6498
+2025-12-28 14:28:18 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2025-12-28 14:28:18 [INFO]: Finished training. The best model is from epoch#3.
+2025-12-28 14:28:18 [INFO]: Saved the model to reproduce_imputation/block03_log/ETT_h1_log/TimeLLM_ETT_h1/round_2/20251228_T142505/TimeLLM.pypots
+2025-12-28 14:28:22 [INFO]: Successfully saved to reproduce_imputation/block03_log/ETT_h1_log/TimeLLM_ETT_h1/round_2/imputation.pkl
+2025-12-28 14:28:22 [INFO]: Round2 - TimeLLM on ETT_h1: MAE=0.6124, MSE=0.6743, MRE=0.7567
+2025-12-28 14:28:22 [INFO]: Have set the random seed as 2027 for numpy and pytorch.
+2025-12-28 14:28:22 [INFO]: Using the given device: cuda:0
+2025-12-28 14:28:22 [INFO]: Model files will be saved to reproduce_imputation/block03_log/ETT_h1_log/TimeLLM_ETT_h1/round_3/20251228_T142822
+2025-12-28 14:28:22 [INFO]: Tensorboard file will be saved to reproduce_imputation/block03_log/ETT_h1_log/TimeLLM_ETT_h1/round_3/20251228_T142822/tensorboard
+2025-12-28 14:28:22 [INFO]: Using customized MAE as the training loss function.
+2025-12-28 14:28:22 [INFO]: Using customized MSE as the validation metric function.
+Using eos_token, but it is not set yet.
+2025-12-28 14:28:24 [INFO]: TimeLLM initialized with the given hyperparameters, the number of trainable parameters: 31,138,344
+2025-12-28 14:28:39 [INFO]: Epoch 001 - training loss (MAE): 1.0631, validation MSE: 0.5968
+2025-12-28 14:28:53 [INFO]: Epoch 002 - training loss (MAE): 0.9730, validation MSE: 0.5969
+2025-12-28 14:29:08 [INFO]: Epoch 003 - training loss (MAE): 0.8868, validation MSE: 0.5993
+2025-12-28 14:29:23 [INFO]: Epoch 004 - training loss (MAE): 0.8276, validation MSE: 0.5943
+2025-12-28 14:29:37 [INFO]: Epoch 005 - training loss (MAE): 0.7717, validation MSE: 0.6011
+2025-12-28 14:29:52 [INFO]: Epoch 006 - training loss (MAE): 0.7385, validation MSE: 0.6035
+2025-12-28 14:30:07 [INFO]: Epoch 007 - training loss (MAE): 0.7260, validation MSE: 0.6136
+2025-12-28 14:30:21 [INFO]: Epoch 008 - training loss (MAE): 0.7208, validation MSE: 0.6228
+2025-12-28 14:30:36 [INFO]: Epoch 009 - training loss (MAE): 0.6914, validation MSE: 0.6343
+2025-12-28 14:30:51 [INFO]: Epoch 010 - training loss (MAE): 0.6953, validation MSE: 0.6325
+2025-12-28 14:31:05 [INFO]: Epoch 011 - training loss (MAE): 0.6794, validation MSE: 0.6468
+2025-12-28 14:31:20 [INFO]: Epoch 012 - training loss (MAE): 0.6875, validation MSE: 0.6321
+2025-12-28 14:31:35 [INFO]: Epoch 013 - training loss (MAE): 0.6710, validation MSE: 0.6379
+2025-12-28 14:31:49 [INFO]: Epoch 014 - training loss (MAE): 0.6688, validation MSE: 0.6595
+2025-12-28 14:31:49 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2025-12-28 14:31:49 [INFO]: Finished training. The best model is from epoch#4.
+2025-12-28 14:31:50 [INFO]: Saved the model to reproduce_imputation/block03_log/ETT_h1_log/TimeLLM_ETT_h1/round_3/20251228_T142822/TimeLLM.pypots
+2025-12-28 14:31:53 [INFO]: Successfully saved to reproduce_imputation/block03_log/ETT_h1_log/TimeLLM_ETT_h1/round_3/imputation.pkl
+2025-12-28 14:31:53 [INFO]: Round3 - TimeLLM on ETT_h1: MAE=0.6154, MSE=0.6991, MRE=0.7603
+2025-12-28 14:31:53 [INFO]: Have set the random seed as 2028 for numpy and pytorch.
+2025-12-28 14:31:53 [INFO]: Using the given device: cuda:0
+2025-12-28 14:31:53 [INFO]: Model files will be saved to reproduce_imputation/block03_log/ETT_h1_log/TimeLLM_ETT_h1/round_4/20251228_T143153
+2025-12-28 14:31:53 [INFO]: Tensorboard file will be saved to reproduce_imputation/block03_log/ETT_h1_log/TimeLLM_ETT_h1/round_4/20251228_T143153/tensorboard
+2025-12-28 14:31:53 [INFO]: Using customized MAE as the training loss function.
+2025-12-28 14:31:53 [INFO]: Using customized MSE as the validation metric function.
+Using eos_token, but it is not set yet.
+2025-12-28 14:31:55 [INFO]: TimeLLM initialized with the given hyperparameters, the number of trainable parameters: 31,138,344
+2025-12-28 14:32:10 [INFO]: Epoch 001 - training loss (MAE): 1.0891, validation MSE: 0.6265
+2025-12-28 14:32:25 [INFO]: Epoch 002 - training loss (MAE): 1.0008, validation MSE: 0.6008
+2025-12-28 14:32:39 [INFO]: Epoch 003 - training loss (MAE): 0.9166, validation MSE: 0.5917
+2025-12-28 14:32:54 [INFO]: Epoch 004 - training loss (MAE): 0.8504, validation MSE: 0.5935
+2025-12-28 14:33:09 [INFO]: Epoch 005 - training loss (MAE): 0.7983, validation MSE: 0.6126
+2025-12-28 14:33:23 [INFO]: Epoch 006 - training loss (MAE): 0.7649, validation MSE: 0.6117
+2025-12-28 14:33:38 [INFO]: Epoch 007 - training loss (MAE): 0.7435, validation MSE: 0.6345
+2025-12-28 14:33:53 [INFO]: Epoch 008 - training loss (MAE): 0.7276, validation MSE: 0.6177
+2025-12-28 14:34:08 [INFO]: Epoch 009 - training loss (MAE): 0.7114, validation MSE: 0.6227
+2025-12-28 14:34:22 [INFO]: Epoch 010 - training loss (MAE): 0.6898, validation MSE: 0.6345
+2025-12-28 14:34:37 [INFO]: Epoch 011 - training loss (MAE): 0.6911, validation MSE: 0.6465
+2025-12-28 14:34:52 [INFO]: Epoch 012 - training loss (MAE): 0.6838, validation MSE: 0.6643
+2025-12-28 14:35:07 [INFO]: Epoch 013 - training loss (MAE): 0.6827, validation MSE: 0.6436
+2025-12-28 14:35:07 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2025-12-28 14:35:07 [INFO]: Finished training. The best model is from epoch#3.
+2025-12-28 14:35:07 [INFO]: Saved the model to reproduce_imputation/block03_log/ETT_h1_log/TimeLLM_ETT_h1/round_4/20251228_T143153/TimeLLM.pypots
+2025-12-28 14:35:11 [INFO]: Successfully saved to reproduce_imputation/block03_log/ETT_h1_log/TimeLLM_ETT_h1/round_4/imputation.pkl
+2025-12-28 14:35:11 [INFO]: Round4 - TimeLLM on ETT_h1: MAE=0.6215, MSE=0.7045, MRE=0.7678
+2025-12-28 14:35:11 [INFO]: Done! Final results:
+Averaged TimeLLM (31,138,344 params) on ETT_h1: MAE=0.6126 ± 0.005881992696838122, MSE=0.6829 ± 0.01630723132230143, MRE=0.7569 ± 0.007267289605929275, average inference time=3.61
+  0%|          | 0/11 [00:00<?, ?it/s]100%|██████████| 11/11 [00:00<00:00, 237.02it/s]

@@ -1,0 +1,20 @@
+2025-12-28 15:06:07 [WARNING]: ‼️ `pypots.utils.metrics` is deprecated. Please import from `pypots.nn.functional` instead.
+2025-12-28 15:06:07 [INFO]: Have set the random seed as 2024 for numpy and pytorch.
+2025-12-28 15:06:07 [INFO]: Using the given device: cuda:0
+2025-12-28 15:06:07 [INFO]: Model files will be saved to reproduce_imputation/point01_log/PhysioNet2012_log/TimeLLM_PhysioNet2012/round_0/20251228_T150607
+2025-12-28 15:06:07 [INFO]: Tensorboard file will be saved to reproduce_imputation/point01_log/PhysioNet2012_log/TimeLLM_PhysioNet2012/round_0/20251228_T150607/tensorboard
+2025-12-28 15:06:07 [INFO]: Using customized MAE as the training loss function.
+2025-12-28 15:06:07 [INFO]: Using customized MSE as the validation metric function.
+/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Using eos_token, but it is not set yet.
+2025-12-28 15:06:09 [INFO]: TimeLLM initialized with the given hyperparameters, the number of trainable parameters: 31,132,584
+2025-12-28 15:16:26 [INFO]: Epoch 001 - training loss (MAE): 1.0076, validation MSE: 0.6468
+2025-12-28 15:26:40 [INFO]: Epoch 002 - training loss (MAE): 0.9753, validation MSE: 0.6412
+2025-12-28 15:36:55 [INFO]: Epoch 003 - training loss (MAE): 0.9624, validation MSE: 0.6323
+2025-12-28 15:47:10 [INFO]: Epoch 004 - training loss (MAE): 0.9459, validation MSE: 0.6225
+2025-12-28 15:57:25 [INFO]: Epoch 005 - training loss (MAE): 0.9373, validation MSE: 0.6122
+2025-12-28 16:07:39 [INFO]: Epoch 006 - training loss (MAE): 0.9351, validation MSE: 0.6030
+2025-12-28 16:17:54 [INFO]: Epoch 007 - training loss (MAE): 0.9318, validation MSE: 0.5965
+2025-12-28 16:28:09 [INFO]: Epoch 008 - training loss (MAE): 0.9302, validation MSE: 0.6007
+2025-12-28 16:38:25 [INFO]: Epoch 009 - training loss (MAE): 0.9299, validation MSE: 0.5925

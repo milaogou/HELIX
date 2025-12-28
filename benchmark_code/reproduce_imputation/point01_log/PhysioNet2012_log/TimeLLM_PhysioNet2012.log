@@ -30,3 +30,21 @@ Using eos_token, but it is not set yet.
 2025-12-28 18:20:51 [INFO]: Epoch 019 - training loss (MAE): 0.9155, validation MSE: 0.5772
 2025-12-28 18:31:05 [INFO]: Epoch 020 - training loss (MAE): 0.9129, validation MSE: 0.5829
 2025-12-28 18:41:19 [INFO]: Epoch 021 - training loss (MAE): 0.9183, validation MSE: 0.5734
+2025-12-28 18:51:33 [INFO]: Epoch 022 - training loss (MAE): 0.9158, validation MSE: 0.5851
+2025-12-28 19:01:47 [INFO]: Epoch 023 - training loss (MAE): 0.9132, validation MSE: 0.5817
+2025-12-28 19:12:01 [INFO]: Epoch 024 - training loss (MAE): 0.9119, validation MSE: 0.5756
+2025-12-28 19:22:16 [INFO]: Epoch 025 - training loss (MAE): 0.9116, validation MSE: 0.5815
+2025-12-28 19:32:31 [INFO]: Epoch 026 - training loss (MAE): 0.9088, validation MSE: 0.5782
+2025-12-28 19:32:31 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2025-12-28 19:32:31 [INFO]: Finished training. The best model is from epoch#21.
+2025-12-28 19:32:31 [INFO]: Saved the model to reproduce_imputation/point01_log/PhysioNet2012_log/TimeLLM_PhysioNet2012/round_0/20251228_T150607/TimeLLM.pypots
+2025-12-28 19:34:57 [INFO]: Successfully saved to reproduce_imputation/point01_log/PhysioNet2012_log/TimeLLM_PhysioNet2012/round_0/imputation.pkl
+2025-12-28 19:34:57 [INFO]: Round0 - TimeLLM on PhysioNet2012: MAE=0.4580, MSE=0.4754, MRE=0.6483
+2025-12-28 19:34:57 [INFO]: Have set the random seed as 2025 for numpy and pytorch.
+2025-12-28 19:34:57 [INFO]: Using the given device: cuda:0
+2025-12-28 19:34:57 [INFO]: Model files will be saved to reproduce_imputation/point01_log/PhysioNet2012_log/TimeLLM_PhysioNet2012/round_1/20251228_T193457
+2025-12-28 19:34:57 [INFO]: Tensorboard file will be saved to reproduce_imputation/point01_log/PhysioNet2012_log/TimeLLM_PhysioNet2012/round_1/20251228_T193457/tensorboard
+2025-12-28 19:34:57 [INFO]: Using customized MAE as the training loss function.
+2025-12-28 19:34:57 [INFO]: Using customized MSE as the validation metric function.
+Using eos_token, but it is not set yet.
+2025-12-28 19:35:01 [INFO]: TimeLLM initialized with the given hyperparameters, the number of trainable parameters: 31,132,584

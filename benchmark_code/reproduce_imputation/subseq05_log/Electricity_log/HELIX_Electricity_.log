@@ -43,3 +43,50 @@
 2025-12-28 18:31:25 [INFO]: Epoch 007 - train_loss: 0.1528, val_loss: 3.1133, lr: 0.001000
 2025-12-28 18:38:26 [INFO]: Epoch 008 - train_loss: 0.1527, val_loss: 3.2488, lr: 0.001000
 2025-12-28 18:45:28 [INFO]: Epoch 009 - train_loss: 0.1526, val_loss: 3.2356, lr: 0.001000
+2025-12-28 18:52:29 [INFO]: Epoch 010 - train_loss: 0.1495, val_loss: 3.3911, lr: 0.001000
+2025-12-28 18:59:30 [INFO]: Epoch 011 - train_loss: 0.1490, val_loss: 3.3672, lr: 0.001000
+2025-12-28 19:06:31 [INFO]: Epoch 012 - train_loss: 0.1470, val_loss: 3.2450, lr: 0.001000
+2025-12-28 19:13:33 [INFO]: Epoch 013 - train_loss: 0.1467, val_loss: 3.4687, lr: 0.001000
+2025-12-28 19:20:35 [INFO]: Epoch 014 - train_loss: 0.1455, val_loss: 3.3027, lr: 0.001000
+2025-12-28 19:27:36 [INFO]: Epoch 015 - train_loss: 0.1483, val_loss: 3.3642, lr: 0.001000
+2025-12-28 19:34:38 [INFO]: Epoch 016 - train_loss: 0.1434, val_loss: 3.5414, lr: 0.001000
+2025-12-28 19:41:40 [INFO]: Epoch 017 - train_loss: 0.1455, val_loss: 3.3245, lr: 0.001000
+2025-12-28 19:41:40 [INFO]: Early stopping triggered at epoch 17. No improvement for 10 epochs.
+2025-12-28 19:41:40 [INFO]: Saved the model to reproduce_imputation/subseq05_log/Electricity_log/HELIX_Electricity/round_0/20251228_T174206/HELIX.pypots
+2025-12-28 19:42:20 [INFO]: Successfully saved to reproduce_imputation/subseq05_log/Electricity_log/HELIX_Electricity/round_0/imputation.pkl
+2025-12-28 19:42:20 [INFO]: Round0 - HELIX on Electricity: MAE=1.0700, MSE=2.6999, MRE=0.5676
+2025-12-28 19:42:20 [INFO]: Have set the random seed as 2025 for numpy and pytorch.
+2025-12-28 19:42:20 [INFO]: Using the given device: cuda:0
+2025-12-28 19:42:20 [INFO]: Model files will be saved to reproduce_imputation/subseq05_log/Electricity_log/HELIX_Electricity/round_1/20251228_T194220
+2025-12-28 19:42:20 [INFO]: Tensorboard file will be saved to reproduce_imputation/subseq05_log/Electricity_log/HELIX_Electricity/round_1/20251228_T194220/tensorboard
+2025-12-28 19:42:20 [INFO]: Using customized MAE as the training loss function.
+2025-12-28 19:42:20 [INFO]: Using customized MSE as the validation metric function.
+2025-12-28 19:42:20 [INFO]: ============================================================
+2025-12-28 19:42:20 [INFO]: HELIX Model Configuration:
+2025-12-28 19:42:20 [INFO]: ============================================================
+2025-12-28 19:42:20 [INFO]: Data dimensions:
+2025-12-28 19:42:20 [INFO]:   - n_steps: 96
+2025-12-28 19:42:20 [INFO]:   - n_features: 370
+2025-12-28 19:42:20 [INFO]: Model architecture:
+2025-12-28 19:42:20 [INFO]:   - pe_dim: 8
+2025-12-28 19:42:20 [INFO]:   - feature_embed_dim: 28
+2025-12-28 19:42:20 [INFO]:   - d_model: 456
+2025-12-28 19:42:20 [INFO]:   - n_heads: 12
+2025-12-28 19:42:20 [INFO]:   - n_layers: 2
+2025-12-28 19:42:20 [INFO]:   - dropout: 0.1
+2025-12-28 19:42:20 [INFO]: Training configuration:
+2025-12-28 19:42:20 [INFO]:   - ORT_weight: 1.0
+2025-12-28 19:42:20 [INFO]:   - MIT_weight: 1.0
+2025-12-28 19:42:20 [INFO]:   - batch_size: 1
+2025-12-28 19:42:20 [INFO]:   - epochs: 1000
+2025-12-28 19:42:20 [INFO]:   - patience: 10
+2025-12-28 19:42:20 [INFO]: Optimizer configuration:
+2025-12-28 19:42:20 [INFO]:   - initial_lr: 0.001
+2025-12-28 19:42:20 [INFO]:   - lr_decay: disabled
+2025-12-28 19:42:20 [INFO]: Other settings:
+2025-12-28 19:42:20 [INFO]:   - num_workers: 0
+2025-12-28 19:42:20 [INFO]:   - device: cuda:0
+2025-12-28 19:42:20 [INFO]:   - model_saving_strategy: best
+2025-12-28 19:42:20 [INFO]: ============================================================
+2025-12-28 19:42:20 [INFO]: HELIX initialized with the given hyperparameters, the number of trainable parameters: 10,051,519
+2025-12-28 19:42:20 [INFO]: Learning rate scheduler disabled (lr_decay_patience not set)

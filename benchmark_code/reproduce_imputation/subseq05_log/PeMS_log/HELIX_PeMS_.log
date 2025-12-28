@@ -93,3 +93,61 @@
 2025-12-28 18:40:03 [INFO]: HELIX initialized with the given hyperparameters, the number of trainable parameters: 16,095,689
 2025-12-28 18:40:03 [INFO]: Learning rate scheduler disabled (lr_decay_patience not set)
 2025-12-28 18:43:03 [INFO]: Epoch 001 - train_loss: 0.6266, val_loss: 0.8546, lr: 0.001000
+2025-12-28 18:46:04 [INFO]: Epoch 002 - train_loss: 0.3449, val_loss: 0.7017, lr: 0.001000
+2025-12-28 18:49:05 [INFO]: Epoch 003 - train_loss: 0.2881, val_loss: 0.7225, lr: 0.001000
+2025-12-28 18:52:06 [INFO]: Epoch 004 - train_loss: 0.2666, val_loss: 0.6559, lr: 0.001000
+2025-12-28 18:55:07 [INFO]: Epoch 005 - train_loss: 0.2541, val_loss: 0.6893, lr: 0.001000
+2025-12-28 18:58:07 [INFO]: Epoch 006 - train_loss: 0.2409, val_loss: 0.7002, lr: 0.001000
+2025-12-28 19:01:08 [INFO]: Epoch 007 - train_loss: 0.2303, val_loss: 0.6701, lr: 0.001000
+2025-12-28 19:04:09 [INFO]: Epoch 008 - train_loss: 0.2331, val_loss: 0.7193, lr: 0.001000
+2025-12-28 19:07:10 [INFO]: Epoch 009 - train_loss: 0.2190, val_loss: 0.7013, lr: 0.001000
+2025-12-28 19:10:10 [INFO]: Epoch 010 - train_loss: 0.2180, val_loss: 0.7201, lr: 0.001000
+2025-12-28 19:13:11 [INFO]: Epoch 011 - train_loss: 0.2067, val_loss: 0.7767, lr: 0.001000
+2025-12-28 19:16:11 [INFO]: Epoch 012 - train_loss: 0.2083, val_loss: 0.7803, lr: 0.001000
+2025-12-28 19:19:12 [INFO]: Epoch 013 - train_loss: 0.2058, val_loss: 0.7456, lr: 0.001000
+2025-12-28 19:22:13 [INFO]: Epoch 014 - train_loss: 0.2039, val_loss: 0.7560, lr: 0.001000
+2025-12-28 19:22:13 [INFO]: Early stopping triggered at epoch 14. No improvement for 10 epochs.
+2025-12-28 19:22:13 [INFO]: Saved the model to reproduce_imputation/subseq05_log/PeMS_log/HELIX_PeMS/round_1/20251228_T184002/HELIX.pypots
+2025-12-28 19:22:35 [INFO]: Successfully saved to reproduce_imputation/subseq05_log/PeMS_log/HELIX_PeMS/round_1/imputation.pkl
+2025-12-28 19:22:35 [INFO]: Round1 - HELIX on PeMS: MAE=0.4470, MSE=0.9849, MRE=0.5569
+2025-12-28 19:22:35 [INFO]: Have set the random seed as 2026 for numpy and pytorch.
+2025-12-28 19:22:35 [INFO]: Using the given device: cuda:0
+2025-12-28 19:22:35 [INFO]: Model files will be saved to reproduce_imputation/subseq05_log/PeMS_log/HELIX_PeMS/round_2/20251228_T192235
+2025-12-28 19:22:35 [INFO]: Tensorboard file will be saved to reproduce_imputation/subseq05_log/PeMS_log/HELIX_PeMS/round_2/20251228_T192235/tensorboard
+2025-12-28 19:22:35 [INFO]: Using customized MAE as the training loss function.
+2025-12-28 19:22:35 [INFO]: Using customized MSE as the validation metric function.
+2025-12-28 19:22:35 [INFO]: ============================================================
+2025-12-28 19:22:35 [INFO]: HELIX Model Configuration:
+2025-12-28 19:22:35 [INFO]: ============================================================
+2025-12-28 19:22:35 [INFO]: Data dimensions:
+2025-12-28 19:22:35 [INFO]:   - n_steps: 24
+2025-12-28 19:22:35 [INFO]:   - n_features: 862
+2025-12-28 19:22:35 [INFO]: Model architecture:
+2025-12-28 19:22:35 [INFO]:   - pe_dim: 6
+2025-12-28 19:22:35 [INFO]:   - feature_embed_dim: 64
+2025-12-28 19:22:35 [INFO]:   - d_model: 576
+2025-12-28 19:22:35 [INFO]:   - n_heads: 8
+2025-12-28 19:22:35 [INFO]:   - n_layers: 2
+2025-12-28 19:22:35 [INFO]:   - dropout: 0.1
+2025-12-28 19:22:35 [INFO]: Training configuration:
+2025-12-28 19:22:35 [INFO]:   - ORT_weight: 1.0
+2025-12-28 19:22:35 [INFO]:   - MIT_weight: 1.0
+2025-12-28 19:22:35 [INFO]:   - batch_size: 1
+2025-12-28 19:22:35 [INFO]:   - epochs: 1000
+2025-12-28 19:22:35 [INFO]:   - patience: 10
+2025-12-28 19:22:35 [INFO]: Optimizer configuration:
+2025-12-28 19:22:35 [INFO]:   - initial_lr: 0.001
+2025-12-28 19:22:35 [INFO]:   - lr_decay: disabled
+2025-12-28 19:22:35 [INFO]: Other settings:
+2025-12-28 19:22:35 [INFO]:   - num_workers: 0
+2025-12-28 19:22:35 [INFO]:   - device: cuda:0
+2025-12-28 19:22:35 [INFO]:   - model_saving_strategy: best
+2025-12-28 19:22:35 [INFO]: ============================================================
+2025-12-28 19:22:35 [INFO]: HELIX initialized with the given hyperparameters, the number of trainable parameters: 16,095,689
+2025-12-28 19:22:35 [INFO]: Learning rate scheduler disabled (lr_decay_patience not set)
+2025-12-28 19:25:36 [INFO]: Epoch 001 - train_loss: 0.5779, val_loss: 0.8202, lr: 0.001000
+2025-12-28 19:28:37 [INFO]: Epoch 002 - train_loss: 0.2992, val_loss: 0.8378, lr: 0.001000
+2025-12-28 19:31:38 [INFO]: Epoch 003 - train_loss: 0.2658, val_loss: 0.7683, lr: 0.001000
+2025-12-28 19:34:39 [INFO]: Epoch 004 - train_loss: 0.2505, val_loss: 0.8304, lr: 0.001000
+2025-12-28 19:37:40 [INFO]: Epoch 005 - train_loss: 0.2410, val_loss: 0.7685, lr: 0.001000
+2025-12-28 19:40:41 [INFO]: Epoch 006 - train_loss: 0.2189, val_loss: 0.7365, lr: 0.001000

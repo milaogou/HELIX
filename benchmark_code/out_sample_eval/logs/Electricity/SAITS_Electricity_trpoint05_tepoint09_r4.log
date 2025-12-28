@@ -1,0 +1,18 @@
+2025-12-28 22:53:13 [WARNING]: ‼️ `pypots.utils.metrics` is deprecated. Please import from `pypots.nn.functional` instead.
+2025-12-28 22:53:13 [INFO]: Found model file: reproduce_imputation/point05_log/Electricity_log/SAITS_Electricity/round_4/20251228_T161854/SAITS.pypots
+2025-12-28 22:53:13 [INFO]: Loading model from reproduce_imputation/point05_log/Electricity_log/SAITS_Electricity/round_4/20251228_T161854/SAITS.pypots
+2025-12-28 22:53:13 [INFO]: Checkpoint keys: dict_keys(['model_state_dict', 'pypots_version'])
+2025-12-28 22:53:13 [INFO]: Recreating model with hyperparameters: ['n_steps', 'n_features', 'epochs', 'patience', 'n_layers', 'd_model', 'd_ffn', 'n_heads', 'd_k', 'd_v', 'dropout', 'attn_dropout', 'device', 'saving_path', 'model_saving_strategy']
+2025-12-28 22:53:13 [INFO]: Using the given device: cuda:0
+2025-12-28 22:53:13 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+2025-12-28 22:53:13 [INFO]: Using customized MAE as the training loss function.
+2025-12-28 22:53:13 [INFO]: Using customized MSE as the validation metric function.
+2025-12-28 22:53:13 [WARNING]: ‼️ d_model must = n_heads * d_k, it should be divisible by n_heads and the result should be equal to d_k, but got d_model=64, n_heads=8, d_k=256
+2025-12-28 22:53:13 [WARNING]: ⚠️ d_model is reset to 2048 = n_heads (8) * d_k (256)
+2025-12-28 22:53:14 [INFO]: SAITS initialized with the given hyperparameters, the number of trainable parameters: 63,624,720
+2025-12-28 22:53:14 [INFO]: Model loaded and set to eval mode
+2025-12-28 22:53:14 [INFO]: Evaluating SAITS (trained on point05) on test set electricity_load_diagrams_rate09_step96_point
+2025-12-28 22:53:16 [INFO]: Successfully saved to out_sample_eval/SAITS_Electricity_train_point05_test_electricity_load_diagrams_rate09_step96_point/round_4/results.pkl
+2025-12-28 22:53:16 [INFO]: Results saved to out_sample_eval/SAITS_Electricity_train_point05_test_electricity_load_diagrams_rate09_step96_point/round_4
+SAITS (trained on point05) on electricity_load_diagrams_rate09_step96_point test set:
+MAE=1.4351, MSE=4.0632, MRE=0.7683

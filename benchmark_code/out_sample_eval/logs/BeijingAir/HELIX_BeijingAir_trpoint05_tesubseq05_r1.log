@@ -1,0 +1,44 @@
+2025-12-28 22:29:54 [WARNING]: ‼️ `pypots.utils.metrics` is deprecated. Please import from `pypots.nn.functional` instead.
+2025-12-28 22:29:54 [INFO]: Found model file: reproduce_imputation/point05_log/BeijingAir_log/HELIX_BeijingAir/round_1/20251228_T175100/HELIX.pypots
+2025-12-28 22:29:54 [INFO]: Loading model from reproduce_imputation/point05_log/BeijingAir_log/HELIX_BeijingAir/round_1/20251228_T175100/HELIX.pypots
+2025-12-28 22:29:54 [INFO]: Checkpoint keys: dict_keys(['model_state_dict', 'pypots_version'])
+2025-12-28 22:29:54 [INFO]: Recreating model with hyperparameters: ['n_steps', 'n_features', 'epochs', 'patience', 'pe_dim', 'feature_embed_dim', 'd_model', 'n_heads', 'n_layers', 'dropout', 'ORT_weight', 'MIT_weight', 'batch_size', 'device', 'saving_path', 'model_saving_strategy']
+2025-12-28 22:29:54 [INFO]: Using the given device: cuda:0
+2025-12-28 22:29:54 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+2025-12-28 22:29:54 [INFO]: Using customized MAE as the training loss function.
+2025-12-28 22:29:54 [INFO]: Using customized MSE as the validation metric function.
+2025-12-28 22:29:54 [INFO]: ============================================================
+2025-12-28 22:29:54 [INFO]: HELIX Model Configuration:
+2025-12-28 22:29:54 [INFO]: ============================================================
+2025-12-28 22:29:54 [INFO]: Data dimensions:
+2025-12-28 22:29:54 [INFO]:   - n_steps: 24
+2025-12-28 22:29:54 [INFO]:   - n_features: 132
+2025-12-28 22:29:54 [INFO]: Model architecture:
+2025-12-28 22:29:54 [INFO]:   - pe_dim: 6
+2025-12-28 22:29:54 [INFO]:   - feature_embed_dim: 24
+2025-12-28 22:29:54 [INFO]:   - d_model: 256
+2025-12-28 22:29:54 [INFO]:   - n_heads: 8
+2025-12-28 22:29:54 [INFO]:   - n_layers: 2
+2025-12-28 22:29:54 [INFO]:   - dropout: 0.1
+2025-12-28 22:29:54 [INFO]: Training configuration:
+2025-12-28 22:29:54 [INFO]:   - ORT_weight: 1.0
+2025-12-28 22:29:54 [INFO]:   - MIT_weight: 1.0
+2025-12-28 22:29:54 [INFO]:   - batch_size: 8
+2025-12-28 22:29:54 [INFO]:   - epochs: 1000
+2025-12-28 22:29:54 [INFO]:   - patience: 10
+2025-12-28 22:29:54 [INFO]: Optimizer configuration:
+2025-12-28 22:29:54 [INFO]:   - initial_lr: 0.001
+2025-12-28 22:29:54 [INFO]:   - lr_decay: disabled
+2025-12-28 22:29:54 [INFO]: Other settings:
+2025-12-28 22:29:54 [INFO]:   - num_workers: 0
+2025-12-28 22:29:54 [INFO]:   - device: cuda:0
+2025-12-28 22:29:54 [INFO]:   - model_saving_strategy: None
+2025-12-28 22:29:54 [INFO]: ============================================================
+2025-12-28 22:29:54 [INFO]: HELIX initialized with the given hyperparameters, the number of trainable parameters: 3,179,649
+2025-12-28 22:29:55 [INFO]: Learning rate scheduler disabled (lr_decay_patience not set)
+2025-12-28 22:29:55 [INFO]: Model loaded and set to eval mode
+2025-12-28 22:29:55 [INFO]: Evaluating HELIX (trained on point05) on test set beijing_air_quality_rate05_step24_subseq_seqlen18
+2025-12-28 22:29:56 [INFO]: Successfully saved to out_sample_eval/HELIX_BeijingAir_train_point05_test_beijing_air_quality_rate05_step24_subseq_seqlen18/round_1/results.pkl
+2025-12-28 22:29:56 [INFO]: Results saved to out_sample_eval/HELIX_BeijingAir_train_point05_test_beijing_air_quality_rate05_step24_subseq_seqlen18/round_1
+HELIX (trained on point05) on beijing_air_quality_rate05_step24_subseq_seqlen18 test set:
+MAE=0.1819, MSE=0.2545, MRE=0.2411

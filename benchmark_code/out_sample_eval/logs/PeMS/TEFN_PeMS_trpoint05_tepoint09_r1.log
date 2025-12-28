@@ -1,0 +1,17 @@
+2025-12-28 22:56:09 [WARNING]: ‼️ `pypots.utils.metrics` is deprecated. Please import from `pypots.nn.functional` instead.
+2025-12-28 22:56:09 [INFO]: Found model file: reproduce_imputation/point05_log/PeMS_log/TEFN_PeMS/round_1/20251228_T151604/TEFN.pypots
+2025-12-28 22:56:09 [INFO]: Loading model from reproduce_imputation/point05_log/PeMS_log/TEFN_PeMS/round_1/20251228_T151604/TEFN.pypots
+2025-12-28 22:56:09 [INFO]: Checkpoint keys: dict_keys(['model_state_dict', 'pypots_version'])
+2025-12-28 22:56:09 [INFO]: Recreating model with hyperparameters: ['n_steps', 'n_features', 'n_fod', 'apply_nonstationary_norm', 'ORT_weight', 'MIT_weight', 'epochs', 'patience', 'batch_size', 'device', 'saving_path', 'model_saving_strategy']
+2025-12-28 22:56:09 [INFO]: Using the given device: cuda:0
+2025-12-28 22:56:09 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+2025-12-28 22:56:09 [INFO]: Using customized MAE as the training loss function.
+2025-12-28 22:56:09 [INFO]: Using customized MSE as the validation metric function.
+2025-12-28 22:56:10 [INFO]: TEFN initialized with the given hyperparameters, the number of trainable parameters: 1,494,038
+2025-12-28 22:56:10 [INFO]: Model loaded and set to eval mode
+2025-12-28 22:56:10 [INFO]: Evaluating TEFN (trained on point05) on test set pems_traffic_rate09_step24_point
+2025-12-28 22:56:11 [INFO]: Successfully saved to out_sample_eval/TEFN_PeMS_train_point05_test_pems_traffic_rate09_step24_point/round_1/results.pkl
+2025-12-28 22:56:11 [INFO]: Results saved to out_sample_eval/TEFN_PeMS_train_point05_test_pems_traffic_rate09_step24_point/round_1
+TEFN (trained on point05) on pems_traffic_rate09_step24_point test set:
+MAE=0.8409, MSE=1.7587, MRE=1.0455
+  0%|          | 0/11 [00:00<?, ?it/s]100%|██████████| 11/11 [00:00<00:00, 290.51it/s]

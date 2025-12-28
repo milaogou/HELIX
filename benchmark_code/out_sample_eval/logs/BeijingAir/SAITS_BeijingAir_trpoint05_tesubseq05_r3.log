@@ -1,0 +1,18 @@
+2025-12-28 22:51:46 [WARNING]: ‼️ `pypots.utils.metrics` is deprecated. Please import from `pypots.nn.functional` instead.
+2025-12-28 22:51:46 [INFO]: Found model file: reproduce_imputation/point05_log/BeijingAir_log/SAITS_BeijingAir/round_3/20251228_T154739/SAITS.pypots
+2025-12-28 22:51:46 [INFO]: Loading model from reproduce_imputation/point05_log/BeijingAir_log/SAITS_BeijingAir/round_3/20251228_T154739/SAITS.pypots
+2025-12-28 22:51:47 [INFO]: Checkpoint keys: dict_keys(['model_state_dict', 'pypots_version'])
+2025-12-28 22:51:47 [INFO]: Recreating model with hyperparameters: ['n_steps', 'n_features', 'epochs', 'patience', 'n_layers', 'd_model', 'd_ffn', 'n_heads', 'd_k', 'd_v', 'dropout', 'attn_dropout', 'device', 'saving_path', 'model_saving_strategy']
+2025-12-28 22:51:47 [INFO]: Using the given device: cuda:0
+2025-12-28 22:51:47 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+2025-12-28 22:51:47 [INFO]: Using customized MAE as the training loss function.
+2025-12-28 22:51:47 [INFO]: Using customized MSE as the validation metric function.
+2025-12-28 22:51:47 [WARNING]: ‼️ d_model must = n_heads * d_k, it should be divisible by n_heads and the result should be equal to d_k, but got d_model=64, n_heads=4, d_k=256
+2025-12-28 22:51:47 [WARNING]: ⚠️ d_model is reset to 1024 = n_heads (4) * d_k (256)
+2025-12-28 22:51:47 [INFO]: SAITS initialized with the given hyperparameters, the number of trainable parameters: 7,153,808
+2025-12-28 22:51:47 [INFO]: Model loaded and set to eval mode
+2025-12-28 22:51:47 [INFO]: Evaluating SAITS (trained on point05) on test set beijing_air_quality_rate05_step24_subseq_seqlen18
+2025-12-28 22:51:48 [INFO]: Successfully saved to out_sample_eval/SAITS_BeijingAir_train_point05_test_beijing_air_quality_rate05_step24_subseq_seqlen18/round_3/results.pkl
+2025-12-28 22:51:48 [INFO]: Results saved to out_sample_eval/SAITS_BeijingAir_train_point05_test_beijing_air_quality_rate05_step24_subseq_seqlen18/round_3
+SAITS (trained on point05) on beijing_air_quality_rate05_step24_subseq_seqlen18 test set:
+MAE=0.2224, MSE=0.2227, MRE=0.2947

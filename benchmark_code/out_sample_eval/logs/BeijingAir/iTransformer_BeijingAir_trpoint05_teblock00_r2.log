@@ -1,0 +1,16 @@
+2025-12-28 22:51:50 [WARNING]: ‼️ `pypots.utils.metrics` is deprecated. Please import from `pypots.nn.functional` instead.
+2025-12-28 22:51:50 [INFO]: Found model file: reproduce_imputation/point05_log/BeijingAir_log/iTransformer_BeijingAir/round_2/20251228_T155037/iTransformer.pypots
+2025-12-28 22:51:50 [INFO]: Loading model from reproduce_imputation/point05_log/BeijingAir_log/iTransformer_BeijingAir/round_2/20251228_T155037/iTransformer.pypots
+2025-12-28 22:51:50 [INFO]: Checkpoint keys: dict_keys(['model_state_dict', 'pypots_version'])
+2025-12-28 22:51:50 [INFO]: Recreating model with hyperparameters: ['n_steps', 'n_features', 'epochs', 'patience', 'n_layers', 'd_model', 'd_ffn', 'n_heads', 'd_k', 'd_v', 'dropout', 'attn_dropout', 'device', 'saving_path', 'model_saving_strategy']
+2025-12-28 22:51:50 [INFO]: Using the given device: cuda:0
+2025-12-28 22:51:50 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+2025-12-28 22:51:50 [INFO]: Using customized MAE as the training loss function.
+2025-12-28 22:51:50 [INFO]: Using customized MSE as the validation metric function.
+2025-12-28 22:51:50 [INFO]: iTransformer initialized with the given hyperparameters, the number of trainable parameters: 8,286,232
+2025-12-28 22:51:50 [INFO]: Model loaded and set to eval mode
+2025-12-28 22:51:50 [INFO]: Evaluating iTransformer (trained on point05) on test set beijing_air_quality_rate00_step24_block_blocklen6
+2025-12-28 22:51:51 [INFO]: Successfully saved to out_sample_eval/iTransformer_BeijingAir_train_point05_test_beijing_air_quality_rate00_step24_block_blocklen6/round_2/results.pkl
+2025-12-28 22:51:51 [INFO]: Results saved to out_sample_eval/iTransformer_BeijingAir_train_point05_test_beijing_air_quality_rate00_step24_block_blocklen6/round_2
+iTransformer (trained on point05) on beijing_air_quality_rate00_step24_block_blocklen6 test set:
+MAE=0.3311, MSE=0.4522, MRE=0.4380

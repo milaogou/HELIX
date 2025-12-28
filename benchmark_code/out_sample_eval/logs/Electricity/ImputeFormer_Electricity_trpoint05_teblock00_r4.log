@@ -1,0 +1,16 @@
+2025-12-28 22:39:02 [WARNING]: ‼️ `pypots.utils.metrics` is deprecated. Please import from `pypots.nn.functional` instead.
+2025-12-28 22:39:02 [INFO]: Found model file: reproduce_imputation/point05_log/Electricity_log/ImputeFormer_Electricity/round_4/20251228_T165943/ImputeFormer.pypots
+2025-12-28 22:39:02 [INFO]: Loading model from reproduce_imputation/point05_log/Electricity_log/ImputeFormer_Electricity/round_4/20251228_T165943/ImputeFormer.pypots
+2025-12-28 22:39:02 [INFO]: Checkpoint keys: dict_keys(['model_state_dict', 'pypots_version'])
+2025-12-28 22:39:02 [INFO]: Recreating model with hyperparameters: ['n_steps', 'n_features', 'n_layers', 'd_input_embed', 'd_learnable_embed', 'd_proj', 'd_ffn', 'n_temporal_heads', 'dropout', 'input_dim', 'output_dim', 'ORT_weight', 'MIT_weight', 'epochs', 'patience', 'batch_size', 'device', 'saving_path', 'model_saving_strategy']
+2025-12-28 22:39:02 [INFO]: Using the given device: cuda:0
+2025-12-28 22:39:02 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+2025-12-28 22:39:02 [INFO]: Using customized MAE as the training loss function.
+2025-12-28 22:39:02 [INFO]: Using customized MSE as the validation metric function.
+2025-12-28 22:39:03 [INFO]: ImputeFormer initialized with the given hyperparameters, the number of trainable parameters: 30,839,297
+2025-12-28 22:39:03 [INFO]: Model loaded and set to eval mode
+2025-12-28 22:39:03 [INFO]: Evaluating ImputeFormer (trained on point05) on test set electricity_load_diagrams_rate00_step96_block_blocklen8
+2025-12-28 22:39:10 [INFO]: Successfully saved to out_sample_eval/ImputeFormer_Electricity_train_point05_test_electricity_load_diagrams_rate00_step96_block_blocklen8/round_4/results.pkl
+2025-12-28 22:39:10 [INFO]: Results saved to out_sample_eval/ImputeFormer_Electricity_train_point05_test_electricity_load_diagrams_rate00_step96_block_blocklen8/round_4
+ImputeFormer (trained on point05) on electricity_load_diagrams_rate00_step96_block_blocklen8 test set:
+MAE=0.3836, MSE=1.0118, MRE=0.2059

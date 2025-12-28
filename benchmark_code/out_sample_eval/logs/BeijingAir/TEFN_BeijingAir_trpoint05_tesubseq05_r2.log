@@ -1,0 +1,16 @@
+2025-12-28 22:51:31 [WARNING]: ‼️ `pypots.utils.metrics` is deprecated. Please import from `pypots.nn.functional` instead.
+2025-12-28 22:51:31 [INFO]: Found model file: reproduce_imputation/point05_log/BeijingAir_log/TEFN_BeijingAir/round_2/20251228_T135656/TEFN.pypots
+2025-12-28 22:51:31 [INFO]: Loading model from reproduce_imputation/point05_log/BeijingAir_log/TEFN_BeijingAir/round_2/20251228_T135656/TEFN.pypots
+2025-12-28 22:51:31 [INFO]: Checkpoint keys: dict_keys(['model_state_dict', 'pypots_version'])
+2025-12-28 22:51:31 [INFO]: Recreating model with hyperparameters: ['n_steps', 'n_features', 'n_fod', 'apply_nonstationary_norm', 'ORT_weight', 'MIT_weight', 'epochs', 'patience', 'batch_size', 'device', 'saving_path', 'model_saving_strategy']
+2025-12-28 22:51:31 [INFO]: Using the given device: cuda:0
+2025-12-28 22:51:31 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+2025-12-28 22:51:31 [INFO]: Using customized MAE as the training loss function.
+2025-12-28 22:51:31 [INFO]: Using customized MSE as the validation metric function.
+2025-12-28 22:51:31 [INFO]: TEFN initialized with the given hyperparameters, the number of trainable parameters: 36,228
+2025-12-28 22:51:31 [INFO]: Model loaded and set to eval mode
+2025-12-28 22:51:31 [INFO]: Evaluating TEFN (trained on point05) on test set beijing_air_quality_rate05_step24_subseq_seqlen18
+2025-12-28 22:51:32 [INFO]: Successfully saved to out_sample_eval/TEFN_BeijingAir_train_point05_test_beijing_air_quality_rate05_step24_subseq_seqlen18/round_2/results.pkl
+2025-12-28 22:51:32 [INFO]: Results saved to out_sample_eval/TEFN_BeijingAir_train_point05_test_beijing_air_quality_rate05_step24_subseq_seqlen18/round_2
+TEFN (trained on point05) on beijing_air_quality_rate05_step24_subseq_seqlen18 test set:
+MAE=0.3434, MSE=0.5056, MRE=0.4551

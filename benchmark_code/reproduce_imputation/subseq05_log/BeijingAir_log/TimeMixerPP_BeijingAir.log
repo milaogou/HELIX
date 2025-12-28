@@ -1,0 +1,26 @@
+2025-12-28 13:56:10 [WARNING]: ‼️ `pypots.utils.metrics` is deprecated. Please import from `pypots.nn.functional` instead.
+2025-12-28 13:56:10 [INFO]: Have set the random seed as 2024 for numpy and pytorch.
+2025-12-28 13:56:10 [INFO]: Using the given device: cuda:0
+2025-12-28 13:56:10 [INFO]: Model files will be saved to reproduce_imputation/subseq05_log/BeijingAir_log/TimeMixerPP_BeijingAir/round_0/20251228_T135610
+2025-12-28 13:56:10 [INFO]: Tensorboard file will be saved to reproduce_imputation/subseq05_log/BeijingAir_log/TimeMixerPP_BeijingAir/round_0/20251228_T135610/tensorboard
+2025-12-28 13:56:10 [INFO]: Using customized MAE as the training loss function.
+2025-12-28 13:56:10 [INFO]: Using customized MSE as the validation metric function.
+2025-12-28 13:56:13 [INFO]: TimeMixerPP initialized with the given hyperparameters, the number of trainable parameters: 75,313,765
+/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/nn/modules/timemixerpp/layers.py:24: RuntimeWarning: divide by zero encountered in floor_divide
+  period = x.shape[1] // top_list
+2025-12-28 13:57:33 [INFO]: Epoch 001 - training loss (MAE): 0.3025, validation MSE: 1.1183
+2025-12-28 13:58:51 [INFO]: Epoch 002 - training loss (MAE): 0.1196, validation MSE: 1.1309
+2025-12-28 14:00:08 [INFO]: Epoch 003 - training loss (MAE): 0.0868, validation MSE: 1.1602
+2025-12-28 14:01:25 [INFO]: Epoch 004 - training loss (MAE): 0.0781, validation MSE: 1.1254
+2025-12-28 14:02:43 [INFO]: Epoch 005 - training loss (MAE): 0.0787, validation MSE: 1.1136
+2025-12-28 14:04:00 [INFO]: Epoch 006 - training loss (MAE): 0.0594, validation MSE: 1.1501
+2025-12-28 14:05:18 [INFO]: Epoch 007 - training loss (MAE): 0.0580, validation MSE: 1.1486
+2025-12-28 14:06:35 [INFO]: Epoch 008 - training loss (MAE): 0.0470, validation MSE: 1.1213
+2025-12-28 14:07:53 [INFO]: Epoch 009 - training loss (MAE): 0.0515, validation MSE: 1.1432
+2025-12-28 14:09:10 [INFO]: Epoch 010 - training loss (MAE): 0.0478, validation MSE: 1.1458
+2025-12-28 14:10:27 [INFO]: Epoch 011 - training loss (MAE): 0.0531, validation MSE: 1.1216
+2025-12-28 14:11:45 [INFO]: Epoch 012 - training loss (MAE): 0.0451, validation MSE: 1.1423
+2025-12-28 14:13:02 [INFO]: Epoch 013 - training loss (MAE): 0.0408, validation MSE: 1.1190
+2025-12-28 14:14:20 [INFO]: Epoch 014 - training loss (MAE): 0.0415, validation MSE: 1.1326
+2025-12-28 14:15:37 [INFO]: Epoch 015 - training loss (MAE): 0.0355, validation MSE: 1.1132
+2025-12-28 14:16:54 [INFO]: Epoch 016 - training loss (MAE): 0.0372, validation MSE: 1.1418

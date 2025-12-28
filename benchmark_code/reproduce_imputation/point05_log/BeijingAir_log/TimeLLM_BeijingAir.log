@@ -1,0 +1,12 @@
+2025-12-28 13:56:09 [WARNING]: ‼️ `pypots.utils.metrics` is deprecated. Please import from `pypots.nn.functional` instead.
+2025-12-28 13:56:09 [INFO]: Have set the random seed as 2024 for numpy and pytorch.
+2025-12-28 13:56:09 [INFO]: Using the given device: cuda:0
+2025-12-28 13:56:09 [INFO]: Model files will be saved to reproduce_imputation/point05_log/BeijingAir_log/TimeLLM_BeijingAir/round_0/20251228_T135609
+2025-12-28 13:56:09 [INFO]: Tensorboard file will be saved to reproduce_imputation/point05_log/BeijingAir_log/TimeLLM_BeijingAir/round_0/20251228_T135609/tensorboard
+2025-12-28 13:56:09 [INFO]: Using customized MAE as the training loss function.
+2025-12-28 13:56:09 [INFO]: Using customized MSE as the validation metric function.
+/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Using eos_token, but it is not set yet.
+2025-12-28 13:56:13 [INFO]: TimeLLM initialized with the given hyperparameters, the number of trainable parameters: 31,753,488
+2025-12-28 14:09:52 [INFO]: Epoch 001 - training loss (MAE): 0.8452, validation MSE: 0.5391

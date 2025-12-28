@@ -1,0 +1,37 @@
+2025-12-28 13:56:16 [WARNING]: ‼️ `pypots.utils.metrics` is deprecated. Please import from `pypots.nn.functional` instead.
+2025-12-28 13:56:16 [INFO]: Have set the random seed as 2024 for numpy and pytorch.
+2025-12-28 13:56:16 [INFO]: Using the given device: cuda:0
+2025-12-28 13:56:17 [INFO]: Model files will be saved to reproduce_imputation/point09_log/BeijingAir_log/TimeMixerPP_BeijingAir/round_0/20251228_T135617
+2025-12-28 13:56:17 [INFO]: Tensorboard file will be saved to reproduce_imputation/point09_log/BeijingAir_log/TimeMixerPP_BeijingAir/round_0/20251228_T135617/tensorboard
+2025-12-28 13:56:17 [INFO]: Using customized MAE as the training loss function.
+2025-12-28 13:56:17 [INFO]: Using customized MSE as the validation metric function.
+2025-12-28 13:56:19 [INFO]: TimeMixerPP initialized with the given hyperparameters, the number of trainable parameters: 75,313,765
+/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/nn/modules/timemixerpp/layers.py:24: RuntimeWarning: divide by zero encountered in floor_divide
+  period = x.shape[1] // top_list
+2025-12-28 13:57:40 [INFO]: Epoch 001 - training loss (MAE): 0.2272, validation MSE: 1.1621
+2025-12-28 13:58:58 [INFO]: Epoch 002 - training loss (MAE): 0.0842, validation MSE: 1.1452
+2025-12-28 14:00:15 [INFO]: Epoch 003 - training loss (MAE): 0.0574, validation MSE: 1.1461
+2025-12-28 14:01:33 [INFO]: Epoch 004 - training loss (MAE): 0.0544, validation MSE: 1.1472
+2025-12-28 14:02:51 [INFO]: Epoch 005 - training loss (MAE): 0.0429, validation MSE: 1.1490
+2025-12-28 14:04:09 [INFO]: Epoch 006 - training loss (MAE): 0.0386, validation MSE: 1.1575
+2025-12-28 14:05:26 [INFO]: Epoch 007 - training loss (MAE): 0.0336, validation MSE: 1.1589
+2025-12-28 14:06:44 [INFO]: Epoch 008 - training loss (MAE): 0.0402, validation MSE: 1.1528
+2025-12-28 14:08:02 [INFO]: Epoch 009 - training loss (MAE): 0.0317, validation MSE: 1.1527
+2025-12-28 14:09:20 [INFO]: Epoch 010 - training loss (MAE): 0.0289, validation MSE: 1.1503
+2025-12-28 14:10:37 [INFO]: Epoch 011 - training loss (MAE): 0.0311, validation MSE: 1.1528
+2025-12-28 14:11:55 [INFO]: Epoch 012 - training loss (MAE): 0.0311, validation MSE: 1.1622
+2025-12-28 14:11:55 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2025-12-28 14:11:55 [INFO]: Finished training. The best model is from epoch#2.
+2025-12-28 14:11:55 [INFO]: Saved the model to reproduce_imputation/point09_log/BeijingAir_log/TimeMixerPP_BeijingAir/round_0/20251228_T135617/TimeMixerPP.pypots
+2025-12-28 14:12:06 [INFO]: Successfully saved to reproduce_imputation/point09_log/BeijingAir_log/TimeMixerPP_BeijingAir/round_0/imputation.pkl
+2025-12-28 14:12:06 [INFO]: Round0 - TimeMixerPP on BeijingAir: MAE=0.7498, MSE=1.1512, MRE=0.9944
+2025-12-28 14:12:06 [INFO]: Have set the random seed as 2025 for numpy and pytorch.
+2025-12-28 14:12:06 [INFO]: Using the given device: cuda:0
+2025-12-28 14:12:06 [INFO]: Model files will be saved to reproduce_imputation/point09_log/BeijingAir_log/TimeMixerPP_BeijingAir/round_1/20251228_T141206
+2025-12-28 14:12:06 [INFO]: Tensorboard file will be saved to reproduce_imputation/point09_log/BeijingAir_log/TimeMixerPP_BeijingAir/round_1/20251228_T141206/tensorboard
+2025-12-28 14:12:06 [INFO]: Using customized MAE as the training loss function.
+2025-12-28 14:12:06 [INFO]: Using customized MSE as the validation metric function.
+2025-12-28 14:12:08 [INFO]: TimeMixerPP initialized with the given hyperparameters, the number of trainable parameters: 75,313,765
+2025-12-28 14:13:26 [INFO]: Epoch 001 - training loss (MAE): 0.2137, validation MSE: 1.1437
+2025-12-28 14:14:44 [INFO]: Epoch 002 - training loss (MAE): 0.0743, validation MSE: 1.1357
+2025-12-28 14:16:02 [INFO]: Epoch 003 - training loss (MAE): 0.0575, validation MSE: 1.1463

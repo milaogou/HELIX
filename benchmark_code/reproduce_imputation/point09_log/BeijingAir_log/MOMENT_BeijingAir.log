@@ -1,0 +1,25 @@
+2025-12-28 13:56:28 [WARNING]: ‼️ `pypots.utils.metrics` is deprecated. Please import from `pypots.nn.functional` instead.
+2025-12-28 13:56:28 [INFO]: Have set the random seed as 2024 for numpy and pytorch.
+2025-12-28 13:56:28 [INFO]: Using the given device: cuda:0
+2025-12-28 13:56:28 [INFO]: Model files will be saved to reproduce_imputation/point09_log/BeijingAir_log/MOMENT_BeijingAir/round_0/20251228_T135628
+2025-12-28 13:56:28 [INFO]: Tensorboard file will be saved to reproduce_imputation/point09_log/BeijingAir_log/MOMENT_BeijingAir/round_0/20251228_T135628/tensorboard
+2025-12-28 13:56:28 [INFO]: Using customized MAE as the training loss function.
+2025-12-28 13:56:28 [INFO]: Using customized MSE as the validation metric function.
+/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+2025-12-28 13:56:32 [INFO]: Initializing pre-trained transformer from t5-base.
+2025-12-28 13:56:32 [INFO]: Enabling gradient checkpointing.
+2025-12-28 13:56:32 [INFO]: MOMENT initialized with the given hyperparameters, the number of trainable parameters: 109,845,898
+/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/utils/checkpoint.py:460: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+2025-12-28 13:58:20 [INFO]: Epoch 001 - training loss (MAE): 0.7086, validation MSE: 1.1760
+2025-12-28 14:00:07 [INFO]: Epoch 002 - training loss (MAE): 0.7052, validation MSE: 1.1711
+2025-12-28 14:01:53 [INFO]: Epoch 003 - training loss (MAE): 0.7029, validation MSE: 1.1695
+2025-12-28 14:03:40 [INFO]: Epoch 004 - training loss (MAE): 0.6989, validation MSE: 1.1552
+2025-12-28 14:05:27 [INFO]: Epoch 005 - training loss (MAE): 0.6943, validation MSE: 1.1466
+2025-12-28 14:07:14 [INFO]: Epoch 006 - training loss (MAE): 0.6855, validation MSE: 1.1072
+2025-12-28 14:09:01 [INFO]: Epoch 007 - training loss (MAE): 0.6615, validation MSE: 1.1679
+2025-12-28 14:10:49 [INFO]: Epoch 008 - training loss (MAE): 0.5902, validation MSE: 1.4731
+2025-12-28 14:12:36 [INFO]: Epoch 009 - training loss (MAE): 0.4996, validation MSE: 1.5908
+2025-12-28 14:14:24 [INFO]: Epoch 010 - training loss (MAE): 0.4344, validation MSE: 1.6042
+2025-12-28 14:16:11 [INFO]: Epoch 011 - training loss (MAE): 0.3843, validation MSE: 1.6220

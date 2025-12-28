@@ -1,0 +1,39 @@
+2025-12-28 13:56:28 [WARNING]: ‼️ `pypots.utils.metrics` is deprecated. Please import from `pypots.nn.functional` instead.
+2025-12-28 13:56:28 [INFO]: Have set the random seed as 2024 for numpy and pytorch.
+2025-12-28 13:56:28 [INFO]: Using the given device: cuda:0
+2025-12-28 13:56:28 [INFO]: Model files will be saved to reproduce_imputation/point05_log/BeijingAir_log/MOMENT_BeijingAir/round_0/20251228_T135628
+2025-12-28 13:56:28 [INFO]: Tensorboard file will be saved to reproduce_imputation/point05_log/BeijingAir_log/MOMENT_BeijingAir/round_0/20251228_T135628/tensorboard
+2025-12-28 13:56:28 [INFO]: Using customized MAE as the training loss function.
+2025-12-28 13:56:28 [INFO]: Using customized MSE as the validation metric function.
+/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+2025-12-28 13:56:32 [INFO]: Initializing pre-trained transformer from t5-base.
+2025-12-28 13:56:32 [INFO]: Enabling gradient checkpointing.
+2025-12-28 13:56:32 [INFO]: MOMENT initialized with the given hyperparameters, the number of trainable parameters: 109,845,898
+/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/utils/checkpoint.py:460: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+2025-12-28 13:58:20 [INFO]: Epoch 001 - training loss (MAE): 0.7039, validation MSE: 1.1128
+2025-12-28 14:00:08 [INFO]: Epoch 002 - training loss (MAE): 0.9317, validation MSE: 2.9353
+2025-12-28 14:01:56 [INFO]: Epoch 003 - training loss (MAE): 1.0100, validation MSE: 2.5159
+2025-12-28 14:03:44 [INFO]: Epoch 004 - training loss (MAE): 0.9413, validation MSE: 2.3543
+2025-12-28 14:05:32 [INFO]: Epoch 005 - training loss (MAE): 0.8894, validation MSE: 2.1570
+2025-12-28 14:07:20 [INFO]: Epoch 006 - training loss (MAE): 0.8679, validation MSE: 2.0824
+2025-12-28 14:09:07 [INFO]: Epoch 007 - training loss (MAE): 0.8412, validation MSE: 2.1717
+2025-12-28 14:10:55 [INFO]: Epoch 008 - training loss (MAE): 0.8525, validation MSE: 2.3637
+2025-12-28 14:12:43 [INFO]: Epoch 009 - training loss (MAE): 0.9185, validation MSE: 2.9919
+2025-12-28 14:14:31 [INFO]: Epoch 010 - training loss (MAE): 1.0153, validation MSE: 4.1011
+2025-12-28 14:16:19 [INFO]: Epoch 011 - training loss (MAE): 1.1275, validation MSE: 5.5184
+2025-12-28 14:16:19 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2025-12-28 14:16:19 [INFO]: Finished training. The best model is from epoch#1.
+2025-12-28 14:16:19 [INFO]: Saved the model to reproduce_imputation/point05_log/BeijingAir_log/MOMENT_BeijingAir/round_0/20251228_T135628/MOMENT.pypots
+2025-12-28 14:16:27 [INFO]: Successfully saved to reproduce_imputation/point05_log/BeijingAir_log/MOMENT_BeijingAir/round_0/imputation.pkl
+2025-12-28 14:16:27 [INFO]: Round0 - MOMENT on BeijingAir: MAE=0.6994, MSE=1.1376, MRE=0.9272
+2025-12-28 14:16:27 [INFO]: Have set the random seed as 2025 for numpy and pytorch.
+2025-12-28 14:16:27 [INFO]: Using the given device: cuda:0
+2025-12-28 14:16:27 [INFO]: Model files will be saved to reproduce_imputation/point05_log/BeijingAir_log/MOMENT_BeijingAir/round_1/20251228_T141627
+2025-12-28 14:16:27 [INFO]: Tensorboard file will be saved to reproduce_imputation/point05_log/BeijingAir_log/MOMENT_BeijingAir/round_1/20251228_T141627/tensorboard
+2025-12-28 14:16:27 [INFO]: Using customized MAE as the training loss function.
+2025-12-28 14:16:27 [INFO]: Using customized MSE as the validation metric function.
+2025-12-28 14:16:30 [INFO]: Initializing pre-trained transformer from t5-base.
+2025-12-28 14:16:30 [INFO]: Enabling gradient checkpointing.
+2025-12-28 14:16:30 [INFO]: MOMENT initialized with the given hyperparameters, the number of trainable parameters: 109,845,898

@@ -119,9 +119,9 @@ def create_sbatch_script(model_name, folder_name, dataset_name, rate, pattern, c
     version_flag = f"--config_version {config_version}" if config_version else ""
     script_content = f"""#!/bin/bash
 #SBATCH -x paraai-n32-h-01-agent-[1,4,8,16,17,25,27,28,29,30,31]
-#SBATCH --job-name={model_name}_{dataset_name}_{pattern}{rate}
-#SBATCH -o {OUTPUT_BASE_PATH}/{dataset_log_dir}/{model_name}_{dataset_name}.out
-#SBATCH -e {OUTPUT_BASE_PATH}/{dataset_log_dir}/{model_name}_{dataset_name}.log
+#SBATCH --job-name={model_name}_{dataset_name}_{pattern}{rate}_{config_version}
+#SBATCH -o {OUTPUT_BASE_PATH}/{dataset_log_dir}/{model_name}_{dataset_name}_{config_version}.out
+#SBATCH -e {OUTPUT_BASE_PATH}/{dataset_log_dir}/{model_name}_{dataset_name}_{config_version}.log
 module purge
 module load miniforge3/24.1 
 module load compilers/cuda/12.1   compilers/gcc/11.3.0   cudnn/8.8.1.3_cuda12.x
@@ -162,7 +162,7 @@ for model_name in MODELS:
         output_dir = f"{OUTPUT_BASE_PATH}/{dataset_log_dir}"
         os.makedirs(output_dir, exist_ok=True)
         
-        script_filename = f"{output_dir}/{model_name}_{dataset_name}.sh"
+        script_filename = f"{output_dir}/{model_name}_{dataset_name}_{config_version}.sh"
         with open(script_filename, 'w') as f:
             f.write(script_content)
         

@@ -122,3 +122,13 @@
 2025-12-28 17:24:58 [INFO]: Epoch 011 - training loss (MAE): 0.1120, validation MSE: 1.1704
 2025-12-28 17:26:56 [INFO]: Epoch 012 - training loss (MAE): 0.1076, validation MSE: 1.1700
 2025-12-28 17:28:55 [INFO]: Epoch 013 - training loss (MAE): 0.1052, validation MSE: 1.1889
+2025-12-28 17:30:53 [INFO]: Epoch 014 - training loss (MAE): 0.1086, validation MSE: 1.1616
+2025-12-28 17:32:51 [INFO]: Epoch 015 - training loss (MAE): 0.1063, validation MSE: 1.1728
+2025-12-28 17:32:51 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2025-12-28 17:32:51 [INFO]: Finished training. The best model is from epoch#5.
+2025-12-28 17:32:55 [INFO]: Saved the model to reproduce_imputation/point05_log/PeMS_log/ModernTCN_PeMS/round_4/20251228_T170310/ModernTCN.pypots
+2025-12-28 17:33:05 [INFO]: Successfully saved to reproduce_imputation/point05_log/PeMS_log/ModernTCN_PeMS/round_4/imputation.pkl
+2025-12-28 17:33:05 [INFO]: Round4 - ModernTCN on PeMS: MAE=0.7349, MSE=1.3534, MRE=0.9138
+2025-12-28 17:33:05 [INFO]: Done! Final results:
+Averaged ModernTCN (878,848,778 params) on PeMS: MAE=0.7344 ± 0.003065779623661197, MSE=1.3556 ± 0.012883219166313863, MRE=0.9131 ± 0.0038118710162974648, average inference time=10.00
+  0%|          | 0/22 [00:00<?, ?it/s]100%|██████████| 22/22 [00:00<00:00, 441.71it/s]

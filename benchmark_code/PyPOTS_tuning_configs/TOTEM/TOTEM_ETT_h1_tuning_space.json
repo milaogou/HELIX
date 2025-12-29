@@ -1,0 +1,97 @@
+{
+  "n_steps": {
+    "_type": "choice",
+    "_value": [
+      48
+    ]
+  },
+  "n_features": {
+    "_type": "choice",
+    "_value": [
+      7
+    ]
+  },
+  "epochs": {
+    "_type": "choice",
+    "_value": [
+      1000
+    ]
+  },
+  "patience": {
+    "_type": "choice",
+    "_value": [
+      10
+    ]
+  },
+  "d_block_hidden": {
+    "_type": "choice",
+    "_value": [
+      16,
+      32,
+      64
+    ]
+  },
+  "n_residual_layers": {
+    "_type": "choice",
+    "_value": [
+      1,
+      2,
+      3
+    ]
+  },
+  "d_residual_hidden": {
+    "_type": "choice",
+    "_value": [
+      8,
+      16,
+      32
+    ]
+  },
+  "d_embedding": {
+    "_type": "choice",
+    "_value": [
+      16,
+      32,
+      64
+    ]
+  },
+  "n_embeddings": {
+    "_type": "choice",
+    "_value": [
+      128,
+      256,
+      512
+    ]
+  },
+  "commitment_cost": {
+    "_type": "choice",
+    "_value": [
+      0.1,
+      0.25,
+      0.5
+    ]
+  },
+  "compression_factor": {
+    "_type": "choice",
+    "_value": [
+      2,
+      4,
+      8
+    ]
+  },
+  "batch_size": {
+    "_type": "choice",
+    "_value": [
+      8,
+      16,
+      32
+    ]
+  },
+  "lr": {
+    "_type": "loguniform",
+    "_value": [
+      0.0001,
+      0.01
+    ]
+  }
+}

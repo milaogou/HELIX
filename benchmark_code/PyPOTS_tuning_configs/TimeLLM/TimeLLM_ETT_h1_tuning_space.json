@@ -1,0 +1,115 @@
+{
+  "n_steps": {
+    "_type": "choice",
+    "_value": [
+      48
+    ]
+  },
+  "n_features": {
+    "_type": "choice",
+    "_value": [
+      7
+    ]
+  },
+  "epochs": {
+    "_type": "choice",
+    "_value": [
+      1000
+    ]
+  },
+  "patience": {
+    "_type": "choice",
+    "_value": [
+      10
+    ]
+  },
+  "llm_model_type": {
+    "_type": "choice",
+    "_value": [
+      "BERT"
+    ]
+  },
+  "d_llm": {
+    "_type": "choice",
+    "_value": [
+      768
+    ]
+  },
+  "domain_prompt_content": {
+    "_type": "choice",
+    "_value": [
+      "Electricity transformer temperature time series data"
+    ]
+  },
+  "n_layers": {
+    "_type": "choice",
+    "_value": [
+      1,
+      2,
+      3
+    ]
+  },
+  "patch_size": {
+    "_type": "choice",
+    "_value": [
+      8,
+      12,
+      16
+    ]
+  },
+  "patch_stride": {
+    "_type": "choice",
+    "_value": [
+      8,
+      12,
+      16
+    ]
+  },
+  "d_model": {
+    "_type": "choice",
+    "_value": [
+      16,
+      32,
+      64
+    ]
+  },
+  "d_ffn": {
+    "_type": "choice",
+    "_value": [
+      32,
+      64,
+      128
+    ]
+  },
+  "n_heads": {
+    "_type": "choice",
+    "_value": [
+      2,
+      4,
+      8
+    ]
+  },
+  "dropout": {
+    "_type": "choice",
+    "_value": [
+      0,
+      0.1,
+      0.2
+    ]
+  },
+  "batch_size": {
+    "_type": "choice",
+    "_value": [
+      8,
+      16,
+      32
+    ]
+  },
+  "lr": {
+    "_type": "loguniform",
+    "_value": [
+      5e-05,
+      0.001
+    ]
+  }
+}

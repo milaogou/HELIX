@@ -1,0 +1,30 @@
+Error: Training got interrupted. Model was not trained. Please investigate the error printed above.
+
+Full traceback:
+Traceback (most recent call last):
+  File "/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/base.py", line 737, in _train_model
+    results = self.model(inputs, calc_criterion=True)
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/moderntcn/core.py", line 89, in forward
+    in_X = self.backbone(in_X)
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/nn/modules/moderntcn/backbone.py", line 164, in forward
+    pad = x[:, :, -1:].repeat(1, 1, pad_len)
+RuntimeError: Trying to create tensor with negative dimension -2: [56, 1, -2]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/train_model_tuning.py", line 153, in <module>
+    model.fit(train_set=train_set, val_set=val_set)
+  File "/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/moderntcn/model.py", line 267, in fit
+    self._train_model(train_dataloader, val_dataloader)
+  File "/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/base.py", line 814, in _train_model
+    raise RuntimeError(
+RuntimeError: Training got interrupted. Model was not trained. Please investigate the error printed above.

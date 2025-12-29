@@ -41,15 +41,15 @@ BASE_DIR = "/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code
 
 # 模型列表
 MODELS = [
-    # 'HELIX',
-    # 'TEFN',
-    # 'TimeMixerPP',
-    # 'TimeLLM',
-    # 'MOMENT',
-    # 'TimeMixer',
-    # 'ModernTCN',
-    # 'ImputeFormer',
-    # 'TOTEM',
+    'HELIX',
+    'TEFN',
+    'TimeMixerPP',
+    'TimeLLM',
+    'MOMENT',
+    'TimeMixer',
+    'ModernTCN',
+    'ImputeFormer',
+    'TOTEM',
     # 'iTransformer',
     # 'SAITS',
     # 'FreTS',
@@ -129,6 +129,7 @@ source activate py310pots
 export PYTHONUNBUFFERED=1
 export http_proxy=http://u-cEoRwn:EDvFuZTe@172.16.4.9:3128
 export https_proxy=http://u-cEoRwn:EDvFuZTe@172.16.4.9:3128   
+export LD_PRELOAD=$LD_PRELOAD:/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/sklearn/utils/../../scikit_learn.libs/libgomp-947d5fa1.so.1.0.0
 python -u train_model.py --model {model_name} --dataset {dataset_name} --dataset_fold_path {DATA_BASE_PATH}/{folder_name} --saving_path {OUTPUT_BASE_PATH}/{dataset_log_dir} --device cuda:0 {version_flag}
 """
     return script_content, dataset_log_dir

@@ -4,7 +4,6 @@
 #SBATCH -o /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyperparameter_tuning_results/ModernTCN_ETT_h1_tuning/trial_17.out
 #SBATCH -e /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyperparameter_tuning_results/ModernTCN_ETT_h1_tuning/trial_17.err
 #SBATCH --gpus=1
-#SBATCH --time=06:00:00
 
 module purge
 module load miniforge3/24.1 
@@ -22,9 +21,9 @@ cat > /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyper
   "n_features": 7,
   "epochs": 1000,
   "patience": 10,
-  "patch_size": 8,
+  "patch_size": 6,
   "patch_stride": 6,
-  "downsampling_ratio": 2,
+  "downsampling_ratio": 4,
   "ffn_ratio": 4,
   "num_blocks": [
     1,
@@ -39,21 +38,21 @@ cat > /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyper
     3
   ],
   "dims": [
-    32,
+    64,
     64
   ],
   "small_kernel_merged": false,
-  "backbone_dropout": 0,
+  "backbone_dropout": 0.2,
   "head_dropout": 0.2,
   "use_multi_scale": false,
   "individual": false,
   "apply_nonstationary_norm": false,
-  "batch_size": 16,
-  "lr": 0.004906217951631473
+  "batch_size": 8,
+  "lr": 0.00768215941073412
 }
 EOF
 
-# 运行训练 - 使用新的 train_model_tuning.py
+# 运行训练
 python -u train_model_tuning.py \
     --model ModernTCN \
     --dataset ETT_h1 \
@@ -61,7 +60,7 @@ python -u train_model_tuning.py \
     --saving_path /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyperparameter_tuning_results/ModernTCN_ETT_h1_tuning/trial_17 \
     --device cuda:0 \
     --n_rounds 1 \
-    --n_steps 48 --n_features 7 --epochs 1000 --patience 10 --patch_size 8 --patch_stride 6 --downsampling_ratio 2 --ffn_ratio 4 --num_blocks [1,1] --large_size [7,7] --small_size [3,3] --dims [32,64] --small_kernel_merged False --backbone_dropout 0 --head_dropout 0.200000 --use_multi_scale False --individual False --apply_nonstationary_norm False --batch_size 16 --lr 0.004906
+    --n_steps 48 --n_features 7 --epochs 1000 --patience 10 --patch_size 6 --patch_stride 6 --downsampling_ratio 4 --ffn_ratio 4 --num_blocks [1,1] --large_size [7,7] --small_size [3,3] --dims [64,64] --small_kernel_merged False --backbone_dropout 0.200000 --head_dropout 0.200000 --use_multi_scale False --individual False --apply_nonstationary_norm False --batch_size 8 --lr 0.007682
 
 # 标记完成
 echo "Trial 17 completed at $(date)" >> /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyperparameter_tuning_results/ModernTCN_ETT_h1_tuning/trial_17_status.txt

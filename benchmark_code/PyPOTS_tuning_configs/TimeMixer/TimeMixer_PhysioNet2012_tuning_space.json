@@ -1,0 +1,123 @@
+{
+  "n_steps": {
+    "_type": "choice",
+    "_value": [
+      48
+    ]
+  },
+  "n_features": {
+    "_type": "choice",
+    "_value": [
+      35
+    ]
+  },
+  "epochs": {
+    "_type": "choice",
+    "_value": [
+      1000
+    ]
+  },
+  "patience": {
+    "_type": "choice",
+    "_value": [
+      10
+    ]
+  },
+  "n_layers": {
+    "_type": "choice",
+    "_value": [
+      1,
+      2,
+      3
+    ]
+  },
+  "d_model": {
+    "_type": "choice",
+    "_value": [
+      32,
+      64,
+      128
+    ]
+  },
+  "d_ffn": {
+    "_type": "choice",
+    "_value": [
+      64,
+      128,
+      256
+    ]
+  },
+  "top_k": {
+    "_type": "choice",
+    "_value": [
+      3,
+      5,
+      7
+    ]
+  },
+  "dropout": {
+    "_type": "choice",
+    "_value": [
+      0,
+      0.1,
+      0.2
+    ]
+  },
+  "channel_independence": {
+    "_type": "choice",
+    "_value": [
+      true,
+      false
+    ]
+  },
+  "decomp_method": {
+    "_type": "choice",
+    "_value": [
+      "moving_avg"
+    ]
+  },
+  "moving_avg": {
+    "_type": "choice",
+    "_value": [
+      3,
+      5,
+      7
+    ]
+  },
+  "downsampling_layers": {
+    "_type": "choice",
+    "_value": [
+      1,
+      2
+    ]
+  },
+  "downsampling_window": {
+    "_type": "choice",
+    "_value": [
+      2,
+      3,
+      4
+    ]
+  },
+  "apply_nonstationary_norm": {
+    "_type": "choice",
+    "_value": [
+      false
+    ]
+  },
+  "batch_size": {
+    "_type": "choice",
+    "_value": [
+      8,
+      16,
+      32
+    ]
+  },
+  "lr": {
+    "_type": "loguniform",
+    "_value": [
+      0.0001,
+      0.01
+    ]
+  }
+}

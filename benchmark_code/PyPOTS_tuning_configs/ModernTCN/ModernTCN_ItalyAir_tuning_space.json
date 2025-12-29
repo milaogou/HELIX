@@ -1,0 +1,162 @@
+{
+  "n_steps": {
+    "_type": "choice",
+    "_value": [
+      12
+    ]
+  },
+  "n_features": {
+    "_type": "choice",
+    "_value": [
+      13
+    ]
+  },
+  "epochs": {
+    "_type": "choice",
+    "_value": [
+      1000
+    ]
+  },
+  "patience": {
+    "_type": "choice",
+    "_value": [
+      10
+    ]
+  },
+  "patch_size": {
+    "_type": "choice",
+    "_value": [
+      3,
+      4,
+      6
+    ]
+  },
+  "patch_stride": {
+    "_type": "choice",
+    "_value": [
+      3,
+      4,
+      6
+    ]
+  },
+  "downsampling_ratio": {
+    "_type": "choice",
+    "_value": [
+      2,
+      3
+    ]
+  },
+  "ffn_ratio": {
+    "_type": "choice",
+    "_value": [
+      2,
+      4
+    ]
+  },
+  "num_blocks": {
+    "_type": "choice",
+    "_value": [
+      [
+        1
+      ],
+      [
+        1,
+        1
+      ]
+    ]
+  },
+  "large_size": {
+    "_type": "choice",
+    "_value": [
+      [
+        5
+      ],
+      [
+        5,
+        5
+      ]
+    ]
+  },
+  "small_size": {
+    "_type": "choice",
+    "_value": [
+      [
+        3
+      ],
+      [
+        3,
+        3
+      ]
+    ]
+  },
+  "dims": {
+    "_type": "choice",
+    "_value": [
+      [
+        24
+      ],
+      [
+        32
+      ],
+      [
+        24,
+        32
+      ]
+    ]
+  },
+  "small_kernel_merged": {
+    "_type": "choice",
+    "_value": [
+      false
+    ]
+  },
+  "backbone_dropout": {
+    "_type": "choice",
+    "_value": [
+      0,
+      0.1,
+      0.2
+    ]
+  },
+  "head_dropout": {
+    "_type": "choice",
+    "_value": [
+      0,
+      0.1,
+      0.2
+    ]
+  },
+  "use_multi_scale": {
+    "_type": "choice",
+    "_value": [
+      false
+    ]
+  },
+  "individual": {
+    "_type": "choice",
+    "_value": [
+      false
+    ]
+  },
+  "apply_nonstationary_norm": {
+    "_type": "choice",
+    "_value": [
+      false
+    ]
+  },
+  "batch_size": {
+    "_type": "choice",
+    "_value": [
+      8,
+      16,
+      32
+    ]
+  },
+  "lr": {
+    "_type": "loguniform",
+    "_value": [
+      0.0001,
+      0.01
+    ]
+  }
+}

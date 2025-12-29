@@ -1,0 +1,143 @@
+{
+  "n_steps": {
+    "_type": "choice",
+    "_value": [
+      48
+    ]
+  },
+  "n_features": {
+    "_type": "choice",
+    "_value": [
+      35
+    ]
+  },
+  "epochs": {
+    "_type": "choice",
+    "_value": [
+      100
+    ]
+  },
+  "patience": {
+    "_type": "choice",
+    "_value": [
+      5
+    ]
+  },
+  "patch_size": {
+    "_type": "choice",
+    "_value": [
+      12,
+      24
+    ]
+  },
+  "patch_stride": {
+    "_type": "choice",
+    "_value": [
+      12,
+      24
+    ]
+  },
+  "transformer_backbone": {
+    "_type": "choice",
+    "_value": [
+      "t5-small"
+    ]
+  },
+  "transformer_type": {
+    "_type": "choice",
+    "_value": [
+      "encoder_only"
+    ]
+  },
+  "d_model": {
+    "_type": "choice",
+    "_value": [
+      512
+    ]
+  },
+  "revin_affine": {
+    "_type": "choice",
+    "_value": [
+      true
+    ]
+  },
+  "add_positional_embedding": {
+    "_type": "choice",
+    "_value": [
+      true
+    ]
+  },
+  "value_embedding_bias": {
+    "_type": "choice",
+    "_value": [
+      true
+    ]
+  },
+  "orth_gain": {
+    "_type": "choice",
+    "_value": [
+      1.41
+    ]
+  },
+  "n_layers": {
+    "_type": "choice",
+    "_value": [
+      2,
+      4
+    ]
+  },
+  "d_ffn": {
+    "_type": "choice",
+    "_value": [
+      512,
+      1024,
+      2048
+    ]
+  },
+  "dropout": {
+    "_type": "choice",
+    "_value": [
+      0,
+      0.1,
+      0.2
+    ]
+  },
+  "head_dropout": {
+    "_type": "choice",
+    "_value": [
+      0,
+      0.1,
+      0.2
+    ]
+  },
+  "finetuning_mode": {
+    "_type": "choice",
+    "_value": [
+      "linear-probing",
+      "end-to-end"
+    ]
+  },
+  "mask_ratio": {
+    "_type": "choice",
+    "_value": [
+      0.1,
+      0.3,
+      0.5
+    ]
+  },
+  "batch_size": {
+    "_type": "choice",
+    "_value": [
+      8,
+      16,
+      32
+    ]
+  },
+  "lr": {
+    "_type": "loguniform",
+    "_value": [
+      0.0005,
+      0.005
+    ]
+  }
+}

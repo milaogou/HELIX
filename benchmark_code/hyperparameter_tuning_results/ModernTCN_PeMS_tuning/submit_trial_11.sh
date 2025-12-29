@@ -4,7 +4,6 @@
 #SBATCH -o /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyperparameter_tuning_results/ModernTCN_PeMS_tuning/trial_11.out
 #SBATCH -e /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyperparameter_tuning_results/ModernTCN_PeMS_tuning/trial_11.err
 #SBATCH --gpus=1
-#SBATCH --time=06:00:00
 
 module purge
 module load miniforge3/24.1 
@@ -22,9 +21,9 @@ cat > /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyper
   "n_features": 862,
   "epochs": 1000,
   "patience": 10,
-  "patch_size": 8,
-  "patch_stride": 4,
-  "downsampling_ratio": 2,
+  "patch_size": 6,
+  "patch_stride": 6,
+  "downsampling_ratio": 4,
   "ffn_ratio": 2,
   "num_blocks": [
     1,
@@ -43,17 +42,17 @@ cat > /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyper
     64
   ],
   "small_kernel_merged": false,
-  "backbone_dropout": 0,
-  "head_dropout": 0,
+  "backbone_dropout": 0.2,
+  "head_dropout": 0.1,
   "use_multi_scale": false,
   "individual": false,
   "apply_nonstationary_norm": false,
   "batch_size": 2,
-  "lr": 0.0002693844288811159
+  "lr": 0.0008158686713286371
 }
 EOF
 
-# 运行训练 - 使用新的 train_model_tuning.py
+# 运行训练
 python -u train_model_tuning.py \
     --model ModernTCN \
     --dataset PeMS \
@@ -61,7 +60,7 @@ python -u train_model_tuning.py \
     --saving_path /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyperparameter_tuning_results/ModernTCN_PeMS_tuning/trial_11 \
     --device cuda:0 \
     --n_rounds 1 \
-    --n_steps 24 --n_features 862 --epochs 1000 --patience 10 --patch_size 8 --patch_stride 4 --downsampling_ratio 2 --ffn_ratio 2 --num_blocks [1,1] --large_size [7,7] --small_size [3,3] --dims [64,64] --small_kernel_merged False --backbone_dropout 0 --head_dropout 0 --use_multi_scale False --individual False --apply_nonstationary_norm False --batch_size 2 --lr 0.000269
+    --n_steps 24 --n_features 862 --epochs 1000 --patience 10 --patch_size 6 --patch_stride 6 --downsampling_ratio 4 --ffn_ratio 2 --num_blocks [1,1] --large_size [7,7] --small_size [3,3] --dims [64,64] --small_kernel_merged False --backbone_dropout 0.200000 --head_dropout 0.100000 --use_multi_scale False --individual False --apply_nonstationary_norm False --batch_size 2 --lr 0.000816
 
 # 标记完成
 echo "Trial 11 completed at $(date)" >> /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyperparameter_tuning_results/ModernTCN_PeMS_tuning/trial_11_status.txt

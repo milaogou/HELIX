@@ -1,0 +1,121 @@
+{
+  "n_steps": {
+    "_type": "choice",
+    "_value": [
+      24
+    ]
+  },
+  "n_features": {
+    "_type": "choice",
+    "_value": [
+      132
+    ]
+  },
+  "epochs": {
+    "_type": "choice",
+    "_value": [
+      1000
+    ]
+  },
+  "patience": {
+    "_type": "choice",
+    "_value": [
+      10
+    ]
+  },
+  "n_layers": {
+    "_type": "choice",
+    "_value": [
+      1,
+      2,
+      3
+    ]
+  },
+  "d_input_embed": {
+    "_type": "choice",
+    "_value": [
+      48,
+      64,
+      96
+    ]
+  },
+  "d_learnable_embed": {
+    "_type": "choice",
+    "_value": [
+      48,
+      64,
+      96
+    ]
+  },
+  "d_proj": {
+    "_type": "choice",
+    "_value": [
+      48,
+      64,
+      96
+    ]
+  },
+  "d_ffn": {
+    "_type": "choice",
+    "_value": [
+      96,
+      128,
+      192
+    ]
+  },
+  "n_temporal_heads": {
+    "_type": "choice",
+    "_value": [
+      2,
+      4,
+      8
+    ]
+  },
+  "dropout": {
+    "_type": "choice",
+    "_value": [
+      0,
+      0.1,
+      0.2
+    ]
+  },
+  "input_dim": {
+    "_type": "choice",
+    "_value": [
+      1
+    ]
+  },
+  "output_dim": {
+    "_type": "choice",
+    "_value": [
+      1
+    ]
+  },
+  "ORT_weight": {
+    "_type": "choice",
+    "_value": [
+      1.0
+    ]
+  },
+  "MIT_weight": {
+    "_type": "choice",
+    "_value": [
+      1.0
+    ]
+  },
+  "batch_size": {
+    "_type": "choice",
+    "_value": [
+      4,
+      8,
+      16
+    ]
+  },
+  "lr": {
+    "_type": "loguniform",
+    "_value": [
+      0.0001,
+      0.01
+    ]
+  }
+}

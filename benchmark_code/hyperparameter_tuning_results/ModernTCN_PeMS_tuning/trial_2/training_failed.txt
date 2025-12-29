@@ -1,64 +1,40 @@
-Error: Training got interrupted. Model was not trained. Please investigate the error printed above.
+Error: Failed to save the model to "/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyperparameter_tuning_results/ModernTCN_PeMS_tuning/trial_2/round_0/20251229_T214936/ModernTCN.pypots" because of the below error! 
+CUDA out of memory. Tried to allocate 1.42 GiB. GPU 0 has a total capacity of 39.39 GiB of which 909.94 MiB is free. Including non-PyTorch memory, this process has 38.49 GiB memory in use. Of the allocated memory 37.83 GiB is allocated by PyTorch, and 151.42 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
 
 Full traceback:
 Traceback (most recent call last):
-  File "/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/base.py", line 737, in _train_model
-    results = self.model(inputs, calc_criterion=True)
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/moderntcn/core.py", line 89, in forward
-    in_X = self.backbone(in_X)
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/nn/modules/moderntcn/backbone.py", line 181, in forward
-    x = self.stages[i](x)
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/nn/modules/moderntcn/layers.py", line 324, in forward
-    x = blk(x)
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/nn/modules/moderntcn/layers.py", line 270, in forward
-    x = self.dw(x)
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/nn/modules/moderntcn/layers.py", line 145, in forward
-    out = self.lkb_origin(inputs)
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/nn/modules/container.py", line 217, in forward
-    input = module(input)
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/nn/modules/batchnorm.py", line 175, in forward
-    return F.batch_norm(
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/nn/functional.py", line 2480, in batch_norm
-    _verify_batch_size(input.size())
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/nn/functional.py", line 2448, in _verify_batch_size
-    raise ValueError(f"Expected more than 1 value per channel when training, got input size {size}")
-ValueError: Expected more than 1 value per channel when training, got input size torch.Size([1, 55168, 1])
+  File "/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/base.py", line 359, in save
+    content_to_save = self._organize_content_to_save()
+  File "/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/base.py", line 309, in _organize_content_to_save
+    model_state_dict = deepcopy(self.model.state_dict())
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/copy.py", line 172, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/copy.py", line 297, in _reconstruct
+    value = deepcopy(value, memo)
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/copy.py", line 153, in deepcopy
+    y = copier(memo)
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/_tensor.py", line 122, in __deepcopy__
+    new_storage = self._typed_storage()._deepcopy(memo)
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/storage.py", line 839, in _deepcopy
+    return self._new_wrapped_storage(copy.deepcopy(self._untyped_storage, memo))
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/copy.py", line 153, in deepcopy
+    y = copier(memo)
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/storage.py", line 112, in __deepcopy__
+    new_storage = self.clone()
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/storage.py", line 126, in clone
+    return type(self)(self.nbytes(), device=self.device).copy_(self)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 1.42 GiB. GPU 0 has a total capacity of 39.39 GiB of which 909.94 MiB is free. Including non-PyTorch memory, this process has 38.49 GiB memory in use. Of the allocated memory 37.83 GiB is allocated by PyTorch, and 151.42 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
   File "/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/train_model_tuning.py", line 153, in <module>
     model.fit(train_set=train_set, val_set=val_set)
-  File "/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/moderntcn/model.py", line 267, in fit
-    self._train_model(train_dataloader, val_dataloader)
-  File "/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/base.py", line 814, in _train_model
-    raise RuntimeError(
-RuntimeError: Training got interrupted. Model was not trained. Please investigate the error printed above.
+  File "/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/moderntcn/model.py", line 271, in fit
+    self._auto_save_model_if_necessary(confirm_saving=self.model_saving_strategy == "best")
+  File "/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/base.py", line 295, in _auto_save_model_if_necessary
+    self.save(saving_path)
+  File "/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/base.py", line 364, in save
+    raise RuntimeError(f'Failed to save the model to "{saving_path}" because of the below error! \n{e}')
+RuntimeError: Failed to save the model to "/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyperparameter_tuning_results/ModernTCN_PeMS_tuning/trial_2/round_0/20251229_T214936/ModernTCN.pypots" because of the below error! 
+CUDA out of memory. Tried to allocate 1.42 GiB. GPU 0 has a total capacity of 39.39 GiB of which 909.94 MiB is free. Including non-PyTorch memory, this process has 38.49 GiB memory in use. Of the allocated memory 37.83 GiB is allocated by PyTorch, and 151.42 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

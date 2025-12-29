@@ -177,7 +177,7 @@ def analyze_model_tuning(model_name: str, dataset_name: str, metric='mae'):
         exclude_params = ['trial_id', 'completed', 'failed', 'fail_reason',
                          'mae', 'mse', 'mre', 'inference_time',
                          'n_steps', 'n_features', 'epochs', 'patience',
-                         'ORT_weight', 'MIT_weight']
+                         'ORT_weight', 'MIT_weight', 'input_dim', 'output_dim']
         print(f"  关键参数:")
         for key, value in row.items():
             if key not in exclude_params and pd.notna(value):

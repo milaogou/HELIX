@@ -20,14 +20,28 @@ CONFIG_BASE_PATH = "PyPOTS_tuning_configs"
 # 调优配置 - 每个模型25个trials
 TUNING_CONFIG = {
     'ETT_h1': {
-        'models': ['HELIX', 'TEFN', 'TimeMixer', 'ModernTCN', 'ImputeFormer', 
-                   'TOTEM', 'TimeMixerPP', 'TimeLLM', 'MOMENT'],
+        'models': [ ],#'HELIX', 'TEFN', 'TimeMixer', 'ImputeFormer','ModernTCN',   'TOTEM', 'TimeMixerPP', 'TimeLLM', 'MOMENT'
         'dataset_path': 'ett_rate01_step48_point',
         'max_trials_per_model': 25,
     },
     'PeMS': {
-        'models': ['HELIX', 'TEFN', 'TimeMixer', 'ModernTCN', 'ImputeFormer', 'TOTEM'],
+        'models': [ ],#'HELIX', 'TEFN', 'TimeMixer','ImputeFormer','ModernTCN',  'TOTEM'
         'dataset_path': 'pems_traffic_rate01_step24_point',
+        'max_trials_per_model': 25,
+    },
+    'BeijingAir': {
+        'models': [],#'HELIX', 'TEFN', 'TimeMixer', 'ModernTCN', 'ImputeFormer', 'TOTEM', 'TimeMixerPP', 'MOMENT'
+        'dataset_path': 'beijing_air_quality_rate01_step24_point',
+        'max_trials_per_model': 25,
+    },
+    'PhysioNet2012': {
+        'models': [],#'HELIX', 'TEFN', 'TimeMixer', 'ModernTCN', 'ImputeFormer', 'TOTEM', 'TimeMixerPP', 'MOMENT'
+        'dataset_path': 'physionet_2012_rate01_point',
+        'max_trials_per_model': 25,
+    },
+    'ItalyAir': {
+        'models': ['HELIX', 'TEFN', 'TimeMixer', 'ModernTCN', 'ImputeFormer', 'TOTEM', 'TimeMixerPP'],#
+        'dataset_path': 'italy_air_quality_rate01_step12_point',
         'max_trials_per_model': 25,
     }
 }
@@ -193,7 +207,6 @@ def create_tuning_sbatch_script(
 #SBATCH -o {output_dir}/trial_{trial_id}.out
 #SBATCH -e {output_dir}/trial_{trial_id}.err
 #SBATCH --gpus=1
-#SBATCH --time=06:00:00
 
 module purge
 module load miniforge3/24.1 
@@ -203,7 +216,7 @@ source activate py310pots
 export PYTHONUNBUFFERED=1
 export http_proxy=http://u-cEoRwn:EDvFuZTe@172.16.4.9:3128
 export https_proxy=http://u-cEoRwn:EDvFuZTe@172.16.4.9:3128
-
+export LD_PRELOAD=$LD_PRELOAD:/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/sklearn/utils/../../scikit_learn.libs/libgomp-947d5fa1.so.1.0.0
 # 保存参数配置
 cat > {output_dir}/trial_{trial_id}_params.json <<'EOF'
 {json.dumps(params, indent=2)}

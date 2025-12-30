@@ -189,3 +189,85 @@ Using eos_token, but it is not set yet.
 2025-12-29 21:51:20 [INFO]: Epoch 036 - training loss (MAE): 0.6271, validation MSE: 0.6440
 2025-12-29 22:03:53 [INFO]: Epoch 037 - training loss (MAE): 0.6260, validation MSE: 0.6278
 2025-12-29 22:16:27 [INFO]: Epoch 038 - training loss (MAE): 0.6249, validation MSE: 0.6223
+2025-12-29 22:29:00 [INFO]: Epoch 039 - training loss (MAE): 0.6266, validation MSE: 0.6114
+2025-12-29 22:41:33 [INFO]: Epoch 040 - training loss (MAE): 0.6247, validation MSE: 0.6351
+2025-12-29 22:54:07 [INFO]: Epoch 041 - training loss (MAE): 0.6263, validation MSE: 0.6309
+2025-12-29 23:06:41 [INFO]: Epoch 042 - training loss (MAE): 0.6286, validation MSE: 0.6361
+2025-12-29 23:19:14 [INFO]: Epoch 043 - training loss (MAE): 0.6226, validation MSE: 0.6437
+2025-12-29 23:31:48 [INFO]: Epoch 044 - training loss (MAE): 0.6271, validation MSE: 0.6448
+2025-12-29 23:44:21 [INFO]: Epoch 045 - training loss (MAE): 0.6223, validation MSE: 0.6535
+2025-12-29 23:56:55 [INFO]: Epoch 046 - training loss (MAE): 0.6188, validation MSE: 0.6532
+2025-12-30 00:09:28 [INFO]: Epoch 047 - training loss (MAE): 0.6216, validation MSE: 0.6448
+2025-12-30 00:22:02 [INFO]: Epoch 048 - training loss (MAE): 0.6195, validation MSE: 0.6503
+2025-12-30 00:34:35 [INFO]: Epoch 049 - training loss (MAE): 0.6237, validation MSE: 0.6344
+2025-12-30 00:34:35 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2025-12-30 00:34:35 [INFO]: Finished training. The best model is from epoch#39.
+2025-12-30 00:34:35 [INFO]: Saved the model to reproduce_imputation/point09_log/BeijingAir_log/TimeLLM_BeijingAir/round_2/20251229_T141920/TimeLLM.pypots
+2025-12-30 00:37:39 [INFO]: Successfully saved to reproduce_imputation/point09_log/BeijingAir_log/TimeLLM_BeijingAir/round_2/imputation.pkl
+2025-12-30 00:37:39 [INFO]: Round2 - TimeLLM on BeijingAir: MAE=0.3919, MSE=0.5647, MRE=0.5197
+2025-12-30 00:37:39 [INFO]: Have set the random seed as 2027 for numpy and pytorch.
+2025-12-30 00:37:39 [INFO]: Using the given device: cuda:0
+2025-12-30 00:37:39 [INFO]: Model files will be saved to reproduce_imputation/point09_log/BeijingAir_log/TimeLLM_BeijingAir/round_3/20251230_T003739
+2025-12-30 00:37:39 [INFO]: Tensorboard file will be saved to reproduce_imputation/point09_log/BeijingAir_log/TimeLLM_BeijingAir/round_3/20251230_T003739/tensorboard
+2025-12-30 00:37:39 [INFO]: Using customized MAE as the training loss function.
+2025-12-30 00:37:39 [INFO]: Using customized MSE as the validation metric function.
+urllib3.exceptions.SSLError: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/urllib3/connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='huggingface.co', port=443): Max retries exceeded with url: /google-bert/bert-base-uncased/resolve/main/config.json (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/train_model.py", line 144, in <module>
+    hyperparameters["device"] = args.device
+  File "/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/timellm/model.py", line 185, in __init__
+    self.model = _TimeLLM(
+  File "/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/timellm/core.py", line 39, in __init__
+    self.backbone = BackboneTimeLLM(
+  File "/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/nn/modules/timellm/backbone.py", line 93, in __init__
+    self.llm_model = BertModel.from_pretrained(
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/transformers/modeling_utils.py", line 2325, in from_pretrained
+    config, model_kwargs = cls.config_class.from_pretrained(
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/transformers/configuration_utils.py", line 590, in from_pretrained
+    config_dict, kwargs = cls.get_config_dict(pretrained_model_name_or_path, **kwargs)
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/transformers/configuration_utils.py", line 617, in get_config_dict
+    config_dict, kwargs = cls._get_config_dict(pretrained_model_name_or_path, **kwargs)
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/transformers/configuration_utils.py", line 672, in _get_config_dict
+    resolved_config_file = cached_file(
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/transformers/utils/hub.py", line 417, in cached_file
+    resolved_file = hf_hub_download(
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1221, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1282, in _hf_hub_download_to_cache_dir
+    (url_to_download, etag, commit_hash, expected_size, head_call_error) = _get_metadata_or_catch_error(
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1722, in _get_metadata_or_catch_error
+    metadata = get_hf_file_metadata(url=url, proxies=proxies, timeout=etag_timeout, headers=headers)
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1645, in get_hf_file_metadata
+    r = _request_wrapper(
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 372, in _request_wrapper
+    response = _request_wrapper(
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 395, in _request_wrapper
+    response = get_session().request(method=method, url=url, **params)
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/huggingface_hub/utils/_http.py", line 66, in send
+    return super().send(request, *args, **kwargs)
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/requests/adapters.py", line 517, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: (MaxRetryError("HTTPSConnectionPool(host='huggingface.co', port=443): Max retries exceeded with url: /google-bert/bert-base-uncased/resolve/main/config.json (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)')))"), '(Request ID: e5471c90-f521-43db-b7ee-5f6137c95e8c)')
+  0%|          | 0/198 [00:00<?, ?it/s] 29%|██▉       | 57/198 [00:00<00:00, 568.48it/s] 58%|█████▊    | 114/198 [00:00<00:00, 379.53it/s] 93%|█████████▎| 185/198 [00:00<00:00, 494.36it/s]100%|██████████| 198/198 [00:00<00:00, 486.21it/s]

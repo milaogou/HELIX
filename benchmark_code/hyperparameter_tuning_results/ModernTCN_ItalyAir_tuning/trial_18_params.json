@@ -1,0 +1,32 @@
+{
+  "n_steps": 12,
+  "n_features": 13,
+  "epochs": 1000,
+  "patience": 10,
+  "patch_size": 6,
+  "patch_stride": 4,
+  "downsampling_ratio": 3,
+  "ffn_ratio": 2,
+  "num_blocks": [
+    1
+  ],
+  "large_size": [
+    5,
+    5
+  ],
+  "small_size": [
+    3,
+    3
+  ],
+  "dims": [
+    24
+  ],
+  "small_kernel_merged": false,
+  "backbone_dropout": 0.2,
+  "head_dropout": 0.2,
+  "use_multi_scale": false,
+  "individual": false,
+  "apply_nonstationary_norm": false,
+  "batch_size": 32,
+  "lr": 0.006462021250979085
+}

@@ -1,0 +1,163 @@
+trial_id,completed,failed,fail_reason,n_steps,n_features,epochs,patience,patch_size,patch_stride,downsampling_ratio,ffn_ratio,num_blocks,large_size,small_size,dims,small_kernel_merged,backbone_dropout,head_dropout,use_multi_scale,individual,apply_nonstationary_norm,batch_size,lr,mae,mse,mre,inference_time
+1,True,True,"Error: The length of num_blocks, dims, large_size, and small_size should be the same.
+
+Full traceback:
+Traceback (most recent call last):
+  File ""/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/train_model_tuning.py"", line 152, in <module>
+    model = SUPPORT_MODELS[args.model](**model_params)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/moderntcn/model.py"", line 171, in __init__
+    len(num_blocks) == len(dims) == len(large_size) == len(small_size)
+AssertionError: The length of num_blocks, dims, large_size, and small_size should be the same.",12,13,1000,10,6,4,2,4,[1],"[5, 5]",[3],[32],False,0.2,0.2,False,False,False,8,0.0022370367088611538,,,,
+4,True,True,"Error: The length of num_blocks, dims, large_size, and small_size should be the same.
+
+Full traceback:
+Traceback (most recent call last):
+  File ""/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/train_model_tuning.py"", line 152, in <module>
+    model = SUPPORT_MODELS[args.model](**model_params)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/moderntcn/model.py"", line 171, in __init__
+    len(num_blocks) == len(dims) == len(large_size) == len(small_size)
+AssertionError: The length of num_blocks, dims, large_size, and small_size should be the same.",12,13,1000,10,4,4,2,4,[1],[5],"[3, 3]",[32],False,0.0,0.1,False,False,False,16,0.002659516136907062,,,,
+11,True,True,"Error: The length of num_blocks, dims, large_size, and small_size should be the same.
+
+Full traceback:
+Traceback (most recent call last):
+  File ""/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/train_model_tuning.py"", line 152, in <module>
+    model = SUPPORT_MODELS[args.model](**model_params)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/moderntcn/model.py"", line 171, in __init__
+    len(num_blocks) == len(dims) == len(large_size) == len(small_size)
+AssertionError: The length of num_blocks, dims, large_size, and small_size should be the same.",12,13,1000,10,6,4,3,4,[1],[5],"[3, 3]",[32],False,0.2,0.1,False,False,False,16,0.0060113641089121995,,,,
+14,True,True,"Error: The length of num_blocks, dims, large_size, and small_size should be the same.
+
+Full traceback:
+Traceback (most recent call last):
+  File ""/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/train_model_tuning.py"", line 152, in <module>
+    model = SUPPORT_MODELS[args.model](**model_params)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/moderntcn/model.py"", line 171, in __init__
+    len(num_blocks) == len(dims) == len(large_size) == len(small_size)
+AssertionError: The length of num_blocks, dims, large_size, and small_size should be the same.",12,13,1000,10,3,3,2,4,[1],"[5, 5]","[3, 3]",[32],False,0.2,0.0,False,False,False,32,0.0027399290676505153,,,,
+23,True,True,"Error: The length of num_blocks, dims, large_size, and small_size should be the same.
+
+Full traceback:
+Traceback (most recent call last):
+  File ""/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/train_model_tuning.py"", line 152, in <module>
+    model = SUPPORT_MODELS[args.model](**model_params)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/moderntcn/model.py"", line 171, in __init__
+    len(num_blocks) == len(dims) == len(large_size) == len(small_size)
+AssertionError: The length of num_blocks, dims, large_size, and small_size should be the same.",12,13,1000,10,4,3,3,4,"[1, 1]",[5],"[3, 3]","[24, 32]",False,0.1,0.0,False,False,False,8,0.002668191924191567,,,,
+22,True,True,"Error: The length of num_blocks, dims, large_size, and small_size should be the same.
+
+Full traceback:
+Traceback (most recent call last):
+  File ""/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/train_model_tuning.py"", line 152, in <module>
+    model = SUPPORT_MODELS[args.model](**model_params)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/moderntcn/model.py"", line 171, in __init__
+    len(num_blocks) == len(dims) == len(large_size) == len(small_size)
+AssertionError: The length of num_blocks, dims, large_size, and small_size should be the same.",12,13,1000,10,6,6,3,2,[1],"[5, 5]","[3, 3]",[24],False,0.0,0.0,False,False,False,8,0.0017360478241426626,,,,
+10,True,True,"Error: The length of num_blocks, dims, large_size, and small_size should be the same.
+
+Full traceback:
+Traceback (most recent call last):
+  File ""/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/train_model_tuning.py"", line 152, in <module>
+    model = SUPPORT_MODELS[args.model](**model_params)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/moderntcn/model.py"", line 171, in __init__
+    len(num_blocks) == len(dims) == len(large_size) == len(small_size)
+AssertionError: The length of num_blocks, dims, large_size, and small_size should be the same.",12,13,1000,10,6,6,2,4,[1],[5],"[3, 3]",[32],False,0.2,0.1,False,False,False,16,0.0037760699652005132,,,,
+15,True,True,"Error: The length of num_blocks, dims, large_size, and small_size should be the same.
+
+Full traceback:
+Traceback (most recent call last):
+  File ""/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/train_model_tuning.py"", line 152, in <module>
+    model = SUPPORT_MODELS[args.model](**model_params)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/moderntcn/model.py"", line 171, in __init__
+    len(num_blocks) == len(dims) == len(large_size) == len(small_size)
+AssertionError: The length of num_blocks, dims, large_size, and small_size should be the same.",12,13,1000,10,4,3,2,4,"[1, 1]",[5],"[3, 3]","[24, 32]",False,0.2,0.1,False,False,False,16,0.000557694899575743,,,,
+6,True,True,"Error: The length of num_blocks, dims, large_size, and small_size should be the same.
+
+Full traceback:
+Traceback (most recent call last):
+  File ""/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/train_model_tuning.py"", line 152, in <module>
+    model = SUPPORT_MODELS[args.model](**model_params)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/moderntcn/model.py"", line 171, in __init__
+    len(num_blocks) == len(dims) == len(large_size) == len(small_size)
+AssertionError: The length of num_blocks, dims, large_size, and small_size should be the same.",12,13,1000,10,6,6,3,2,[1],"[5, 5]",[3],[32],False,0.2,0.1,False,False,False,16,0.00016113917352902346,,,,
+8,True,True,"Error: The length of num_blocks, dims, large_size, and small_size should be the same.
+
+Full traceback:
+Traceback (most recent call last):
+  File ""/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/train_model_tuning.py"", line 152, in <module>
+    model = SUPPORT_MODELS[args.model](**model_params)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/moderntcn/model.py"", line 171, in __init__
+    len(num_blocks) == len(dims) == len(large_size) == len(small_size)
+AssertionError: The length of num_blocks, dims, large_size, and small_size should be the same.",12,13,1000,10,4,3,2,4,"[1, 1]","[5, 5]",[3],"[24, 32]",False,0.1,0.2,False,False,False,32,0.002544847394275626,,,,
+13,True,True,"Error: The length of num_blocks, dims, large_size, and small_size should be the same.
+
+Full traceback:
+Traceback (most recent call last):
+  File ""/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/train_model_tuning.py"", line 152, in <module>
+    model = SUPPORT_MODELS[args.model](**model_params)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/moderntcn/model.py"", line 171, in __init__
+    len(num_blocks) == len(dims) == len(large_size) == len(small_size)
+AssertionError: The length of num_blocks, dims, large_size, and small_size should be the same.",12,13,1000,10,3,3,3,2,"[1, 1]",[5],"[3, 3]","[24, 32]",False,0.2,0.0,False,False,False,32,0.0026249895716861506,,,,
+18,True,True,"Error: The length of num_blocks, dims, large_size, and small_size should be the same.
+
+Full traceback:
+Traceback (most recent call last):
+  File ""/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/train_model_tuning.py"", line 152, in <module>
+    model = SUPPORT_MODELS[args.model](**model_params)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/moderntcn/model.py"", line 171, in __init__
+    len(num_blocks) == len(dims) == len(large_size) == len(small_size)
+AssertionError: The length of num_blocks, dims, large_size, and small_size should be the same.",12,13,1000,10,6,4,3,2,[1],"[5, 5]","[3, 3]",[24],False,0.2,0.2,False,False,False,32,0.006462021250979085,,,,
+24,True,True,"Error: The length of num_blocks, dims, large_size, and small_size should be the same.
+
+Full traceback:
+Traceback (most recent call last):
+  File ""/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/train_model_tuning.py"", line 152, in <module>
+    model = SUPPORT_MODELS[args.model](**model_params)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/moderntcn/model.py"", line 171, in __init__
+    len(num_blocks) == len(dims) == len(large_size) == len(small_size)
+AssertionError: The length of num_blocks, dims, large_size, and small_size should be the same.",12,13,1000,10,4,3,2,4,"[1, 1]","[5, 5]",[3],"[24, 32]",False,0.0,0.1,False,False,False,16,0.0004487142100976793,,,,
+21,True,True,"Error: The length of num_blocks, dims, large_size, and small_size should be the same.
+
+Full traceback:
+Traceback (most recent call last):
+  File ""/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/train_model_tuning.py"", line 152, in <module>
+    model = SUPPORT_MODELS[args.model](**model_params)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/moderntcn/model.py"", line 171, in __init__
+    len(num_blocks) == len(dims) == len(large_size) == len(small_size)
+AssertionError: The length of num_blocks, dims, large_size, and small_size should be the same.",12,13,1000,10,4,3,3,2,"[1, 1]","[5, 5]",[3],"[24, 32]",False,0.0,0.1,False,False,False,8,0.0040672534452104725,,,,
+20,True,True,"Error: The length of num_blocks, dims, large_size, and small_size should be the same.
+
+Full traceback:
+Traceback (most recent call last):
+  File ""/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/train_model_tuning.py"", line 152, in <module>
+    model = SUPPORT_MODELS[args.model](**model_params)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/moderntcn/model.py"", line 171, in __init__
+    len(num_blocks) == len(dims) == len(large_size) == len(small_size)
+AssertionError: The length of num_blocks, dims, large_size, and small_size should be the same.",12,13,1000,10,6,4,3,4,[1],"[5, 5]","[3, 3]",[24],False,0.0,0.0,False,False,False,8,0.0013328212218525488,,,,
+25,True,True,"Error: The length of num_blocks, dims, large_size, and small_size should be the same.
+
+Full traceback:
+Traceback (most recent call last):
+  File ""/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/train_model_tuning.py"", line 152, in <module>
+    model = SUPPORT_MODELS[args.model](**model_params)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/moderntcn/model.py"", line 171, in __init__
+    len(num_blocks) == len(dims) == len(large_size) == len(small_size)
+AssertionError: The length of num_blocks, dims, large_size, and small_size should be the same.",12,13,1000,10,6,3,3,4,[1],"[5, 5]","[3, 3]",[24],False,0.2,0.2,False,False,False,16,0.0001908064582320856,,,,
+7,True,True,"Error: The length of num_blocks, dims, large_size, and small_size should be the same.
+
+Full traceback:
+Traceback (most recent call last):
+  File ""/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/train_model_tuning.py"", line 152, in <module>
+    model = SUPPORT_MODELS[args.model](**model_params)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/moderntcn/model.py"", line 171, in __init__
+    len(num_blocks) == len(dims) == len(large_size) == len(small_size)
+AssertionError: The length of num_blocks, dims, large_size, and small_size should be the same.",12,13,1000,10,6,6,2,2,[1],[5],"[3, 3]",[24],False,0.2,0.0,False,False,False,16,0.003227688764688669,,,,
+17,True,True,"Error: The length of num_blocks, dims, large_size, and small_size should be the same.
+
+Full traceback:
+Traceback (most recent call last):
+  File ""/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/train_model_tuning.py"", line 152, in <module>
+    model = SUPPORT_MODELS[args.model](**model_params)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/moderntcn/model.py"", line 171, in __init__
+    len(num_blocks) == len(dims) == len(large_size) == len(small_size)
+AssertionError: The length of num_blocks, dims, large_size, and small_size should be the same.",12,13,1000,10,6,4,3,4,"[1, 1]",[5],"[3, 3]","[24, 32]",False,0.2,0.1,False,False,False,8,0.00036142050787386237,,,,

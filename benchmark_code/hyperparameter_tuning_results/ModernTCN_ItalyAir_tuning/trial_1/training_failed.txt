@@ -1,0 +1,9 @@
+Error: The length of num_blocks, dims, large_size, and small_size should be the same.
+
+Full traceback:
+Traceback (most recent call last):
+  File "/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/train_model_tuning.py", line 152, in <module>
+    model = SUPPORT_MODELS[args.model](**model_params)
+  File "/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/moderntcn/model.py", line 171, in __init__
+    len(num_blocks) == len(dims) == len(large_size) == len(small_size)
+AssertionError: The length of num_blocks, dims, large_size, and small_size should be the same.

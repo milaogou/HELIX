@@ -1,0 +1,271 @@
+trial_id,completed,failed,fail_reason,n_steps,n_features,epochs,patience,d_block_hidden,n_residual_layers,d_residual_hidden,d_embedding,n_embeddings,commitment_cost,compression_factor,batch_size,lr,mae,mse,mre,inference_time
+1,True,True,"Error: compression_factor must be one of [4, 8, 12, 16]
+
+Full traceback:
+Traceback (most recent call last):
+  File ""/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/train_model_tuning.py"", line 152, in <module>
+    model = SUPPORT_MODELS[args.model](**model_params)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/totem/model.py"", line 143, in __init__
+    self.model = _TOTEM(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/totem/core.py"", line 32, in __init__
+    self.autoencoder = VQVAE(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/nn/modules/totem/autoencoder.py"", line 412, in __init__
+    self.encoder = Encoder(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/nn/modules/totem/autoencoder.py"", line 26, in __init__
+    assert compression_factor in [4, 8, 12, 16], ""compression_factor must be one of [4, 8, 12, 16]""
+AssertionError: compression_factor must be one of [4, 8, 12, 16]",12,13,1000,10,24,2,16,32,128,0.25,3,16,0.00010067119352962998,,,,
+14,True,True,"Error: compression_factor must be one of [4, 8, 12, 16]
+
+Full traceback:
+Traceback (most recent call last):
+  File ""/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/train_model_tuning.py"", line 152, in <module>
+    model = SUPPORT_MODELS[args.model](**model_params)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/totem/model.py"", line 143, in __init__
+    self.model = _TOTEM(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/totem/core.py"", line 32, in __init__
+    self.autoencoder = VQVAE(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/nn/modules/totem/autoencoder.py"", line 412, in __init__
+    self.encoder = Encoder(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/nn/modules/totem/autoencoder.py"", line 26, in __init__
+    assert compression_factor in [4, 8, 12, 16], ""compression_factor must be one of [4, 8, 12, 16]""
+AssertionError: compression_factor must be one of [4, 8, 12, 16]",12,13,1000,10,32,2,8,24,64,0.1,2,8,0.00030321545716915325,,,,
+23,True,True,"Error: compression_factor must be one of [4, 8, 12, 16]
+
+Full traceback:
+Traceback (most recent call last):
+  File ""/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/train_model_tuning.py"", line 152, in <module>
+    model = SUPPORT_MODELS[args.model](**model_params)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/totem/model.py"", line 143, in __init__
+    self.model = _TOTEM(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/totem/core.py"", line 32, in __init__
+    self.autoencoder = VQVAE(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/nn/modules/totem/autoencoder.py"", line 412, in __init__
+    self.encoder = Encoder(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/nn/modules/totem/autoencoder.py"", line 26, in __init__
+    assert compression_factor in [4, 8, 12, 16], ""compression_factor must be one of [4, 8, 12, 16]""
+AssertionError: compression_factor must be one of [4, 8, 12, 16]",12,13,1000,10,24,3,16,24,256,0.1,3,32,8.196648357532527e-05,,,,
+22,True,True,"Error: compression_factor must be one of [4, 8, 12, 16]
+
+Full traceback:
+Traceback (most recent call last):
+  File ""/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/train_model_tuning.py"", line 152, in <module>
+    model = SUPPORT_MODELS[args.model](**model_params)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/totem/model.py"", line 143, in __init__
+    self.model = _TOTEM(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/totem/core.py"", line 32, in __init__
+    self.autoencoder = VQVAE(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/nn/modules/totem/autoencoder.py"", line 412, in __init__
+    self.encoder = Encoder(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/nn/modules/totem/autoencoder.py"", line 26, in __init__
+    assert compression_factor in [4, 8, 12, 16], ""compression_factor must be one of [4, 8, 12, 16]""
+AssertionError: compression_factor must be one of [4, 8, 12, 16]",12,13,1000,10,16,2,8,24,128,0.1,2,16,8.3230398893184e-05,,,,
+5,True,True,"Error: compression_factor must be one of [4, 8, 12, 16]
+
+Full traceback:
+Traceback (most recent call last):
+  File ""/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/train_model_tuning.py"", line 152, in <module>
+    model = SUPPORT_MODELS[args.model](**model_params)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/totem/model.py"", line 143, in __init__
+    self.model = _TOTEM(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/totem/core.py"", line 32, in __init__
+    self.autoencoder = VQVAE(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/nn/modules/totem/autoencoder.py"", line 412, in __init__
+    self.encoder = Encoder(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/nn/modules/totem/autoencoder.py"", line 26, in __init__
+    assert compression_factor in [4, 8, 12, 16], ""compression_factor must be one of [4, 8, 12, 16]""
+AssertionError: compression_factor must be one of [4, 8, 12, 16]",12,13,1000,10,32,3,16,16,64,0.25,2,8,7.194230243354867e-05,,,,
+15,True,True,"Error: compression_factor must be one of [4, 8, 12, 16]
+
+Full traceback:
+Traceback (most recent call last):
+  File ""/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/train_model_tuning.py"", line 152, in <module>
+    model = SUPPORT_MODELS[args.model](**model_params)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/totem/model.py"", line 143, in __init__
+    self.model = _TOTEM(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/totem/core.py"", line 32, in __init__
+    self.autoencoder = VQVAE(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/nn/modules/totem/autoencoder.py"", line 412, in __init__
+    self.encoder = Encoder(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/nn/modules/totem/autoencoder.py"", line 26, in __init__
+    assert compression_factor in [4, 8, 12, 16], ""compression_factor must be one of [4, 8, 12, 16]""
+AssertionError: compression_factor must be one of [4, 8, 12, 16]",12,13,1000,10,32,1,8,24,256,0.1,3,8,5.3392387301795744e-05,,,,
+8,True,True,"Error: compression_factor must be one of [4, 8, 12, 16]
+
+Full traceback:
+Traceback (most recent call last):
+  File ""/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/train_model_tuning.py"", line 152, in <module>
+    model = SUPPORT_MODELS[args.model](**model_params)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/totem/model.py"", line 143, in __init__
+    self.model = _TOTEM(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/totem/core.py"", line 32, in __init__
+    self.autoencoder = VQVAE(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/nn/modules/totem/autoencoder.py"", line 412, in __init__
+    self.encoder = Encoder(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/nn/modules/totem/autoencoder.py"", line 26, in __init__
+    assert compression_factor in [4, 8, 12, 16], ""compression_factor must be one of [4, 8, 12, 16]""
+AssertionError: compression_factor must be one of [4, 8, 12, 16]",12,13,1000,10,24,3,12,16,128,0.1,2,16,0.00011562964009606917,,,,
+16,True,True,"Error: compression_factor must be one of [4, 8, 12, 16]
+
+Full traceback:
+Traceback (most recent call last):
+  File ""/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/train_model_tuning.py"", line 152, in <module>
+    model = SUPPORT_MODELS[args.model](**model_params)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/totem/model.py"", line 143, in __init__
+    self.model = _TOTEM(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/totem/core.py"", line 32, in __init__
+    self.autoencoder = VQVAE(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/nn/modules/totem/autoencoder.py"", line 412, in __init__
+    self.encoder = Encoder(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/nn/modules/totem/autoencoder.py"", line 26, in __init__
+    assert compression_factor in [4, 8, 12, 16], ""compression_factor must be one of [4, 8, 12, 16]""
+AssertionError: compression_factor must be one of [4, 8, 12, 16]",12,13,1000,10,24,3,16,24,256,0.1,3,16,0.0001314275614475459,,,,
+18,True,True,"Error: compression_factor must be one of [4, 8, 12, 16]
+
+Full traceback:
+Traceback (most recent call last):
+  File ""/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/train_model_tuning.py"", line 152, in <module>
+    model = SUPPORT_MODELS[args.model](**model_params)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/totem/model.py"", line 143, in __init__
+    self.model = _TOTEM(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/totem/core.py"", line 32, in __init__
+    self.autoencoder = VQVAE(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/nn/modules/totem/autoencoder.py"", line 412, in __init__
+    self.encoder = Encoder(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/nn/modules/totem/autoencoder.py"", line 26, in __init__
+    assert compression_factor in [4, 8, 12, 16], ""compression_factor must be one of [4, 8, 12, 16]""
+AssertionError: compression_factor must be one of [4, 8, 12, 16]",12,13,1000,10,16,1,16,16,256,0.5,3,32,5.509357116172901e-05,,,,
+21,True,True,"Error: compression_factor must be one of [4, 8, 12, 16]
+
+Full traceback:
+Traceback (most recent call last):
+  File ""/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/train_model_tuning.py"", line 152, in <module>
+    model = SUPPORT_MODELS[args.model](**model_params)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/totem/model.py"", line 143, in __init__
+    self.model = _TOTEM(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/totem/core.py"", line 32, in __init__
+    self.autoencoder = VQVAE(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/nn/modules/totem/autoencoder.py"", line 412, in __init__
+    self.encoder = Encoder(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/nn/modules/totem/autoencoder.py"", line 26, in __init__
+    assert compression_factor in [4, 8, 12, 16], ""compression_factor must be one of [4, 8, 12, 16]""
+AssertionError: compression_factor must be one of [4, 8, 12, 16]",12,13,1000,10,16,2,12,24,128,0.5,3,8,0.0005987875236078078,,,,
+20,True,True,"Error: compression_factor must be one of [4, 8, 12, 16]
+
+Full traceback:
+Traceback (most recent call last):
+  File ""/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/train_model_tuning.py"", line 152, in <module>
+    model = SUPPORT_MODELS[args.model](**model_params)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/totem/model.py"", line 143, in __init__
+    self.model = _TOTEM(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/totem/core.py"", line 32, in __init__
+    self.autoencoder = VQVAE(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/nn/modules/totem/autoencoder.py"", line 412, in __init__
+    self.encoder = Encoder(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/nn/modules/totem/autoencoder.py"", line 26, in __init__
+    assert compression_factor in [4, 8, 12, 16], ""compression_factor must be one of [4, 8, 12, 16]""
+AssertionError: compression_factor must be one of [4, 8, 12, 16]",12,13,1000,10,24,1,8,32,64,0.25,3,8,0.0004327625703761842,,,,
+25,True,True,"Error: compression_factor must be one of [4, 8, 12, 16]
+
+Full traceback:
+Traceback (most recent call last):
+  File ""/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/train_model_tuning.py"", line 152, in <module>
+    model = SUPPORT_MODELS[args.model](**model_params)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/totem/model.py"", line 143, in __init__
+    self.model = _TOTEM(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/totem/core.py"", line 32, in __init__
+    self.autoencoder = VQVAE(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/nn/modules/totem/autoencoder.py"", line 412, in __init__
+    self.encoder = Encoder(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/nn/modules/totem/autoencoder.py"", line 26, in __init__
+    assert compression_factor in [4, 8, 12, 16], ""compression_factor must be one of [4, 8, 12, 16]""
+AssertionError: compression_factor must be one of [4, 8, 12, 16]",12,13,1000,10,16,2,16,32,128,0.1,2,16,5.0574800485279876e-05,,,,
+2,True,True,"Error: compression_factor must be one of [4, 8, 12, 16]
+
+Full traceback:
+Traceback (most recent call last):
+  File ""/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/train_model_tuning.py"", line 152, in <module>
+    model = SUPPORT_MODELS[args.model](**model_params)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/totem/model.py"", line 143, in __init__
+    self.model = _TOTEM(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/totem/core.py"", line 32, in __init__
+    self.autoencoder = VQVAE(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/nn/modules/totem/autoencoder.py"", line 412, in __init__
+    self.encoder = Encoder(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/nn/modules/totem/autoencoder.py"", line 26, in __init__
+    assert compression_factor in [4, 8, 12, 16], ""compression_factor must be one of [4, 8, 12, 16]""
+AssertionError: compression_factor must be one of [4, 8, 12, 16]",12,13,1000,10,16,1,12,24,128,0.25,2,32,0.00014625567231679008,,,,
+7,True,True,"Error: compression_factor must be one of [4, 8, 12, 16]
+
+Full traceback:
+Traceback (most recent call last):
+  File ""/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/train_model_tuning.py"", line 152, in <module>
+    model = SUPPORT_MODELS[args.model](**model_params)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/totem/model.py"", line 143, in __init__
+    self.model = _TOTEM(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/totem/core.py"", line 32, in __init__
+    self.autoencoder = VQVAE(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/nn/modules/totem/autoencoder.py"", line 412, in __init__
+    self.encoder = Encoder(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/nn/modules/totem/autoencoder.py"", line 26, in __init__
+    assert compression_factor in [4, 8, 12, 16], ""compression_factor must be one of [4, 8, 12, 16]""
+AssertionError: compression_factor must be one of [4, 8, 12, 16]",12,13,1000,10,32,2,8,16,128,0.1,2,16,5.819037716843444e-05,,,,
+9,True,True,"Error: compression_factor must be one of [4, 8, 12, 16]
+
+Full traceback:
+Traceback (most recent call last):
+  File ""/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/train_model_tuning.py"", line 152, in <module>
+    model = SUPPORT_MODELS[args.model](**model_params)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/totem/model.py"", line 143, in __init__
+    self.model = _TOTEM(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/totem/core.py"", line 32, in __init__
+    self.autoencoder = VQVAE(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/nn/modules/totem/autoencoder.py"", line 412, in __init__
+    self.encoder = Encoder(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/nn/modules/totem/autoencoder.py"", line 26, in __init__
+    assert compression_factor in [4, 8, 12, 16], ""compression_factor must be one of [4, 8, 12, 16]""
+AssertionError: compression_factor must be one of [4, 8, 12, 16]",12,13,1000,10,24,2,16,24,64,0.1,3,16,7.542549675065239e-05,,,,
+12,True,True,"Error: compression_factor must be one of [4, 8, 12, 16]
+
+Full traceback:
+Traceback (most recent call last):
+  File ""/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/train_model_tuning.py"", line 152, in <module>
+    model = SUPPORT_MODELS[args.model](**model_params)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/totem/model.py"", line 143, in __init__
+    self.model = _TOTEM(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/totem/core.py"", line 32, in __init__
+    self.autoencoder = VQVAE(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/nn/modules/totem/autoencoder.py"", line 412, in __init__
+    self.encoder = Encoder(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/nn/modules/totem/autoencoder.py"", line 26, in __init__
+    assert compression_factor in [4, 8, 12, 16], ""compression_factor must be one of [4, 8, 12, 16]""
+AssertionError: compression_factor must be one of [4, 8, 12, 16]",12,13,1000,10,32,1,12,32,256,0.1,2,32,0.0006313911911085913,,,,
+17,True,True,"Error: compression_factor must be one of [4, 8, 12, 16]
+
+Full traceback:
+Traceback (most recent call last):
+  File ""/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/train_model_tuning.py"", line 152, in <module>
+    model = SUPPORT_MODELS[args.model](**model_params)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/totem/model.py"", line 143, in __init__
+    self.model = _TOTEM(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/totem/core.py"", line 32, in __init__
+    self.autoencoder = VQVAE(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/nn/modules/totem/autoencoder.py"", line 412, in __init__
+    self.encoder = Encoder(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/nn/modules/totem/autoencoder.py"", line 26, in __init__
+    assert compression_factor in [4, 8, 12, 16], ""compression_factor must be one of [4, 8, 12, 16]""
+AssertionError: compression_factor must be one of [4, 8, 12, 16]",12,13,1000,10,16,3,16,32,256,0.25,2,32,0.00029188503080671555,,,,
+19,True,True,"Error: compression_factor must be one of [4, 8, 12, 16]
+
+Full traceback:
+Traceback (most recent call last):
+  File ""/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/train_model_tuning.py"", line 152, in <module>
+    model = SUPPORT_MODELS[args.model](**model_params)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/totem/model.py"", line 143, in __init__
+    self.model = _TOTEM(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/totem/core.py"", line 32, in __init__
+    self.autoencoder = VQVAE(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/nn/modules/totem/autoencoder.py"", line 412, in __init__
+    self.encoder = Encoder(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/nn/modules/totem/autoencoder.py"", line 26, in __init__
+    assert compression_factor in [4, 8, 12, 16], ""compression_factor must be one of [4, 8, 12, 16]""
+AssertionError: compression_factor must be one of [4, 8, 12, 16]",12,13,1000,10,16,2,16,16,64,0.25,3,8,0.00033625447690576214,,,,

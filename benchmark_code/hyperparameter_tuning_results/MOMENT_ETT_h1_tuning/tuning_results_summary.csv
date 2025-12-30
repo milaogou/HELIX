@@ -1,5 +1,6 @@
 trial_id,completed,failed,fail_reason,n_steps,n_features,epochs,patience,patch_size,patch_stride,transformer_backbone,transformer_type,d_model,revin_affine,add_positional_embedding,value_embedding_bias,orth_gain,n_layers,d_ffn,dropout,head_dropout,finetuning_mode,mask_ratio,batch_size,lr,mae,mse,mre,inference_time
 8,True,False,,48,7,1000,10,12,12,t5-base,encoder_only,768,True,True,True,1.41,2,2048,0.1,0.2,end-to-end,0.5,8,0.0006201447672634837,0.5478700932898691,0.6296187740596483,0.6354501981587861,2.4935693740844727
+5,True,False,,48,7,1000,10,8,8,t5-base,encoder_only,768,True,True,True,1.41,6,1024,0.0,0.1,linear-probing,0.3,32,0.0002454644026664908,0.6497489331125568,0.9247615502514513,0.7536149414919502,3.6961922645568848
 13,True,False,,48,7,1000,10,16,16,t5-base,encoder_only,768,True,True,True,1.41,4,4096,0.2,0.2,end-to-end,0.3,8,0.00021982525853038424,0.6942895092641795,0.829823858260317,0.8052755783624508,1.8724892139434814
 18,True,False,,48,7,1000,10,8,8,t5-base,encoder_only,768,True,True,True,1.41,4,2048,0.1,0.2,end-to-end,0.3,32,0.00032132548903342494,0.7213708916327507,1.0674454931498856,0.8366860714762215,3.72554874420166
 25,True,False,,48,7,1000,10,12,12,t5-base,encoder_only,768,True,True,True,1.41,2,2048,0.1,0.1,end-to-end,0.1,16,0.0004401331814777494,0.7626599217291836,0.9710589566699499,0.8845753844318035,2.5214879512786865

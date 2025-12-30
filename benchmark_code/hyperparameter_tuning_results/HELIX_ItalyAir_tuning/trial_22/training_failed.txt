@@ -1,0 +1,17 @@
+Error: d_model must be even for rotary positional encoding
+
+Full traceback:
+Traceback (most recent call last):
+  File "/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/train_model_tuning.py", line 152, in <module>
+    model = SUPPORT_MODELS[args.model](**model_params)
+  File "/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/helix/model.py", line 180, in __init__
+    self.model = _HELIX(
+  File "/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/helix/core.py", line 308, in __init__
+    self.backbone = BackboneHELIX(
+  File "/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/helix/core.py", line 210, in __init__
+    self.embedding = TimeSeriesEmbedding2D(n_features, pe_dim, feature_embed_dim)
+  File "/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/helix/core.py", line 57, in __init__
+    self.temporal_pe = RotaryPositionalEncoding(d_model=pe_dim)
+  File "/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/helix/core.py", line 22, in __init__
+    assert d_model % 2 == 0, "d_model must be even for rotary positional encoding"
+AssertionError: d_model must be even for rotary positional encoding

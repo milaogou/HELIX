@@ -12,12 +12,12 @@
   "add_positional_embedding": true,
   "value_embedding_bias": true,
   "orth_gain": 1.41,
-  "n_layers": 6,
+  "n_layers": 2,
   "d_ffn": 4096,
-  "dropout": 0.2,
+  "dropout": 0.1,
   "head_dropout": 0,
-  "finetuning_mode": "end-to-end",
-  "mask_ratio": 0.3,
+  "finetuning_mode": "linear-probing",
+  "mask_ratio": 0.1,
   "batch_size": 8,
-  "lr": 0.00014706251694646385
+  "lr": 0.00017233333620213673
 }

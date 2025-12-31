@@ -4,7 +4,6 @@
 #SBATCH -o /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyperparameter_tuning_results/TimeMixerPP_ETT_h1_tuning/trial_14.out
 #SBATCH -e /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyperparameter_tuning_results/TimeMixerPP_ETT_h1_tuning/trial_14.err
 #SBATCH --gpus=1
-#SBATCH --time=06:00:00
 
 module purge
 module load miniforge3/24.1 
@@ -22,21 +21,24 @@ cat > /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyper
   "n_features": 7,
   "epochs": 1000,
   "patience": 10,
-  "n_layers": 2,
-  "d_model": 32,
-  "d_ffn": 256,
+  "n_layers": 3,
+  "d_model": 128,
+  "d_ffn": 64,
   "top_k": 3,
-  "n_heads": 4,
-  "n_kernels": 8,
+  "n_heads": 2,
+  "n_kernels": 4,
   "dropout": 0.1,
   "channel_mixing": true,
   "channel_independence": true,
+  "downsampling_layers": 1,
+  "downsampling_window": 2,
+  "apply_nonstationary_norm": false,
   "batch_size": 32,
-  "lr": 0.007430678669106552
+  "lr": 0.0009732715981138455
 }
 EOF
 
-# 运行训练 - 使用新的 train_model_tuning.py
+# 运行训练
 python -u train_model_tuning.py \
     --model TimeMixerPP \
     --dataset ETT_h1 \
@@ -44,7 +46,7 @@ python -u train_model_tuning.py \
     --saving_path /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyperparameter_tuning_results/TimeMixerPP_ETT_h1_tuning/trial_14 \
     --device cuda:0 \
     --n_rounds 1 \
-    --n_steps 48 --n_features 7 --epochs 1000 --patience 10 --n_layers 2 --d_model 32 --d_ffn 256 --top_k 3 --n_heads 4 --n_kernels 8 --dropout 0.100000 --channel_mixing True --channel_independence True --batch_size 32 --lr 0.007431
+    --n_steps 48 --n_features 7 --epochs 1000 --patience 10 --n_layers 3 --d_model 128 --d_ffn 64 --top_k 3 --n_heads 2 --n_kernels 4 --dropout 0.100000 --channel_mixing True --channel_independence True --downsampling_layers 1 --downsampling_window 2 --apply_nonstationary_norm False --batch_size 32 --lr 0.000973
 
 # 标记完成
 echo "Trial 14 completed at $(date)" >> /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyperparameter_tuning_results/TimeMixerPP_ETT_h1_tuning/trial_14_status.txt

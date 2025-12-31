@@ -4,7 +4,6 @@
 #SBATCH -o /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyperparameter_tuning_results/TimeMixerPP_ETT_h1_tuning/trial_7.out
 #SBATCH -e /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyperparameter_tuning_results/TimeMixerPP_ETT_h1_tuning/trial_7.err
 #SBATCH --gpus=1
-#SBATCH --time=06:00:00
 
 module purge
 module load miniforge3/24.1 
@@ -22,21 +21,24 @@ cat > /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyper
   "n_features": 7,
   "epochs": 1000,
   "patience": 10,
-  "n_layers": 3,
+  "n_layers": 2,
   "d_model": 128,
   "d_ffn": 128,
   "top_k": 3,
-  "n_heads": 8,
-  "n_kernels": 6,
-  "dropout": 0.1,
+  "n_heads": 4,
+  "n_kernels": 8,
+  "dropout": 0,
   "channel_mixing": false,
   "channel_independence": true,
+  "downsampling_layers": 2,
+  "downsampling_window": 2,
+  "apply_nonstationary_norm": false,
   "batch_size": 16,
-  "lr": 0.0001902219542300165
+  "lr": 0.0025432997333466605
 }
 EOF
 
-# 运行训练 - 使用新的 train_model_tuning.py
+# 运行训练
 python -u train_model_tuning.py \
     --model TimeMixerPP \
     --dataset ETT_h1 \
@@ -44,7 +46,7 @@ python -u train_model_tuning.py \
     --saving_path /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyperparameter_tuning_results/TimeMixerPP_ETT_h1_tuning/trial_7 \
     --device cuda:0 \
     --n_rounds 1 \
-    --n_steps 48 --n_features 7 --epochs 1000 --patience 10 --n_layers 3 --d_model 128 --d_ffn 128 --top_k 3 --n_heads 8 --n_kernels 6 --dropout 0.100000 --channel_mixing False --channel_independence True --batch_size 16 --lr 0.000190
+    --n_steps 48 --n_features 7 --epochs 1000 --patience 10 --n_layers 2 --d_model 128 --d_ffn 128 --top_k 3 --n_heads 4 --n_kernels 8 --dropout 0 --channel_mixing False --channel_independence True --downsampling_layers 2 --downsampling_window 2 --apply_nonstationary_norm False --batch_size 16 --lr 0.002543
 
 # 标记完成
 echo "Trial 7 completed at $(date)" >> /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyperparameter_tuning_results/TimeMixerPP_ETT_h1_tuning/trial_7_status.txt

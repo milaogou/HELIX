@@ -4,27 +4,31 @@
   "epochs": 1000,
   "patience": 10,
   "patch_size": 6,
-  "patch_stride": 6,
-  "downsampling_ratio": 3,
-  "ffn_ratio": 2,
+  "patch_stride": 4,
+  "downsampling_ratio": 2,
+  "ffn_ratio": 4,
   "num_blocks": [
+    1,
     1
   ],
   "large_size": [
+    5,
     5
   ],
   "small_size": [
+    3,
     3
   ],
   "dims": [
-    24
+    24,
+    32
   ],
   "small_kernel_merged": false,
-  "backbone_dropout": 0.1,
+  "backbone_dropout": 0,
   "head_dropout": 0.1,
   "use_multi_scale": false,
   "individual": false,
   "apply_nonstationary_norm": false,
-  "batch_size": 32,
-  "lr": 0.0002557309932402635
+  "batch_size": 16,
+  "lr": 0.0008422645791624479
 }

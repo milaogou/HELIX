@@ -8,6 +8,7 @@
   "downsampling_ratio": 3,
   "ffn_ratio": 4,
   "num_blocks": [
+    1,
     1
   ],
   "large_size": [
@@ -19,14 +20,15 @@
     3
   ],
   "dims": [
-    24
+    24,
+    32
   ],
   "small_kernel_merged": false,
-  "backbone_dropout": 0.2,
-  "head_dropout": 0.2,
+  "backbone_dropout": 0,
+  "head_dropout": 0.1,
   "use_multi_scale": false,
   "individual": false,
   "apply_nonstationary_norm": false,
   "batch_size": 16,
-  "lr": 0.0001908064582320856
+  "lr": 0.0013384311652276828
 }

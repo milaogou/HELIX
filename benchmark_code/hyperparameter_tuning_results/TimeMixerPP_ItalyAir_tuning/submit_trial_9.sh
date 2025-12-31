@@ -21,20 +21,20 @@ cat > /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyper
   "n_features": 13,
   "epochs": 1000,
   "patience": 10,
-  "n_layers": 2,
-  "d_model": 48,
-  "d_ffn": 96,
-  "top_k": 3,
-  "n_heads": 2,
-  "n_kernels": 8,
-  "dropout": 0.2,
-  "channel_mixing": true,
-  "channel_independence": true,
-  "downsampling_layers": 1,
-  "downsampling_window": 2,
+  "n_layers": 1,
+  "d_model": 24,
+  "d_ffn": 48,
+  "top_k": 5,
+  "n_heads": 4,
+  "n_kernels": 6,
+  "dropout": 0,
+  "channel_mixing": false,
+  "channel_independence": false,
+  "downsampling_layers": 2,
+  "downsampling_window": 3,
   "apply_nonstationary_norm": false,
   "batch_size": 8,
-  "lr": 0.00011645069612217753
+  "lr": 0.0004256869741132765
 }
 EOF
 
@@ -46,7 +46,7 @@ python -u train_model_tuning.py \
     --saving_path /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyperparameter_tuning_results/TimeMixerPP_ItalyAir_tuning/trial_9 \
     --device cuda:0 \
     --n_rounds 1 \
-    --n_steps 12 --n_features 13 --epochs 1000 --patience 10 --n_layers 2 --d_model 48 --d_ffn 96 --top_k 3 --n_heads 2 --n_kernels 8 --dropout 0.200000 --channel_mixing True --channel_independence True --downsampling_layers 1 --downsampling_window 2 --apply_nonstationary_norm False --batch_size 8 --lr 0.000116
+    --n_steps 12 --n_features 13 --epochs 1000 --patience 10 --n_layers 1 --d_model 24 --d_ffn 48 --top_k 5 --n_heads 4 --n_kernels 6 --dropout 0 --channel_mixing False --channel_independence False --downsampling_layers 2 --downsampling_window 3 --apply_nonstationary_norm False --batch_size 8 --lr 0.000426
 
 # 标记完成
 echo "Trial 9 completed at $(date)" >> /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyperparameter_tuning_results/TimeMixerPP_ItalyAir_tuning/trial_9_status.txt

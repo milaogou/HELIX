@@ -48,7 +48,7 @@ cat > /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyper
   "individual": false,
   "apply_nonstationary_norm": false,
   "batch_size": 1,
-  "lr": 0.0003684445186028828
+  "lr": 0.001988789270905849
 }
 EOF
 
@@ -60,7 +60,7 @@ python -u train_model_tuning.py \
     --saving_path /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyperparameter_tuning_results/ModernTCN_PeMS_tuning/trial_23 \
     --device cuda:0 \
     --n_rounds 1 \
-    --n_steps 24 --n_features 862 --epochs 1000 --patience 10 --patch_size 6 --patch_stride 6 --downsampling_ratio 4 --ffn_ratio 4 --num_blocks [1,1] --large_size [7,7] --small_size [3,3] --dims [64,64] --small_kernel_merged False --backbone_dropout 0 --head_dropout 0.200000 --use_multi_scale False --individual False --apply_nonstationary_norm False --batch_size 1 --lr 0.000368
+    --n_steps 24 --n_features 862 --epochs 1000 --patience 10 --patch_size 6 --patch_stride 6 --downsampling_ratio 4 --ffn_ratio 4 --num_blocks [1,1] --large_size [7,7] --small_size [3,3] --dims [64,64] --small_kernel_merged False --backbone_dropout 0 --head_dropout 0.200000 --use_multi_scale False --individual False --apply_nonstationary_norm False --batch_size 1 --lr 0.001989
 
 # 标记完成
 echo "Trial 23 completed at $(date)" >> /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyperparameter_tuning_results/ModernTCN_PeMS_tuning/trial_23_status.txt

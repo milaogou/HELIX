@@ -21,16 +21,16 @@ cat > /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyper
   "n_features": 13,
   "epochs": 1000,
   "patience": 10,
-  "pe_dim": 3,
+  "pe_dim": 6,
   "feature_embed_dim": 6,
   "d_model": 64,
   "n_heads": 8,
   "n_layers": 2,
-  "dropout": 0.2,
+  "dropout": 0.1,
   "ORT_weight": 1.0,
   "MIT_weight": 1.0,
   "batch_size": 32,
-  "lr": 0.00016112873734308206
+  "lr": 0.00011078294417439169
 }
 EOF
 
@@ -42,7 +42,7 @@ python -u train_model_tuning.py \
     --saving_path /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyperparameter_tuning_results/HELIX_ItalyAir_tuning/trial_24 \
     --device cuda:0 \
     --n_rounds 1 \
-    --n_steps 12 --n_features 13 --epochs 1000 --patience 10 --pe_dim 3 --feature_embed_dim 6 --d_model 64 --n_heads 8 --n_layers 2 --dropout 0.200000 --ORT_weight 1.000000 --MIT_weight 1.000000 --batch_size 32 --lr 0.000161
+    --n_steps 12 --n_features 13 --epochs 1000 --patience 10 --pe_dim 6 --feature_embed_dim 6 --d_model 64 --n_heads 8 --n_layers 2 --dropout 0.100000 --ORT_weight 1.000000 --MIT_weight 1.000000 --batch_size 32 --lr 0.000111
 
 # 标记完成
 echo "Trial 24 completed at $(date)" >> /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyperparameter_tuning_results/HELIX_ItalyAir_tuning/trial_24_status.txt

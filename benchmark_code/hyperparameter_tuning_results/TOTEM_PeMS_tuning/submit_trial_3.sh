@@ -4,7 +4,6 @@
 #SBATCH -o /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyperparameter_tuning_results/TOTEM_PeMS_tuning/trial_3.out
 #SBATCH -e /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyperparameter_tuning_results/TOTEM_PeMS_tuning/trial_3.err
 #SBATCH --gpus=1
-#SBATCH --time=06:00:00
 
 module purge
 module load miniforge3/24.1 
@@ -22,19 +21,19 @@ cat > /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyper
   "n_features": 862,
   "epochs": 1000,
   "patience": 10,
-  "d_block_hidden": 64,
-  "n_residual_layers": 3,
+  "d_block_hidden": 256,
+  "n_residual_layers": 1,
   "d_residual_hidden": 128,
-  "d_embedding": 64,
-  "n_embeddings": 512,
-  "commitment_cost": 0.25,
+  "d_embedding": 256,
+  "n_embeddings": 256,
+  "commitment_cost": 0.5,
   "compression_factor": 8,
-  "batch_size": 1,
-  "lr": 0.0016565386785847768
+  "batch_size": 2,
+  "lr": 0.00012337541519730742
 }
 EOF
 
-# 运行训练 - 使用新的 train_model_tuning.py
+# 运行训练
 python -u train_model_tuning.py \
     --model TOTEM \
     --dataset PeMS \
@@ -42,7 +41,7 @@ python -u train_model_tuning.py \
     --saving_path /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyperparameter_tuning_results/TOTEM_PeMS_tuning/trial_3 \
     --device cuda:0 \
     --n_rounds 1 \
-    --n_steps 24 --n_features 862 --epochs 1000 --patience 10 --d_block_hidden 64 --n_residual_layers 3 --d_residual_hidden 128 --d_embedding 64 --n_embeddings 512 --commitment_cost 0.250000 --compression_factor 8 --batch_size 1 --lr 0.001657
+    --n_steps 24 --n_features 862 --epochs 1000 --patience 10 --d_block_hidden 256 --n_residual_layers 1 --d_residual_hidden 128 --d_embedding 256 --n_embeddings 256 --commitment_cost 0.500000 --compression_factor 8 --batch_size 2 --lr 0.000123
 
 # 标记完成
 echo "Trial 3 completed at $(date)" >> /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyperparameter_tuning_results/TOTEM_PeMS_tuning/trial_3_status.txt

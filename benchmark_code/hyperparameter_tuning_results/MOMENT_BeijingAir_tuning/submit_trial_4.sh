@@ -22,7 +22,7 @@ cat > /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyper
   "epochs": 1000,
   "patience": 10,
   "patch_size": 12,
-  "patch_stride": 8,
+  "patch_stride": 12,
   "transformer_backbone": "t5-base",
   "transformer_type": "encoder_only",
   "d_model": 768,
@@ -31,13 +31,13 @@ cat > /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyper
   "value_embedding_bias": true,
   "orth_gain": 1.41,
   "n_layers": 2,
-  "d_ffn": 1024,
+  "d_ffn": 4096,
   "dropout": 0.2,
-  "head_dropout": 0,
+  "head_dropout": 0.1,
   "finetuning_mode": "end-to-end",
-  "mask_ratio": 0.1,
-  "batch_size": 2,
-  "lr": 0.00040175630933407666
+  "mask_ratio": 0.3,
+  "batch_size": 4,
+  "lr": 0.0005347914673376744
 }
 EOF
 
@@ -49,7 +49,7 @@ python -u train_model_tuning.py \
     --saving_path /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyperparameter_tuning_results/MOMENT_BeijingAir_tuning/trial_4 \
     --device cuda:0 \
     --n_rounds 1 \
-    --n_steps 24 --n_features 132 --epochs 1000 --patience 10 --patch_size 12 --patch_stride 8 --transformer_backbone t5-base --transformer_type encoder_only --d_model 768 --revin_affine True --add_positional_embedding True --value_embedding_bias True --orth_gain 1.410000 --n_layers 2 --d_ffn 1024 --dropout 0.200000 --head_dropout 0 --finetuning_mode end-to-end --mask_ratio 0.100000 --batch_size 2 --lr 0.000402
+    --n_steps 24 --n_features 132 --epochs 1000 --patience 10 --patch_size 12 --patch_stride 12 --transformer_backbone t5-base --transformer_type encoder_only --d_model 768 --revin_affine True --add_positional_embedding True --value_embedding_bias True --orth_gain 1.410000 --n_layers 2 --d_ffn 4096 --dropout 0.200000 --head_dropout 0.100000 --finetuning_mode end-to-end --mask_ratio 0.300000 --batch_size 4 --lr 0.000535
 
 # 标记完成
 echo "Trial 4 completed at $(date)" >> /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyperparameter_tuning_results/MOMENT_BeijingAir_tuning/trial_4_status.txt

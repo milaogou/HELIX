@@ -24,7 +24,7 @@ Traceback (most recent call last):
     return forward_call(*args, **kwargs)
   File "/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/nn/modules/moment/modules.py", line 156, in forward
     x = mask * self.value_embedding(x) + (1 - mask) * self.mask_embedding
-RuntimeError: The size of tensor a (6) must match the size of tensor b (3) at non-singleton dimension 2
+RuntimeError: The size of tensor a (3) must match the size of tensor b (5) at non-singleton dimension 2
 
 During handling of the above exception, another exception occurred:
 

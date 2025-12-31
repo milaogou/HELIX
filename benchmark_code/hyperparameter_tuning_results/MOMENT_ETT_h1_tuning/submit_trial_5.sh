@@ -4,7 +4,6 @@
 #SBATCH -o /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyperparameter_tuning_results/MOMENT_ETT_h1_tuning/trial_5.out
 #SBATCH -e /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyperparameter_tuning_results/MOMENT_ETT_h1_tuning/trial_5.err
 #SBATCH --gpus=1
-#SBATCH --time=06:00:00
 
 module purge
 module load miniforge3/24.1 
@@ -22,8 +21,8 @@ cat > /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyper
   "n_features": 7,
   "epochs": 1000,
   "patience": 10,
-  "patch_size": 8,
-  "patch_stride": 8,
+  "patch_size": 16,
+  "patch_stride": 12,
   "transformer_backbone": "t5-base",
   "transformer_type": "encoder_only",
   "d_model": 768,
@@ -32,17 +31,17 @@ cat > /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyper
   "value_embedding_bias": true,
   "orth_gain": 1.41,
   "n_layers": 6,
-  "d_ffn": 1024,
-  "dropout": 0,
-  "head_dropout": 0.1,
-  "finetuning_mode": "linear-probing",
-  "mask_ratio": 0.3,
-  "batch_size": 32,
-  "lr": 0.0002454644026664908
+  "d_ffn": 4096,
+  "dropout": 0.1,
+  "head_dropout": 0.2,
+  "finetuning_mode": "end-to-end",
+  "mask_ratio": 0.1,
+  "batch_size": 16,
+  "lr": 0.00018391308801578936
 }
 EOF
 
-# 运行训练 - 使用新的 train_model_tuning.py
+# 运行训练
 python -u train_model_tuning.py \
     --model MOMENT \
     --dataset ETT_h1 \
@@ -50,7 +49,7 @@ python -u train_model_tuning.py \
     --saving_path /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyperparameter_tuning_results/MOMENT_ETT_h1_tuning/trial_5 \
     --device cuda:0 \
     --n_rounds 1 \
-    --n_steps 48 --n_features 7 --epochs 1000 --patience 10 --patch_size 8 --patch_stride 8 --transformer_backbone t5-base --transformer_type encoder_only --d_model 768 --revin_affine True --add_positional_embedding True --value_embedding_bias True --orth_gain 1.410000 --n_layers 6 --d_ffn 1024 --dropout 0 --head_dropout 0.100000 --finetuning_mode linear-probing --mask_ratio 0.300000 --batch_size 32 --lr 0.000245
+    --n_steps 48 --n_features 7 --epochs 1000 --patience 10 --patch_size 16 --patch_stride 12 --transformer_backbone t5-base --transformer_type encoder_only --d_model 768 --revin_affine True --add_positional_embedding True --value_embedding_bias True --orth_gain 1.410000 --n_layers 6 --d_ffn 4096 --dropout 0.100000 --head_dropout 0.200000 --finetuning_mode end-to-end --mask_ratio 0.100000 --batch_size 16 --lr 0.000184
 
 # 标记完成
 echo "Trial 5 completed at $(date)" >> /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyperparameter_tuning_results/MOMENT_ETT_h1_tuning/trial_5_status.txt

@@ -21,9 +21,9 @@ cat > /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyper
   "n_features": 862,
   "epochs": 1000,
   "patience": 10,
-  "patch_size": 8,
-  "patch_stride": 8,
-  "downsampling_ratio": 2,
+  "patch_size": 6,
+  "patch_stride": 4,
+  "downsampling_ratio": 4,
   "ffn_ratio": 4,
   "num_blocks": [
     1,
@@ -48,7 +48,7 @@ cat > /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyper
   "individual": false,
   "apply_nonstationary_norm": false,
   "batch_size": 1,
-  "lr": 0.00011654705349995163
+  "lr": 0.0003634387468517605
 }
 EOF
 
@@ -60,7 +60,7 @@ python -u train_model_tuning.py \
     --saving_path /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyperparameter_tuning_results/ModernTCN_PeMS_tuning/trial_22 \
     --device cuda:0 \
     --n_rounds 1 \
-    --n_steps 24 --n_features 862 --epochs 1000 --patience 10 --patch_size 8 --patch_stride 8 --downsampling_ratio 2 --ffn_ratio 4 --num_blocks [1,1] --large_size [7,7] --small_size [3,3] --dims [64,128] --small_kernel_merged False --backbone_dropout 0 --head_dropout 0.100000 --use_multi_scale False --individual False --apply_nonstationary_norm False --batch_size 1 --lr 0.000117
+    --n_steps 24 --n_features 862 --epochs 1000 --patience 10 --patch_size 6 --patch_stride 4 --downsampling_ratio 4 --ffn_ratio 4 --num_blocks [1,1] --large_size [7,7] --small_size [3,3] --dims [64,128] --small_kernel_merged False --backbone_dropout 0 --head_dropout 0.100000 --use_multi_scale False --individual False --apply_nonstationary_norm False --batch_size 1 --lr 0.000363
 
 # 标记完成
 echo "Trial 22 completed at $(date)" >> /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyperparameter_tuning_results/ModernTCN_PeMS_tuning/trial_22_status.txt

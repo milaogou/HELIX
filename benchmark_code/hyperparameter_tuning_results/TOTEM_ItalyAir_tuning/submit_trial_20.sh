@@ -21,15 +21,15 @@ cat > /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyper
   "n_features": 13,
   "epochs": 1000,
   "patience": 10,
-  "d_block_hidden": 24,
-  "n_residual_layers": 1,
-  "d_residual_hidden": 8,
-  "d_embedding": 32,
+  "d_block_hidden": 32,
+  "n_residual_layers": 3,
+  "d_residual_hidden": 16,
+  "d_embedding": 24,
   "n_embeddings": 64,
   "commitment_cost": 0.25,
-  "compression_factor": 3,
-  "batch_size": 8,
-  "lr": 0.0004327625703761842
+  "compression_factor": 4,
+  "batch_size": 32,
+  "lr": 8.405990872771558e-05
 }
 EOF
 
@@ -41,7 +41,7 @@ python -u train_model_tuning.py \
     --saving_path /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyperparameter_tuning_results/TOTEM_ItalyAir_tuning/trial_20 \
     --device cuda:0 \
     --n_rounds 1 \
-    --n_steps 12 --n_features 13 --epochs 1000 --patience 10 --d_block_hidden 24 --n_residual_layers 1 --d_residual_hidden 8 --d_embedding 32 --n_embeddings 64 --commitment_cost 0.250000 --compression_factor 3 --batch_size 8 --lr 0.000433
+    --n_steps 12 --n_features 13 --epochs 1000 --patience 10 --d_block_hidden 32 --n_residual_layers 3 --d_residual_hidden 16 --d_embedding 24 --n_embeddings 64 --commitment_cost 0.250000 --compression_factor 4 --batch_size 32 --lr 0.000084
 
 # 标记完成
 echo "Trial 20 completed at $(date)" >> /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyperparameter_tuning_results/TOTEM_ItalyAir_tuning/trial_20_status.txt

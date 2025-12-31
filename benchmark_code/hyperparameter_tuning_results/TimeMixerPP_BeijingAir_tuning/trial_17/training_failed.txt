@@ -1,15 +1,54 @@
-Error: temperature should be positive but got 0.0
+Error: Training got interrupted. Model was not trained. Please investigate the error printed above.
 
 Full traceback:
 Traceback (most recent call last):
-  File "/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/train_model_tuning.py", line 152, in <module>
-    model = SUPPORT_MODELS[args.model](**model_params)
-  File "/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/timemixerpp/model.py", line 182, in __init__
-    self.model = _TimeMixerPP(
-  File "/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/timemixerpp/core.py", line 49, in __init__
-    self.model = BackboneTimeMixerPP(
-  File "/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/nn/modules/timemixerpp/backbone.py", line 88, in __init__
-    full_attn_operator = ScaledDotProductAttention(d_kv**0.5, dropout)
-  File "/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/nn/modules/transformer/attention.py", line 57, in __init__
-    assert temperature > 0, f"temperature should be positive but got {temperature}"
-AssertionError: temperature should be positive but got 0.0
+  File "/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/base.py", line 737, in _train_model
+    results = self.model(inputs, calc_criterion=True)
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/timemixerpp/core.py", line 82, in forward
+    reconstruction = self.model.imputation(X, None)
+  File "/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/nn/modules/timemixerpp/backbone.py", line 333, in imputation
+    enc_out_list = self.encoder_model[i](enc_out_list)
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/nn/modules/timemixerpp/layers.py", line 209, in forward
+    out_list = self.multi_scale_mixing(season_list, trend_list, length_list)
+  File "/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/nn/modules/timemixerpp/layers.py", line 240, in multi_scale_mixing
+    out_trend_list = self.multi_scale_trend_conv(trend_list)
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/nn/modules/timemixerpp/layers.py", line 157, in forward
+    out_high_res = self.cross_trans_conv_season(out_low, output_size=out_high.size())
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/nn/modules/inception/layers.py", line 96, in forward
+    res_list.append(self.kernels[i](x, output_size=output_size))
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 948, in forward
+    output_padding = self._output_padding(
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 659, in _output_padding
+    raise ValueError(
+ValueError: requested an output size of torch.Size([4, 2]), but valid sizes range from [1, 2] to [3, 2] (for an input of torch.Size([1, 2]))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/train_model_tuning.py", line 153, in <module>
+    model.fit(train_set=train_set, val_set=val_set)
+  File "/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/timemixerpp/model.py", line 270, in fit
+    self._train_model(train_dataloader, val_dataloader)
+  File "/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/base.py", line 814, in _train_model
+    raise RuntimeError(
+RuntimeError: Training got interrupted. Model was not trained. Please investigate the error printed above.

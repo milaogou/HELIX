@@ -115,13 +115,15 @@ def parse_dataset_info(folder_name):
 def create_sbatch_script(model_name, folder_name, dataset_name, rate, pattern, config_version):
     log_dir = f"{pattern}{rate}_log"
     dataset_log_dir = f"{log_dir}/{dataset_name}_log"
-    # 添加config_version参数
+    
     version_flag = f"--config_version {config_version}" if config_version else ""
+    version_suffix = f"_{config_version}" if config_version else ""
+    
     script_content = f"""#!/bin/bash
 #SBATCH -x paraai-n32-h-01-agent-[1,4,8,16,17,25,27,28,29,30,31]
-#SBATCH --job-name={model_name}_{dataset_name}_{pattern}{rate}_{config_version}
-#SBATCH -o {OUTPUT_BASE_PATH}/{dataset_log_dir}/{model_name}_{dataset_name}_{config_version}.out
-#SBATCH -e {OUTPUT_BASE_PATH}/{dataset_log_dir}/{model_name}_{dataset_name}_{config_version}.log
+#SBATCH --job-name={model_name}_{dataset_name}_{pattern}{rate}{version_suffix}
+#SBATCH -o {OUTPUT_BASE_PATH}/{dataset_log_dir}/{model_name}_{dataset_name}{version_suffix}.out
+#SBATCH -e {OUTPUT_BASE_PATH}/{dataset_log_dir}/{model_name}_{dataset_name}{version_suffix}.log
 module purge
 module load miniforge3/24.1 
 module load compilers/cuda/12.1   compilers/gcc/11.3.0   cudnn/8.8.1.3_cuda12.x
@@ -132,7 +134,7 @@ export https_proxy=http://u-cEoRwn:EDvFuZTe@172.16.4.9:3128
 export LD_PRELOAD=$LD_PRELOAD:/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/sklearn/utils/../../scikit_learn.libs/libgomp-947d5fa1.so.1.0.0
 python -u train_model.py --model {model_name} --dataset {dataset_name} --dataset_fold_path {DATA_BASE_PATH}/{folder_name} --saving_path {OUTPUT_BASE_PATH}/{dataset_log_dir} --device cuda:0 {version_flag}
 """
-    return script_content, dataset_log_dir
+    return script_content, dataset_log_dir, version_suffix
 
 submitted_count = 0
 skipped_count =0
@@ -149,21 +151,19 @@ for model_name in MODELS:
         
         dataset_name, rate, pattern = result
         
-        # 检查是否需要跳过
         if (dataset_name, model_name) in SKIP_COMBINATIONS:
             print(f"[SKIP] {model_name} on {dataset_name} (incompatible)")
             skipped_count += 1
             continue
         
-        # 获取该模型的config_version
         config_version = MODEL_CONFIG_VERSIONS.get(model_name, "")
         
-        script_content, dataset_log_dir = create_sbatch_script(model_name, folder_name, dataset_name, rate, pattern, config_version)
+        script_content, dataset_log_dir, version_suffix = create_sbatch_script(model_name, folder_name, dataset_name, rate, pattern, config_version)
         
         output_dir = f"{OUTPUT_BASE_PATH}/{dataset_log_dir}"
         os.makedirs(output_dir, exist_ok=True)
         
-        script_filename = f"{output_dir}/{model_name}_{dataset_name}_{config_version}.sh"
+        script_filename = f"{output_dir}/{model_name}_{dataset_name}{version_suffix}.sh"
         with open(script_filename, 'w') as f:
             f.write(script_content)
         

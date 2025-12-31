@@ -3,7 +3,7 @@
   "n_features": 35,
   "epochs": 100,
   "patience": 5,
-  "patch_size": 24,
+  "patch_size": 12,
   "patch_stride": 12,
   "transformer_backbone": "t5-small",
   "transformer_type": "encoder_only",
@@ -12,12 +12,12 @@
   "add_positional_embedding": true,
   "value_embedding_bias": true,
   "orth_gain": 1.41,
-  "n_layers": 4,
-  "d_ffn": 512,
+  "n_layers": 2,
+  "d_ffn": 1024,
   "dropout": 0.2,
-  "head_dropout": 0.2,
+  "head_dropout": 0,
   "finetuning_mode": "linear-probing",
-  "mask_ratio": 0.1,
-  "batch_size": 8,
-  "lr": 0.0042792487933051545
+  "mask_ratio": 0.3,
+  "batch_size": 32,
+  "lr": 0.0007148984679102609
 }

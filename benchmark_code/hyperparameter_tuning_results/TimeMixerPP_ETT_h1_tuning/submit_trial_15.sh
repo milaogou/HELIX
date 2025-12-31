@@ -4,7 +4,6 @@
 #SBATCH -o /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyperparameter_tuning_results/TimeMixerPP_ETT_h1_tuning/trial_15.out
 #SBATCH -e /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyperparameter_tuning_results/TimeMixerPP_ETT_h1_tuning/trial_15.err
 #SBATCH --gpus=1
-#SBATCH --time=06:00:00
 
 module purge
 module load miniforge3/24.1 
@@ -22,21 +21,24 @@ cat > /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyper
   "n_features": 7,
   "epochs": 1000,
   "patience": 10,
-  "n_layers": 1,
+  "n_layers": 2,
   "d_model": 32,
-  "d_ffn": 64,
-  "top_k": 7,
-  "n_heads": 4,
+  "d_ffn": 128,
+  "top_k": 5,
+  "n_heads": 8,
   "n_kernels": 6,
   "dropout": 0.1,
-  "channel_mixing": false,
+  "channel_mixing": true,
   "channel_independence": false,
-  "batch_size": 32,
-  "lr": 0.00012833419018572423
+  "downsampling_layers": 1,
+  "downsampling_window": 4,
+  "apply_nonstationary_norm": false,
+  "batch_size": 16,
+  "lr": 0.00011890893547722721
 }
 EOF
 
-# 运行训练 - 使用新的 train_model_tuning.py
+# 运行训练
 python -u train_model_tuning.py \
     --model TimeMixerPP \
     --dataset ETT_h1 \
@@ -44,7 +46,7 @@ python -u train_model_tuning.py \
     --saving_path /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyperparameter_tuning_results/TimeMixerPP_ETT_h1_tuning/trial_15 \
     --device cuda:0 \
     --n_rounds 1 \
-    --n_steps 48 --n_features 7 --epochs 1000 --patience 10 --n_layers 1 --d_model 32 --d_ffn 64 --top_k 7 --n_heads 4 --n_kernels 6 --dropout 0.100000 --channel_mixing False --channel_independence False --batch_size 32 --lr 0.000128
+    --n_steps 48 --n_features 7 --epochs 1000 --patience 10 --n_layers 2 --d_model 32 --d_ffn 128 --top_k 5 --n_heads 8 --n_kernels 6 --dropout 0.100000 --channel_mixing True --channel_independence False --downsampling_layers 1 --downsampling_window 4 --apply_nonstationary_norm False --batch_size 16 --lr 0.000119
 
 # 标记完成
 echo "Trial 15 completed at $(date)" >> /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyperparameter_tuning_results/TimeMixerPP_ETT_h1_tuning/trial_15_status.txt

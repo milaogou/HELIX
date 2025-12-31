@@ -30,6 +30,7 @@ cat > /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyper
     1
   ],
   "large_size": [
+    5,
     5
   ],
   "small_size": [
@@ -41,13 +42,13 @@ cat > /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyper
     32
   ],
   "small_kernel_merged": false,
-  "backbone_dropout": 0.2,
+  "backbone_dropout": 0,
   "head_dropout": 0.1,
   "use_multi_scale": false,
   "individual": false,
   "apply_nonstationary_norm": false,
-  "batch_size": 8,
-  "lr": 0.00036142050787386237
+  "batch_size": 32,
+  "lr": 0.0001124787736283645
 }
 EOF
 
@@ -59,7 +60,7 @@ python -u train_model_tuning.py \
     --saving_path /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyperparameter_tuning_results/ModernTCN_ItalyAir_tuning/trial_17 \
     --device cuda:0 \
     --n_rounds 1 \
-    --n_steps 12 --n_features 13 --epochs 1000 --patience 10 --patch_size 6 --patch_stride 4 --downsampling_ratio 3 --ffn_ratio 4 --num_blocks [1,1] --large_size [5] --small_size [3,3] --dims [24,32] --small_kernel_merged False --backbone_dropout 0.200000 --head_dropout 0.100000 --use_multi_scale False --individual False --apply_nonstationary_norm False --batch_size 8 --lr 0.000361
+    --n_steps 12 --n_features 13 --epochs 1000 --patience 10 --patch_size 6 --patch_stride 4 --downsampling_ratio 3 --ffn_ratio 4 --num_blocks [1,1] --large_size [5,5] --small_size [3,3] --dims [24,32] --small_kernel_merged False --backbone_dropout 0 --head_dropout 0.100000 --use_multi_scale False --individual False --apply_nonstationary_norm False --batch_size 32 --lr 0.000112
 
 # 标记完成
 echo "Trial 17 completed at $(date)" >> /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyperparameter_tuning_results/ModernTCN_ItalyAir_tuning/trial_17_status.txt

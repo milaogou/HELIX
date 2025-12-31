@@ -20,27 +20,27 @@ CONFIG_BASE_PATH = "PyPOTS_tuning_configs"
 # 调优配置 - 每个模型25个trials
 TUNING_CONFIG = {
     'ETT_h1': {
-        'models': [ ],#'HELIX', 'TEFN', 'TimeMixer', 'ImputeFormer','ModernTCN',   'TOTEM', 'TimeMixerPP', 'TimeLLM', 'MOMENT'
+        'models': ['MOMENT' ,'TOTEM','TimeMixerPP',],#'HELIX', 'TEFN', 'TimeMixer', 'ImputeFormer','ModernTCN',     'TimeLLM', 
         'dataset_path': 'ett_rate01_step48_point',
         'max_trials_per_model': 25,
     },
     'PeMS': {
-        'models': [ ],#'HELIX', 'TEFN', 'TimeMixer','ImputeFormer','ModernTCN',  'TOTEM'
+        'models': [ 'ModernTCN','TOTEM'],#'HELIX', 'TEFN', 'TimeMixer','ImputeFormer',  
         'dataset_path': 'pems_traffic_rate01_step24_point',
         'max_trials_per_model': 25,
     },
     'BeijingAir': {
-        'models': [],#'HELIX', 'TEFN', 'TimeMixer', 'ModernTCN', 'ImputeFormer', 'TOTEM', 'TimeMixerPP', 'MOMENT'
+        'models': ['MOMENT','TOTEM','TimeMixerPP', ],#'HELIX', 'TEFN', 'TimeMixer', 'ModernTCN', 'ImputeFormer',  
         'dataset_path': 'beijing_air_quality_rate01_step24_point',
         'max_trials_per_model': 25,
     },
     'PhysioNet2012': {
-        'models': [],#'HELIX', 'TEFN', 'TimeMixer', 'ModernTCN', 'ImputeFormer', 'TOTEM', 'TimeMixerPP', 'MOMENT'
+        'models': ['MOMENT','TOTEM','TimeMixerPP', ],#'HELIX', 'TEFN', 'TimeMixer', 'ModernTCN', 'ImputeFormer',  
         'dataset_path': 'physionet_2012_rate01_point',
         'max_trials_per_model': 25,
     },
     'ItalyAir': {
-        'models': ['HELIX', 'TEFN', 'TimeMixer', 'ModernTCN', 'ImputeFormer', 'TOTEM', 'TimeMixerPP'],#
+        'models': ['HELIX','ModernTCN','TOTEM','TimeMixerPP' ],# 'TEFN', 'TimeMixer', 'ImputeFormer', 
         'dataset_path': 'italy_air_quality_rate01_step12_point',
         'max_trials_per_model': 25,
     }
@@ -48,7 +48,7 @@ TUNING_CONFIG = {
 
 # ==================== 参数验证规则 ====================
 
-def validate_params(model_name: str, params: Dict) -> tuple:
+def validate_params(model_name: str, params: Dict, dataset_name: str = None) -> tuple:
     """
     验证参数组合的合法性
     返回: (is_valid, reason)
@@ -59,27 +59,53 @@ def validate_params(model_name: str, params: Dict) -> tuple:
         if params['patch_stride'] > params['patch_size']:
             return False, f"patch_stride ({params['patch_stride']}) > patch_size ({params['patch_size']})"
     
+    # HELIX 特定规则
+    if model_name == 'HELIX':
+        # pe_dim (d_model) 必须是偶数
+        if 'pe_dim' in params and params['pe_dim'] % 2 != 0:
+            return False, f"HELIX: pe_dim ({params['pe_dim']}) must be even for rotary positional encoding"
+    
     # ModernTCN 特定规则
     if model_name == 'ModernTCN':
         # patch_stride 必须 <= patch_size
         if params.get('patch_stride', 0) > params.get('patch_size', float('inf')):
             return False, "ModernTCN: patch_stride must <= patch_size"
         
-        # 检查 dims 和 num_blocks 长度一致
-        if len(params.get('dims', [])) != len(params.get('num_blocks', [])):
-            return False, "ModernTCN: dims and num_blocks must have same length"
+        # 检查 dims, num_blocks, large_size, small_size 长度一致
+        dims_len = len(params.get('dims', []))
+        num_blocks_len = len(params.get('num_blocks', []))
+        large_size_len = len(params.get('large_size', []))
+        small_size_len = len(params.get('small_size', []))
+        
+        if not (dims_len == num_blocks_len == large_size_len == small_size_len):
+            return False, f"ModernTCN: dims({dims_len}), num_blocks({num_blocks_len}), large_size({large_size_len}), small_size({small_size_len}) must have same length"
     
     # TimeLLM 特定规则
     if model_name == 'TimeLLM':
         # patch_stride 必须 <= patch_size
         if params.get('patch_stride', 0) > params.get('patch_size', float('inf')):
             return False, "TimeLLM: patch_stride must <= patch_size"
+        
+        # temperature 必须为正
+        if 'temperature' in params and params['temperature'] <= 0:
+            return False, f"TimeLLM: temperature must be positive, got {params['temperature']}"
     
     # MOMENT 特定规则
     if model_name == 'MOMENT':
         # patch_stride 必须 <= patch_size
         if params.get('patch_stride', 0) > params.get('patch_size', float('inf')):
             return False, "MOMENT: patch_stride must <= patch_size"
+        
+        # 验证 patch_size 和 n_steps 的关系（避免维度不匹配）
+        if 'patch_size' in params and 'n_steps' in params:
+            n_steps = params['n_steps']
+            patch_size = params['patch_size']
+            patch_stride = params.get('patch_stride', patch_size)
+            
+            # 计算 patches 数量
+            n_patches = (n_steps - patch_size) // patch_stride + 1
+            if n_patches <= 0:
+                return False, f"MOMENT: invalid patch configuration, n_steps={n_steps}, patch_size={patch_size}, patch_stride={patch_stride}"
     
     # PatchTST 特定规则
     if model_name == 'PatchTST':
@@ -94,12 +120,20 @@ def validate_params(model_name: str, params: Dict) -> tuple:
         downsampling_window = params.get('downsampling_window', 2)
         if n_steps % downsampling_window != 0:
             return False, f"{model_name}: n_steps ({n_steps}) must be divisible by downsampling_window ({downsampling_window})"
+        
+        # temperature 必须为正
+        if 'temperature' in params and params['temperature'] <= 0:
+            return False, f"{model_name}: temperature must be positive, got {params['temperature']}"
     
     # TOTEM 规则
     if model_name == 'TOTEM':
+        # compression_factor 必须在 [4, 8, 12, 16] 中
+        compression_factor = params.get('compression_factor', 4)
+        if compression_factor not in [4, 8, 12, 16]:
+            return False, f"TOTEM: compression_factor must be one of [4, 8, 12, 16], got {compression_factor}"
+        
         # compression_factor 必须能整除 n_steps
         n_steps = params.get('n_steps', 48)
-        compression_factor = params.get('compression_factor', 4)
         if n_steps % compression_factor != 0:
             return False, f"TOTEM: n_steps ({n_steps}) must be divisible by compression_factor ({compression_factor})"
     
@@ -125,7 +159,7 @@ def sample_from_space(param_config: Dict) -> Any:
         raise ValueError(f"Unknown parameter type: {param_type}")
 
 
-def generate_random_params(model_name: str, tuning_space_path: str, num_trials: int, max_attempts: int = 100) -> List[Dict]:
+def generate_random_params(model_name: str, tuning_space_path: str, num_trials: int, max_attempts: int = 1000, dataset_name: str = None) -> List[Dict]:
     """
     生成随机参数组合，并验证合法性
     max_attempts: 每个trial最多尝试采样的次数
@@ -146,7 +180,7 @@ def generate_random_params(model_name: str, tuning_space_path: str, num_trials: 
                 params[param_name] = sample_from_space(param_config)
             
             # 验证参数
-            is_valid, reason = validate_params(model_name, params)
+            is_valid, reason = validate_params(model_name, params, dataset_name)
             
             if is_valid:
                 valid_params = params
@@ -171,7 +205,6 @@ def generate_random_params(model_name: str, tuning_space_path: str, num_trials: 
     
     return param_combinations
 
-
 def format_param_value(value: Any) -> str:
     """格式化参数值为命令行参数"""
     if isinstance(value, bool):
@@ -182,7 +215,6 @@ def format_param_value(value: Any) -> str:
         return f"{value:.6f}"
     else:
         return str(value)
-
 
 def create_tuning_sbatch_script(
     model_name: str,

@@ -5,12 +5,14 @@
   "patience": 10,
   "patch_size": 6,
   "patch_stride": 4,
-  "downsampling_ratio": 3,
+  "downsampling_ratio": 2,
   "ffn_ratio": 4,
   "num_blocks": [
+    1,
     1
   ],
   "large_size": [
+    5,
     5
   ],
   "small_size": [
@@ -18,14 +20,15 @@
     3
   ],
   "dims": [
+    24,
     32
   ],
   "small_kernel_merged": false,
-  "backbone_dropout": 0.2,
+  "backbone_dropout": 0.1,
   "head_dropout": 0.1,
   "use_multi_scale": false,
   "individual": false,
   "apply_nonstationary_norm": false,
-  "batch_size": 16,
-  "lr": 0.0060113641089121995
+  "batch_size": 32,
+  "lr": 0.000670484080790551
 }

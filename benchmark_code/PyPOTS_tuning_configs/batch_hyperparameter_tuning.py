@@ -20,27 +20,27 @@ CONFIG_BASE_PATH = "PyPOTS_tuning_configs"
 # 调优配置 - 每个模型25个trials
 TUNING_CONFIG = {
     'ETT_h1': {
-        'models': ['MOMENT' ,'TOTEM','TimeMixerPP',],#'HELIX', 'TEFN', 'TimeMixer', 'ImputeFormer','ModernTCN',     'TimeLLM', 
+        'models': ['MOMENT',],#'HELIX', 'TEFN', 'TimeMixer', 'ImputeFormer','ModernTCN',  ,'TOTEM','TimeMixerPP',   'TimeLLM', 
         'dataset_path': 'ett_rate01_step48_point',
         'max_trials_per_model': 25,
     },
     'PeMS': {
-        'models': [ 'ModernTCN','TOTEM'],#'HELIX', 'TEFN', 'TimeMixer','ImputeFormer',  
+        'models': [ ],#'HELIX', 'TEFN','ModernTCN', 'TimeMixer','ImputeFormer','TOTEM','TimeMixerPP'
         'dataset_path': 'pems_traffic_rate01_step24_point',
         'max_trials_per_model': 25,
     },
     'BeijingAir': {
-        'models': ['MOMENT','TOTEM','TimeMixerPP', ],#'HELIX', 'TEFN', 'TimeMixer', 'ModernTCN', 'ImputeFormer',  
+        'models': [],#'HELIX','MOMENT','TOTEM','TEFN', 'TimeMixer','TimeMixerPP',  'ModernTCN', 'ImputeFormer',  
         'dataset_path': 'beijing_air_quality_rate01_step24_point',
         'max_trials_per_model': 25,
     },
     'PhysioNet2012': {
-        'models': ['MOMENT','TOTEM','TimeMixerPP', ],#'HELIX', 'TEFN', 'TimeMixer', 'ModernTCN', 'ImputeFormer',  
+        'models': [ ],#'HELIX','MOMENT','TimeMixerPP','TOTEM', 'TEFN', 'TimeMixer', 'ModernTCN', 'ImputeFormer',  
         'dataset_path': 'physionet_2012_rate01_point',
         'max_trials_per_model': 25,
     },
     'ItalyAir': {
-        'models': ['HELIX','ModernTCN','TOTEM','TimeMixerPP' ],# 'TEFN', 'TimeMixer', 'ImputeFormer', 
+        'models': ['TimeMixerPP', ],# 'TEFN', 'HELIX','TimeMixerPP''ModernTCN','TOTEM','TimeMixer', 'ImputeFormer', 
         'dataset_path': 'italy_air_quality_rate01_step12_point',
         'max_trials_per_model': 25,
     }
@@ -58,20 +58,73 @@ def validate_params(model_name: str, params: Dict, dataset_name: str = None) -> 
     if 'patch_size' in params and 'patch_stride' in params:
         if params['patch_stride'] > params['patch_size']:
             return False, f"patch_stride ({params['patch_stride']}) > patch_size ({params['patch_size']})"
+        if params['patch_stride'] <= 0:
+            return False, f"patch_stride must be > 0, got {params['patch_stride']}"
+        if params['patch_size'] <= 0:
+            return False, f"patch_size must be > 0, got {params['patch_size']}"
+    
+    # 通用规则：temperature必须严格大于最小阈值
+    if 'temperature' in params:
+        min_temp = 0.01
+        if params['temperature'] <= 0 or params['temperature'] < min_temp:
+            return False, f"temperature must be >= {min_temp}, got {params['temperature']}"
+    
+    # 通用规则：learning rate必须为正且不能太小或太大
+    if 'learning_rate' in params or 'lr' in params:
+        lr = params.get('learning_rate', params.get('lr'))
+        min_lr = 1e-7
+        max_lr = 0.1
+        if lr <= 0 or lr < min_lr:
+            return False, f"learning_rate must be >= {min_lr}, got {lr}"
+        if lr > max_lr:
+            return False, f"learning_rate too large (> {max_lr}), got {lr}"
+    
+    # 通用规则：dropout必须在[0, 1)范围内
+    for dropout_key in ['dropout', 'attn_dropout', 'ff_dropout', 'head_dropout']:
+        if dropout_key in params:
+            dropout_val = params[dropout_key]
+            if dropout_val < 0 or dropout_val >= 1:
+                return False, f"{dropout_key} must be in [0, 1), got {dropout_val}"
+    
+    # 通用规则：d_model 必须为正
+    if 'd_model' in params:
+        if params['d_model'] <= 0:
+            return False, f"d_model must be > 0, got {params['d_model']}"
+    
+    # 通用规则：n_layers 必须为正
+    if 'n_layers' in params:
+        if params['n_layers'] <= 0:
+            return False, f"n_layers must be > 0, got {params['n_layers']}"
+    
+    # 通用规则：batch_size 必须为正
+    if 'batch_size' in params:
+        if params['batch_size'] <= 0:
+            return False, f"batch_size must be > 0, got {params['batch_size']}"
+    
+    # 通用规则：d_kv 必须为正（用于计算 temperature = d_kv**0.5）
+    if 'd_kv' in params:
+        d_kv = params['d_kv']
+        min_d_kv = 0.0001
+        if d_kv <= 0:
+            return False, f"d_kv must be > 0, got {d_kv}"
+        if d_kv < min_d_kv:
+            return False, f"d_kv must be >= {min_d_kv} (for temperature >= 0.01), got {d_kv}"
+        temperature = d_kv ** 0.5
+        if temperature < 0.01:
+            return False, f"d_kv**0.5={temperature:.6f} < 0.01, need d_kv >= {min_d_kv}"
     
     # HELIX 特定规则
     if model_name == 'HELIX':
-        # pe_dim (d_model) 必须是偶数
         if 'pe_dim' in params and params['pe_dim'] % 2 != 0:
-            return False, f"HELIX: pe_dim ({params['pe_dim']}) must be even for rotary positional encoding"
+            return False, f"HELIX: pe_dim ({params['pe_dim']}) must be even"
+        if 'd_k' in params and params['d_k'] % 2 != 0:
+            return False, f"HELIX: d_k ({params['d_k']}) must be even"
     
     # ModernTCN 特定规则
     if model_name == 'ModernTCN':
-        # patch_stride 必须 <= patch_size
         if params.get('patch_stride', 0) > params.get('patch_size', float('inf')):
             return False, "ModernTCN: patch_stride must <= patch_size"
         
-        # 检查 dims, num_blocks, large_size, small_size 长度一致
         dims_len = len(params.get('dims', []))
         num_blocks_len = len(params.get('num_blocks', []))
         large_size_len = len(params.get('large_size', []))
@@ -79,63 +132,142 @@ def validate_params(model_name: str, params: Dict, dataset_name: str = None) -> 
         
         if not (dims_len == num_blocks_len == large_size_len == small_size_len):
             return False, f"ModernTCN: dims({dims_len}), num_blocks({num_blocks_len}), large_size({large_size_len}), small_size({small_size_len}) must have same length"
+        
+        large_size = params.get('large_size', [])
+        small_size = params.get('small_size', [])
+        for i, (large, small) in enumerate(zip(large_size, small_size)):
+            if small >= large:
+                return False, f"ModernTCN: small_size[{i}] ({small}) must < large_size[{i}] ({large})"
+            if small <= 0 or large <= 0:
+                return False, f"ModernTCN: kernel sizes must be positive, got small_size[{i}]={small}, large_size[{i}]={large}"
     
     # TimeLLM 特定规则
     if model_name == 'TimeLLM':
-        # patch_stride 必须 <= patch_size
         if params.get('patch_stride', 0) > params.get('patch_size', float('inf')):
             return False, "TimeLLM: patch_stride must <= patch_size"
-        
-        # temperature 必须为正
-        if 'temperature' in params and params['temperature'] <= 0:
-            return False, f"TimeLLM: temperature must be positive, got {params['temperature']}"
+        if 'temperature' in params and params['temperature'] < 0.01:
+            return False, f"TimeLLM: temperature must be >= 0.01, got {params['temperature']}"
     
     # MOMENT 特定规则
     if model_name == 'MOMENT':
-        # patch_stride 必须 <= patch_size
-        if params.get('patch_stride', 0) > params.get('patch_size', float('inf')):
-            return False, "MOMENT: patch_stride must <= patch_size"
-        
-        # 验证 patch_size 和 n_steps 的关系（避免维度不匹配）
         if 'patch_size' in params and 'n_steps' in params:
             n_steps = params['n_steps']
             patch_size = params['patch_size']
             patch_stride = params.get('patch_stride', patch_size)
             
-            # 计算 patches 数量
+            if patch_size <= 0:
+                return False, f"MOMENT: patch_size must be positive, got {patch_size}"
+            if patch_stride <= 0:
+                return False, f"MOMENT: patch_stride must be positive, got {patch_stride}"
+            if patch_stride > patch_size:
+                return False, f"MOMENT: patch_stride ({patch_stride}) must <= patch_size ({patch_size})"
+            if patch_size > n_steps:
+                return False, f"MOMENT: patch_size ({patch_size}) must <= n_steps ({n_steps})"
+            
             n_patches = (n_steps - patch_size) // patch_stride + 1
-            if n_patches <= 0:
-                return False, f"MOMENT: invalid patch configuration, n_steps={n_steps}, patch_size={patch_size}, patch_stride={patch_stride}"
+            
+            if n_patches < 2:
+                return False, f"MOMENT: n_patches ({n_patches}) < 2"
+            if n_patches > n_steps:
+                return False, f"MOMENT: n_patches ({n_patches}) > n_steps ({n_steps})"
+            
+            last_patch_start = (n_patches - 1) * patch_stride
+            if last_patch_start + patch_size > n_steps:
+                return False, f"MOMENT: last patch exceeds sequence: {last_patch_start}+{patch_size} > {n_steps}"
+            
+            if 'd_model' in params:
+                d_model = params['d_model']
+                if d_model <= 0:
+                    return False, f"MOMENT: d_model must be positive, got {d_model}"
+                if d_model < patch_size:
+                    return False, f"MOMENT: d_model ({d_model}) should be >= patch_size ({patch_size})"
     
     # PatchTST 特定规则
     if model_name == 'PatchTST':
-        # patch_stride 必须 <= patch_size
-        if params.get('patch_stride', 0) > params.get('patch_size', float('inf')):
-            return False, "PatchTST: patch_stride must <= patch_size"
+        if 'patch_size' in params and 'n_steps' in params:
+            n_steps = params['n_steps']
+            patch_size = params['patch_size']
+            patch_stride = params.get('patch_stride', patch_size)
+            
+            if patch_size <= 0:
+                return False, f"PatchTST: patch_size must be positive, got {patch_size}"
+            if patch_stride <= 0:
+                return False, f"PatchTST: patch_stride must be positive, got {patch_stride}"
+            if patch_stride > patch_size:
+                return False, f"PatchTST: patch_stride ({patch_stride}) must <= patch_size ({patch_size})"
+            if patch_size > n_steps:
+                return False, f"PatchTST: patch_size ({patch_size}) must <= n_steps ({n_steps})"
+            
+            n_patches = (n_steps - patch_size) // patch_stride + 1
+            if n_patches < 2:
+                return False, f"PatchTST: n_patches ({n_patches}) < 2"
     
     # TimeMixer/TimeMixerPP 规则
     if model_name in ['TimeMixer', 'TimeMixerPP']:
-        # downsampling_window 必须能整除 n_steps
         n_steps = params.get('n_steps', 48)
         downsampling_window = params.get('downsampling_window', 2)
+        
+        if downsampling_window <= 0:
+            return False, f"{model_name}: downsampling_window must be > 0, got {downsampling_window}"
         if n_steps % downsampling_window != 0:
             return False, f"{model_name}: n_steps ({n_steps}) must be divisible by downsampling_window ({downsampling_window})"
         
-        # temperature 必须为正
-        if 'temperature' in params and params['temperature'] <= 0:
-            return False, f"{model_name}: temperature must be positive, got {params['temperature']}"
+        if 'd_kv' in params:
+            d_kv = params['d_kv']
+            min_d_kv = 0.0001
+            if d_kv <= 0:
+                return False, f"{model_name}: d_kv must be > 0, got {d_kv}"
+            if d_kv < min_d_kv:
+                return False, f"{model_name}: d_kv must be >= {min_d_kv}, got {d_kv}"
+            temperature = d_kv ** 0.5
+            if temperature < 0.01:
+                return False, f"{model_name}: d_kv**0.5={temperature:.6f} < 0.01, need d_kv >= {min_d_kv}"
+        
+        if 'temperature' in params:
+            if params['temperature'] <= 0 or params['temperature'] < 0.01:
+                return False, f"{model_name}: temperature must be >= 0.01, got {params['temperature']}"
+        
+        if 'd_model' in params and 'n_heads' in params:
+            d_model = params['d_model']
+            n_heads = params['n_heads']
+            if n_heads <= 0:
+                return False, f"{model_name}: n_heads must be > 0, got {n_heads}"
+            if d_model % n_heads != 0:
+                return False, f"{model_name}: d_model ({d_model}) must be divisible by n_heads ({n_heads})"
     
     # TOTEM 规则
     if model_name == 'TOTEM':
-        # compression_factor 必须在 [4, 8, 12, 16] 中
         compression_factor = params.get('compression_factor', 4)
         if compression_factor not in [4, 8, 12, 16]:
             return False, f"TOTEM: compression_factor must be one of [4, 8, 12, 16], got {compression_factor}"
         
-        # compression_factor 必须能整除 n_steps
         n_steps = params.get('n_steps', 48)
         if n_steps % compression_factor != 0:
             return False, f"TOTEM: n_steps ({n_steps}) must be divisible by compression_factor ({compression_factor})"
+        
+        compressed_len = n_steps // compression_factor
+        if compressed_len < 2:
+            return False, f"TOTEM: compressed sequence length ({compressed_len}) is too short"
+    
+    # ImputeFormer 规则
+    if model_name == 'ImputeFormer':
+        if 'd_model' in params and 'n_heads' in params:
+            d_model = params['d_model']
+            n_heads = params['n_heads']
+            if n_heads <= 0:
+                return False, f"ImputeFormer: n_heads must be > 0, got {n_heads}"
+            if d_model % n_heads != 0:
+                return False, f"ImputeFormer: d_model ({d_model}) must be divisible by n_heads ({n_heads})"
+    
+    # TEFN 规则
+    if model_name == 'TEFN':
+        if 'd_model' in params and 'n_heads' in params:
+            d_model = params['d_model']
+            n_heads = params['n_heads']
+            if n_heads <= 0:
+                return False, f"TEFN: n_heads must be > 0, got {n_heads}"
+            if d_model % n_heads != 0:
+                return False, f"TEFN: d_model ({d_model}) must be divisible by n_heads ({n_heads})"
     
     return True, ""
 
@@ -152,9 +284,16 @@ def sample_from_space(param_config: Dict) -> Any:
     elif param_type == 'loguniform':
         log_low = math.log(param_value[0])
         log_high = math.log(param_value[1])
-        return math.exp(random.uniform(log_low, log_high))
+        sampled = math.exp(random.uniform(log_low, log_high))
+        # 避免采样到极小值（如temperature）
+        if sampled < 1e-6:
+            sampled = max(sampled, param_value[0])
+        return sampled
     elif param_type == 'uniform':
-        return random.uniform(param_value[0], param_value[1])
+        sampled = random.uniform(param_value[0], param_value[1])
+        # 确保不会采样到边界外的值
+        sampled = max(param_value[0], min(param_value[1], sampled))
+        return sampled
     else:
         raise ValueError(f"Unknown parameter type: {param_type}")
 
@@ -321,7 +460,7 @@ def main():
             
             # 生成参数组合（带验证）
             print(f"生成 {max_trials} 组参数组合...")
-            param_combinations = generate_random_params(model_name, tuning_space_path, max_trials)
+            param_combinations = generate_random_params(model_name, tuning_space_path, max_trials, dataset_name=dataset_name)
             
             # 创建输出目录
             output_dir = os.path.join(
@@ -336,7 +475,7 @@ def main():
             
             for trial_id, params in enumerate(param_combinations, 1):
                 # 再次验证（保险起见）
-                is_valid, reason = validate_params(model_name, params)
+                is_valid, reason = validate_params(model_name, params, dataset_name)
                 if not is_valid:
                     print(f"  [{trial_id}/{max_trials}] ⚠️  跳过不合法参数: {reason}")
                     failed_this_model += 1

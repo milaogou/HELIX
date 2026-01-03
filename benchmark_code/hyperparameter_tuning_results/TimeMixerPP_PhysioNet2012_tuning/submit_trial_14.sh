@@ -22,19 +22,19 @@ cat > /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyper
   "epochs": 1000,
   "patience": 10,
   "n_layers": 2,
-  "d_model": 32,
+  "d_model": 64,
   "d_ffn": 64,
-  "top_k": 2,
-  "n_heads": 2,
+  "top_k": 3,
+  "n_heads": 8,
   "n_kernels": 8,
-  "dropout": 0.1,
+  "dropout": 0.2,
   "channel_mixing": false,
-  "channel_independence": true,
+  "channel_independence": false,
   "downsampling_layers": 1,
-  "downsampling_window": 4,
+  "downsampling_window": 3,
   "apply_nonstationary_norm": false,
   "batch_size": 8,
-  "lr": 0.0019485954009264782
+  "lr": 0.0009442779853640824
 }
 EOF
 
@@ -46,7 +46,7 @@ python -u train_model_tuning.py \
     --saving_path /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyperparameter_tuning_results/TimeMixerPP_PhysioNet2012_tuning/trial_14 \
     --device cuda:0 \
     --n_rounds 1 \
-    --n_steps 48 --n_features 35 --epochs 1000 --patience 10 --n_layers 2 --d_model 32 --d_ffn 64 --top_k 2 --n_heads 2 --n_kernels 8 --dropout 0.100000 --channel_mixing False --channel_independence True --downsampling_layers 1 --downsampling_window 4 --apply_nonstationary_norm False --batch_size 8 --lr 0.001949
+    --n_steps 48 --n_features 35 --epochs 1000 --patience 10 --n_layers 2 --d_model 64 --d_ffn 64 --top_k 3 --n_heads 8 --n_kernels 8 --dropout 0.200000 --channel_mixing False --channel_independence False --downsampling_layers 1 --downsampling_window 3 --apply_nonstationary_norm False --batch_size 8 --lr 0.000944
 
 # 标记完成
 echo "Trial 14 completed at $(date)" >> /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyperparameter_tuning_results/TimeMixerPP_PhysioNet2012_tuning/trial_14_status.txt

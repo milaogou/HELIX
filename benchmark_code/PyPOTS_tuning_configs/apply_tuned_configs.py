@@ -6,7 +6,6 @@ from pathlib import Path
 TUNING_OUTPUT_PATH = "hyperparameter_tuning_results"
 HPO_RESULTS_PATH = "/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hpo_results"
 
-# 数据集名称映射
 DATASET_MAPPING = {
     'BeijingAir': 'beijing_air.py',
     'ETT_h1': 'ett_h1.py',
@@ -26,6 +25,8 @@ MODEL_MAPPING = {
     'ModernTCN': 'ModernTCN',
     'ImputeFormer': 'ImputeFormer',
     'MOMENT': 'MOMENT',
+    'TOTEM': 'TOTEM',
+    'TimeLLM': 'TimeLLM',
 }
 
 def load_best_config(tuning_dir: str):
@@ -35,47 +36,48 @@ def load_best_config(tuning_dir: str):
             return json.load(f)
     return None
 
+def format_value(value):
+    if isinstance(value, str):
+        return f"'{value}'"
+    elif isinstance(value, bool):
+        return str(value)
+    elif isinstance(value, list):
+        return str(value)
+    else:
+        return str(value)
+
 def update_hpo_file(dataset_file: str, model_name: str, new_params: dict):
     file_path = os.path.join(HPO_RESULTS_PATH, dataset_file)
     
     with open(file_path, 'r', encoding='utf-8') as f:
-        content = f.read()
+        lines = f.readlines()
     
-    # 找到模型配置块
-    pattern = rf"('{model_name}':\s*\{{[^}}]*\}})"
-    match = re.search(pattern, content, re.DOTALL)
-    
-    if not match:
-        print(f"  ⚠️  未找到 {model_name} 配置块")
-        return False
-    
-    old_block = match.group(1)
-    
-    # 解析现有参数
-    param_pattern = r"'(\w+)':\s*([^,\n]+)"
-    existing_params = dict(re.findall(param_pattern, old_block))
-    
-    # 更新参数
-    updated_params = existing_params.copy()
-    for key, value in new_params.items():
-        if isinstance(value, str):
-            updated_params[key] = f"'{value}'"
-        elif isinstance(value, bool):
-            updated_params[key] = str(value)
+    new_lines = []
+    i = 0
+    while i < len(lines):
+        line = lines[i]
+        
+        if f"'{model_name}':" in line:
+            indent = len(line) - len(line.lstrip())
+            new_lines.append(line)
+            i += 1
+            
+            while i < len(lines):
+                if lines[i].strip().startswith('}'):
+                    break
+                i += 1
+            
+            for key, value in new_params.items():
+                new_lines.append(f"{' ' * (indent + 4)}'{key}': {format_value(value)},\n")
+            
+            new_lines.append(f"{' ' * indent}}},\n")
+            i += 1
         else:
-            updated_params[key] = str(value)
-    
-    # 重建配置块
-    new_block = f"'{model_name}': {{\n"
-    for key, value in updated_params.items():
-        new_block += f"        '{key}': {value},\n"
-    new_block += "    }"
-    
-    # 替换
-    new_content = content.replace(old_block, new_block)
+            new_lines.append(line)
+            i += 1
     
     with open(file_path, 'w', encoding='utf-8') as f:
-        f.write(new_content)
+        f.writelines(new_lines)
     
     return True
 
@@ -88,7 +90,6 @@ def main():
     for tuning_dir in sorted(tuning_dirs):
         dir_name = tuning_dir.name.replace('_tuning', '')
         
-        # 解析模型和数据集名称
         parts = dir_name.split('_', 1)
         if len(parts) != 2:
             print(f"⚠️  无法解析目录名: {dir_name}")
@@ -106,7 +107,6 @@ def main():
         
         print(f"处理 {model_name} on {dataset_name}")
         
-        # 加载最佳配置
         best_config = load_best_config(str(tuning_dir))
         if best_config is None:
             print(f"  ⚠️  未找到best_config.json")
@@ -114,7 +114,6 @@ def main():
         
         print(f"  ✓ 加载了 {len(best_config)} 个参数")
         
-        # 更新HPO文件
         dataset_file = DATASET_MAPPING[dataset_name]
         success = update_hpo_file(dataset_file, model_name, best_config)
         

@@ -7,14 +7,14 @@
   "d_model": 128,
   "d_ffn": 128,
   "top_k": 5,
-  "n_heads": 2,
-  "n_kernels": 6,
-  "dropout": 0.1,
-  "channel_mixing": false,
-  "channel_independence": true,
+  "n_heads": 4,
+  "n_kernels": 4,
+  "dropout": 0.2,
+  "channel_mixing": true,
+  "channel_independence": false,
   "downsampling_layers": 1,
-  "downsampling_window": 4,
+  "downsampling_window": 3,
   "apply_nonstationary_norm": false,
   "batch_size": 32,
-  "lr": 0.007319586226397971
+  "lr": 0.0002815910845718377
 }

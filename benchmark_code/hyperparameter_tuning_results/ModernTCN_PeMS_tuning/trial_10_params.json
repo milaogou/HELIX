@@ -6,7 +6,7 @@
   "patch_size": 8,
   "patch_stride": 6,
   "downsampling_ratio": 4,
-  "ffn_ratio": 4,
+  "ffn_ratio": 2,
   "num_blocks": [
     1,
     1
@@ -20,15 +20,15 @@
     3
   ],
   "dims": [
-    128,
+    64,
     128
   ],
   "small_kernel_merged": false,
-  "backbone_dropout": 0.1,
+  "backbone_dropout": 0.2,
   "head_dropout": 0.2,
   "use_multi_scale": false,
   "individual": false,
   "apply_nonstationary_norm": false,
   "batch_size": 2,
-  "lr": 0.004395660122178729
+  "lr": 0.00023554947600122896
 }

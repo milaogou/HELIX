@@ -43,7 +43,7 @@ PhysioNet2012 = {
         'd_model': 32,
         'd_ffn': 256,
         'top_k': 5,
-        'n_heads': 8,
+        'n_heads': 4,
         'n_kernels': 8,
         'dropout': 0.0,
         'channel_mixing': True,

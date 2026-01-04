@@ -41,7 +41,7 @@ Electricity = {
         'd_model': 256,
         'd_ffn': 512,
         'top_k': 5,
-        'n_heads': 8,
+        'n_heads': 4,
         'n_kernels': 6,
         'dropout': 0.1,
         'channel_mixing': True,

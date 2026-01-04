@@ -1,0 +1,29 @@
+最佳配置详情
+======================================================================
+
+Trial ID: 3
+MAE: 0.542086
+
+超参数配置:
+----------------------------------------------------------------------
+n_steps: 48
+n_features: 35
+epochs: 100
+patience: 5
+patch_size: 24
+patch_stride: 12
+transformer_backbone: t5-small
+transformer_type: encoder_only
+d_model: 512
+revin_affine: True
+add_positional_embedding: True
+value_embedding_bias: True
+orth_gain: 1.41
+n_layers: 4
+d_ffn: 1024
+dropout: 0.0
+head_dropout: 0.2
+finetuning_mode: end-to-end
+mask_ratio: 0.1
+batch_size: 32
+lr: 0.0024103344768860386

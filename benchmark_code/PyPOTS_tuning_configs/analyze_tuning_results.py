@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-收集和分析超参数调优结果
+收集和分析超参数调优结果 - 修复版
 """
 import os
 import json
@@ -47,6 +47,16 @@ def clean_stale_failed_log(trial_dir: str, has_metrics: bool):
                 print(f"  ⚠️  清理failed log失败: {e}")
 
 
+def clean_old_failed_trials_csv(tuning_dir: str):
+    """清理旧的 failed_trials.csv"""
+    failed_csv = os.path.join(tuning_dir, "failed_trials.csv")
+    if os.path.exists(failed_csv):
+        try:
+            os.remove(failed_csv)
+        except:
+            pass
+
+
 def collect_tuning_results(tuning_dir: str) -> pd.DataFrame:
     """收集某个模型-数据集组合的所有trial结果"""
     results = []
@@ -58,7 +68,6 @@ def collect_tuning_results(tuning_dir: str) -> pd.DataFrame:
     
     print(f"  [DEBUG] 正在扫描目录: {tuning_dir}")
     
-    # 查找所有trial目录
     all_items = list(tuning_path.iterdir())
     print(f"  [DEBUG] 目录下共有 {len(all_items)} 个项目")
     
@@ -67,7 +76,6 @@ def collect_tuning_results(tuning_dir: str) -> pd.DataFrame:
     
     if not trial_dirs:
         print(f"  [DEBUG] 没有找到任何trial_开头的目录")
-        # 列出前10个项目看看都是什么
         sample_items = [(item.name, 'dir' if item.is_dir() else 'file') for item in all_items[:10]]
         print(f"  [DEBUG] 前10个项目: {sample_items}")
         return pd.DataFrame()
@@ -75,7 +83,6 @@ def collect_tuning_results(tuning_dir: str) -> pd.DataFrame:
     for trial_dir in trial_dirs:
         trial_id = trial_dir.name.split('_')[1]
         
-        # 读取参数
         params_file = tuning_path / f"trial_{trial_id}_params.json"
         if params_file.exists():
             try:
@@ -86,15 +93,12 @@ def collect_tuning_results(tuning_dir: str) -> pd.DataFrame:
         else:
             params = {}
         
-        # 读取指标
         metrics = load_metrics(str(trial_dir))
         has_metrics = bool(metrics)
         
-        # 检查是否完成
         status_file = tuning_path / f"trial_{trial_id}_status.txt"
         completed = status_file.exists() or has_metrics
         
-        # 检查是否失败
         if has_metrics:
             failed = False
             fail_reason = ""
@@ -128,6 +132,8 @@ def analyze_model_tuning(tuning_dir: str, model_name: str = None, dataset_name: 
     print(f"\n{'='*70}")
     print(f"分析 {display_name} 的调优结果")
     print(f"{'='*70}")
+    
+    clean_old_failed_trials_csv(tuning_dir)
     
     df = collect_tuning_results(tuning_dir)
     
@@ -207,9 +213,7 @@ def analyze_model_tuning(tuning_dir: str, model_name: str = None, dataset_name: 
         print(f"  {metric.upper()}: {row[metric]:.6f}")
         
         exclude_params = ['trial_id', 'completed', 'failed', 'fail_reason',
-                        'mae', 'mse', 'mre', 'inference_time',
-                        'n_steps', 'n_features', 'epochs', 'patience',
-                        'ORT_weight', 'MIT_weight', 'input_dim', 'output_dim']
+                        'mae', 'mse', 'mre', 'inference_time']
         print(f"  关键参数:")
         for key, value in row.items():
             if key not in exclude_params:

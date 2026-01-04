@@ -192,3 +192,13 @@ Using eos_token, but it is not set yet.
 2026-01-04 16:40:55 [INFO]: Epoch 024 - training loss (MAE): 0.9091, validation MSE: 0.5749
 2026-01-04 16:51:17 [INFO]: Epoch 025 - training loss (MAE): 0.9171, validation MSE: 0.5724
 2026-01-04 17:01:39 [INFO]: Epoch 026 - training loss (MAE): 0.9099, validation MSE: 0.5724
+2026-01-04 17:12:02 [INFO]: Epoch 027 - training loss (MAE): 0.9062, validation MSE: 0.5717
+2026-01-04 17:22:24 [INFO]: Epoch 028 - training loss (MAE): 0.9081, validation MSE: 0.5749
+2026-01-04 17:22:24 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2026-01-04 17:22:24 [INFO]: Finished training. The best model is from epoch#23.
+2026-01-04 17:22:25 [INFO]: Saved the model to reproduce_imputation/point01_log/PhysioNet2012_log/TimeLLM_PhysioNet2012/round_4/20260104_T123204/TimeLLM.pypots
+2026-01-04 17:24:52 [INFO]: Successfully saved to reproduce_imputation/point01_log/PhysioNet2012_log/TimeLLM_PhysioNet2012/round_4/imputation.pkl
+2026-01-04 17:24:52 [INFO]: Round4 - TimeLLM on PhysioNet2012: MAE=0.4542, MSE=0.4684, MRE=0.6430
+2026-01-04 17:24:52 [INFO]: Done! Final results:
+Averaged TimeLLM (31,132,584 params) on PhysioNet2012: MAE=0.4571 ± 0.003029998065106522, MSE=0.4743 ± 0.005972556683159096, MRE=0.6471 ± 0.004289126676655867, average inference time=147.49
+  0%|          | 0/132 [00:00<?, ?it/s] 56%|█████▌    | 74/132 [00:00<00:00, 738.32it/s]100%|██████████| 132/132 [00:00<00:00, 536.57it/s]

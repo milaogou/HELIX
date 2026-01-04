@@ -20,27 +20,27 @@ CONFIG_BASE_PATH = "PyPOTS_tuning_configs"
 # 调优配置 - 每个模型25个trials
 TUNING_CONFIG = {
     'ETT_h1': {
-        'models': ['MOMENT',],#'HELIX', 'TEFN', 'TimeMixer', 'ImputeFormer','ModernTCN',  ,'TOTEM','TimeMixerPP',   'TimeLLM', 
+        'models': [ ],#'HELIX','ModernTCN', 'TEFN', 'TimeMixer','MOMENT', 'ImputeFormer', ,'TOTEM','TimeMixerPP',   'TimeLLM', 
         'dataset_path': 'ett_rate01_step48_point',
         'max_trials_per_model': 25,
     },
     'PeMS': {
-        'models': [ ],#'HELIX', 'TEFN','ModernTCN', 'TimeMixer','ImputeFormer','TOTEM','TimeMixerPP'
+        'models': [  ],#'HELIX','ModernTCN', 'TEFN','TimeMixer','ImputeFormer','TOTEM','TimeMixerPP'
         'dataset_path': 'pems_traffic_rate01_step24_point',
         'max_trials_per_model': 25,
     },
     'BeijingAir': {
-        'models': [],#'HELIX','MOMENT','TOTEM','TEFN', 'TimeMixer','TimeMixerPP',  'ModernTCN', 'ImputeFormer',  
+        'models': [],#'HELIX','ModernTCN','MOMENT','TOTEM','TEFN', 'TimeMixer','TimeMixerPP',   'ImputeFormer',  
         'dataset_path': 'beijing_air_quality_rate01_step24_point',
         'max_trials_per_model': 25,
     },
     'PhysioNet2012': {
-        'models': [ ],#'HELIX','MOMENT','TimeMixerPP','TOTEM', 'TEFN', 'TimeMixer', 'ModernTCN', 'ImputeFormer',  
+        'models': [ ],#'HELIX','MOMENT','TOTEM', 'TEFN', 'TimeMixer', 'ModernTCN','TimeMixerPP', 'ImputeFormer',  
         'dataset_path': 'physionet_2012_rate01_point',
         'max_trials_per_model': 25,
     },
     'ItalyAir': {
-        'models': ['TimeMixerPP', ],# 'TEFN', 'HELIX','TimeMixerPP''ModernTCN','TOTEM','TimeMixer', 'ImputeFormer', 
+        'models': [],# 'TEFN', 'HELIX','TimeMixerPP''ModernTCN','TOTEM','TimeMixer','TimeMixerPP',  'ImputeFormer', 
         'dataset_path': 'italy_air_quality_rate01_step12_point',
         'max_trials_per_model': 25,
     }

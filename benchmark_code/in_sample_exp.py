@@ -42,19 +42,19 @@ BASE_DIR = "/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code
 # 模型列表
 MODELS = [
     'HELIX',
-    'TEFN',
-    'TimeMixerPP',
-    'TimeLLM',
-    'MOMENT',
-    'TimeMixer',
-    'ModernTCN',
-    'ImputeFormer',
-    'TOTEM',
+    # 'TEFN',
+    # 'TimeMixerPP',
+    # 'TimeLLM',
+    # 'MOMENT',
+    # 'TimeMixer',
+    # 'ModernTCN',
+    # 'ImputeFormer',
+    # 'TOTEM',
     # 'iTransformer',
     # 'SAITS',
     # 'FreTS',
     # 'NonstationaryTransformer',
-    'PatchTST',
+    # 'PatchTST',
     
     
 ]
@@ -86,6 +86,96 @@ dataset_folders = [
     'pems_traffic_rate05_step24_subseq_seqlen18',
     'pems_traffic_rate09_step24_point',
     'physionet_2012_rate01_point',
+]
+
+# 修改后的批量提交脚本 in_sample_exp.py
+# -*- coding: utf-8 -*-
+import os
+import time
+import subprocess
+
+
+SKIP_COMBINATIONS = {
+    # ItalyAir序列太短
+    ('ItalyAir', 'MOMENT'),
+    # PeMS特征太多(862) - TimeLLM/MOMENT/TimeMixerPP处理不了
+    ('PeMS', 'MOMENT'),
+    ('PeMS', 'TimeLLM'),
+    ('PeMS', 'TimeMixerPP'),
+    # Electricity特征太多(370) - TimeLLM/MOMENT/TimeMixerPP处理不了
+    ('Electricity', 'MOMENT'),
+    ('Electricity', 'TimeLLM'),
+    ('Electricity', 'TimeMixerPP'),
+}
+
+DATASET_NAME_MAP = {
+    'beijing_air_quality': 'BeijingAir',
+    'electricity_load_diagrams': 'Electricity',
+    'ett': 'ETT_h1',
+    'italy_air_quality': 'ItalyAir',
+    # Pedestrian单变量数据集 - 跳过所有新模型
+    # 'melbourne_pedestrian': 'Pedestrian',
+    'pems_traffic': 'PeMS',
+    'physionet_2012': 'PhysioNet2012',
+    'physionet_2019': 'PhysioNet2019',
+}
+
+MODEL_CONFIG_VERSIONS = {
+    # 'HELIX': 'with_LR_decay',  # HELIX使用without_LR_decay版本
+    # 其他模型默认为空字符串，即不添加后缀
+}
+
+DATA_BASE_PATH = "data/generated_datasets"
+OUTPUT_BASE_PATH = "reproduce_imputation"
+BASE_DIR = "/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code"
+
+# 模型列表
+MODELS = [
+    # 'HELIX',
+    # 'TEFN',
+    'TimeMixerPP',
+    # 'TimeLLM',
+    # 'MOMENT',
+    # 'TimeMixer',
+    # 'ModernTCN',
+    # 'ImputeFormer',
+    # 'TOTEM',
+    # 'iTransformer',
+    # 'SAITS',
+    # 'FreTS',
+    # 'NonstationaryTransformer',
+    # 'PatchTST',
+    
+    
+]
+
+dataset_folders = [
+    # 'beijing_air_quality_rate00_step24_block_blocklen6',
+    # 'beijing_air_quality_rate01_step24_point',
+    # 'beijing_air_quality_rate05_step24_point',
+    # 'beijing_air_quality_rate05_step24_subseq_seqlen18',
+    # 'beijing_air_quality_rate09_step24_point',
+    'electricity_load_diagrams_rate00_step96_block_blocklen8',
+    'electricity_load_diagrams_rate01_step96_point',
+    'electricity_load_diagrams_rate05_step96_point',
+    'electricity_load_diagrams_rate05_step96_subseq_seqlen72',
+    'electricity_load_diagrams_rate09_step96_point',
+    # 'ett_rate01_step48_point',
+    # 'ett_rate03_step48_block_blocklen6',
+    # 'ett_rate05_step48_point',
+    # 'ett_rate05_step48_subseq_seqlen36',
+    # 'ett_rate09_step48_point',
+    'italy_air_quality_rate00_step12_block_blocklen4',
+    'italy_air_quality_rate01_step12_point',
+    'italy_air_quality_rate05_step12_point',
+    'italy_air_quality_rate05_step12_subseq_seqlen8',
+    'italy_air_quality_rate09_step12_point',
+    'pems_traffic_rate00_step24_block_blocklen6',
+    'pems_traffic_rate01_step24_point',
+    'pems_traffic_rate05_step24_point',
+    'pems_traffic_rate05_step24_subseq_seqlen18',
+    'pems_traffic_rate09_step24_point',
+    # 'physionet_2012_rate01_point',
 ]
 
 def parse_dataset_info(folder_name):
@@ -160,10 +250,10 @@ for model_name in MODELS:
         
         script_content, dataset_log_dir, version_suffix = create_sbatch_script(model_name, folder_name, dataset_name, rate, pattern, config_version)
         
-        output_dir = f"{OUTPUT_BASE_PATH}/{dataset_log_dir}"
+        output_dir = os.path.join(BASE_DIR, OUTPUT_BASE_PATH, dataset_log_dir)
         os.makedirs(output_dir, exist_ok=True)
-        
-        script_filename = f"{output_dir}/{model_name}_{dataset_name}{version_suffix}.sh"
+
+        script_filename = os.path.join(output_dir, f"{model_name}_{dataset_name}{version_suffix}.sh")
         with open(script_filename, 'w') as f:
             f.write(script_content)
         

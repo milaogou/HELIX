@@ -44,7 +44,7 @@ BeijingAir = {
         'd_model': 128,
         'd_ffn': 256,
         'top_k': 7,
-        'n_heads': 8,
+        'n_heads': 4,
         'n_kernels': 4,
         'dropout': 0.1,
         'channel_mixing': True,

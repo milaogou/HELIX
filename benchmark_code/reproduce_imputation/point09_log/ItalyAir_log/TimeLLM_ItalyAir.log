@@ -1,260 +1,68 @@
-2025-12-28 14:38:27 [WARNING]: ‼️ `pypots.utils.metrics` is deprecated. Please import from `pypots.nn.functional` instead.
-2025-12-28 14:38:27 [INFO]: Have set the random seed as 2024 for numpy and pytorch.
-2025-12-28 14:38:27 [INFO]: Using the given device: cuda:0
-2025-12-28 14:38:28 [INFO]: Model files will be saved to reproduce_imputation/point09_log/ItalyAir_log/TimeLLM_ItalyAir/round_0/20251228_T143828
-2025-12-28 14:38:28 [INFO]: Tensorboard file will be saved to reproduce_imputation/point09_log/ItalyAir_log/TimeLLM_ItalyAir/round_0/20251228_T143828/tensorboard
-2025-12-28 14:38:28 [INFO]: Using customized MAE as the training loss function.
-2025-12-28 14:38:28 [INFO]: Using customized MSE as the validation metric function.
+2026-01-03 18:13:24 [WARNING]: ‼️ `pypots.utils.metrics` is deprecated. Please import from `pypots.nn.functional` instead.
+2026-01-03 18:13:24 [INFO]: Have set the random seed as 2024 for numpy and pytorch.
+2026-01-03 18:13:24 [INFO]: Using the given device: cuda:0
+2026-01-03 18:13:24 [INFO]: Model files will be saved to reproduce_imputation/point09_log/ItalyAir_log/TimeLLM_ItalyAir/round_0/20260103_T181324
+2026-01-03 18:13:24 [INFO]: Tensorboard file will be saved to reproduce_imputation/point09_log/ItalyAir_log/TimeLLM_ItalyAir/round_0/20260103_T181324/tensorboard
+2026-01-03 18:13:24 [INFO]: Using customized MAE as the training loss function.
+2026-01-03 18:13:24 [INFO]: Using customized MSE as the validation metric function.
 /home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
   warnings.warn(
-Using eos_token, but it is not set yet.
-2025-12-28 14:38:31 [INFO]: TimeLLM initialized with the given hyperparameters, the number of trainable parameters: 31,125,764
-2025-12-28 14:39:06 [INFO]: Epoch 001 - training loss (MAE): 1.0581, validation MSE: 1.7411
-2025-12-28 14:39:40 [INFO]: Epoch 002 - training loss (MAE): 0.7778, validation MSE: 1.4947
-2025-12-28 14:40:15 [INFO]: Epoch 003 - training loss (MAE): 0.7392, validation MSE: 1.4148
-2025-12-28 14:40:49 [INFO]: Epoch 004 - training loss (MAE): 0.6930, validation MSE: 1.3919
-2025-12-28 14:41:23 [INFO]: Epoch 005 - training loss (MAE): 0.7385, validation MSE: 1.3694
-2025-12-28 14:41:58 [INFO]: Epoch 006 - training loss (MAE): 0.7101, validation MSE: 1.3636
-2025-12-28 14:42:32 [INFO]: Epoch 007 - training loss (MAE): 0.7190, validation MSE: 1.3636
-2025-12-28 14:43:06 [INFO]: Epoch 008 - training loss (MAE): 0.6900, validation MSE: 1.3384
-2025-12-28 14:43:41 [INFO]: Epoch 009 - training loss (MAE): 0.6471, validation MSE: 1.3401
-2025-12-28 14:44:16 [INFO]: Epoch 010 - training loss (MAE): 0.6810, validation MSE: 1.3242
-2025-12-28 14:44:50 [INFO]: Epoch 011 - training loss (MAE): 0.6718, validation MSE: 1.3257
-2025-12-28 14:45:25 [INFO]: Epoch 012 - training loss (MAE): 0.6787, validation MSE: 1.3006
-2025-12-28 14:45:59 [INFO]: Epoch 013 - training loss (MAE): 0.7167, validation MSE: 1.3408
-2025-12-28 14:46:33 [INFO]: Epoch 014 - training loss (MAE): 0.7148, validation MSE: 1.3194
-2025-12-28 14:47:08 [INFO]: Epoch 015 - training loss (MAE): 0.6631, validation MSE: 1.3122
-2025-12-28 14:47:42 [INFO]: Epoch 016 - training loss (MAE): 0.6670, validation MSE: 1.2553
-2025-12-28 14:48:17 [INFO]: Epoch 017 - training loss (MAE): 0.6759, validation MSE: 1.2750
-2025-12-28 14:48:51 [INFO]: Epoch 018 - training loss (MAE): 0.7101, validation MSE: 1.2617
-2025-12-28 14:49:26 [INFO]: Epoch 019 - training loss (MAE): 0.6580, validation MSE: 1.2964
-2025-12-28 14:50:00 [INFO]: Epoch 020 - training loss (MAE): 0.6533, validation MSE: 1.2910
-2025-12-28 14:50:35 [INFO]: Epoch 021 - training loss (MAE): 0.6715, validation MSE: 1.2532
-2025-12-28 14:51:09 [INFO]: Epoch 022 - training loss (MAE): 0.6986, validation MSE: 1.2183
-2025-12-28 14:51:43 [INFO]: Epoch 023 - training loss (MAE): 0.6680, validation MSE: 1.2376
-2025-12-28 14:52:18 [INFO]: Epoch 024 - training loss (MAE): 0.6647, validation MSE: 1.2167
-2025-12-28 14:52:52 [INFO]: Epoch 025 - training loss (MAE): 0.6626, validation MSE: 1.2016
-2025-12-28 14:53:27 [INFO]: Epoch 026 - training loss (MAE): 0.7012, validation MSE: 1.2411
-2025-12-28 14:54:01 [INFO]: Epoch 027 - training loss (MAE): 0.6702, validation MSE: 1.2197
-2025-12-28 14:54:36 [INFO]: Epoch 028 - training loss (MAE): 0.6578, validation MSE: 1.2440
-2025-12-28 14:55:10 [INFO]: Epoch 029 - training loss (MAE): 0.6858, validation MSE: 1.2618
-2025-12-28 14:55:44 [INFO]: Epoch 030 - training loss (MAE): 0.6575, validation MSE: 1.2531
-2025-12-28 14:56:19 [INFO]: Epoch 031 - training loss (MAE): 0.6570, validation MSE: 1.2154
-2025-12-28 14:56:53 [INFO]: Epoch 032 - training loss (MAE): 0.6646, validation MSE: 1.2210
-2025-12-28 14:57:28 [INFO]: Epoch 033 - training loss (MAE): 0.6368, validation MSE: 1.1987
-2025-12-28 14:58:02 [INFO]: Epoch 034 - training loss (MAE): 0.6934, validation MSE: 1.2259
-2025-12-28 14:58:37 [INFO]: Epoch 035 - training loss (MAE): 0.6347, validation MSE: 1.2460
-2025-12-28 14:59:11 [INFO]: Epoch 036 - training loss (MAE): 0.6574, validation MSE: 1.2263
-2025-12-28 14:59:46 [INFO]: Epoch 037 - training loss (MAE): 0.6236, validation MSE: 1.2272
-2025-12-28 15:00:20 [INFO]: Epoch 038 - training loss (MAE): 0.6612, validation MSE: 1.2332
-2025-12-28 15:00:55 [INFO]: Epoch 039 - training loss (MAE): 0.6906, validation MSE: 1.2346
-2025-12-28 15:01:29 [INFO]: Epoch 040 - training loss (MAE): 0.6384, validation MSE: 1.2183
-2025-12-28 15:02:04 [INFO]: Epoch 041 - training loss (MAE): 0.6517, validation MSE: 1.2048
-2025-12-28 15:02:38 [INFO]: Epoch 042 - training loss (MAE): 0.6375, validation MSE: 1.2092
-2025-12-28 15:03:13 [INFO]: Epoch 043 - training loss (MAE): 0.6786, validation MSE: 1.2131
-2025-12-28 15:03:13 [INFO]: Exceeded the training patience. Terminating the training procedure...
-2025-12-28 15:03:13 [INFO]: Finished training. The best model is from epoch#33.
-2025-12-28 15:03:13 [INFO]: Saved the model to reproduce_imputation/point09_log/ItalyAir_log/TimeLLM_ItalyAir/round_0/20251228_T143828/TimeLLM.pypots
-2025-12-28 15:03:21 [INFO]: Successfully saved to reproduce_imputation/point09_log/ItalyAir_log/TimeLLM_ItalyAir/round_0/imputation.pkl
-2025-12-28 15:03:21 [INFO]: Round0 - TimeLLM on ItalyAir: MAE=0.5699, MSE=0.9207, MRE=0.7470
-2025-12-28 15:03:21 [INFO]: Have set the random seed as 2025 for numpy and pytorch.
-2025-12-28 15:03:21 [INFO]: Using the given device: cuda:0
-2025-12-28 15:03:21 [INFO]: Model files will be saved to reproduce_imputation/point09_log/ItalyAir_log/TimeLLM_ItalyAir/round_1/20251228_T150321
-2025-12-28 15:03:21 [INFO]: Tensorboard file will be saved to reproduce_imputation/point09_log/ItalyAir_log/TimeLLM_ItalyAir/round_1/20251228_T150321/tensorboard
-2025-12-28 15:03:21 [INFO]: Using customized MAE as the training loss function.
-2025-12-28 15:03:21 [INFO]: Using customized MSE as the validation metric function.
-Using eos_token, but it is not set yet.
-2025-12-28 15:03:24 [INFO]: TimeLLM initialized with the given hyperparameters, the number of trainable parameters: 31,125,764
-2025-12-28 15:03:59 [INFO]: Epoch 001 - training loss (MAE): 1.0696, validation MSE: 1.8254
-2025-12-28 15:04:33 [INFO]: Epoch 002 - training loss (MAE): 0.8069, validation MSE: 1.5055
-2025-12-28 15:05:07 [INFO]: Epoch 003 - training loss (MAE): 0.7185, validation MSE: 1.3847
-2025-12-28 15:05:42 [INFO]: Epoch 004 - training loss (MAE): 0.6961, validation MSE: 1.3440
-2025-12-28 15:06:16 [INFO]: Epoch 005 - training loss (MAE): 0.6639, validation MSE: 1.3175
-2025-12-28 15:06:51 [INFO]: Epoch 006 - training loss (MAE): 0.7049, validation MSE: 1.3187
-2025-12-28 15:07:25 [INFO]: Epoch 007 - training loss (MAE): 0.6673, validation MSE: 1.2895
-2025-12-28 15:08:00 [INFO]: Epoch 008 - training loss (MAE): 0.6685, validation MSE: 1.2719
-2025-12-28 15:08:34 [INFO]: Epoch 009 - training loss (MAE): 0.6842, validation MSE: 1.2968
-2025-12-28 15:09:09 [INFO]: Epoch 010 - training loss (MAE): 0.6746, validation MSE: 1.2638
-2025-12-28 15:09:43 [INFO]: Epoch 011 - training loss (MAE): 0.6861, validation MSE: 1.2950
-2025-12-28 15:10:18 [INFO]: Epoch 012 - training loss (MAE): 0.6846, validation MSE: 1.2673
-2025-12-28 15:10:52 [INFO]: Epoch 013 - training loss (MAE): 0.6680, validation MSE: 1.2644
-2025-12-28 15:11:27 [INFO]: Epoch 014 - training loss (MAE): 0.6519, validation MSE: 1.2237
-2025-12-28 15:12:01 [INFO]: Epoch 015 - training loss (MAE): 0.6584, validation MSE: 1.2058
-2025-12-28 15:12:36 [INFO]: Epoch 016 - training loss (MAE): 0.6762, validation MSE: 1.2101
-2025-12-28 15:13:10 [INFO]: Epoch 017 - training loss (MAE): 0.6479, validation MSE: 1.2341
-2025-12-28 15:13:45 [INFO]: Epoch 018 - training loss (MAE): 0.6655, validation MSE: 1.2407
-2025-12-28 15:14:19 [INFO]: Epoch 019 - training loss (MAE): 0.6712, validation MSE: 1.2277
-2025-12-28 15:14:54 [INFO]: Epoch 020 - training loss (MAE): 0.6578, validation MSE: 1.2272
-2025-12-28 15:15:28 [INFO]: Epoch 021 - training loss (MAE): 0.6499, validation MSE: 1.2279
-2025-12-28 15:16:03 [INFO]: Epoch 022 - training loss (MAE): 0.6451, validation MSE: 1.2500
-2025-12-28 15:16:37 [INFO]: Epoch 023 - training loss (MAE): 0.6678, validation MSE: 1.2314
-2025-12-28 15:17:12 [INFO]: Epoch 024 - training loss (MAE): 0.6781, validation MSE: 1.2206
-2025-12-28 15:17:46 [INFO]: Epoch 025 - training loss (MAE): 0.6893, validation MSE: 1.2241
-2025-12-28 15:17:46 [INFO]: Exceeded the training patience. Terminating the training procedure...
-2025-12-28 15:17:46 [INFO]: Finished training. The best model is from epoch#15.
-2025-12-28 15:17:47 [INFO]: Saved the model to reproduce_imputation/point09_log/ItalyAir_log/TimeLLM_ItalyAir/round_1/20251228_T150321/TimeLLM.pypots
-2025-12-28 15:17:55 [INFO]: Successfully saved to reproduce_imputation/point09_log/ItalyAir_log/TimeLLM_ItalyAir/round_1/imputation.pkl
-2025-12-28 15:17:55 [INFO]: Round1 - TimeLLM on ItalyAir: MAE=0.5699, MSE=0.9304, MRE=0.7469
-2025-12-28 15:17:55 [INFO]: Have set the random seed as 2026 for numpy and pytorch.
-2025-12-28 15:17:55 [INFO]: Using the given device: cuda:0
-2025-12-28 15:17:55 [INFO]: Model files will be saved to reproduce_imputation/point09_log/ItalyAir_log/TimeLLM_ItalyAir/round_2/20251228_T151755
-2025-12-28 15:17:55 [INFO]: Tensorboard file will be saved to reproduce_imputation/point09_log/ItalyAir_log/TimeLLM_ItalyAir/round_2/20251228_T151755/tensorboard
-2025-12-28 15:17:55 [INFO]: Using customized MAE as the training loss function.
-2025-12-28 15:17:55 [INFO]: Using customized MSE as the validation metric function.
-Using eos_token, but it is not set yet.
-2025-12-28 15:18:10 [INFO]: TimeLLM initialized with the given hyperparameters, the number of trainable parameters: 31,125,764
-2025-12-28 15:18:45 [INFO]: Epoch 001 - training loss (MAE): 1.0696, validation MSE: 1.7380
-2025-12-28 15:19:19 [INFO]: Epoch 002 - training loss (MAE): 0.7612, validation MSE: 1.4499
-2025-12-28 15:19:53 [INFO]: Epoch 003 - training loss (MAE): 0.7675, validation MSE: 1.4065
-2025-12-28 15:20:28 [INFO]: Epoch 004 - training loss (MAE): 0.7249, validation MSE: 1.3157
-2025-12-28 15:21:02 [INFO]: Epoch 005 - training loss (MAE): 0.7044, validation MSE: 1.2925
-2025-12-28 15:21:37 [INFO]: Epoch 006 - training loss (MAE): 0.7144, validation MSE: 1.2870
-2025-12-28 15:22:11 [INFO]: Epoch 007 - training loss (MAE): 0.7013, validation MSE: 1.3187
-2025-12-28 15:22:46 [INFO]: Epoch 008 - training loss (MAE): 0.6694, validation MSE: 1.3016
-2025-12-28 15:23:20 [INFO]: Epoch 009 - training loss (MAE): 0.7129, validation MSE: 1.2942
-2025-12-28 15:23:55 [INFO]: Epoch 010 - training loss (MAE): 0.6866, validation MSE: 1.2904
-2025-12-28 15:24:29 [INFO]: Epoch 011 - training loss (MAE): 0.6884, validation MSE: 1.2507
-2025-12-28 15:25:04 [INFO]: Epoch 012 - training loss (MAE): 0.6774, validation MSE: 1.2154
-2025-12-28 15:25:38 [INFO]: Epoch 013 - training loss (MAE): 0.6871, validation MSE: 1.2480
-2025-12-28 15:26:13 [INFO]: Epoch 014 - training loss (MAE): 0.6702, validation MSE: 1.2353
-2025-12-28 15:26:47 [INFO]: Epoch 015 - training loss (MAE): 0.6664, validation MSE: 1.2278
-2025-12-28 15:27:22 [INFO]: Epoch 016 - training loss (MAE): 0.6857, validation MSE: 1.2123
-2025-12-28 15:27:56 [INFO]: Epoch 017 - training loss (MAE): 0.6629, validation MSE: 1.2384
-2025-12-28 15:28:31 [INFO]: Epoch 018 - training loss (MAE): 0.7024, validation MSE: 1.2199
-2025-12-28 15:29:05 [INFO]: Epoch 019 - training loss (MAE): 0.6698, validation MSE: 1.2187
-2025-12-28 15:29:40 [INFO]: Epoch 020 - training loss (MAE): 0.6651, validation MSE: 1.2052
-2025-12-28 15:30:14 [INFO]: Epoch 021 - training loss (MAE): 0.6802, validation MSE: 1.2170
-2025-12-28 15:30:49 [INFO]: Epoch 022 - training loss (MAE): 0.6605, validation MSE: 1.2102
-2025-12-28 15:31:23 [INFO]: Epoch 023 - training loss (MAE): 0.6609, validation MSE: 1.2038
-2025-12-28 15:31:58 [INFO]: Epoch 024 - training loss (MAE): 0.6719, validation MSE: 1.2261
-2025-12-28 15:32:32 [INFO]: Epoch 025 - training loss (MAE): 0.6991, validation MSE: 1.1874
-2025-12-28 15:33:07 [INFO]: Epoch 026 - training loss (MAE): 0.6936, validation MSE: 1.2007
-2025-12-28 15:33:41 [INFO]: Epoch 027 - training loss (MAE): 0.6316, validation MSE: 1.1851
-2025-12-28 15:34:16 [INFO]: Epoch 028 - training loss (MAE): 0.6617, validation MSE: 1.2086
-2025-12-28 15:34:50 [INFO]: Epoch 029 - training loss (MAE): 0.6592, validation MSE: 1.1978
-2025-12-28 15:35:25 [INFO]: Epoch 030 - training loss (MAE): 0.6624, validation MSE: 1.1926
-2025-12-28 15:35:59 [INFO]: Epoch 031 - training loss (MAE): 0.6619, validation MSE: 1.1867
-2025-12-28 15:36:34 [INFO]: Epoch 032 - training loss (MAE): 0.6935, validation MSE: 1.2184
-2025-12-28 15:37:08 [INFO]: Epoch 033 - training loss (MAE): 0.6613, validation MSE: 1.2123
-2025-12-28 15:37:43 [INFO]: Epoch 034 - training loss (MAE): 0.6628, validation MSE: 1.2218
-2025-12-28 15:38:17 [INFO]: Epoch 035 - training loss (MAE): 0.6488, validation MSE: 1.2157
-2025-12-28 15:38:52 [INFO]: Epoch 036 - training loss (MAE): 0.6426, validation MSE: 1.2019
-2025-12-28 15:39:26 [INFO]: Epoch 037 - training loss (MAE): 0.6604, validation MSE: 1.1975
-2025-12-28 15:39:26 [INFO]: Exceeded the training patience. Terminating the training procedure...
-2025-12-28 15:39:26 [INFO]: Finished training. The best model is from epoch#27.
-2025-12-28 15:39:26 [INFO]: Saved the model to reproduce_imputation/point09_log/ItalyAir_log/TimeLLM_ItalyAir/round_2/20251228_T151755/TimeLLM.pypots
-2025-12-28 15:39:35 [INFO]: Successfully saved to reproduce_imputation/point09_log/ItalyAir_log/TimeLLM_ItalyAir/round_2/imputation.pkl
-2025-12-28 15:39:35 [INFO]: Round2 - TimeLLM on ItalyAir: MAE=0.5642, MSE=0.9130, MRE=0.7394
-2025-12-28 15:39:35 [INFO]: Have set the random seed as 2027 for numpy and pytorch.
-2025-12-28 15:39:35 [INFO]: Using the given device: cuda:0
-2025-12-28 15:39:35 [INFO]: Model files will be saved to reproduce_imputation/point09_log/ItalyAir_log/TimeLLM_ItalyAir/round_3/20251228_T153935
-2025-12-28 15:39:35 [INFO]: Tensorboard file will be saved to reproduce_imputation/point09_log/ItalyAir_log/TimeLLM_ItalyAir/round_3/20251228_T153935/tensorboard
-2025-12-28 15:39:35 [INFO]: Using customized MAE as the training loss function.
-2025-12-28 15:39:35 [INFO]: Using customized MSE as the validation metric function.
-Using eos_token, but it is not set yet.
-2025-12-28 15:39:37 [INFO]: TimeLLM initialized with the given hyperparameters, the number of trainable parameters: 31,125,764
-2025-12-28 15:40:12 [INFO]: Epoch 001 - training loss (MAE): 1.0724, validation MSE: 1.8145
-2025-12-28 15:40:46 [INFO]: Epoch 002 - training loss (MAE): 0.7837, validation MSE: 1.5054
-2025-12-28 15:41:21 [INFO]: Epoch 003 - training loss (MAE): 0.6989, validation MSE: 1.4409
-2025-12-28 15:41:55 [INFO]: Epoch 004 - training loss (MAE): 0.6659, validation MSE: 1.3884
-2025-12-28 15:42:29 [INFO]: Epoch 005 - training loss (MAE): 0.7241, validation MSE: 1.3787
-2025-12-28 15:43:04 [INFO]: Epoch 006 - training loss (MAE): 0.7079, validation MSE: 1.3155
-2025-12-28 15:43:38 [INFO]: Epoch 007 - training loss (MAE): 0.6804, validation MSE: 1.3572
-2025-12-28 15:44:13 [INFO]: Epoch 008 - training loss (MAE): 0.6976, validation MSE: 1.3236
-2025-12-28 15:44:47 [INFO]: Epoch 009 - training loss (MAE): 0.6615, validation MSE: 1.3095
-2025-12-28 15:45:22 [INFO]: Epoch 010 - training loss (MAE): 0.6646, validation MSE: 1.2880
-2025-12-28 15:45:56 [INFO]: Epoch 011 - training loss (MAE): 0.6648, validation MSE: 1.2751
-2025-12-28 15:46:30 [INFO]: Epoch 012 - training loss (MAE): 0.6436, validation MSE: 1.2843
-2025-12-28 15:47:05 [INFO]: Epoch 013 - training loss (MAE): 0.6685, validation MSE: 1.2611
-2025-12-28 15:47:39 [INFO]: Epoch 014 - training loss (MAE): 0.7112, validation MSE: 1.2646
-2025-12-28 15:48:14 [INFO]: Epoch 015 - training loss (MAE): 0.6755, validation MSE: 1.2510
-2025-12-28 15:48:48 [INFO]: Epoch 016 - training loss (MAE): 0.6741, validation MSE: 1.2291
-2025-12-28 15:49:22 [INFO]: Epoch 017 - training loss (MAE): 0.6771, validation MSE: 1.2317
-2025-12-28 15:49:57 [INFO]: Epoch 018 - training loss (MAE): 0.6932, validation MSE: 1.2375
-2025-12-28 15:50:31 [INFO]: Epoch 019 - training loss (MAE): 0.6817, validation MSE: 1.2262
-2025-12-28 15:51:05 [INFO]: Epoch 020 - training loss (MAE): 0.6775, validation MSE: 1.2389
-2025-12-28 15:51:40 [INFO]: Epoch 021 - training loss (MAE): 0.6832, validation MSE: 1.2279
-2025-12-28 15:52:14 [INFO]: Epoch 022 - training loss (MAE): 0.6682, validation MSE: 1.2069
-2025-12-28 15:52:49 [INFO]: Epoch 023 - training loss (MAE): 0.6624, validation MSE: 1.1899
-2025-12-28 15:53:23 [INFO]: Epoch 024 - training loss (MAE): 0.6726, validation MSE: 1.2276
-2025-12-28 15:53:58 [INFO]: Epoch 025 - training loss (MAE): 0.6666, validation MSE: 1.2404
-2025-12-28 15:54:32 [INFO]: Epoch 026 - training loss (MAE): 0.6487, validation MSE: 1.2318
-2025-12-28 15:55:07 [INFO]: Epoch 027 - training loss (MAE): 0.6435, validation MSE: 1.2207
-2025-12-28 15:55:41 [INFO]: Epoch 028 - training loss (MAE): 0.6342, validation MSE: 1.2321
-2025-12-28 15:56:16 [INFO]: Epoch 029 - training loss (MAE): 0.6858, validation MSE: 1.2197
-2025-12-28 15:56:50 [INFO]: Epoch 030 - training loss (MAE): 0.6779, validation MSE: 1.2083
-2025-12-28 15:57:25 [INFO]: Epoch 031 - training loss (MAE): 0.6714, validation MSE: 1.2028
-2025-12-28 15:57:59 [INFO]: Epoch 032 - training loss (MAE): 0.6472, validation MSE: 1.1972
-2025-12-28 15:58:34 [INFO]: Epoch 033 - training loss (MAE): 0.6595, validation MSE: 1.2052
-2025-12-28 15:58:34 [INFO]: Exceeded the training patience. Terminating the training procedure...
-2025-12-28 15:58:34 [INFO]: Finished training. The best model is from epoch#23.
-2025-12-28 15:58:34 [INFO]: Saved the model to reproduce_imputation/point09_log/ItalyAir_log/TimeLLM_ItalyAir/round_3/20251228_T153935/TimeLLM.pypots
-2025-12-28 15:58:43 [INFO]: Successfully saved to reproduce_imputation/point09_log/ItalyAir_log/TimeLLM_ItalyAir/round_3/imputation.pkl
-2025-12-28 15:58:43 [INFO]: Round3 - TimeLLM on ItalyAir: MAE=0.5711, MSE=0.9248, MRE=0.7484
-2025-12-28 15:58:43 [INFO]: Have set the random seed as 2028 for numpy and pytorch.
-2025-12-28 15:58:43 [INFO]: Using the given device: cuda:0
-2025-12-28 15:58:43 [INFO]: Model files will be saved to reproduce_imputation/point09_log/ItalyAir_log/TimeLLM_ItalyAir/round_4/20251228_T155843
-2025-12-28 15:58:43 [INFO]: Tensorboard file will be saved to reproduce_imputation/point09_log/ItalyAir_log/TimeLLM_ItalyAir/round_4/20251228_T155843/tensorboard
-2025-12-28 15:58:43 [INFO]: Using customized MAE as the training loss function.
-2025-12-28 15:58:43 [INFO]: Using customized MSE as the validation metric function.
-Using eos_token, but it is not set yet.
-2025-12-28 15:58:45 [INFO]: TimeLLM initialized with the given hyperparameters, the number of trainable parameters: 31,125,764
-2025-12-28 15:59:20 [INFO]: Epoch 001 - training loss (MAE): 1.1270, validation MSE: 1.9569
-2025-12-28 15:59:54 [INFO]: Epoch 002 - training loss (MAE): 0.9868, validation MSE: 1.8560
-2025-12-28 16:00:29 [INFO]: Epoch 003 - training loss (MAE): 0.7979, validation MSE: 1.4782
-2025-12-28 16:01:03 [INFO]: Epoch 004 - training loss (MAE): 0.7632, validation MSE: 1.4116
-2025-12-28 16:01:37 [INFO]: Epoch 005 - training loss (MAE): 0.7569, validation MSE: 1.3906
-2025-12-28 16:02:12 [INFO]: Epoch 006 - training loss (MAE): 0.7262, validation MSE: 1.3449
-2025-12-28 16:02:46 [INFO]: Epoch 007 - training loss (MAE): 0.7018, validation MSE: 1.3021
-2025-12-28 16:03:21 [INFO]: Epoch 008 - training loss (MAE): 0.7307, validation MSE: 1.2772
-2025-12-28 16:03:55 [INFO]: Epoch 009 - training loss (MAE): 0.6825, validation MSE: 1.2620
-2025-12-28 16:04:30 [INFO]: Epoch 010 - training loss (MAE): 0.6995, validation MSE: 1.2697
-2025-12-28 16:05:04 [INFO]: Epoch 011 - training loss (MAE): 0.7075, validation MSE: 1.2512
-2025-12-28 16:05:39 [INFO]: Epoch 012 - training loss (MAE): 0.6951, validation MSE: 1.2576
-2025-12-28 16:06:13 [INFO]: Epoch 013 - training loss (MAE): 0.6600, validation MSE: 1.2521
-2025-12-28 16:06:48 [INFO]: Epoch 014 - training loss (MAE): 0.6625, validation MSE: 1.2534
-2025-12-28 16:07:22 [INFO]: Epoch 015 - training loss (MAE): 0.6919, validation MSE: 1.2301
-2025-12-28 16:07:56 [INFO]: Epoch 016 - training loss (MAE): 0.6982, validation MSE: 1.2214
-2025-12-28 16:08:31 [INFO]: Epoch 017 - training loss (MAE): 0.6486, validation MSE: 1.2437
-2025-12-28 16:09:05 [INFO]: Epoch 018 - training loss (MAE): 0.6667, validation MSE: 1.2397
-2025-12-28 16:09:39 [INFO]: Epoch 019 - training loss (MAE): 0.6854, validation MSE: 1.2182
-2025-12-28 16:10:14 [INFO]: Epoch 020 - training loss (MAE): 0.6745, validation MSE: 1.2147
-2025-12-28 16:10:48 [INFO]: Epoch 021 - training loss (MAE): 0.6486, validation MSE: 1.2151
-2025-12-28 16:11:22 [INFO]: Epoch 022 - training loss (MAE): 0.6569, validation MSE: 1.2027
-2025-12-28 16:11:57 [INFO]: Epoch 023 - training loss (MAE): 0.6817, validation MSE: 1.1974
-2025-12-28 16:12:31 [INFO]: Epoch 024 - training loss (MAE): 0.6438, validation MSE: 1.2062
-2025-12-28 16:13:05 [INFO]: Epoch 025 - training loss (MAE): 0.6441, validation MSE: 1.1979
-2025-12-28 16:13:40 [INFO]: Epoch 026 - training loss (MAE): 0.6761, validation MSE: 1.2059
-2025-12-28 16:14:14 [INFO]: Epoch 027 - training loss (MAE): 0.6622, validation MSE: 1.2021
-2025-12-28 16:14:48 [INFO]: Epoch 028 - training loss (MAE): 0.6764, validation MSE: 1.1977
-2025-12-28 16:15:22 [INFO]: Epoch 029 - training loss (MAE): 0.6521, validation MSE: 1.2088
-2025-12-28 16:15:57 [INFO]: Epoch 030 - training loss (MAE): 0.6922, validation MSE: 1.2119
-2025-12-28 16:16:31 [INFO]: Epoch 031 - training loss (MAE): 0.6441, validation MSE: 1.2091
-2025-12-28 16:17:05 [INFO]: Epoch 032 - training loss (MAE): 0.6829, validation MSE: 1.1980
-2025-12-28 16:17:39 [INFO]: Epoch 033 - training loss (MAE): 0.6654, validation MSE: 1.1840
-2025-12-28 16:18:14 [INFO]: Epoch 034 - training loss (MAE): 0.6461, validation MSE: 1.1947
-2025-12-28 16:18:48 [INFO]: Epoch 035 - training loss (MAE): 0.6491, validation MSE: 1.1979
-2025-12-28 16:19:22 [INFO]: Epoch 036 - training loss (MAE): 0.6567, validation MSE: 1.2043
-2025-12-28 16:19:57 [INFO]: Epoch 037 - training loss (MAE): 0.6528, validation MSE: 1.2050
-2025-12-28 16:20:31 [INFO]: Epoch 038 - training loss (MAE): 0.6466, validation MSE: 1.1958
-2025-12-28 16:21:05 [INFO]: Epoch 039 - training loss (MAE): 0.6474, validation MSE: 1.1985
-2025-12-28 16:21:40 [INFO]: Epoch 040 - training loss (MAE): 0.6339, validation MSE: 1.1827
-2025-12-28 16:22:14 [INFO]: Epoch 041 - training loss (MAE): 0.6913, validation MSE: 1.1667
-2025-12-28 16:22:48 [INFO]: Epoch 042 - training loss (MAE): 0.6428, validation MSE: 1.1827
-2025-12-28 16:23:23 [INFO]: Epoch 043 - training loss (MAE): 0.6320, validation MSE: 1.1905
-2025-12-28 16:23:57 [INFO]: Epoch 044 - training loss (MAE): 0.6493, validation MSE: 1.1884
-2025-12-28 16:24:31 [INFO]: Epoch 045 - training loss (MAE): 0.6574, validation MSE: 1.1905
-2025-12-28 16:25:06 [INFO]: Epoch 046 - training loss (MAE): 0.6286, validation MSE: 1.1974
-2025-12-28 16:25:40 [INFO]: Epoch 047 - training loss (MAE): 0.6452, validation MSE: 1.2051
-2025-12-28 16:26:15 [INFO]: Epoch 048 - training loss (MAE): 0.6645, validation MSE: 1.1917
-2025-12-28 16:26:49 [INFO]: Epoch 049 - training loss (MAE): 0.6276, validation MSE: 1.1768
-2025-12-28 16:27:24 [INFO]: Epoch 050 - training loss (MAE): 0.6215, validation MSE: 1.1798
-2025-12-28 16:27:58 [INFO]: Epoch 051 - training loss (MAE): 0.6796, validation MSE: 1.1831
-2025-12-28 16:27:58 [INFO]: Exceeded the training patience. Terminating the training procedure...
-2025-12-28 16:27:58 [INFO]: Finished training. The best model is from epoch#41.
-2025-12-28 16:27:58 [INFO]: Saved the model to reproduce_imputation/point09_log/ItalyAir_log/TimeLLM_ItalyAir/round_4/20251228_T155843/TimeLLM.pypots
-2025-12-28 16:28:07 [INFO]: Successfully saved to reproduce_imputation/point09_log/ItalyAir_log/TimeLLM_ItalyAir/round_4/imputation.pkl
-2025-12-28 16:28:07 [INFO]: Round4 - TimeLLM on ItalyAir: MAE=0.5619, MSE=0.9142, MRE=0.7364
-2025-12-28 16:28:07 [INFO]: Done! Final results:
-Averaged TimeLLM (31,125,764 params) on ItalyAir: MAE=0.5674 ± 0.003673233587214696, MSE=0.9206 ± 0.00653906900225065, MRE=0.7436 ± 0.0048141804480571395, average inference time=8.35
-  0%|          | 0/11 [00:00<?, ?it/s]100%|██████████| 11/11 [00:00<00:00, 261.21it/s]
+urllib3.exceptions.SSLError: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/urllib3/connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='huggingface.co', port=443): Max retries exceeded with url: /google-bert/bert-base-uncased/resolve/main/config.json (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/train_model.py", line 153, in <module>
+    model = SUPPORT_MODELS[args.model](**hyperparameters)
+  File "/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/timellm/model.py", line 185, in __init__
+    self.model = _TimeLLM(
+  File "/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/timellm/core.py", line 39, in __init__
+    self.backbone = BackboneTimeLLM(
+  File "/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/nn/modules/timellm/backbone.py", line 93, in __init__
+    self.llm_model = BertModel.from_pretrained(
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/transformers/modeling_utils.py", line 2325, in from_pretrained
+    config, model_kwargs = cls.config_class.from_pretrained(
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/transformers/configuration_utils.py", line 590, in from_pretrained
+    config_dict, kwargs = cls.get_config_dict(pretrained_model_name_or_path, **kwargs)
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/transformers/configuration_utils.py", line 617, in get_config_dict
+    config_dict, kwargs = cls._get_config_dict(pretrained_model_name_or_path, **kwargs)
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/transformers/configuration_utils.py", line 672, in _get_config_dict
+    resolved_config_file = cached_file(
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/transformers/utils/hub.py", line 417, in cached_file
+    resolved_file = hf_hub_download(
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1221, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1282, in _hf_hub_download_to_cache_dir
+    (url_to_download, etag, commit_hash, expected_size, head_call_error) = _get_metadata_or_catch_error(
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1722, in _get_metadata_or_catch_error
+    metadata = get_hf_file_metadata(url=url, proxies=proxies, timeout=etag_timeout, headers=headers)
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1645, in get_hf_file_metadata
+    r = _request_wrapper(
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 372, in _request_wrapper
+    response = _request_wrapper(
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 395, in _request_wrapper
+    response = get_session().request(method=method, url=url, **params)
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/huggingface_hub/utils/_http.py", line 66, in send
+    return super().send(request, *args, **kwargs)
+  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/requests/adapters.py", line 517, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: (MaxRetryError("HTTPSConnectionPool(host='huggingface.co', port=443): Max retries exceeded with url: /google-bert/bert-base-uncased/resolve/main/config.json (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)')))"), '(Request ID: a641b3a7-808b-4707-813d-5285b6e9404a)')

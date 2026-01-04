@@ -10,4 +10,5 @@ source activate py310pots
 export PYTHONUNBUFFERED=1
 export http_proxy=http://u-cEoRwn:EDvFuZTe@172.16.4.9:3128
 export https_proxy=http://u-cEoRwn:EDvFuZTe@172.16.4.9:3128   
-python -u train_model.py --model HELIX --dataset PeMS --dataset_fold_path data/generated_datasets/pems_traffic_rate05_step24_subseq_seqlen18 --saving_path reproduce_imputation/subseq05_log/PeMS_log --device cuda:0 --config_version without_LR_decay
+export LD_PRELOAD=$LD_PRELOAD:/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/sklearn/utils/../../scikit_learn.libs/libgomp-947d5fa1.so.1.0.0
+python -u train_model.py --model HELIX --dataset PeMS --dataset_fold_path data/generated_datasets/pems_traffic_rate05_step24_subseq_seqlen18 --saving_path reproduce_imputation/subseq05_log/PeMS_log --device cuda:0 

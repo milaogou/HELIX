@@ -1,133 +1,133 @@
-2025-12-28 15:47:51 [WARNING]: ‼️ `pypots.utils.metrics` is deprecated. Please import from `pypots.nn.functional` instead.
-2025-12-28 15:47:51 [INFO]: Have set the random seed as 2024 for numpy and pytorch.
-2025-12-28 15:47:51 [INFO]: Using the given device: cuda:0
-2025-12-28 15:47:52 [INFO]: Model files will be saved to reproduce_imputation/subseq05_log/ETT_h1_log/iTransformer_ETT_h1/round_0/20251228_T154751
-2025-12-28 15:47:52 [INFO]: Tensorboard file will be saved to reproduce_imputation/subseq05_log/ETT_h1_log/iTransformer_ETT_h1/round_0/20251228_T154751/tensorboard
-2025-12-28 15:47:52 [INFO]: Using customized MAE as the training loss function.
-2025-12-28 15:47:52 [INFO]: Using customized MSE as the validation metric function.
-2025-12-28 15:47:52 [WARNING]: ‼️ d_model must = n_heads * d_k, it should be divisible by n_heads and the result should be equal to d_k, but got d_model=256, n_heads=8, d_k=128
-2025-12-28 15:47:52 [WARNING]: ⚠️ d_model is reset to 1024 = n_heads (8) * d_k (128)
-2025-12-28 15:47:52 [INFO]: iTransformer initialized with the given hyperparameters, the number of trainable parameters: 23,723,056
-2025-12-28 15:47:52 [INFO]: Epoch 001 - training loss (MAE): 1.2741, validation MSE: 0.8523
-2025-12-28 15:47:53 [INFO]: Epoch 002 - training loss (MAE): 0.8864, validation MSE: 0.7595
-2025-12-28 15:47:53 [INFO]: Epoch 003 - training loss (MAE): 0.7416, validation MSE: 0.7915
-2025-12-28 15:47:53 [INFO]: Epoch 004 - training loss (MAE): 0.6801, validation MSE: 0.7853
-2025-12-28 15:47:53 [INFO]: Epoch 005 - training loss (MAE): 0.6332, validation MSE: 0.8292
-2025-12-28 15:47:53 [INFO]: Epoch 006 - training loss (MAE): 0.5949, validation MSE: 0.8346
-2025-12-28 15:47:53 [INFO]: Epoch 007 - training loss (MAE): 0.5509, validation MSE: 0.8378
-2025-12-28 15:47:54 [INFO]: Epoch 008 - training loss (MAE): 0.5315, validation MSE: 0.8636
-2025-12-28 15:47:54 [INFO]: Epoch 009 - training loss (MAE): 0.5057, validation MSE: 0.8300
-2025-12-28 15:47:54 [INFO]: Epoch 010 - training loss (MAE): 0.4970, validation MSE: 0.8548
-2025-12-28 15:47:54 [INFO]: Epoch 011 - training loss (MAE): 0.4845, validation MSE: 0.8252
-2025-12-28 15:47:54 [INFO]: Epoch 012 - training loss (MAE): 0.4841, validation MSE: 0.8152
-2025-12-28 15:47:54 [INFO]: Exceeded the training patience. Terminating the training procedure...
-2025-12-28 15:47:54 [INFO]: Finished training. The best model is from epoch#2.
-2025-12-28 15:47:54 [INFO]: Saved the model to reproduce_imputation/subseq05_log/ETT_h1_log/iTransformer_ETT_h1/round_0/20251228_T154751/iTransformer.pypots
-2025-12-28 15:47:54 [INFO]: Successfully saved to reproduce_imputation/subseq05_log/ETT_h1_log/iTransformer_ETT_h1/round_0/imputation.pkl
-2025-12-28 15:47:54 [INFO]: Round0 - iTransformer on ETT_h1: MAE=0.7544, MSE=1.1188, MRE=0.8497
-2025-12-28 15:47:54 [INFO]: Have set the random seed as 2025 for numpy and pytorch.
-2025-12-28 15:47:54 [INFO]: Using the given device: cuda:0
-2025-12-28 15:47:55 [INFO]: Model files will be saved to reproduce_imputation/subseq05_log/ETT_h1_log/iTransformer_ETT_h1/round_1/20251228_T154754
-2025-12-28 15:47:55 [INFO]: Tensorboard file will be saved to reproduce_imputation/subseq05_log/ETT_h1_log/iTransformer_ETT_h1/round_1/20251228_T154754/tensorboard
-2025-12-28 15:47:55 [INFO]: Using customized MAE as the training loss function.
-2025-12-28 15:47:55 [INFO]: Using customized MSE as the validation metric function.
-2025-12-28 15:47:55 [WARNING]: ‼️ d_model must = n_heads * d_k, it should be divisible by n_heads and the result should be equal to d_k, but got d_model=256, n_heads=8, d_k=128
-2025-12-28 15:47:55 [WARNING]: ⚠️ d_model is reset to 1024 = n_heads (8) * d_k (128)
-2025-12-28 15:47:55 [INFO]: iTransformer initialized with the given hyperparameters, the number of trainable parameters: 23,723,056
-2025-12-28 15:47:55 [INFO]: Epoch 001 - training loss (MAE): 1.3203, validation MSE: 0.8035
-2025-12-28 15:47:55 [INFO]: Epoch 002 - training loss (MAE): 0.8834, validation MSE: 0.7169
-2025-12-28 15:47:55 [INFO]: Epoch 003 - training loss (MAE): 0.7568, validation MSE: 0.7605
-2025-12-28 15:47:55 [INFO]: Epoch 004 - training loss (MAE): 0.6775, validation MSE: 0.7632
-2025-12-28 15:47:56 [INFO]: Epoch 005 - training loss (MAE): 0.6322, validation MSE: 0.7735
-2025-12-28 15:47:56 [INFO]: Epoch 006 - training loss (MAE): 0.5967, validation MSE: 0.8075
-2025-12-28 15:47:56 [INFO]: Epoch 007 - training loss (MAE): 0.5577, validation MSE: 0.8166
-2025-12-28 15:47:56 [INFO]: Epoch 008 - training loss (MAE): 0.5319, validation MSE: 0.8434
-2025-12-28 15:47:56 [INFO]: Epoch 009 - training loss (MAE): 0.5133, validation MSE: 0.8235
-2025-12-28 15:47:57 [INFO]: Epoch 010 - training loss (MAE): 0.4950, validation MSE: 0.8309
-2025-12-28 15:47:57 [INFO]: Epoch 011 - training loss (MAE): 0.4816, validation MSE: 0.8482
-2025-12-28 15:47:57 [INFO]: Epoch 012 - training loss (MAE): 0.4733, validation MSE: 0.8240
-2025-12-28 15:47:57 [INFO]: Exceeded the training patience. Terminating the training procedure...
-2025-12-28 15:47:57 [INFO]: Finished training. The best model is from epoch#2.
-2025-12-28 15:47:57 [INFO]: Saved the model to reproduce_imputation/subseq05_log/ETT_h1_log/iTransformer_ETT_h1/round_1/20251228_T154754/iTransformer.pypots
-2025-12-28 15:47:57 [INFO]: Successfully saved to reproduce_imputation/subseq05_log/ETT_h1_log/iTransformer_ETT_h1/round_1/imputation.pkl
-2025-12-28 15:47:57 [INFO]: Round1 - iTransformer on ETT_h1: MAE=0.7214, MSE=1.0753, MRE=0.8125
-2025-12-28 15:47:57 [INFO]: Have set the random seed as 2026 for numpy and pytorch.
-2025-12-28 15:47:57 [INFO]: Using the given device: cuda:0
-2025-12-28 15:47:57 [INFO]: Model files will be saved to reproduce_imputation/subseq05_log/ETT_h1_log/iTransformer_ETT_h1/round_2/20251228_T154757
-2025-12-28 15:47:57 [INFO]: Tensorboard file will be saved to reproduce_imputation/subseq05_log/ETT_h1_log/iTransformer_ETT_h1/round_2/20251228_T154757/tensorboard
-2025-12-28 15:47:57 [INFO]: Using customized MAE as the training loss function.
-2025-12-28 15:47:57 [INFO]: Using customized MSE as the validation metric function.
-2025-12-28 15:47:57 [WARNING]: ‼️ d_model must = n_heads * d_k, it should be divisible by n_heads and the result should be equal to d_k, but got d_model=256, n_heads=8, d_k=128
-2025-12-28 15:47:57 [WARNING]: ⚠️ d_model is reset to 1024 = n_heads (8) * d_k (128)
-2025-12-28 15:47:57 [INFO]: iTransformer initialized with the given hyperparameters, the number of trainable parameters: 23,723,056
-2025-12-28 15:47:58 [INFO]: Epoch 001 - training loss (MAE): 1.3050, validation MSE: 0.8265
-2025-12-28 15:47:58 [INFO]: Epoch 002 - training loss (MAE): 0.8860, validation MSE: 0.7343
-2025-12-28 15:47:58 [INFO]: Epoch 003 - training loss (MAE): 0.7703, validation MSE: 0.7625
-2025-12-28 15:47:58 [INFO]: Epoch 004 - training loss (MAE): 0.6874, validation MSE: 0.7683
-2025-12-28 15:47:58 [INFO]: Epoch 005 - training loss (MAE): 0.6288, validation MSE: 0.7950
-2025-12-28 15:47:58 [INFO]: Epoch 006 - training loss (MAE): 0.6009, validation MSE: 0.7974
-2025-12-28 15:47:59 [INFO]: Epoch 007 - training loss (MAE): 0.5605, validation MSE: 0.8308
-2025-12-28 15:47:59 [INFO]: Epoch 008 - training loss (MAE): 0.5349, validation MSE: 0.8218
-2025-12-28 15:47:59 [INFO]: Epoch 009 - training loss (MAE): 0.5117, validation MSE: 0.8325
-2025-12-28 15:47:59 [INFO]: Epoch 010 - training loss (MAE): 0.5075, validation MSE: 0.8334
-2025-12-28 15:47:59 [INFO]: Epoch 011 - training loss (MAE): 0.4922, validation MSE: 0.8048
-2025-12-28 15:47:59 [INFO]: Epoch 012 - training loss (MAE): 0.4853, validation MSE: 0.8393
-2025-12-28 15:47:59 [INFO]: Exceeded the training patience. Terminating the training procedure...
-2025-12-28 15:47:59 [INFO]: Finished training. The best model is from epoch#2.
-2025-12-28 15:48:00 [INFO]: Saved the model to reproduce_imputation/subseq05_log/ETT_h1_log/iTransformer_ETT_h1/round_2/20251228_T154757/iTransformer.pypots
-2025-12-28 15:48:00 [INFO]: Successfully saved to reproduce_imputation/subseq05_log/ETT_h1_log/iTransformer_ETT_h1/round_2/imputation.pkl
-2025-12-28 15:48:00 [INFO]: Round2 - iTransformer on ETT_h1: MAE=0.7278, MSE=1.0909, MRE=0.8197
-2025-12-28 15:48:00 [INFO]: Have set the random seed as 2027 for numpy and pytorch.
-2025-12-28 15:48:00 [INFO]: Using the given device: cuda:0
-2025-12-28 15:48:00 [INFO]: Model files will be saved to reproduce_imputation/subseq05_log/ETT_h1_log/iTransformer_ETT_h1/round_3/20251228_T154800
-2025-12-28 15:48:00 [INFO]: Tensorboard file will be saved to reproduce_imputation/subseq05_log/ETT_h1_log/iTransformer_ETT_h1/round_3/20251228_T154800/tensorboard
-2025-12-28 15:48:00 [INFO]: Using customized MAE as the training loss function.
-2025-12-28 15:48:00 [INFO]: Using customized MSE as the validation metric function.
-2025-12-28 15:48:00 [WARNING]: ‼️ d_model must = n_heads * d_k, it should be divisible by n_heads and the result should be equal to d_k, but got d_model=256, n_heads=8, d_k=128
-2025-12-28 15:48:00 [WARNING]: ⚠️ d_model is reset to 1024 = n_heads (8) * d_k (128)
-2025-12-28 15:48:00 [INFO]: iTransformer initialized with the given hyperparameters, the number of trainable parameters: 23,723,056
-2025-12-28 15:48:00 [INFO]: Epoch 001 - training loss (MAE): 1.2835, validation MSE: 0.8389
-2025-12-28 15:48:00 [INFO]: Epoch 002 - training loss (MAE): 0.8764, validation MSE: 0.7534
-2025-12-28 15:48:01 [INFO]: Epoch 003 - training loss (MAE): 0.7349, validation MSE: 0.7682
-2025-12-28 15:48:01 [INFO]: Epoch 004 - training loss (MAE): 0.6852, validation MSE: 0.7886
-2025-12-28 15:48:01 [INFO]: Epoch 005 - training loss (MAE): 0.6158, validation MSE: 0.7954
-2025-12-28 15:48:01 [INFO]: Epoch 006 - training loss (MAE): 0.5996, validation MSE: 0.8392
-2025-12-28 15:48:01 [INFO]: Epoch 007 - training loss (MAE): 0.5601, validation MSE: 0.8307
-2025-12-28 15:48:01 [INFO]: Epoch 008 - training loss (MAE): 0.5393, validation MSE: 0.8559
-2025-12-28 15:48:02 [INFO]: Epoch 009 - training loss (MAE): 0.5130, validation MSE: 0.8365
-2025-12-28 15:48:02 [INFO]: Epoch 010 - training loss (MAE): 0.4999, validation MSE: 0.8536
-2025-12-28 15:48:02 [INFO]: Epoch 011 - training loss (MAE): 0.4853, validation MSE: 0.8460
-2025-12-28 15:48:02 [INFO]: Epoch 012 - training loss (MAE): 0.4771, validation MSE: 0.8232
-2025-12-28 15:48:02 [INFO]: Exceeded the training patience. Terminating the training procedure...
-2025-12-28 15:48:02 [INFO]: Finished training. The best model is from epoch#2.
-2025-12-28 15:48:02 [INFO]: Saved the model to reproduce_imputation/subseq05_log/ETT_h1_log/iTransformer_ETT_h1/round_3/20251228_T154800/iTransformer.pypots
-2025-12-28 15:48:02 [INFO]: Successfully saved to reproduce_imputation/subseq05_log/ETT_h1_log/iTransformer_ETT_h1/round_3/imputation.pkl
-2025-12-28 15:48:02 [INFO]: Round3 - iTransformer on ETT_h1: MAE=0.7389, MSE=1.1159, MRE=0.8322
-2025-12-28 15:48:02 [INFO]: Have set the random seed as 2028 for numpy and pytorch.
-2025-12-28 15:48:02 [INFO]: Using the given device: cuda:0
-2025-12-28 15:48:02 [INFO]: Model files will be saved to reproduce_imputation/subseq05_log/ETT_h1_log/iTransformer_ETT_h1/round_4/20251228_T154802
-2025-12-28 15:48:02 [INFO]: Tensorboard file will be saved to reproduce_imputation/subseq05_log/ETT_h1_log/iTransformer_ETT_h1/round_4/20251228_T154802/tensorboard
-2025-12-28 15:48:02 [INFO]: Using customized MAE as the training loss function.
-2025-12-28 15:48:02 [INFO]: Using customized MSE as the validation metric function.
-2025-12-28 15:48:02 [WARNING]: ‼️ d_model must = n_heads * d_k, it should be divisible by n_heads and the result should be equal to d_k, but got d_model=256, n_heads=8, d_k=128
-2025-12-28 15:48:02 [WARNING]: ⚠️ d_model is reset to 1024 = n_heads (8) * d_k (128)
-2025-12-28 15:48:03 [INFO]: iTransformer initialized with the given hyperparameters, the number of trainable parameters: 23,723,056
-2025-12-28 15:48:03 [INFO]: Epoch 001 - training loss (MAE): 1.3053, validation MSE: 0.8460
-2025-12-28 15:48:03 [INFO]: Epoch 002 - training loss (MAE): 0.8979, validation MSE: 0.7672
-2025-12-28 15:48:03 [INFO]: Epoch 003 - training loss (MAE): 0.7535, validation MSE: 0.7965
-2025-12-28 15:48:03 [INFO]: Epoch 004 - training loss (MAE): 0.6884, validation MSE: 0.8003
-2025-12-28 15:48:03 [INFO]: Epoch 005 - training loss (MAE): 0.6278, validation MSE: 0.8163
-2025-12-28 15:48:04 [INFO]: Epoch 006 - training loss (MAE): 0.5926, validation MSE: 0.8503
-2025-12-28 15:48:04 [INFO]: Epoch 007 - training loss (MAE): 0.5612, validation MSE: 0.8445
-2025-12-28 15:48:04 [INFO]: Epoch 008 - training loss (MAE): 0.5436, validation MSE: 0.8511
-2025-12-28 15:48:04 [INFO]: Epoch 009 - training loss (MAE): 0.5069, validation MSE: 0.8543
-2025-12-28 15:48:04 [INFO]: Epoch 010 - training loss (MAE): 0.5033, validation MSE: 0.8478
-2025-12-28 15:48:04 [INFO]: Epoch 011 - training loss (MAE): 0.4803, validation MSE: 0.8489
-2025-12-28 15:48:05 [INFO]: Epoch 012 - training loss (MAE): 0.4698, validation MSE: 0.8481
-2025-12-28 15:48:05 [INFO]: Exceeded the training patience. Terminating the training procedure...
-2025-12-28 15:48:05 [INFO]: Finished training. The best model is from epoch#2.
-2025-12-28 15:48:05 [INFO]: Saved the model to reproduce_imputation/subseq05_log/ETT_h1_log/iTransformer_ETT_h1/round_4/20251228_T154802/iTransformer.pypots
-2025-12-28 15:48:05 [INFO]: Successfully saved to reproduce_imputation/subseq05_log/ETT_h1_log/iTransformer_ETT_h1/round_4/imputation.pkl
-2025-12-28 15:48:05 [INFO]: Round4 - iTransformer on ETT_h1: MAE=0.7570, MSE=1.1262, MRE=0.8525
-2025-12-28 15:48:05 [INFO]: Done! Final results:
+2026-01-03 18:25:36 [WARNING]: ‼️ `pypots.utils.metrics` is deprecated. Please import from `pypots.nn.functional` instead.
+2026-01-03 18:25:37 [INFO]: Have set the random seed as 2024 for numpy and pytorch.
+2026-01-03 18:25:37 [INFO]: Using the given device: cuda:0
+2026-01-03 18:25:37 [INFO]: Model files will be saved to reproduce_imputation/subseq05_log/ETT_h1_log/iTransformer_ETT_h1/round_0/20260103_T182537
+2026-01-03 18:25:37 [INFO]: Tensorboard file will be saved to reproduce_imputation/subseq05_log/ETT_h1_log/iTransformer_ETT_h1/round_0/20260103_T182537/tensorboard
+2026-01-03 18:25:37 [INFO]: Using customized MAE as the training loss function.
+2026-01-03 18:25:37 [INFO]: Using customized MSE as the validation metric function.
+2026-01-03 18:25:37 [WARNING]: ‼️ d_model must = n_heads * d_k, it should be divisible by n_heads and the result should be equal to d_k, but got d_model=256, n_heads=8, d_k=128
+2026-01-03 18:25:37 [WARNING]: ⚠️ d_model is reset to 1024 = n_heads (8) * d_k (128)
+2026-01-03 18:25:37 [INFO]: iTransformer initialized with the given hyperparameters, the number of trainable parameters: 23,723,056
+2026-01-03 18:25:38 [INFO]: Epoch 001 - training loss (MAE): 1.2741, validation MSE: 0.8523
+2026-01-03 18:25:38 [INFO]: Epoch 002 - training loss (MAE): 0.8864, validation MSE: 0.7595
+2026-01-03 18:25:38 [INFO]: Epoch 003 - training loss (MAE): 0.7416, validation MSE: 0.7915
+2026-01-03 18:25:38 [INFO]: Epoch 004 - training loss (MAE): 0.6801, validation MSE: 0.7853
+2026-01-03 18:25:38 [INFO]: Epoch 005 - training loss (MAE): 0.6332, validation MSE: 0.8292
+2026-01-03 18:25:39 [INFO]: Epoch 006 - training loss (MAE): 0.5949, validation MSE: 0.8346
+2026-01-03 18:25:39 [INFO]: Epoch 007 - training loss (MAE): 0.5509, validation MSE: 0.8378
+2026-01-03 18:25:39 [INFO]: Epoch 008 - training loss (MAE): 0.5315, validation MSE: 0.8636
+2026-01-03 18:25:39 [INFO]: Epoch 009 - training loss (MAE): 0.5057, validation MSE: 0.8300
+2026-01-03 18:25:39 [INFO]: Epoch 010 - training loss (MAE): 0.4970, validation MSE: 0.8548
+2026-01-03 18:25:39 [INFO]: Epoch 011 - training loss (MAE): 0.4845, validation MSE: 0.8252
+2026-01-03 18:25:40 [INFO]: Epoch 012 - training loss (MAE): 0.4841, validation MSE: 0.8152
+2026-01-03 18:25:40 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2026-01-03 18:25:40 [INFO]: Finished training. The best model is from epoch#2.
+2026-01-03 18:25:40 [INFO]: Saved the model to reproduce_imputation/subseq05_log/ETT_h1_log/iTransformer_ETT_h1/round_0/20260103_T182537/iTransformer.pypots
+2026-01-03 18:25:40 [INFO]: Successfully saved to reproduce_imputation/subseq05_log/ETT_h1_log/iTransformer_ETT_h1/round_0/imputation.pkl
+2026-01-03 18:25:40 [INFO]: Round0 - iTransformer on ETT_h1: MAE=0.7544, MSE=1.1188, MRE=0.8497
+2026-01-03 18:25:40 [INFO]: Have set the random seed as 2025 for numpy and pytorch.
+2026-01-03 18:25:40 [INFO]: Using the given device: cuda:0
+2026-01-03 18:25:40 [INFO]: Model files will be saved to reproduce_imputation/subseq05_log/ETT_h1_log/iTransformer_ETT_h1/round_1/20260103_T182540
+2026-01-03 18:25:40 [INFO]: Tensorboard file will be saved to reproduce_imputation/subseq05_log/ETT_h1_log/iTransformer_ETT_h1/round_1/20260103_T182540/tensorboard
+2026-01-03 18:25:40 [INFO]: Using customized MAE as the training loss function.
+2026-01-03 18:25:40 [INFO]: Using customized MSE as the validation metric function.
+2026-01-03 18:25:40 [WARNING]: ‼️ d_model must = n_heads * d_k, it should be divisible by n_heads and the result should be equal to d_k, but got d_model=256, n_heads=8, d_k=128
+2026-01-03 18:25:40 [WARNING]: ⚠️ d_model is reset to 1024 = n_heads (8) * d_k (128)
+2026-01-03 18:25:40 [INFO]: iTransformer initialized with the given hyperparameters, the number of trainable parameters: 23,723,056
+2026-01-03 18:25:40 [INFO]: Epoch 001 - training loss (MAE): 1.3203, validation MSE: 0.8035
+2026-01-03 18:25:40 [INFO]: Epoch 002 - training loss (MAE): 0.8834, validation MSE: 0.7169
+2026-01-03 18:25:41 [INFO]: Epoch 003 - training loss (MAE): 0.7568, validation MSE: 0.7605
+2026-01-03 18:25:41 [INFO]: Epoch 004 - training loss (MAE): 0.6775, validation MSE: 0.7632
+2026-01-03 18:25:41 [INFO]: Epoch 005 - training loss (MAE): 0.6322, validation MSE: 0.7735
+2026-01-03 18:25:41 [INFO]: Epoch 006 - training loss (MAE): 0.5967, validation MSE: 0.8075
+2026-01-03 18:25:41 [INFO]: Epoch 007 - training loss (MAE): 0.5577, validation MSE: 0.8166
+2026-01-03 18:25:41 [INFO]: Epoch 008 - training loss (MAE): 0.5319, validation MSE: 0.8434
+2026-01-03 18:25:42 [INFO]: Epoch 009 - training loss (MAE): 0.5133, validation MSE: 0.8235
+2026-01-03 18:25:42 [INFO]: Epoch 010 - training loss (MAE): 0.4950, validation MSE: 0.8309
+2026-01-03 18:25:42 [INFO]: Epoch 011 - training loss (MAE): 0.4816, validation MSE: 0.8482
+2026-01-03 18:25:42 [INFO]: Epoch 012 - training loss (MAE): 0.4733, validation MSE: 0.8240
+2026-01-03 18:25:42 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2026-01-03 18:25:42 [INFO]: Finished training. The best model is from epoch#2.
+2026-01-03 18:25:42 [INFO]: Saved the model to reproduce_imputation/subseq05_log/ETT_h1_log/iTransformer_ETT_h1/round_1/20260103_T182540/iTransformer.pypots
+2026-01-03 18:25:42 [INFO]: Successfully saved to reproduce_imputation/subseq05_log/ETT_h1_log/iTransformer_ETT_h1/round_1/imputation.pkl
+2026-01-03 18:25:42 [INFO]: Round1 - iTransformer on ETT_h1: MAE=0.7214, MSE=1.0753, MRE=0.8125
+2026-01-03 18:25:42 [INFO]: Have set the random seed as 2026 for numpy and pytorch.
+2026-01-03 18:25:42 [INFO]: Using the given device: cuda:0
+2026-01-03 18:25:42 [INFO]: Model files will be saved to reproduce_imputation/subseq05_log/ETT_h1_log/iTransformer_ETT_h1/round_2/20260103_T182542
+2026-01-03 18:25:42 [INFO]: Tensorboard file will be saved to reproduce_imputation/subseq05_log/ETT_h1_log/iTransformer_ETT_h1/round_2/20260103_T182542/tensorboard
+2026-01-03 18:25:42 [INFO]: Using customized MAE as the training loss function.
+2026-01-03 18:25:42 [INFO]: Using customized MSE as the validation metric function.
+2026-01-03 18:25:42 [WARNING]: ‼️ d_model must = n_heads * d_k, it should be divisible by n_heads and the result should be equal to d_k, but got d_model=256, n_heads=8, d_k=128
+2026-01-03 18:25:42 [WARNING]: ⚠️ d_model is reset to 1024 = n_heads (8) * d_k (128)
+2026-01-03 18:25:43 [INFO]: iTransformer initialized with the given hyperparameters, the number of trainable parameters: 23,723,056
+2026-01-03 18:25:43 [INFO]: Epoch 001 - training loss (MAE): 1.3050, validation MSE: 0.8265
+2026-01-03 18:25:43 [INFO]: Epoch 002 - training loss (MAE): 0.8860, validation MSE: 0.7343
+2026-01-03 18:25:43 [INFO]: Epoch 003 - training loss (MAE): 0.7703, validation MSE: 0.7625
+2026-01-03 18:25:43 [INFO]: Epoch 004 - training loss (MAE): 0.6874, validation MSE: 0.7683
+2026-01-03 18:25:44 [INFO]: Epoch 005 - training loss (MAE): 0.6288, validation MSE: 0.7950
+2026-01-03 18:25:44 [INFO]: Epoch 006 - training loss (MAE): 0.6009, validation MSE: 0.7974
+2026-01-03 18:25:44 [INFO]: Epoch 007 - training loss (MAE): 0.5605, validation MSE: 0.8308
+2026-01-03 18:25:44 [INFO]: Epoch 008 - training loss (MAE): 0.5349, validation MSE: 0.8218
+2026-01-03 18:25:44 [INFO]: Epoch 009 - training loss (MAE): 0.5117, validation MSE: 0.8325
+2026-01-03 18:25:44 [INFO]: Epoch 010 - training loss (MAE): 0.5075, validation MSE: 0.8334
+2026-01-03 18:25:45 [INFO]: Epoch 011 - training loss (MAE): 0.4922, validation MSE: 0.8048
+2026-01-03 18:25:45 [INFO]: Epoch 012 - training loss (MAE): 0.4853, validation MSE: 0.8393
+2026-01-03 18:25:45 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2026-01-03 18:25:45 [INFO]: Finished training. The best model is from epoch#2.
+2026-01-03 18:25:45 [INFO]: Saved the model to reproduce_imputation/subseq05_log/ETT_h1_log/iTransformer_ETT_h1/round_2/20260103_T182542/iTransformer.pypots
+2026-01-03 18:25:45 [INFO]: Successfully saved to reproduce_imputation/subseq05_log/ETT_h1_log/iTransformer_ETT_h1/round_2/imputation.pkl
+2026-01-03 18:25:45 [INFO]: Round2 - iTransformer on ETT_h1: MAE=0.7278, MSE=1.0909, MRE=0.8197
+2026-01-03 18:25:45 [INFO]: Have set the random seed as 2027 for numpy and pytorch.
+2026-01-03 18:25:45 [INFO]: Using the given device: cuda:0
+2026-01-03 18:25:45 [INFO]: Model files will be saved to reproduce_imputation/subseq05_log/ETT_h1_log/iTransformer_ETT_h1/round_3/20260103_T182545
+2026-01-03 18:25:45 [INFO]: Tensorboard file will be saved to reproduce_imputation/subseq05_log/ETT_h1_log/iTransformer_ETT_h1/round_3/20260103_T182545/tensorboard
+2026-01-03 18:25:45 [INFO]: Using customized MAE as the training loss function.
+2026-01-03 18:25:45 [INFO]: Using customized MSE as the validation metric function.
+2026-01-03 18:25:45 [WARNING]: ‼️ d_model must = n_heads * d_k, it should be divisible by n_heads and the result should be equal to d_k, but got d_model=256, n_heads=8, d_k=128
+2026-01-03 18:25:45 [WARNING]: ⚠️ d_model is reset to 1024 = n_heads (8) * d_k (128)
+2026-01-03 18:25:45 [INFO]: iTransformer initialized with the given hyperparameters, the number of trainable parameters: 23,723,056
+2026-01-03 18:25:45 [INFO]: Epoch 001 - training loss (MAE): 1.2835, validation MSE: 0.8389
+2026-01-03 18:25:46 [INFO]: Epoch 002 - training loss (MAE): 0.8764, validation MSE: 0.7534
+2026-01-03 18:25:46 [INFO]: Epoch 003 - training loss (MAE): 0.7349, validation MSE: 0.7682
+2026-01-03 18:25:46 [INFO]: Epoch 004 - training loss (MAE): 0.6852, validation MSE: 0.7886
+2026-01-03 18:25:46 [INFO]: Epoch 005 - training loss (MAE): 0.6158, validation MSE: 0.7954
+2026-01-03 18:25:46 [INFO]: Epoch 006 - training loss (MAE): 0.5996, validation MSE: 0.8392
+2026-01-03 18:25:47 [INFO]: Epoch 007 - training loss (MAE): 0.5601, validation MSE: 0.8307
+2026-01-03 18:25:47 [INFO]: Epoch 008 - training loss (MAE): 0.5393, validation MSE: 0.8559
+2026-01-03 18:25:47 [INFO]: Epoch 009 - training loss (MAE): 0.5130, validation MSE: 0.8365
+2026-01-03 18:25:47 [INFO]: Epoch 010 - training loss (MAE): 0.4999, validation MSE: 0.8536
+2026-01-03 18:25:47 [INFO]: Epoch 011 - training loss (MAE): 0.4853, validation MSE: 0.8460
+2026-01-03 18:25:47 [INFO]: Epoch 012 - training loss (MAE): 0.4771, validation MSE: 0.8232
+2026-01-03 18:25:47 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2026-01-03 18:25:47 [INFO]: Finished training. The best model is from epoch#2.
+2026-01-03 18:25:48 [INFO]: Saved the model to reproduce_imputation/subseq05_log/ETT_h1_log/iTransformer_ETT_h1/round_3/20260103_T182545/iTransformer.pypots
+2026-01-03 18:25:48 [INFO]: Successfully saved to reproduce_imputation/subseq05_log/ETT_h1_log/iTransformer_ETT_h1/round_3/imputation.pkl
+2026-01-03 18:25:48 [INFO]: Round3 - iTransformer on ETT_h1: MAE=0.7389, MSE=1.1159, MRE=0.8322
+2026-01-03 18:25:48 [INFO]: Have set the random seed as 2028 for numpy and pytorch.
+2026-01-03 18:25:48 [INFO]: Using the given device: cuda:0
+2026-01-03 18:25:48 [INFO]: Model files will be saved to reproduce_imputation/subseq05_log/ETT_h1_log/iTransformer_ETT_h1/round_4/20260103_T182548
+2026-01-03 18:25:48 [INFO]: Tensorboard file will be saved to reproduce_imputation/subseq05_log/ETT_h1_log/iTransformer_ETT_h1/round_4/20260103_T182548/tensorboard
+2026-01-03 18:25:48 [INFO]: Using customized MAE as the training loss function.
+2026-01-03 18:25:48 [INFO]: Using customized MSE as the validation metric function.
+2026-01-03 18:25:48 [WARNING]: ‼️ d_model must = n_heads * d_k, it should be divisible by n_heads and the result should be equal to d_k, but got d_model=256, n_heads=8, d_k=128
+2026-01-03 18:25:48 [WARNING]: ⚠️ d_model is reset to 1024 = n_heads (8) * d_k (128)
+2026-01-03 18:25:48 [INFO]: iTransformer initialized with the given hyperparameters, the number of trainable parameters: 23,723,056
+2026-01-03 18:25:48 [INFO]: Epoch 001 - training loss (MAE): 1.3053, validation MSE: 0.8460
+2026-01-03 18:25:48 [INFO]: Epoch 002 - training loss (MAE): 0.8979, validation MSE: 0.7672
+2026-01-03 18:25:48 [INFO]: Epoch 003 - training loss (MAE): 0.7535, validation MSE: 0.7965
+2026-01-03 18:25:49 [INFO]: Epoch 004 - training loss (MAE): 0.6884, validation MSE: 0.8003
+2026-01-03 18:25:49 [INFO]: Epoch 005 - training loss (MAE): 0.6278, validation MSE: 0.8163
+2026-01-03 18:25:49 [INFO]: Epoch 006 - training loss (MAE): 0.5926, validation MSE: 0.8503
+2026-01-03 18:25:49 [INFO]: Epoch 007 - training loss (MAE): 0.5612, validation MSE: 0.8445
+2026-01-03 18:25:49 [INFO]: Epoch 008 - training loss (MAE): 0.5436, validation MSE: 0.8511
+2026-01-03 18:25:49 [INFO]: Epoch 009 - training loss (MAE): 0.5069, validation MSE: 0.8543
+2026-01-03 18:25:50 [INFO]: Epoch 010 - training loss (MAE): 0.5033, validation MSE: 0.8478
+2026-01-03 18:25:50 [INFO]: Epoch 011 - training loss (MAE): 0.4803, validation MSE: 0.8489
+2026-01-03 18:25:50 [INFO]: Epoch 012 - training loss (MAE): 0.4698, validation MSE: 0.8481
+2026-01-03 18:25:50 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2026-01-03 18:25:50 [INFO]: Finished training. The best model is from epoch#2.
+2026-01-03 18:25:50 [INFO]: Saved the model to reproduce_imputation/subseq05_log/ETT_h1_log/iTransformer_ETT_h1/round_4/20260103_T182548/iTransformer.pypots
+2026-01-03 18:25:50 [INFO]: Successfully saved to reproduce_imputation/subseq05_log/ETT_h1_log/iTransformer_ETT_h1/round_4/imputation.pkl
+2026-01-03 18:25:50 [INFO]: Round4 - iTransformer on ETT_h1: MAE=0.7570, MSE=1.1262, MRE=0.8525
+2026-01-03 18:25:50 [INFO]: Done! Final results:
 Averaged iTransformer (23,723,056 params) on ETT_h1: MAE=0.7399 ± 0.01408264428990966, MSE=1.1054 ± 0.019184753029497188, MRE=0.8333 ± 0.015860708201876177, average inference time=0.02

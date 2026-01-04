@@ -1,118 +1,148 @@
-2025-12-28 14:30:43 [WARNING]: ‼️ `pypots.utils.metrics` is deprecated. Please import from `pypots.nn.functional` instead.
-2025-12-28 14:30:43 [INFO]: Have set the random seed as 2024 for numpy and pytorch.
-2025-12-28 14:30:43 [INFO]: Using the given device: cuda:0
-2025-12-28 14:30:43 [INFO]: Model files will be saved to reproduce_imputation/point01_log/ItalyAir_log/TOTEM_ItalyAir/round_0/20251228_T143043
-2025-12-28 14:30:43 [INFO]: Tensorboard file will be saved to reproduce_imputation/point01_log/ItalyAir_log/TOTEM_ItalyAir/round_0/20251228_T143043/tensorboard
-2025-12-28 14:30:43 [INFO]: TOTEM initialized with the given hyperparameters, the number of trainable parameters: 14,233
-2025-12-28 14:30:44 [INFO]: Epoch 001 - training loss (default): 1.0255, validation loss: 2.1392
-2025-12-28 14:30:45 [INFO]: Epoch 002 - training loss (default): 0.9679, validation loss: 2.1185
-2025-12-28 14:30:46 [INFO]: Epoch 003 - training loss (default): 0.9498, validation loss: 2.1061
-2025-12-28 14:30:46 [INFO]: Epoch 004 - training loss (default): 0.9378, validation loss: 2.1252
-2025-12-28 14:30:47 [INFO]: Epoch 005 - training loss (default): 0.9742, validation loss: 2.3162
-2025-12-28 14:30:47 [INFO]: Epoch 006 - training loss (default): 1.1490, validation loss: 3.2762
-2025-12-28 14:30:48 [INFO]: Epoch 007 - training loss (default): 2.3019, validation loss: 10.8535
-2025-12-28 14:30:48 [INFO]: Epoch 008 - training loss (default): 9.4194, validation loss: 54.3062
-2025-12-28 14:30:49 [INFO]: Epoch 009 - training loss (default): 31.5860, validation loss: 162.4992
-2025-12-28 14:30:49 [INFO]: Epoch 010 - training loss (default): 68.6974, validation loss: 313.3289
-2025-12-28 14:30:50 [INFO]: Epoch 011 - training loss (default): 89.2914, validation loss: 464.8261
-2025-12-28 14:30:51 [INFO]: Epoch 012 - training loss (default): 127.3324, validation loss: 538.5355
-2025-12-28 14:30:51 [INFO]: Epoch 013 - training loss (default): 126.2399, validation loss: 571.1707
-2025-12-28 14:30:51 [INFO]: Exceeded the training patience. Terminating the training procedure...
-2025-12-28 14:30:51 [INFO]: Finished training. The best model is from epoch#3.
-2025-12-28 14:30:51 [INFO]: Saved the model to reproduce_imputation/point01_log/ItalyAir_log/TOTEM_ItalyAir/round_0/20251228_T143043/TOTEM.pypots
-2025-12-28 14:30:51 [INFO]: Successfully saved to reproduce_imputation/point01_log/ItalyAir_log/TOTEM_ItalyAir/round_0/imputation.pkl
-2025-12-28 14:30:51 [INFO]: Round0 - TOTEM on ItalyAir: MAE=0.7995, MSE=1.6563, MRE=1.0201
-2025-12-28 14:30:51 [INFO]: Have set the random seed as 2025 for numpy and pytorch.
-2025-12-28 14:30:51 [INFO]: Using the given device: cuda:0
-2025-12-28 14:30:51 [INFO]: Model files will be saved to reproduce_imputation/point01_log/ItalyAir_log/TOTEM_ItalyAir/round_1/20251228_T143051
-2025-12-28 14:30:51 [INFO]: Tensorboard file will be saved to reproduce_imputation/point01_log/ItalyAir_log/TOTEM_ItalyAir/round_1/20251228_T143051/tensorboard
-2025-12-28 14:30:51 [INFO]: TOTEM initialized with the given hyperparameters, the number of trainable parameters: 14,233
-2025-12-28 14:30:52 [INFO]: Epoch 001 - training loss (default): 0.9478, validation loss: 2.1011
-2025-12-28 14:30:52 [INFO]: Epoch 002 - training loss (default): 0.9312, validation loss: 2.0898
-2025-12-28 14:30:53 [INFO]: Epoch 003 - training loss (default): 0.9275, validation loss: 2.0812
-2025-12-28 14:30:53 [INFO]: Epoch 004 - training loss (default): 0.9159, validation loss: 2.0790
-2025-12-28 14:30:54 [INFO]: Epoch 005 - training loss (default): 0.9122, validation loss: 2.0903
-2025-12-28 14:30:55 [INFO]: Epoch 006 - training loss (default): 0.9211, validation loss: 2.1660
-2025-12-28 14:30:55 [INFO]: Epoch 007 - training loss (default): 1.1112, validation loss: 3.0486
-2025-12-28 14:30:56 [INFO]: Epoch 008 - training loss (default): 2.0827, validation loss: 9.6671
-2025-12-28 14:30:56 [INFO]: Epoch 009 - training loss (default): 9.1713, validation loss: 57.4942
-2025-12-28 14:30:57 [INFO]: Epoch 010 - training loss (default): 34.4856, validation loss: 200.2766
-2025-12-28 14:30:57 [INFO]: Epoch 011 - training loss (default): 101.9487, validation loss: 400.0120
-2025-12-28 14:30:58 [INFO]: Epoch 012 - training loss (default): 127.1517, validation loss: 554.2100
-2025-12-28 14:30:58 [INFO]: Epoch 013 - training loss (default): 126.6472, validation loss: 611.1404
-2025-12-28 14:30:59 [INFO]: Epoch 014 - training loss (default): 132.4958, validation loss: 588.8912
-2025-12-28 14:30:59 [INFO]: Exceeded the training patience. Terminating the training procedure...
-2025-12-28 14:30:59 [INFO]: Finished training. The best model is from epoch#4.
-2025-12-28 14:30:59 [INFO]: Saved the model to reproduce_imputation/point01_log/ItalyAir_log/TOTEM_ItalyAir/round_1/20251228_T143051/TOTEM.pypots
-2025-12-28 14:30:59 [INFO]: Successfully saved to reproduce_imputation/point01_log/ItalyAir_log/TOTEM_ItalyAir/round_1/imputation.pkl
-2025-12-28 14:30:59 [INFO]: Round1 - TOTEM on ItalyAir: MAE=0.7887, MSE=1.6270, MRE=1.0063
-2025-12-28 14:30:59 [INFO]: Have set the random seed as 2026 for numpy and pytorch.
-2025-12-28 14:30:59 [INFO]: Using the given device: cuda:0
-2025-12-28 14:30:59 [INFO]: Model files will be saved to reproduce_imputation/point01_log/ItalyAir_log/TOTEM_ItalyAir/round_2/20251228_T143059
-2025-12-28 14:30:59 [INFO]: Tensorboard file will be saved to reproduce_imputation/point01_log/ItalyAir_log/TOTEM_ItalyAir/round_2/20251228_T143059/tensorboard
-2025-12-28 14:30:59 [INFO]: TOTEM initialized with the given hyperparameters, the number of trainable parameters: 14,233
-2025-12-28 14:31:00 [INFO]: Epoch 001 - training loss (default): 0.9321, validation loss: 2.0708
-2025-12-28 14:31:00 [INFO]: Epoch 002 - training loss (default): 0.9230, validation loss: 2.0652
-2025-12-28 14:31:01 [INFO]: Epoch 003 - training loss (default): 0.9164, validation loss: 2.0657
-2025-12-28 14:31:01 [INFO]: Epoch 004 - training loss (default): 0.9492, validation loss: 2.0883
-2025-12-28 14:31:02 [INFO]: Epoch 005 - training loss (default): 0.9456, validation loss: 2.3432
-2025-12-28 14:31:03 [INFO]: Epoch 006 - training loss (default): 1.1954, validation loss: 3.6774
-2025-12-28 14:31:03 [INFO]: Epoch 007 - training loss (default): 2.5299, validation loss: 10.8738
-2025-12-28 14:31:04 [INFO]: Epoch 008 - training loss (default): 8.5345, validation loss: 36.5287
-2025-12-28 14:31:04 [INFO]: Epoch 009 - training loss (default): 17.9432, validation loss: 62.4439
-2025-12-28 14:31:05 [INFO]: Epoch 010 - training loss (default): 25.6792, validation loss: 84.1499
-2025-12-28 14:31:05 [INFO]: Epoch 011 - training loss (default): 30.3771, validation loss: 98.8947
-2025-12-28 14:31:06 [INFO]: Epoch 012 - training loss (default): 34.5223, validation loss: 105.8617
-2025-12-28 14:31:06 [INFO]: Exceeded the training patience. Terminating the training procedure...
-2025-12-28 14:31:06 [INFO]: Finished training. The best model is from epoch#2.
-2025-12-28 14:31:06 [INFO]: Saved the model to reproduce_imputation/point01_log/ItalyAir_log/TOTEM_ItalyAir/round_2/20251228_T143059/TOTEM.pypots
-2025-12-28 14:31:06 [INFO]: Successfully saved to reproduce_imputation/point01_log/ItalyAir_log/TOTEM_ItalyAir/round_2/imputation.pkl
-2025-12-28 14:31:06 [INFO]: Round2 - TOTEM on ItalyAir: MAE=0.7908, MSE=1.5782, MRE=1.0089
-2025-12-28 14:31:06 [INFO]: Have set the random seed as 2027 for numpy and pytorch.
-2025-12-28 14:31:06 [INFO]: Using the given device: cuda:0
-2025-12-28 14:31:06 [INFO]: Model files will be saved to reproduce_imputation/point01_log/ItalyAir_log/TOTEM_ItalyAir/round_3/20251228_T143106
-2025-12-28 14:31:06 [INFO]: Tensorboard file will be saved to reproduce_imputation/point01_log/ItalyAir_log/TOTEM_ItalyAir/round_3/20251228_T143106/tensorboard
-2025-12-28 14:31:06 [INFO]: TOTEM initialized with the given hyperparameters, the number of trainable parameters: 14,233
-2025-12-28 14:31:07 [INFO]: Epoch 001 - training loss (default): 0.9085, validation loss: 2.0607
-2025-12-28 14:31:07 [INFO]: Epoch 002 - training loss (default): 0.9046, validation loss: 2.0583
-2025-12-28 14:31:08 [INFO]: Epoch 003 - training loss (default): 0.9040, validation loss: 2.0587
-2025-12-28 14:31:08 [INFO]: Epoch 004 - training loss (default): 0.9026, validation loss: 2.0709
-2025-12-28 14:31:09 [INFO]: Epoch 005 - training loss (default): 0.9176, validation loss: 2.1553
-2025-12-28 14:31:09 [INFO]: Epoch 006 - training loss (default): 1.0309, validation loss: 2.9388
-2025-12-28 14:31:10 [INFO]: Epoch 007 - training loss (default): 1.9723, validation loss: 8.8613
-2025-12-28 14:31:10 [INFO]: Epoch 008 - training loss (default): 5.4701, validation loss: 25.8453
-2025-12-28 14:31:11 [INFO]: Epoch 009 - training loss (default): 11.0151, validation loss: 45.4674
-2025-12-28 14:31:12 [INFO]: Epoch 010 - training loss (default): 13.4384, validation loss: 56.3096
-2025-12-28 14:31:12 [INFO]: Epoch 011 - training loss (default): 13.3335, validation loss: 61.0609
-2025-12-28 14:31:13 [INFO]: Epoch 012 - training loss (default): 14.4683, validation loss: 64.1316
-2025-12-28 14:31:13 [INFO]: Exceeded the training patience. Terminating the training procedure...
-2025-12-28 14:31:13 [INFO]: Finished training. The best model is from epoch#2.
-2025-12-28 14:31:13 [INFO]: Saved the model to reproduce_imputation/point01_log/ItalyAir_log/TOTEM_ItalyAir/round_3/20251228_T143106/TOTEM.pypots
-2025-12-28 14:31:13 [INFO]: Successfully saved to reproduce_imputation/point01_log/ItalyAir_log/TOTEM_ItalyAir/round_3/imputation.pkl
-2025-12-28 14:31:13 [INFO]: Round3 - TOTEM on ItalyAir: MAE=0.7832, MSE=1.5958, MRE=0.9993
-2025-12-28 14:31:13 [INFO]: Have set the random seed as 2028 for numpy and pytorch.
-2025-12-28 14:31:13 [INFO]: Using the given device: cuda:0
-2025-12-28 14:31:13 [INFO]: Model files will be saved to reproduce_imputation/point01_log/ItalyAir_log/TOTEM_ItalyAir/round_4/20251228_T143113
-2025-12-28 14:31:13 [INFO]: Tensorboard file will be saved to reproduce_imputation/point01_log/ItalyAir_log/TOTEM_ItalyAir/round_4/20251228_T143113/tensorboard
-2025-12-28 14:31:13 [INFO]: TOTEM initialized with the given hyperparameters, the number of trainable parameters: 14,233
-2025-12-28 14:31:13 [INFO]: Epoch 001 - training loss (default): 1.0306, validation loss: 2.1627
-2025-12-28 14:31:14 [INFO]: Epoch 002 - training loss (default): 1.0088, validation loss: 2.1393
-2025-12-28 14:31:14 [INFO]: Epoch 003 - training loss (default): 0.9853, validation loss: 2.1228
-2025-12-28 14:31:15 [INFO]: Epoch 004 - training loss (default): 1.0298, validation loss: 2.2327
-2025-12-28 14:31:16 [INFO]: Epoch 005 - training loss (default): 1.3008, validation loss: 4.0547
-2025-12-28 14:31:16 [INFO]: Epoch 006 - training loss (default): 4.1791, validation loss: 18.1968
-2025-12-28 14:31:17 [INFO]: Epoch 007 - training loss (default): 13.9042, validation loss: 51.9067
-2025-12-28 14:31:17 [INFO]: Epoch 008 - training loss (default): 19.9802, validation loss: 82.0726
-2025-12-28 14:31:18 [INFO]: Epoch 009 - training loss (default): 22.4375, validation loss: 99.4969
-2025-12-28 14:31:18 [INFO]: Epoch 010 - training loss (default): 19.9090, validation loss: 111.9371
-2025-12-28 14:31:19 [INFO]: Epoch 011 - training loss (default): 19.6141, validation loss: 112.7143
-2025-12-28 14:31:19 [INFO]: Epoch 012 - training loss (default): 15.0740, validation loss: 102.4280
-2025-12-28 14:31:20 [INFO]: Epoch 013 - training loss (default): 11.6676, validation loss: 86.0264
-2025-12-28 14:31:20 [INFO]: Exceeded the training patience. Terminating the training procedure...
-2025-12-28 14:31:20 [INFO]: Finished training. The best model is from epoch#3.
-2025-12-28 14:31:20 [INFO]: Saved the model to reproduce_imputation/point01_log/ItalyAir_log/TOTEM_ItalyAir/round_4/20251228_T143113/TOTEM.pypots
-2025-12-28 14:31:20 [INFO]: Successfully saved to reproduce_imputation/point01_log/ItalyAir_log/TOTEM_ItalyAir/round_4/imputation.pkl
-2025-12-28 14:31:20 [INFO]: Round4 - TOTEM on ItalyAir: MAE=0.8185, MSE=1.5954, MRE=1.0443
-2025-12-28 14:31:20 [INFO]: Done! Final results:
-Averaged TOTEM (14,233 params) on ItalyAir: MAE=0.7961 ± 0.012349812325403789, MSE=1.6106 ± 0.0277913771931904, MRE=1.0158 ± 0.015757108022895115, average inference time=0.06
-  0%|          | 0/11 [00:00<?, ?it/s]100%|██████████| 11/11 [00:00<00:00, 133.21it/s]
+2026-01-03 18:21:57 [WARNING]: ‼️ `pypots.utils.metrics` is deprecated. Please import from `pypots.nn.functional` instead.
+2026-01-03 18:21:57 [INFO]: Have set the random seed as 2024 for numpy and pytorch.
+2026-01-03 18:21:57 [INFO]: Using the given device: cuda:0
+2026-01-03 18:21:57 [INFO]: Model files will be saved to reproduce_imputation/point01_log/ItalyAir_log/TOTEM_ItalyAir/round_0/20260103_T182157
+2026-01-03 18:21:57 [INFO]: Tensorboard file will be saved to reproduce_imputation/point01_log/ItalyAir_log/TOTEM_ItalyAir/round_0/20260103_T182157/tensorboard
+2026-01-03 18:21:57 [INFO]: TOTEM initialized with the given hyperparameters, the number of trainable parameters: 27,937
+2026-01-03 18:21:59 [INFO]: Epoch 001 - training loss (default): 2.4024, validation loss: 58.7357
+2026-01-03 18:21:59 [INFO]: Epoch 002 - training loss (default): 482.6689, validation loss: 6001.0219
+2026-01-03 18:22:00 [INFO]: Epoch 003 - training loss (default): 556.4689, validation loss: 1764.8499
+2026-01-03 18:22:00 [INFO]: Epoch 004 - training loss (default): 357.8424, validation loss: 422.1600
+2026-01-03 18:22:01 [INFO]: Epoch 005 - training loss (default): 74.2742, validation loss: 92.5495
+2026-01-03 18:22:02 [INFO]: Epoch 006 - training loss (default): 12.0037, validation loss: 55.3017
+2026-01-03 18:22:02 [INFO]: Epoch 007 - training loss (default): 19.6098, validation loss: 189.3897
+2026-01-03 18:22:03 [INFO]: Epoch 008 - training loss (default): 24.9164, validation loss: 178.8643
+2026-01-03 18:22:04 [INFO]: Epoch 009 - training loss (default): 36.9807, validation loss: 168.7720
+2026-01-03 18:22:04 [INFO]: Epoch 010 - training loss (default): 25.9759, validation loss: 32.9340
+2026-01-03 18:22:05 [INFO]: Epoch 011 - training loss (default): 7.0210, validation loss: 81.4210
+2026-01-03 18:22:05 [INFO]: Epoch 012 - training loss (default): 8.6455, validation loss: 21.3088
+2026-01-03 18:22:06 [INFO]: Epoch 013 - training loss (default): 2.7024, validation loss: 2.0200
+2026-01-03 18:22:07 [INFO]: Epoch 014 - training loss (default): 0.9565, validation loss: 1.8159
+2026-01-03 18:22:07 [INFO]: Epoch 015 - training loss (default): 0.8625, validation loss: 1.4717
+2026-01-03 18:22:08 [INFO]: Epoch 016 - training loss (default): 0.7709, validation loss: 1.3351
+2026-01-03 18:22:08 [INFO]: Epoch 017 - training loss (default): 0.7173, validation loss: 1.1948
+2026-01-03 18:22:09 [INFO]: Epoch 018 - training loss (default): 0.6193, validation loss: 0.9024
+2026-01-03 18:22:10 [INFO]: Epoch 019 - training loss (default): 0.5906, validation loss: 0.8701
+2026-01-03 18:22:10 [INFO]: Epoch 020 - training loss (default): 0.5945, validation loss: 1.7117
+2026-01-03 18:22:11 [INFO]: Epoch 021 - training loss (default): 174.2939, validation loss: 1332.4690
+2026-01-03 18:22:11 [INFO]: Epoch 022 - training loss (default): 98.2195, validation loss: 3.2248
+2026-01-03 18:22:12 [INFO]: Epoch 023 - training loss (default): 1.9116, validation loss: 8.1805
+2026-01-03 18:22:13 [INFO]: Epoch 024 - training loss (default): 47.8934, validation loss: 1429.4493
+2026-01-03 18:22:13 [INFO]: Epoch 025 - training loss (default): 52.3593, validation loss: 257.2024
+2026-01-03 18:22:14 [INFO]: Epoch 026 - training loss (default): 37.0030, validation loss: 10.0746
+2026-01-03 18:22:14 [INFO]: Epoch 027 - training loss (default): 5.8388, validation loss: 70.7111
+2026-01-03 18:22:15 [INFO]: Epoch 028 - training loss (default): 18.8209, validation loss: 131.5290
+2026-01-03 18:22:16 [INFO]: Epoch 029 - training loss (default): 20.7999, validation loss: 93.0963
+2026-01-03 18:22:16 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2026-01-03 18:22:16 [INFO]: Finished training. The best model is from epoch#19.
+2026-01-03 18:22:16 [INFO]: Saved the model to reproduce_imputation/point01_log/ItalyAir_log/TOTEM_ItalyAir/round_0/20260103_T182157/TOTEM.pypots
+2026-01-03 18:22:16 [INFO]: Successfully saved to reproduce_imputation/point01_log/ItalyAir_log/TOTEM_ItalyAir/round_0/imputation.pkl
+2026-01-03 18:22:16 [INFO]: Round0 - TOTEM on ItalyAir: MAE=0.5303, MSE=0.5823, MRE=0.6766
+2026-01-03 18:22:16 [INFO]: Have set the random seed as 2025 for numpy and pytorch.
+2026-01-03 18:22:16 [INFO]: Using the given device: cuda:0
+2026-01-03 18:22:16 [INFO]: Model files will be saved to reproduce_imputation/point01_log/ItalyAir_log/TOTEM_ItalyAir/round_1/20260103_T182216
+2026-01-03 18:22:16 [INFO]: Tensorboard file will be saved to reproduce_imputation/point01_log/ItalyAir_log/TOTEM_ItalyAir/round_1/20260103_T182216/tensorboard
+2026-01-03 18:22:16 [INFO]: TOTEM initialized with the given hyperparameters, the number of trainable parameters: 27,937
+2026-01-03 18:22:16 [INFO]: Epoch 001 - training loss (default): 1.4102, validation loss: 15.7304
+2026-01-03 18:22:17 [INFO]: Epoch 002 - training loss (default): 40.5496, validation loss: 369.8305
+2026-01-03 18:22:18 [INFO]: Epoch 003 - training loss (default): 18.6091, validation loss: 2.5051
+2026-01-03 18:22:18 [INFO]: Epoch 004 - training loss (default): 1.0745, validation loss: 2.4788
+2026-01-03 18:22:19 [INFO]: Epoch 005 - training loss (default): 1.3632, validation loss: 11.7669
+2026-01-03 18:22:19 [INFO]: Epoch 006 - training loss (default): 75.2693, validation loss: 147.2092
+2026-01-03 18:22:20 [INFO]: Epoch 007 - training loss (default): 29.9298, validation loss: 169.0418
+2026-01-03 18:22:21 [INFO]: Epoch 008 - training loss (default): 20.7564, validation loss: 132.9182
+2026-01-03 18:22:21 [INFO]: Epoch 009 - training loss (default): 11.0968, validation loss: 97.4873
+2026-01-03 18:22:22 [INFO]: Epoch 010 - training loss (default): 6.0311, validation loss: 21.0490
+2026-01-03 18:22:22 [INFO]: Epoch 011 - training loss (default): 7.3689, validation loss: 71.2839
+2026-01-03 18:22:23 [INFO]: Epoch 012 - training loss (default): 6.8470, validation loss: 53.8627
+2026-01-03 18:22:24 [INFO]: Epoch 013 - training loss (default): 5.8535, validation loss: 90.6722
+2026-01-03 18:22:24 [INFO]: Epoch 014 - training loss (default): 5.2984, validation loss: 57.1937
+2026-01-03 18:22:24 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2026-01-03 18:22:24 [INFO]: Finished training. The best model is from epoch#4.
+2026-01-03 18:22:24 [INFO]: Saved the model to reproduce_imputation/point01_log/ItalyAir_log/TOTEM_ItalyAir/round_1/20260103_T182216/TOTEM.pypots
+2026-01-03 18:22:24 [INFO]: Successfully saved to reproduce_imputation/point01_log/ItalyAir_log/TOTEM_ItalyAir/round_1/imputation.pkl
+2026-01-03 18:22:24 [INFO]: Round1 - TOTEM on ItalyAir: MAE=0.7708, MSE=1.5922, MRE=0.9834
+2026-01-03 18:22:24 [INFO]: Have set the random seed as 2026 for numpy and pytorch.
+2026-01-03 18:22:24 [INFO]: Using the given device: cuda:0
+2026-01-03 18:22:24 [INFO]: Model files will be saved to reproduce_imputation/point01_log/ItalyAir_log/TOTEM_ItalyAir/round_2/20260103_T182224
+2026-01-03 18:22:24 [INFO]: Tensorboard file will be saved to reproduce_imputation/point01_log/ItalyAir_log/TOTEM_ItalyAir/round_2/20260103_T182224/tensorboard
+2026-01-03 18:22:24 [INFO]: TOTEM initialized with the given hyperparameters, the number of trainable parameters: 27,937
+2026-01-03 18:22:25 [INFO]: Epoch 001 - training loss (default): 7.2409, validation loss: 178.9182
+2026-01-03 18:22:25 [INFO]: Epoch 002 - training loss (default): 102.5144, validation loss: 1269.3447
+2026-01-03 18:22:26 [INFO]: Epoch 003 - training loss (default): 350.7987, validation loss: 1942.3029
+2026-01-03 18:22:27 [INFO]: Epoch 004 - training loss (default): 416.8739, validation loss: 1665.7481
+2026-01-03 18:22:27 [INFO]: Epoch 005 - training loss (default): 269.6040, validation loss: 2025.8837
+2026-01-03 18:22:28 [INFO]: Epoch 006 - training loss (default): 217.0143, validation loss: 133.3895
+2026-01-03 18:22:28 [INFO]: Epoch 007 - training loss (default): 51.2048, validation loss: 555.1203
+2026-01-03 18:22:29 [INFO]: Epoch 008 - training loss (default): 42.7353, validation loss: 827.6089
+2026-01-03 18:22:29 [INFO]: Epoch 009 - training loss (default): 32.2071, validation loss: 113.4089
+2026-01-03 18:22:30 [INFO]: Epoch 010 - training loss (default): 289.4474, validation loss: 278.8372
+2026-01-03 18:22:31 [INFO]: Epoch 011 - training loss (default): 15.6017, validation loss: 63.6948
+2026-01-03 18:22:31 [INFO]: Epoch 012 - training loss (default): 11.8952, validation loss: 175.4969
+2026-01-03 18:22:32 [INFO]: Epoch 013 - training loss (default): 27.5924, validation loss: 476.2572
+2026-01-03 18:22:32 [INFO]: Epoch 014 - training loss (default): 60.4829, validation loss: 16.7731
+2026-01-03 18:22:33 [INFO]: Epoch 015 - training loss (default): 8.4888, validation loss: 246.6055
+2026-01-03 18:22:33 [INFO]: Epoch 016 - training loss (default): 27.2201, validation loss: 72.6380
+2026-01-03 18:22:34 [INFO]: Epoch 017 - training loss (default): 12.5726, validation loss: 81.3232
+2026-01-03 18:22:35 [INFO]: Epoch 018 - training loss (default): 12.0509, validation loss: 59.3728
+2026-01-03 18:22:35 [INFO]: Epoch 019 - training loss (default): 9.7228, validation loss: 48.8357
+2026-01-03 18:22:36 [INFO]: Epoch 020 - training loss (default): 8.7421, validation loss: 50.7021
+2026-01-03 18:22:36 [INFO]: Epoch 021 - training loss (default): 9.0841, validation loss: 49.8349
+2026-01-03 18:22:37 [INFO]: Epoch 022 - training loss (default): 8.2571, validation loss: 38.1875
+2026-01-03 18:22:37 [INFO]: Epoch 023 - training loss (default): 6.1726, validation loss: 25.6499
+2026-01-03 18:22:38 [INFO]: Epoch 024 - training loss (default): 5.9395, validation loss: 22.8941
+2026-01-03 18:22:38 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2026-01-03 18:22:38 [INFO]: Finished training. The best model is from epoch#14.
+2026-01-03 18:22:38 [INFO]: Saved the model to reproduce_imputation/point01_log/ItalyAir_log/TOTEM_ItalyAir/round_2/20260103_T182224/TOTEM.pypots
+2026-01-03 18:22:38 [INFO]: Successfully saved to reproduce_imputation/point01_log/ItalyAir_log/TOTEM_ItalyAir/round_2/imputation.pkl
+2026-01-03 18:22:38 [INFO]: Round2 - TOTEM on ItalyAir: MAE=0.5624, MSE=0.7410, MRE=0.7176
+2026-01-03 18:22:38 [INFO]: Have set the random seed as 2027 for numpy and pytorch.
+2026-01-03 18:22:38 [INFO]: Using the given device: cuda:0
+2026-01-03 18:22:38 [INFO]: Model files will be saved to reproduce_imputation/point01_log/ItalyAir_log/TOTEM_ItalyAir/round_3/20260103_T182238
+2026-01-03 18:22:38 [INFO]: Tensorboard file will be saved to reproduce_imputation/point01_log/ItalyAir_log/TOTEM_ItalyAir/round_3/20260103_T182238/tensorboard
+2026-01-03 18:22:38 [INFO]: TOTEM initialized with the given hyperparameters, the number of trainable parameters: 27,937
+2026-01-03 18:22:39 [INFO]: Epoch 001 - training loss (default): 1.3269, validation loss: 25.8734
+2026-01-03 18:22:39 [INFO]: Epoch 002 - training loss (default): 71.3897, validation loss: 315.6501
+2026-01-03 18:22:40 [INFO]: Epoch 003 - training loss (default): 27.4682, validation loss: 286.8621
+2026-01-03 18:22:40 [INFO]: Epoch 004 - training loss (default): 15.3915, validation loss: 99.0622
+2026-01-03 18:22:41 [INFO]: Epoch 005 - training loss (default): 6.9517, validation loss: 239.5356
+2026-01-03 18:22:42 [INFO]: Epoch 006 - training loss (default): 19.4785, validation loss: 198.9995
+2026-01-03 18:22:42 [INFO]: Epoch 007 - training loss (default): 16.6909, validation loss: 68.4866
+2026-01-03 18:22:43 [INFO]: Epoch 008 - training loss (default): 12.6525, validation loss: 77.2750
+2026-01-03 18:22:43 [INFO]: Epoch 009 - training loss (default): 13.4916, validation loss: 30.8676
+2026-01-03 18:22:44 [INFO]: Epoch 010 - training loss (default): 13.2168, validation loss: 119.1558
+2026-01-03 18:22:44 [INFO]: Epoch 011 - training loss (default): 14.2611, validation loss: 120.4575
+2026-01-03 18:22:44 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2026-01-03 18:22:44 [INFO]: Finished training. The best model is from epoch#1.
+2026-01-03 18:22:45 [INFO]: Saved the model to reproduce_imputation/point01_log/ItalyAir_log/TOTEM_ItalyAir/round_3/20260103_T182238/TOTEM.pypots
+2026-01-03 18:22:45 [INFO]: Successfully saved to reproduce_imputation/point01_log/ItalyAir_log/TOTEM_ItalyAir/round_3/imputation.pkl
+2026-01-03 18:22:45 [INFO]: Round3 - TOTEM on ItalyAir: MAE=0.7348, MSE=1.4987, MRE=0.9375
+2026-01-03 18:22:45 [INFO]: Have set the random seed as 2028 for numpy and pytorch.
+2026-01-03 18:22:45 [INFO]: Using the given device: cuda:0
+2026-01-03 18:22:45 [INFO]: Model files will be saved to reproduce_imputation/point01_log/ItalyAir_log/TOTEM_ItalyAir/round_4/20260103_T182245
+2026-01-03 18:22:45 [INFO]: Tensorboard file will be saved to reproduce_imputation/point01_log/ItalyAir_log/TOTEM_ItalyAir/round_4/20260103_T182245/tensorboard
+2026-01-03 18:22:45 [INFO]: TOTEM initialized with the given hyperparameters, the number of trainable parameters: 27,937
+2026-01-03 18:22:45 [INFO]: Epoch 001 - training loss (default): 2.6401, validation loss: 65.0586
+2026-01-03 18:22:46 [INFO]: Epoch 002 - training loss (default): 683.5463, validation loss: 4363.8346
+2026-01-03 18:22:46 [INFO]: Epoch 003 - training loss (default): 509.3082, validation loss: 1439.1291
+2026-01-03 18:22:47 [INFO]: Epoch 004 - training loss (default): 58.1610, validation loss: 3.6029
+2026-01-03 18:22:47 [INFO]: Epoch 005 - training loss (default): 1.4452, validation loss: 3.2517
+2026-01-03 18:22:48 [INFO]: Epoch 006 - training loss (default): 1.3059, validation loss: 2.9200
+2026-01-03 18:22:49 [INFO]: Epoch 007 - training loss (default): 1.9047, validation loss: 6.4689
+2026-01-03 18:22:49 [INFO]: Epoch 008 - training loss (default): 2.1284, validation loss: 3.2916
+2026-01-03 18:22:50 [INFO]: Epoch 009 - training loss (default): 1.2528, validation loss: 3.6877
+2026-01-03 18:22:50 [INFO]: Epoch 010 - training loss (default): 1.2820, validation loss: 3.9499
+2026-01-03 18:22:51 [INFO]: Epoch 011 - training loss (default): 1.8161, validation loss: 4.4131
+2026-01-03 18:22:52 [INFO]: Epoch 012 - training loss (default): 1.7152, validation loss: 4.2172
+2026-01-03 18:22:52 [INFO]: Epoch 013 - training loss (default): 1.4364, validation loss: 4.8491
+2026-01-03 18:22:53 [INFO]: Epoch 014 - training loss (default): 1.8983, validation loss: 5.1707
+2026-01-03 18:22:53 [INFO]: Epoch 015 - training loss (default): 2.9344, validation loss: 13.3971
+2026-01-03 18:22:54 [INFO]: Epoch 016 - training loss (default): 3.7307, validation loss: 11.5363
+2026-01-03 18:22:54 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2026-01-03 18:22:54 [INFO]: Finished training. The best model is from epoch#6.
+2026-01-03 18:22:54 [INFO]: Saved the model to reproduce_imputation/point01_log/ItalyAir_log/TOTEM_ItalyAir/round_4/20260103_T182245/TOTEM.pypots
+2026-01-03 18:22:54 [INFO]: Successfully saved to reproduce_imputation/point01_log/ItalyAir_log/TOTEM_ItalyAir/round_4/imputation.pkl
+2026-01-03 18:22:54 [INFO]: Round4 - TOTEM on ItalyAir: MAE=0.7857, MSE=1.5958, MRE=1.0025
+2026-01-03 18:22:54 [INFO]: Done! Final results:
+Averaged TOTEM (27,937 params) on ItalyAir: MAE=0.6768 ± 0.10826990323850853, MSE=1.2020 ± 0.445427286418639, MRE=0.8635 ± 0.13814141591838283, average inference time=0.07
+  0%|          | 0/11 [00:00<?, ?it/s]100%|██████████| 11/11 [00:00<00:00, 324.99it/s]

@@ -1,129 +1,131 @@
-2025-12-28 14:16:38 [WARNING]: ‼️ `pypots.utils.metrics` is deprecated. Please import from `pypots.nn.functional` instead.
-2025-12-28 14:16:38 [INFO]: Have set the random seed as 2024 for numpy and pytorch.
-2025-12-28 14:16:38 [INFO]: Using the given device: cuda:0
-2025-12-28 14:16:38 [INFO]: Model files will be saved to reproduce_imputation/point05_log/ETT_h1_log/ModernTCN_ETT_h1/round_0/20251228_T141638
-2025-12-28 14:16:38 [INFO]: Tensorboard file will be saved to reproduce_imputation/point05_log/ETT_h1_log/ModernTCN_ETT_h1/round_0/20251228_T141638/tensorboard
-2025-12-28 14:16:38 [INFO]: Using customized MAE as the training loss function.
-2025-12-28 14:16:38 [INFO]: Using customized MSE as the validation metric function.
-2025-12-28 14:16:38 [INFO]: ModernTCN initialized with the given hyperparameters, the number of trainable parameters: 101,299
-2025-12-28 14:16:39 [INFO]: Epoch 001 - training loss (MAE): 0.5758, validation MSE: 0.3956
-2025-12-28 14:16:40 [INFO]: Epoch 002 - training loss (MAE): 0.4099, validation MSE: 0.2698
-2025-12-28 14:16:40 [INFO]: Epoch 003 - training loss (MAE): 0.3454, validation MSE: 0.2650
-2025-12-28 14:16:40 [INFO]: Epoch 004 - training loss (MAE): 0.3149, validation MSE: 0.2855
-2025-12-28 14:16:41 [INFO]: Epoch 005 - training loss (MAE): 0.3201, validation MSE: 0.3118
-2025-12-28 14:16:41 [INFO]: Epoch 006 - training loss (MAE): 0.2933, validation MSE: 0.3681
-2025-12-28 14:16:41 [INFO]: Epoch 007 - training loss (MAE): 0.2697, validation MSE: 0.4759
-2025-12-28 14:16:42 [INFO]: Epoch 008 - training loss (MAE): 0.2639, validation MSE: 0.5427
-2025-12-28 14:16:42 [INFO]: Epoch 009 - training loss (MAE): 0.2498, validation MSE: 0.6115
-2025-12-28 14:16:42 [INFO]: Epoch 010 - training loss (MAE): 0.2517, validation MSE: 0.6624
-2025-12-28 14:16:43 [INFO]: Epoch 011 - training loss (MAE): 0.2263, validation MSE: 0.8773
-2025-12-28 14:16:43 [INFO]: Epoch 012 - training loss (MAE): 0.1997, validation MSE: 0.8418
-2025-12-28 14:16:43 [INFO]: Epoch 013 - training loss (MAE): 0.1842, validation MSE: 0.9285
-2025-12-28 14:16:43 [INFO]: Exceeded the training patience. Terminating the training procedure...
-2025-12-28 14:16:43 [INFO]: Finished training. The best model is from epoch#3.
-2025-12-28 14:16:43 [INFO]: Saved the model to reproduce_imputation/point05_log/ETT_h1_log/ModernTCN_ETT_h1/round_0/20251228_T141638/ModernTCN.pypots
-2025-12-28 14:16:43 [INFO]: Successfully saved to reproduce_imputation/point05_log/ETT_h1_log/ModernTCN_ETT_h1/round_0/imputation.pkl
-2025-12-28 14:16:43 [INFO]: Round0 - ModernTCN on ETT_h1: MAE=0.4327, MSE=0.3544, MRE=0.5111
-2025-12-28 14:16:43 [INFO]: Have set the random seed as 2025 for numpy and pytorch.
-2025-12-28 14:16:43 [INFO]: Using the given device: cuda:0
-2025-12-28 14:16:43 [INFO]: Model files will be saved to reproduce_imputation/point05_log/ETT_h1_log/ModernTCN_ETT_h1/round_1/20251228_T141643
-2025-12-28 14:16:43 [INFO]: Tensorboard file will be saved to reproduce_imputation/point05_log/ETT_h1_log/ModernTCN_ETT_h1/round_1/20251228_T141643/tensorboard
-2025-12-28 14:16:43 [INFO]: Using customized MAE as the training loss function.
-2025-12-28 14:16:43 [INFO]: Using customized MSE as the validation metric function.
-2025-12-28 14:16:43 [INFO]: ModernTCN initialized with the given hyperparameters, the number of trainable parameters: 101,299
-2025-12-28 14:16:44 [INFO]: Epoch 001 - training loss (MAE): 0.6363, validation MSE: 0.4633
-2025-12-28 14:16:44 [INFO]: Epoch 002 - training loss (MAE): 0.4261, validation MSE: 0.2976
-2025-12-28 14:16:44 [INFO]: Epoch 003 - training loss (MAE): 0.3504, validation MSE: 0.2662
-2025-12-28 14:16:45 [INFO]: Epoch 004 - training loss (MAE): 0.3299, validation MSE: 0.3197
-2025-12-28 14:16:45 [INFO]: Epoch 005 - training loss (MAE): 0.3041, validation MSE: 0.3348
-2025-12-28 14:16:45 [INFO]: Epoch 006 - training loss (MAE): 0.2891, validation MSE: 0.4341
-2025-12-28 14:16:45 [INFO]: Epoch 007 - training loss (MAE): 0.2718, validation MSE: 0.4748
-2025-12-28 14:16:46 [INFO]: Epoch 008 - training loss (MAE): 0.2467, validation MSE: 0.4992
-2025-12-28 14:16:46 [INFO]: Epoch 009 - training loss (MAE): 0.2320, validation MSE: 0.6154
-2025-12-28 14:16:46 [INFO]: Epoch 010 - training loss (MAE): 0.2190, validation MSE: 0.7091
-2025-12-28 14:16:47 [INFO]: Epoch 011 - training loss (MAE): 0.2038, validation MSE: 0.8121
-2025-12-28 14:16:47 [INFO]: Epoch 012 - training loss (MAE): 0.1956, validation MSE: 0.8903
-2025-12-28 14:16:47 [INFO]: Epoch 013 - training loss (MAE): 0.1940, validation MSE: 0.9682
-2025-12-28 14:16:47 [INFO]: Exceeded the training patience. Terminating the training procedure...
-2025-12-28 14:16:47 [INFO]: Finished training. The best model is from epoch#3.
-2025-12-28 14:16:47 [INFO]: Saved the model to reproduce_imputation/point05_log/ETT_h1_log/ModernTCN_ETT_h1/round_1/20251228_T141643/ModernTCN.pypots
-2025-12-28 14:16:47 [INFO]: Successfully saved to reproduce_imputation/point05_log/ETT_h1_log/ModernTCN_ETT_h1/round_1/imputation.pkl
-2025-12-28 14:16:47 [INFO]: Round1 - ModernTCN on ETT_h1: MAE=0.4433, MSE=0.3810, MRE=0.5236
-2025-12-28 14:16:47 [INFO]: Have set the random seed as 2026 for numpy and pytorch.
-2025-12-28 14:16:47 [INFO]: Using the given device: cuda:0
-2025-12-28 14:16:47 [INFO]: Model files will be saved to reproduce_imputation/point05_log/ETT_h1_log/ModernTCN_ETT_h1/round_2/20251228_T141647
-2025-12-28 14:16:47 [INFO]: Tensorboard file will be saved to reproduce_imputation/point05_log/ETT_h1_log/ModernTCN_ETT_h1/round_2/20251228_T141647/tensorboard
-2025-12-28 14:16:47 [INFO]: Using customized MAE as the training loss function.
-2025-12-28 14:16:47 [INFO]: Using customized MSE as the validation metric function.
-2025-12-28 14:16:47 [INFO]: ModernTCN initialized with the given hyperparameters, the number of trainable parameters: 101,299
-2025-12-28 14:16:48 [INFO]: Epoch 001 - training loss (MAE): 0.6226, validation MSE: 0.4691
-2025-12-28 14:16:48 [INFO]: Epoch 002 - training loss (MAE): 0.4108, validation MSE: 0.3117
-2025-12-28 14:16:48 [INFO]: Epoch 003 - training loss (MAE): 0.3595, validation MSE: 0.2933
-2025-12-28 14:16:49 [INFO]: Epoch 004 - training loss (MAE): 0.3273, validation MSE: 0.3185
-2025-12-28 14:16:49 [INFO]: Epoch 005 - training loss (MAE): 0.2989, validation MSE: 0.3905
-2025-12-28 14:16:49 [INFO]: Epoch 006 - training loss (MAE): 0.2928, validation MSE: 0.4511
-2025-12-28 14:16:50 [INFO]: Epoch 007 - training loss (MAE): 0.2827, validation MSE: 0.5243
-2025-12-28 14:16:50 [INFO]: Epoch 008 - training loss (MAE): 0.2566, validation MSE: 0.6245
-2025-12-28 14:16:50 [INFO]: Epoch 009 - training loss (MAE): 0.2399, validation MSE: 0.7097
-2025-12-28 14:16:51 [INFO]: Epoch 010 - training loss (MAE): 0.2136, validation MSE: 0.7455
-2025-12-28 14:16:51 [INFO]: Epoch 011 - training loss (MAE): 0.2027, validation MSE: 0.8431
-2025-12-28 14:16:51 [INFO]: Epoch 012 - training loss (MAE): 0.1986, validation MSE: 0.8968
-2025-12-28 14:16:51 [INFO]: Epoch 013 - training loss (MAE): 0.1907, validation MSE: 0.8882
-2025-12-28 14:16:51 [INFO]: Exceeded the training patience. Terminating the training procedure...
-2025-12-28 14:16:51 [INFO]: Finished training. The best model is from epoch#3.
-2025-12-28 14:16:52 [INFO]: Saved the model to reproduce_imputation/point05_log/ETT_h1_log/ModernTCN_ETT_h1/round_2/20251228_T141647/ModernTCN.pypots
-2025-12-28 14:16:52 [INFO]: Successfully saved to reproduce_imputation/point05_log/ETT_h1_log/ModernTCN_ETT_h1/round_2/imputation.pkl
-2025-12-28 14:16:52 [INFO]: Round2 - ModernTCN on ETT_h1: MAE=0.4560, MSE=0.3997, MRE=0.5386
-2025-12-28 14:16:52 [INFO]: Have set the random seed as 2027 for numpy and pytorch.
-2025-12-28 14:16:52 [INFO]: Using the given device: cuda:0
-2025-12-28 14:16:52 [INFO]: Model files will be saved to reproduce_imputation/point05_log/ETT_h1_log/ModernTCN_ETT_h1/round_3/20251228_T141652
-2025-12-28 14:16:52 [INFO]: Tensorboard file will be saved to reproduce_imputation/point05_log/ETT_h1_log/ModernTCN_ETT_h1/round_3/20251228_T141652/tensorboard
-2025-12-28 14:16:52 [INFO]: Using customized MAE as the training loss function.
-2025-12-28 14:16:52 [INFO]: Using customized MSE as the validation metric function.
-2025-12-28 14:16:52 [INFO]: ModernTCN initialized with the given hyperparameters, the number of trainable parameters: 101,299
-2025-12-28 14:16:52 [INFO]: Epoch 001 - training loss (MAE): 0.5953, validation MSE: 0.4408
-2025-12-28 14:16:52 [INFO]: Epoch 002 - training loss (MAE): 0.4056, validation MSE: 0.3073
-2025-12-28 14:16:53 [INFO]: Epoch 003 - training loss (MAE): 0.3617, validation MSE: 0.2848
-2025-12-28 14:16:53 [INFO]: Epoch 004 - training loss (MAE): 0.3276, validation MSE: 0.2854
-2025-12-28 14:16:53 [INFO]: Epoch 005 - training loss (MAE): 0.2974, validation MSE: 0.3235
-2025-12-28 14:16:54 [INFO]: Epoch 006 - training loss (MAE): 0.2871, validation MSE: 0.3570
-2025-12-28 14:16:54 [INFO]: Epoch 007 - training loss (MAE): 0.2682, validation MSE: 0.4433
-2025-12-28 14:16:54 [INFO]: Epoch 008 - training loss (MAE): 0.2479, validation MSE: 0.5321
-2025-12-28 14:16:55 [INFO]: Epoch 009 - training loss (MAE): 0.2369, validation MSE: 0.5998
-2025-12-28 14:16:55 [INFO]: Epoch 010 - training loss (MAE): 0.2175, validation MSE: 0.7256
-2025-12-28 14:16:55 [INFO]: Epoch 011 - training loss (MAE): 0.2019, validation MSE: 0.8466
-2025-12-28 14:16:55 [INFO]: Epoch 012 - training loss (MAE): 0.1904, validation MSE: 0.9208
-2025-12-28 14:16:56 [INFO]: Epoch 013 - training loss (MAE): 0.1939, validation MSE: 0.9887
-2025-12-28 14:16:56 [INFO]: Exceeded the training patience. Terminating the training procedure...
-2025-12-28 14:16:56 [INFO]: Finished training. The best model is from epoch#3.
-2025-12-28 14:16:56 [INFO]: Saved the model to reproduce_imputation/point05_log/ETT_h1_log/ModernTCN_ETT_h1/round_3/20251228_T141652/ModernTCN.pypots
-2025-12-28 14:16:56 [INFO]: Successfully saved to reproduce_imputation/point05_log/ETT_h1_log/ModernTCN_ETT_h1/round_3/imputation.pkl
-2025-12-28 14:16:56 [INFO]: Round3 - ModernTCN on ETT_h1: MAE=0.4479, MSE=0.3890, MRE=0.5291
-2025-12-28 14:16:56 [INFO]: Have set the random seed as 2028 for numpy and pytorch.
-2025-12-28 14:16:56 [INFO]: Using the given device: cuda:0
-2025-12-28 14:16:56 [INFO]: Model files will be saved to reproduce_imputation/point05_log/ETT_h1_log/ModernTCN_ETT_h1/round_4/20251228_T141656
-2025-12-28 14:16:56 [INFO]: Tensorboard file will be saved to reproduce_imputation/point05_log/ETT_h1_log/ModernTCN_ETT_h1/round_4/20251228_T141656/tensorboard
-2025-12-28 14:16:56 [INFO]: Using customized MAE as the training loss function.
-2025-12-28 14:16:56 [INFO]: Using customized MSE as the validation metric function.
-2025-12-28 14:16:56 [INFO]: ModernTCN initialized with the given hyperparameters, the number of trainable parameters: 101,299
-2025-12-28 14:16:56 [INFO]: Epoch 001 - training loss (MAE): 0.5810, validation MSE: 0.3827
-2025-12-28 14:16:57 [INFO]: Epoch 002 - training loss (MAE): 0.4026, validation MSE: 0.2646
-2025-12-28 14:16:57 [INFO]: Epoch 003 - training loss (MAE): 0.3529, validation MSE: 0.2638
-2025-12-28 14:16:57 [INFO]: Epoch 004 - training loss (MAE): 0.3191, validation MSE: 0.2942
-2025-12-28 14:16:58 [INFO]: Epoch 005 - training loss (MAE): 0.3038, validation MSE: 0.3712
-2025-12-28 14:16:58 [INFO]: Epoch 006 - training loss (MAE): 0.2802, validation MSE: 0.3935
-2025-12-28 14:16:58 [INFO]: Epoch 007 - training loss (MAE): 0.2687, validation MSE: 0.4744
-2025-12-28 14:16:59 [INFO]: Epoch 008 - training loss (MAE): 0.2691, validation MSE: 0.5584
-2025-12-28 14:16:59 [INFO]: Epoch 009 - training loss (MAE): 0.2443, validation MSE: 0.7282
-2025-12-28 14:16:59 [INFO]: Epoch 010 - training loss (MAE): 0.2197, validation MSE: 0.6655
-2025-12-28 14:16:59 [INFO]: Epoch 011 - training loss (MAE): 0.2178, validation MSE: 0.7256
-2025-12-28 14:17:00 [INFO]: Epoch 012 - training loss (MAE): 0.1979, validation MSE: 0.8317
-2025-12-28 14:17:00 [INFO]: Epoch 013 - training loss (MAE): 0.1960, validation MSE: 0.9756
-2025-12-28 14:17:00 [INFO]: Exceeded the training patience. Terminating the training procedure...
-2025-12-28 14:17:00 [INFO]: Finished training. The best model is from epoch#3.
-2025-12-28 14:17:00 [INFO]: Saved the model to reproduce_imputation/point05_log/ETT_h1_log/ModernTCN_ETT_h1/round_4/20251228_T141656/ModernTCN.pypots
-2025-12-28 14:17:00 [INFO]: Successfully saved to reproduce_imputation/point05_log/ETT_h1_log/ModernTCN_ETT_h1/round_4/imputation.pkl
-2025-12-28 14:17:00 [INFO]: Round4 - ModernTCN on ETT_h1: MAE=0.4349, MSE=0.3624, MRE=0.5136
-2025-12-28 14:17:00 [INFO]: Done! Final results:
-Averaged ModernTCN (101,299 params) on ETT_h1: MAE=0.4430 ± 0.008537449751390959, MSE=0.3773 ± 0.016726629242033244, MRE=0.5232 ± 0.01008379127446166, average inference time=0.04
-  0%|          | 0/11 [00:00<?, ?it/s]100%|██████████| 11/11 [00:00<00:00, 319.43it/s]
+2026-01-03 18:15:22 [WARNING]: ‼️ `pypots.utils.metrics` is deprecated. Please import from `pypots.nn.functional` instead.
+2026-01-03 18:15:22 [INFO]: Have set the random seed as 2024 for numpy and pytorch.
+2026-01-03 18:15:22 [INFO]: Using the given device: cuda:0
+2026-01-03 18:15:22 [INFO]: Model files will be saved to reproduce_imputation/point05_log/ETT_h1_log/ModernTCN_ETT_h1/round_0/20260103_T181522
+2026-01-03 18:15:22 [INFO]: Tensorboard file will be saved to reproduce_imputation/point05_log/ETT_h1_log/ModernTCN_ETT_h1/round_0/20260103_T181522/tensorboard
+2026-01-03 18:15:22 [INFO]: Using customized MAE as the training loss function.
+2026-01-03 18:15:22 [INFO]: Using customized MSE as the validation metric function.
+2026-01-03 18:15:23 [INFO]: ModernTCN initialized with the given hyperparameters, the number of trainable parameters: 175,675
+2026-01-03 18:15:24 [INFO]: Epoch 001 - training loss (MAE): 0.5272, validation MSE: 0.3370
+2026-01-03 18:15:24 [INFO]: Epoch 002 - training loss (MAE): 0.3331, validation MSE: 0.2646
+2026-01-03 18:15:24 [INFO]: Epoch 003 - training loss (MAE): 0.2963, validation MSE: 0.2646
+2026-01-03 18:15:25 [INFO]: Epoch 004 - training loss (MAE): 0.2827, validation MSE: 0.2648
+2026-01-03 18:15:25 [INFO]: Epoch 005 - training loss (MAE): 0.2491, validation MSE: 0.2614
+2026-01-03 18:15:25 [INFO]: Epoch 006 - training loss (MAE): 0.2442, validation MSE: 0.3207
+2026-01-03 18:15:26 [INFO]: Epoch 007 - training loss (MAE): 0.2203, validation MSE: 0.3663
+2026-01-03 18:15:26 [INFO]: Epoch 008 - training loss (MAE): 0.2193, validation MSE: 0.4310
+2026-01-03 18:15:26 [INFO]: Epoch 009 - training loss (MAE): 0.2071, validation MSE: 0.5304
+2026-01-03 18:15:27 [INFO]: Epoch 010 - training loss (MAE): 0.2046, validation MSE: 0.6041
+2026-01-03 18:15:27 [INFO]: Epoch 011 - training loss (MAE): 0.1796, validation MSE: 0.6060
+2026-01-03 18:15:27 [INFO]: Epoch 012 - training loss (MAE): 0.1688, validation MSE: 0.6354
+2026-01-03 18:15:28 [INFO]: Epoch 013 - training loss (MAE): 0.1713, validation MSE: 0.6374
+2026-01-03 18:15:28 [INFO]: Epoch 014 - training loss (MAE): 0.1553, validation MSE: 0.7224
+2026-01-03 18:15:28 [INFO]: Epoch 015 - training loss (MAE): 0.1443, validation MSE: 0.7287
+2026-01-03 18:15:28 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2026-01-03 18:15:28 [INFO]: Finished training. The best model is from epoch#5.
+2026-01-03 18:15:28 [INFO]: Saved the model to reproduce_imputation/point05_log/ETT_h1_log/ModernTCN_ETT_h1/round_0/20260103_T181522/ModernTCN.pypots
+2026-01-03 18:15:28 [INFO]: Successfully saved to reproduce_imputation/point05_log/ETT_h1_log/ModernTCN_ETT_h1/round_0/imputation.pkl
+2026-01-03 18:15:28 [INFO]: Round0 - ModernTCN on ETT_h1: MAE=0.4234, MSE=0.3501, MRE=0.5001
+2026-01-03 18:15:28 [INFO]: Have set the random seed as 2025 for numpy and pytorch.
+2026-01-03 18:15:28 [INFO]: Using the given device: cuda:0
+2026-01-03 18:15:28 [INFO]: Model files will be saved to reproduce_imputation/point05_log/ETT_h1_log/ModernTCN_ETT_h1/round_1/20260103_T181528
+2026-01-03 18:15:28 [INFO]: Tensorboard file will be saved to reproduce_imputation/point05_log/ETT_h1_log/ModernTCN_ETT_h1/round_1/20260103_T181528/tensorboard
+2026-01-03 18:15:28 [INFO]: Using customized MAE as the training loss function.
+2026-01-03 18:15:28 [INFO]: Using customized MSE as the validation metric function.
+2026-01-03 18:15:28 [INFO]: ModernTCN initialized with the given hyperparameters, the number of trainable parameters: 175,675
+2026-01-03 18:15:29 [INFO]: Epoch 001 - training loss (MAE): 0.5330, validation MSE: 0.3851
+2026-01-03 18:15:29 [INFO]: Epoch 002 - training loss (MAE): 0.3335, validation MSE: 0.2869
+2026-01-03 18:15:29 [INFO]: Epoch 003 - training loss (MAE): 0.2904, validation MSE: 0.2818
+2026-01-03 18:15:30 [INFO]: Epoch 004 - training loss (MAE): 0.2675, validation MSE: 0.3319
+2026-01-03 18:15:30 [INFO]: Epoch 005 - training loss (MAE): 0.2413, validation MSE: 0.3662
+2026-01-03 18:15:30 [INFO]: Epoch 006 - training loss (MAE): 0.2260, validation MSE: 0.3922
+2026-01-03 18:15:31 [INFO]: Epoch 007 - training loss (MAE): 0.2184, validation MSE: 0.4250
+2026-01-03 18:15:31 [INFO]: Epoch 008 - training loss (MAE): 0.2041, validation MSE: 0.5635
+2026-01-03 18:15:31 [INFO]: Epoch 009 - training loss (MAE): 0.1887, validation MSE: 0.6053
+2026-01-03 18:15:31 [INFO]: Epoch 010 - training loss (MAE): 0.1765, validation MSE: 0.6644
+2026-01-03 18:15:32 [INFO]: Epoch 011 - training loss (MAE): 0.1636, validation MSE: 0.7911
+2026-01-03 18:15:32 [INFO]: Epoch 012 - training loss (MAE): 0.1603, validation MSE: 0.7506
+2026-01-03 18:15:32 [INFO]: Epoch 013 - training loss (MAE): 0.1376, validation MSE: 0.7851
+2026-01-03 18:15:32 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2026-01-03 18:15:32 [INFO]: Finished training. The best model is from epoch#3.
+2026-01-03 18:15:33 [INFO]: Saved the model to reproduce_imputation/point05_log/ETT_h1_log/ModernTCN_ETT_h1/round_1/20260103_T181528/ModernTCN.pypots
+2026-01-03 18:15:33 [INFO]: Successfully saved to reproduce_imputation/point05_log/ETT_h1_log/ModernTCN_ETT_h1/round_1/imputation.pkl
+2026-01-03 18:15:33 [INFO]: Round1 - ModernTCN on ETT_h1: MAE=0.4471, MSE=0.3820, MRE=0.5281
+2026-01-03 18:15:33 [INFO]: Have set the random seed as 2026 for numpy and pytorch.
+2026-01-03 18:15:33 [INFO]: Using the given device: cuda:0
+2026-01-03 18:15:33 [INFO]: Model files will be saved to reproduce_imputation/point05_log/ETT_h1_log/ModernTCN_ETT_h1/round_2/20260103_T181533
+2026-01-03 18:15:33 [INFO]: Tensorboard file will be saved to reproduce_imputation/point05_log/ETT_h1_log/ModernTCN_ETT_h1/round_2/20260103_T181533/tensorboard
+2026-01-03 18:15:33 [INFO]: Using customized MAE as the training loss function.
+2026-01-03 18:15:33 [INFO]: Using customized MSE as the validation metric function.
+2026-01-03 18:15:33 [INFO]: ModernTCN initialized with the given hyperparameters, the number of trainable parameters: 175,675
+2026-01-03 18:15:33 [INFO]: Epoch 001 - training loss (MAE): 0.5488, validation MSE: 0.4370
+2026-01-03 18:15:33 [INFO]: Epoch 002 - training loss (MAE): 0.3483, validation MSE: 0.2892
+2026-01-03 18:15:34 [INFO]: Epoch 003 - training loss (MAE): 0.2762, validation MSE: 0.2654
+2026-01-03 18:15:34 [INFO]: Epoch 004 - training loss (MAE): 0.2645, validation MSE: 0.3057
+2026-01-03 18:15:34 [INFO]: Epoch 005 - training loss (MAE): 0.2409, validation MSE: 0.2906
+2026-01-03 18:15:35 [INFO]: Epoch 006 - training loss (MAE): 0.2288, validation MSE: 0.4204
+2026-01-03 18:15:35 [INFO]: Epoch 007 - training loss (MAE): 0.2112, validation MSE: 0.4051
+2026-01-03 18:15:35 [INFO]: Epoch 008 - training loss (MAE): 0.2056, validation MSE: 0.5356
+2026-01-03 18:15:35 [INFO]: Epoch 009 - training loss (MAE): 0.1910, validation MSE: 0.5342
+2026-01-03 18:15:36 [INFO]: Epoch 010 - training loss (MAE): 0.1765, validation MSE: 0.5879
+2026-01-03 18:15:36 [INFO]: Epoch 011 - training loss (MAE): 0.1640, validation MSE: 0.7064
+2026-01-03 18:15:36 [INFO]: Epoch 012 - training loss (MAE): 0.1472, validation MSE: 0.8328
+2026-01-03 18:15:37 [INFO]: Epoch 013 - training loss (MAE): 0.1466, validation MSE: 0.8510
+2026-01-03 18:15:37 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2026-01-03 18:15:37 [INFO]: Finished training. The best model is from epoch#3.
+2026-01-03 18:15:37 [INFO]: Saved the model to reproduce_imputation/point05_log/ETT_h1_log/ModernTCN_ETT_h1/round_2/20260103_T181533/ModernTCN.pypots
+2026-01-03 18:15:37 [INFO]: Successfully saved to reproduce_imputation/point05_log/ETT_h1_log/ModernTCN_ETT_h1/round_2/imputation.pkl
+2026-01-03 18:15:37 [INFO]: Round2 - ModernTCN on ETT_h1: MAE=0.4265, MSE=0.3551, MRE=0.5038
+2026-01-03 18:15:37 [INFO]: Have set the random seed as 2027 for numpy and pytorch.
+2026-01-03 18:15:37 [INFO]: Using the given device: cuda:0
+2026-01-03 18:15:37 [INFO]: Model files will be saved to reproduce_imputation/point05_log/ETT_h1_log/ModernTCN_ETT_h1/round_3/20260103_T181537
+2026-01-03 18:15:37 [INFO]: Tensorboard file will be saved to reproduce_imputation/point05_log/ETT_h1_log/ModernTCN_ETT_h1/round_3/20260103_T181537/tensorboard
+2026-01-03 18:15:37 [INFO]: Using customized MAE as the training loss function.
+2026-01-03 18:15:37 [INFO]: Using customized MSE as the validation metric function.
+2026-01-03 18:15:37 [INFO]: ModernTCN initialized with the given hyperparameters, the number of trainable parameters: 175,675
+2026-01-03 18:15:37 [INFO]: Epoch 001 - training loss (MAE): 0.5023, validation MSE: 0.3752
+2026-01-03 18:15:38 [INFO]: Epoch 002 - training loss (MAE): 0.3173, validation MSE: 0.2993
+2026-01-03 18:15:38 [INFO]: Epoch 003 - training loss (MAE): 0.2654, validation MSE: 0.2622
+2026-01-03 18:15:38 [INFO]: Epoch 004 - training loss (MAE): 0.2644, validation MSE: 0.2999
+2026-01-03 18:15:38 [INFO]: Epoch 005 - training loss (MAE): 0.2409, validation MSE: 0.3072
+2026-01-03 18:15:39 [INFO]: Epoch 006 - training loss (MAE): 0.2312, validation MSE: 0.3693
+2026-01-03 18:15:39 [INFO]: Epoch 007 - training loss (MAE): 0.2177, validation MSE: 0.4144
+2026-01-03 18:15:39 [INFO]: Epoch 008 - training loss (MAE): 0.2065, validation MSE: 0.4570
+2026-01-03 18:15:40 [INFO]: Epoch 009 - training loss (MAE): 0.1993, validation MSE: 0.4596
+2026-01-03 18:15:40 [INFO]: Epoch 010 - training loss (MAE): 0.1852, validation MSE: 0.5910
+2026-01-03 18:15:40 [INFO]: Epoch 011 - training loss (MAE): 0.1761, validation MSE: 0.6625
+2026-01-03 18:15:41 [INFO]: Epoch 012 - training loss (MAE): 0.1575, validation MSE: 0.6694
+2026-01-03 18:15:41 [INFO]: Epoch 013 - training loss (MAE): 0.1595, validation MSE: 0.7565
+2026-01-03 18:15:41 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2026-01-03 18:15:41 [INFO]: Finished training. The best model is from epoch#3.
+2026-01-03 18:15:41 [INFO]: Saved the model to reproduce_imputation/point05_log/ETT_h1_log/ModernTCN_ETT_h1/round_3/20260103_T181537/ModernTCN.pypots
+2026-01-03 18:15:41 [INFO]: Successfully saved to reproduce_imputation/point05_log/ETT_h1_log/ModernTCN_ETT_h1/round_3/imputation.pkl
+2026-01-03 18:15:41 [INFO]: Round3 - ModernTCN on ETT_h1: MAE=0.4298, MSE=0.3406, MRE=0.5076
+2026-01-03 18:15:41 [INFO]: Have set the random seed as 2028 for numpy and pytorch.
+2026-01-03 18:15:41 [INFO]: Using the given device: cuda:0
+2026-01-03 18:15:41 [INFO]: Model files will be saved to reproduce_imputation/point05_log/ETT_h1_log/ModernTCN_ETT_h1/round_4/20260103_T181541
+2026-01-03 18:15:41 [INFO]: Tensorboard file will be saved to reproduce_imputation/point05_log/ETT_h1_log/ModernTCN_ETT_h1/round_4/20260103_T181541/tensorboard
+2026-01-03 18:15:41 [INFO]: Using customized MAE as the training loss function.
+2026-01-03 18:15:41 [INFO]: Using customized MSE as the validation metric function.
+2026-01-03 18:15:41 [INFO]: ModernTCN initialized with the given hyperparameters, the number of trainable parameters: 175,675
+2026-01-03 18:15:42 [INFO]: Epoch 001 - training loss (MAE): 0.5412, validation MSE: 0.4197
+2026-01-03 18:15:42 [INFO]: Epoch 002 - training loss (MAE): 0.3394, validation MSE: 0.3088
+2026-01-03 18:15:42 [INFO]: Epoch 003 - training loss (MAE): 0.2800, validation MSE: 0.2738
+2026-01-03 18:15:43 [INFO]: Epoch 004 - training loss (MAE): 0.2572, validation MSE: 0.3183
+2026-01-03 18:15:43 [INFO]: Epoch 005 - training loss (MAE): 0.2444, validation MSE: 0.3571
+2026-01-03 18:15:43 [INFO]: Epoch 006 - training loss (MAE): 0.2301, validation MSE: 0.3533
+2026-01-03 18:15:43 [INFO]: Epoch 007 - training loss (MAE): 0.2018, validation MSE: 0.4569
+2026-01-03 18:15:44 [INFO]: Epoch 008 - training loss (MAE): 0.1884, validation MSE: 0.5073
+2026-01-03 18:15:44 [INFO]: Epoch 009 - training loss (MAE): 0.1874, validation MSE: 0.6509
+2026-01-03 18:15:44 [INFO]: Epoch 010 - training loss (MAE): 0.1780, validation MSE: 0.6344
+2026-01-03 18:15:45 [INFO]: Epoch 011 - training loss (MAE): 0.1710, validation MSE: 0.7155
+2026-01-03 18:15:45 [INFO]: Epoch 012 - training loss (MAE): 0.1604, validation MSE: 0.7469
+2026-01-03 18:15:45 [INFO]: Epoch 013 - training loss (MAE): 0.1436, validation MSE: 0.8530
+2026-01-03 18:15:45 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2026-01-03 18:15:45 [INFO]: Finished training. The best model is from epoch#3.
+2026-01-03 18:15:45 [INFO]: Saved the model to reproduce_imputation/point05_log/ETT_h1_log/ModernTCN_ETT_h1/round_4/20260103_T181541/ModernTCN.pypots
+2026-01-03 18:15:45 [INFO]: Successfully saved to reproduce_imputation/point05_log/ETT_h1_log/ModernTCN_ETT_h1/round_4/imputation.pkl
+2026-01-03 18:15:45 [INFO]: Round4 - ModernTCN on ETT_h1: MAE=0.4278, MSE=0.3571, MRE=0.5053
+2026-01-03 18:15:45 [INFO]: Done! Final results:
+Averaged ModernTCN (175,675 params) on ETT_h1: MAE=0.4309 ± 0.008349827671759383, MSE=0.3570 ± 0.013729269721348265, MRE=0.5090 ± 0.009862186234950089, average inference time=0.03
+  0%|          | 0/11 [00:00<?, ?it/s]100%|██████████| 11/11 [00:00<00:00, 310.01it/s]

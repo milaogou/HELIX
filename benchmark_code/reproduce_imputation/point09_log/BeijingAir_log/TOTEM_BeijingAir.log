@@ -1,178 +1,318 @@
-2025-12-28 13:57:02 [WARNING]: ‼️ `pypots.utils.metrics` is deprecated. Please import from `pypots.nn.functional` instead.
-2025-12-28 13:57:02 [INFO]: Have set the random seed as 2024 for numpy and pytorch.
-2025-12-28 13:57:02 [INFO]: Using the given device: cuda:0
-2025-12-28 13:57:02 [INFO]: Model files will be saved to reproduce_imputation/point09_log/BeijingAir_log/TOTEM_BeijingAir/round_0/20251228_T135702
-2025-12-28 13:57:02 [INFO]: Tensorboard file will be saved to reproduce_imputation/point09_log/BeijingAir_log/TOTEM_BeijingAir/round_0/20251228_T135702/tensorboard
-2025-12-28 13:57:03 [INFO]: TOTEM initialized with the given hyperparameters, the number of trainable parameters: 111,169
-2025-12-28 13:57:04 [INFO]: Epoch 001 - training loss (default): 0.4261, validation loss: 2.3476
-2025-12-28 13:57:06 [INFO]: Epoch 002 - training loss (default): 1.5555, validation loss: 3.6673
-2025-12-28 13:57:07 [INFO]: Epoch 003 - training loss (default): 1.5132, validation loss: 5.8933
-2025-12-28 13:57:08 [INFO]: Epoch 004 - training loss (default): 1.5225, validation loss: 5.1832
-2025-12-28 13:57:09 [INFO]: Epoch 005 - training loss (default): 1.3879, validation loss: 5.9386
-2025-12-28 13:57:10 [INFO]: Epoch 006 - training loss (default): 1.8628, validation loss: 7.8856
-2025-12-28 13:57:12 [INFO]: Epoch 007 - training loss (default): 1.7291, validation loss: 2.6791
-2025-12-28 13:57:13 [INFO]: Epoch 008 - training loss (default): 1.3997, validation loss: 4.3464
-2025-12-28 13:57:14 [INFO]: Epoch 009 - training loss (default): 1.6657, validation loss: 5.6027
-2025-12-28 13:57:15 [INFO]: Epoch 010 - training loss (default): 1.5060, validation loss: 2.2297
-2025-12-28 13:57:17 [INFO]: Epoch 011 - training loss (default): 1.2289, validation loss: 4.0772
-2025-12-28 13:57:18 [INFO]: Epoch 012 - training loss (default): 2.2204, validation loss: 2.7592
-2025-12-28 13:57:19 [INFO]: Epoch 013 - training loss (default): 2.0775, validation loss: 1.3723
-2025-12-28 13:57:20 [INFO]: Epoch 014 - training loss (default): 0.6309, validation loss: 3.8666
-2025-12-28 13:57:21 [INFO]: Epoch 015 - training loss (default): 1.0616, validation loss: 3.8118
-2025-12-28 13:57:22 [INFO]: Epoch 016 - training loss (default): 1.4384, validation loss: 3.2746
-2025-12-28 13:57:24 [INFO]: Epoch 017 - training loss (default): 1.2127, validation loss: 2.2149
-2025-12-28 13:57:25 [INFO]: Epoch 018 - training loss (default): 0.9214, validation loss: 3.8150
-2025-12-28 13:57:26 [INFO]: Epoch 019 - training loss (default): 1.0268, validation loss: 1.8617
-2025-12-28 13:57:27 [INFO]: Epoch 020 - training loss (default): 0.7879, validation loss: 5.5753
-2025-12-28 13:57:28 [INFO]: Epoch 021 - training loss (default): 1.0892, validation loss: 1.5357
-2025-12-28 13:57:29 [INFO]: Epoch 022 - training loss (default): 0.3215, validation loss: 2.0129
-2025-12-28 13:57:30 [INFO]: Epoch 023 - training loss (default): 0.4578, validation loss: 2.0048
-2025-12-28 13:57:30 [INFO]: Exceeded the training patience. Terminating the training procedure...
-2025-12-28 13:57:30 [INFO]: Finished training. The best model is from epoch#13.
-2025-12-28 13:57:31 [INFO]: Saved the model to reproduce_imputation/point09_log/BeijingAir_log/TOTEM_BeijingAir/round_0/20251228_T135702/TOTEM.pypots
-2025-12-28 13:57:31 [INFO]: Successfully saved to reproduce_imputation/point09_log/BeijingAir_log/TOTEM_BeijingAir/round_0/imputation.pkl
-2025-12-28 13:57:31 [INFO]: Round0 - TOTEM on BeijingAir: MAE=0.7341, MSE=1.1114, MRE=0.9735
-2025-12-28 13:57:31 [INFO]: Have set the random seed as 2025 for numpy and pytorch.
-2025-12-28 13:57:31 [INFO]: Using the given device: cuda:0
-2025-12-28 13:57:31 [INFO]: Model files will be saved to reproduce_imputation/point09_log/BeijingAir_log/TOTEM_BeijingAir/round_1/20251228_T135731
-2025-12-28 13:57:31 [INFO]: Tensorboard file will be saved to reproduce_imputation/point09_log/BeijingAir_log/TOTEM_BeijingAir/round_1/20251228_T135731/tensorboard
-2025-12-28 13:57:31 [INFO]: TOTEM initialized with the given hyperparameters, the number of trainable parameters: 111,169
-2025-12-28 13:57:32 [INFO]: Epoch 001 - training loss (default): 0.2600, validation loss: 1.2371
-2025-12-28 13:57:33 [INFO]: Epoch 002 - training loss (default): 0.4995, validation loss: 3.1215
-2025-12-28 13:57:34 [INFO]: Epoch 003 - training loss (default): 0.8493, validation loss: 4.8025
-2025-12-28 13:57:35 [INFO]: Epoch 004 - training loss (default): 1.0158, validation loss: 6.7032
-2025-12-28 13:57:37 [INFO]: Epoch 005 - training loss (default): 1.0504, validation loss: 4.2967
-2025-12-28 13:57:38 [INFO]: Epoch 006 - training loss (default): 0.7849, validation loss: 2.5816
-2025-12-28 13:57:39 [INFO]: Epoch 007 - training loss (default): 0.6392, validation loss: 2.3217
-2025-12-28 13:57:40 [INFO]: Epoch 008 - training loss (default): 0.6884, validation loss: 2.1463
-2025-12-28 13:57:41 [INFO]: Epoch 009 - training loss (default): 0.7351, validation loss: 2.8437
-2025-12-28 13:57:42 [INFO]: Epoch 010 - training loss (default): 0.7690, validation loss: 1.9921
-2025-12-28 13:57:44 [INFO]: Epoch 011 - training loss (default): 0.8167, validation loss: 2.5966
-2025-12-28 13:57:44 [INFO]: Exceeded the training patience. Terminating the training procedure...
-2025-12-28 13:57:44 [INFO]: Finished training. The best model is from epoch#1.
-2025-12-28 13:57:44 [INFO]: Saved the model to reproduce_imputation/point09_log/BeijingAir_log/TOTEM_BeijingAir/round_1/20251228_T135731/TOTEM.pypots
-2025-12-28 13:57:44 [INFO]: Successfully saved to reproduce_imputation/point09_log/BeijingAir_log/TOTEM_BeijingAir/round_1/imputation.pkl
-2025-12-28 13:57:44 [INFO]: Round1 - TOTEM on BeijingAir: MAE=0.7149, MSE=1.0896, MRE=0.9480
-2025-12-28 13:57:44 [INFO]: Have set the random seed as 2026 for numpy and pytorch.
-2025-12-28 13:57:44 [INFO]: Using the given device: cuda:0
-2025-12-28 13:57:44 [INFO]: Model files will be saved to reproduce_imputation/point09_log/BeijingAir_log/TOTEM_BeijingAir/round_2/20251228_T135744
-2025-12-28 13:57:44 [INFO]: Tensorboard file will be saved to reproduce_imputation/point09_log/BeijingAir_log/TOTEM_BeijingAir/round_2/20251228_T135744/tensorboard
-2025-12-28 13:57:44 [INFO]: TOTEM initialized with the given hyperparameters, the number of trainable parameters: 111,169
-2025-12-28 13:57:45 [INFO]: Epoch 001 - training loss (default): 0.5879, validation loss: 3.2509
-2025-12-28 13:57:46 [INFO]: Epoch 002 - training loss (default): 1.9689, validation loss: 5.3365
-2025-12-28 13:57:47 [INFO]: Epoch 003 - training loss (default): 2.3616, validation loss: 4.2054
-2025-12-28 13:57:49 [INFO]: Epoch 004 - training loss (default): 1.8865, validation loss: 3.7367
-2025-12-28 13:57:50 [INFO]: Epoch 005 - training loss (default): 1.1286, validation loss: 6.3228
-2025-12-28 13:57:51 [INFO]: Epoch 006 - training loss (default): 1.5844, validation loss: 4.4357
-2025-12-28 13:57:52 [INFO]: Epoch 007 - training loss (default): 1.1939, validation loss: 3.9094
-2025-12-28 13:57:53 [INFO]: Epoch 008 - training loss (default): 0.9095, validation loss: 4.4329
-2025-12-28 13:57:54 [INFO]: Epoch 009 - training loss (default): 0.7677, validation loss: 4.1249
-2025-12-28 13:57:56 [INFO]: Epoch 010 - training loss (default): 0.9600, validation loss: 3.2728
-2025-12-28 13:57:57 [INFO]: Epoch 011 - training loss (default): 1.1685, validation loss: 3.2383
-2025-12-28 13:57:58 [INFO]: Epoch 012 - training loss (default): 1.1530, validation loss: 6.4788
-2025-12-28 13:57:59 [INFO]: Epoch 013 - training loss (default): 1.5465, validation loss: 1.9080
-2025-12-28 13:58:00 [INFO]: Epoch 014 - training loss (default): 1.1531, validation loss: 2.1763
-2025-12-28 13:58:01 [INFO]: Epoch 015 - training loss (default): 0.9363, validation loss: 4.3818
-2025-12-28 13:58:03 [INFO]: Epoch 016 - training loss (default): 1.7591, validation loss: 1.2517
-2025-12-28 13:58:04 [INFO]: Epoch 017 - training loss (default): 0.2330, validation loss: 4.1710
-2025-12-28 13:58:05 [INFO]: Epoch 018 - training loss (default): 0.8290, validation loss: 3.5937
-2025-12-28 13:58:06 [INFO]: Epoch 019 - training loss (default): 0.5065, validation loss: 3.2157
-2025-12-28 13:58:07 [INFO]: Epoch 020 - training loss (default): 1.3066, validation loss: 2.1667
-2025-12-28 13:58:08 [INFO]: Epoch 021 - training loss (default): 0.4902, validation loss: 2.7039
-2025-12-28 13:58:09 [INFO]: Epoch 022 - training loss (default): 0.7106, validation loss: 3.1589
-2025-12-28 13:58:11 [INFO]: Epoch 023 - training loss (default): 0.7156, validation loss: 3.5770
-2025-12-28 13:58:12 [INFO]: Epoch 024 - training loss (default): 0.6729, validation loss: 2.5588
-2025-12-28 13:58:13 [INFO]: Epoch 025 - training loss (default): 0.5553, validation loss: 1.5931
-2025-12-28 13:58:14 [INFO]: Epoch 026 - training loss (default): 0.2005, validation loss: 2.2157
-2025-12-28 13:58:14 [INFO]: Exceeded the training patience. Terminating the training procedure...
-2025-12-28 13:58:14 [INFO]: Finished training. The best model is from epoch#16.
-2025-12-28 13:58:14 [INFO]: Saved the model to reproduce_imputation/point09_log/BeijingAir_log/TOTEM_BeijingAir/round_2/20251228_T135744/TOTEM.pypots
-2025-12-28 13:58:14 [INFO]: Successfully saved to reproduce_imputation/point09_log/BeijingAir_log/TOTEM_BeijingAir/round_2/imputation.pkl
-2025-12-28 13:58:14 [INFO]: Round2 - TOTEM on BeijingAir: MAE=0.7387, MSE=1.1185, MRE=0.9796
-2025-12-28 13:58:14 [INFO]: Have set the random seed as 2027 for numpy and pytorch.
-2025-12-28 13:58:14 [INFO]: Using the given device: cuda:0
-2025-12-28 13:58:14 [INFO]: Model files will be saved to reproduce_imputation/point09_log/BeijingAir_log/TOTEM_BeijingAir/round_3/20251228_T135814
-2025-12-28 13:58:14 [INFO]: Tensorboard file will be saved to reproduce_imputation/point09_log/BeijingAir_log/TOTEM_BeijingAir/round_3/20251228_T135814/tensorboard
-2025-12-28 13:58:14 [INFO]: TOTEM initialized with the given hyperparameters, the number of trainable parameters: 111,169
-2025-12-28 13:58:16 [INFO]: Epoch 001 - training loss (default): 0.1778, validation loss: 1.1922
-2025-12-28 13:58:17 [INFO]: Epoch 002 - training loss (default): 0.3922, validation loss: 1.1059
-2025-12-28 13:58:18 [INFO]: Epoch 003 - training loss (default): 0.2734, validation loss: 1.5323
-2025-12-28 13:58:19 [INFO]: Epoch 004 - training loss (default): 0.4251, validation loss: 2.3605
-2025-12-28 13:58:20 [INFO]: Epoch 005 - training loss (default): 0.6504, validation loss: 2.3902
-2025-12-28 13:58:21 [INFO]: Epoch 006 - training loss (default): 0.6472, validation loss: 2.1134
-2025-12-28 13:58:22 [INFO]: Epoch 007 - training loss (default): 0.6103, validation loss: 2.0071
-2025-12-28 13:58:24 [INFO]: Epoch 008 - training loss (default): 0.6169, validation loss: 2.2088
-2025-12-28 13:58:25 [INFO]: Epoch 009 - training loss (default): 0.5838, validation loss: 2.2527
-2025-12-28 13:58:26 [INFO]: Epoch 010 - training loss (default): 0.5848, validation loss: 1.7887
-2025-12-28 13:58:27 [INFO]: Epoch 011 - training loss (default): 0.4675, validation loss: 1.9999
-2025-12-28 13:58:28 [INFO]: Epoch 012 - training loss (default): 0.6068, validation loss: 2.1880
-2025-12-28 13:58:28 [INFO]: Exceeded the training patience. Terminating the training procedure...
-2025-12-28 13:58:28 [INFO]: Finished training. The best model is from epoch#2.
-2025-12-28 13:58:28 [INFO]: Saved the model to reproduce_imputation/point09_log/BeijingAir_log/TOTEM_BeijingAir/round_3/20251228_T135814/TOTEM.pypots
-2025-12-28 13:58:28 [INFO]: Successfully saved to reproduce_imputation/point09_log/BeijingAir_log/TOTEM_BeijingAir/round_3/imputation.pkl
-2025-12-28 13:58:28 [INFO]: Round3 - TOTEM on BeijingAir: MAE=0.7061, MSE=1.0494, MRE=0.9364
-2025-12-28 13:58:28 [INFO]: Have set the random seed as 2028 for numpy and pytorch.
-2025-12-28 13:58:28 [INFO]: Using the given device: cuda:0
-2025-12-28 13:58:28 [INFO]: Model files will be saved to reproduce_imputation/point09_log/BeijingAir_log/TOTEM_BeijingAir/round_4/20251228_T135828
-2025-12-28 13:58:28 [INFO]: Tensorboard file will be saved to reproduce_imputation/point09_log/BeijingAir_log/TOTEM_BeijingAir/round_4/20251228_T135828/tensorboard
-2025-12-28 13:58:28 [INFO]: TOTEM initialized with the given hyperparameters, the number of trainable parameters: 111,169
-2025-12-28 13:58:30 [INFO]: Epoch 001 - training loss (default): 0.7393, validation loss: 2.4241
-2025-12-28 13:58:31 [INFO]: Epoch 002 - training loss (default): 0.9739, validation loss: 2.6896
-2025-12-28 13:58:32 [INFO]: Epoch 003 - training loss (default): 1.3033, validation loss: 4.7450
-2025-12-28 13:58:33 [INFO]: Epoch 004 - training loss (default): 1.6808, validation loss: 5.5132
-2025-12-28 13:58:34 [INFO]: Epoch 005 - training loss (default): 1.4190, validation loss: 4.7348
-2025-12-28 13:58:35 [INFO]: Epoch 006 - training loss (default): 1.3034, validation loss: 3.0201
-2025-12-28 13:58:36 [INFO]: Epoch 007 - training loss (default): 1.1291, validation loss: 3.6824
-2025-12-28 13:58:37 [INFO]: Epoch 008 - training loss (default): 1.1447, validation loss: 2.2503
-2025-12-28 13:58:39 [INFO]: Epoch 009 - training loss (default): 0.5456, validation loss: 3.1658
-2025-12-28 13:58:40 [INFO]: Epoch 010 - training loss (default): 0.7372, validation loss: 2.8562
-2025-12-28 13:58:41 [INFO]: Epoch 011 - training loss (default): 0.6249, validation loss: 2.3968
-2025-12-28 13:58:42 [INFO]: Epoch 012 - training loss (default): 0.9169, validation loss: 2.4739
-2025-12-28 13:58:43 [INFO]: Epoch 013 - training loss (default): 0.9395, validation loss: 3.0951
-2025-12-28 13:58:44 [INFO]: Epoch 014 - training loss (default): 0.6395, validation loss: 3.9850
-2025-12-28 13:58:45 [INFO]: Epoch 015 - training loss (default): 0.9878, validation loss: 1.9012
-2025-12-28 13:58:47 [INFO]: Epoch 016 - training loss (default): 0.3662, validation loss: 1.9924
-2025-12-28 13:58:48 [INFO]: Epoch 017 - training loss (default): 0.4982, validation loss: 1.7798
-2025-12-28 13:58:49 [INFO]: Epoch 018 - training loss (default): 0.6762, validation loss: 1.6568
-2025-12-28 13:58:50 [INFO]: Epoch 019 - training loss (default): 0.2979, validation loss: 1.8060
-2025-12-28 13:58:51 [INFO]: Epoch 020 - training loss (default): 0.2699, validation loss: 4.0043
-2025-12-28 13:58:52 [INFO]: Epoch 021 - training loss (default): 0.6219, validation loss: 1.6741
-2025-12-28 13:58:53 [INFO]: Epoch 022 - training loss (default): 0.4143, validation loss: 2.0621
-2025-12-28 13:58:54 [INFO]: Epoch 023 - training loss (default): 0.3091, validation loss: 2.3628
-2025-12-28 13:58:56 [INFO]: Epoch 024 - training loss (default): 0.4064, validation loss: 1.3523
-2025-12-28 13:58:57 [INFO]: Epoch 025 - training loss (default): 0.1869, validation loss: 1.7966
-2025-12-28 13:58:58 [INFO]: Epoch 026 - training loss (default): 0.3346, validation loss: 2.4819
-2025-12-28 13:58:59 [INFO]: Epoch 027 - training loss (default): 0.3822, validation loss: 2.0880
-2025-12-28 13:59:00 [INFO]: Epoch 028 - training loss (default): 0.3755, validation loss: 1.2838
-2025-12-28 13:59:01 [INFO]: Epoch 029 - training loss (default): 0.0931, validation loss: 1.4962
-2025-12-28 13:59:02 [INFO]: Epoch 030 - training loss (default): 0.1528, validation loss: 1.9178
-2025-12-28 13:59:04 [INFO]: Epoch 031 - training loss (default): 0.2564, validation loss: 1.9524
-2025-12-28 13:59:05 [INFO]: Epoch 032 - training loss (default): 0.3050, validation loss: 1.3741
-2025-12-28 13:59:06 [INFO]: Epoch 033 - training loss (default): 0.1329, validation loss: 1.4371
-2025-12-28 13:59:07 [INFO]: Epoch 034 - training loss (default): 0.2137, validation loss: 1.4237
-2025-12-28 13:59:08 [INFO]: Epoch 035 - training loss (default): 0.1407, validation loss: 1.3530
-2025-12-28 13:59:09 [INFO]: Epoch 036 - training loss (default): 0.1590, validation loss: 1.2812
-2025-12-28 13:59:10 [INFO]: Epoch 037 - training loss (default): 0.1118, validation loss: 1.6384
-2025-12-28 13:59:12 [INFO]: Epoch 038 - training loss (default): 0.1658, validation loss: 1.3045
-2025-12-28 13:59:13 [INFO]: Epoch 039 - training loss (default): 0.1217, validation loss: 1.1791
-2025-12-28 13:59:14 [INFO]: Epoch 040 - training loss (default): 0.1033, validation loss: 1.3786
-2025-12-28 13:59:15 [INFO]: Epoch 041 - training loss (default): 0.0997, validation loss: 1.1653
-2025-12-28 13:59:16 [INFO]: Epoch 042 - training loss (default): 0.0733, validation loss: 1.1224
-2025-12-28 13:59:17 [INFO]: Epoch 043 - training loss (default): 0.0606, validation loss: 1.1429
-2025-12-28 13:59:18 [INFO]: Epoch 044 - training loss (default): 0.0584, validation loss: 1.1490
-2025-12-28 13:59:20 [INFO]: Epoch 045 - training loss (default): 0.0475, validation loss: 1.1628
-2025-12-28 13:59:21 [INFO]: Epoch 046 - training loss (default): 0.0523, validation loss: 1.1371
-2025-12-28 13:59:22 [INFO]: Epoch 047 - training loss (default): 0.0545, validation loss: 1.1477
-2025-12-28 13:59:23 [INFO]: Epoch 048 - training loss (default): 0.0514, validation loss: 1.1420
-2025-12-28 13:59:24 [INFO]: Epoch 049 - training loss (default): 0.0560, validation loss: 1.1871
-2025-12-28 13:59:25 [INFO]: Epoch 050 - training loss (default): 0.0556, validation loss: 1.1284
-2025-12-28 13:59:26 [INFO]: Epoch 051 - training loss (default): 0.0603, validation loss: 1.1845
-2025-12-28 13:59:28 [INFO]: Epoch 052 - training loss (default): 0.0583, validation loss: 1.1780
-2025-12-28 13:59:28 [INFO]: Exceeded the training patience. Terminating the training procedure...
-2025-12-28 13:59:28 [INFO]: Finished training. The best model is from epoch#42.
-2025-12-28 13:59:28 [INFO]: Saved the model to reproduce_imputation/point09_log/BeijingAir_log/TOTEM_BeijingAir/round_4/20251228_T135828/TOTEM.pypots
-2025-12-28 13:59:28 [INFO]: Successfully saved to reproduce_imputation/point09_log/BeijingAir_log/TOTEM_BeijingAir/round_4/imputation.pkl
-2025-12-28 13:59:28 [INFO]: Round4 - TOTEM on BeijingAir: MAE=0.7428, MSE=1.1274, MRE=0.9850
-2025-12-28 13:59:28 [INFO]: Done! Final results:
-Averaged TOTEM (111,169 params) on BeijingAir: MAE=0.7273 ± 0.014276761509082598, MSE=1.0993 ± 0.02787357957487644, MRE=0.9645 ± 0.01893232138836195, average inference time=0.14
-  0%|          | 0/11 [00:00<?, ?it/s]100%|██████████| 11/11 [00:00<00:00, 313.98it/s]
+2026-01-03 18:20:27 [WARNING]: ‼️ `pypots.utils.metrics` is deprecated. Please import from `pypots.nn.functional` instead.
+2026-01-03 18:20:27 [INFO]: Have set the random seed as 2024 for numpy and pytorch.
+2026-01-03 18:20:27 [INFO]: Using the given device: cuda:0
+2026-01-03 18:20:27 [INFO]: Model files will be saved to reproduce_imputation/point09_log/BeijingAir_log/TOTEM_BeijingAir/round_0/20260103_T182027
+2026-01-03 18:20:27 [INFO]: Tensorboard file will be saved to reproduce_imputation/point09_log/BeijingAir_log/TOTEM_BeijingAir/round_0/20260103_T182027/tensorboard
+2026-01-03 18:20:28 [INFO]: TOTEM initialized with the given hyperparameters, the number of trainable parameters: 98,865
+2026-01-03 18:20:29 [INFO]: Epoch 001 - training loss (default): 0.3592, validation loss: 4.4472
+2026-01-03 18:20:29 [INFO]: Epoch 002 - training loss (default): 0.7059, validation loss: 1.6982
+2026-01-03 18:20:30 [INFO]: Epoch 003 - training loss (default): 0.2101, validation loss: 1.8298
+2026-01-03 18:20:31 [INFO]: Epoch 004 - training loss (default): 0.4511, validation loss: 1.9852
+2026-01-03 18:20:32 [INFO]: Epoch 005 - training loss (default): 0.3246, validation loss: 1.3354
+2026-01-03 18:20:32 [INFO]: Epoch 006 - training loss (default): 0.3672, validation loss: 1.7770
+2026-01-03 18:20:33 [INFO]: Epoch 007 - training loss (default): 0.4261, validation loss: 1.1548
+2026-01-03 18:20:34 [INFO]: Epoch 008 - training loss (default): 0.1953, validation loss: 1.6264
+2026-01-03 18:20:34 [INFO]: Epoch 009 - training loss (default): 0.1917, validation loss: 1.6177
+2026-01-03 18:20:35 [INFO]: Epoch 010 - training loss (default): 0.2728, validation loss: 1.3407
+2026-01-03 18:20:35 [INFO]: Epoch 011 - training loss (default): 0.3266, validation loss: 1.4026
+2026-01-03 18:20:36 [INFO]: Epoch 012 - training loss (default): 0.5025, validation loss: 1.2156
+2026-01-03 18:20:37 [INFO]: Epoch 013 - training loss (default): 0.2106, validation loss: 1.1691
+2026-01-03 18:20:37 [INFO]: Epoch 014 - training loss (default): 0.1253, validation loss: 1.2272
+2026-01-03 18:20:38 [INFO]: Epoch 015 - training loss (default): 0.2182, validation loss: 1.1670
+2026-01-03 18:20:39 [INFO]: Epoch 016 - training loss (default): 0.2123, validation loss: 1.1381
+2026-01-03 18:20:39 [INFO]: Epoch 017 - training loss (default): 0.0752, validation loss: 1.1752
+2026-01-03 18:20:40 [INFO]: Epoch 018 - training loss (default): 0.1277, validation loss: 1.2502
+2026-01-03 18:20:41 [INFO]: Epoch 019 - training loss (default): 0.1298, validation loss: 1.2239
+2026-01-03 18:20:41 [INFO]: Epoch 020 - training loss (default): 0.1761, validation loss: 1.2069
+2026-01-03 18:20:42 [INFO]: Epoch 021 - training loss (default): 0.1406, validation loss: 1.2098
+2026-01-03 18:20:43 [INFO]: Epoch 022 - training loss (default): 0.1803, validation loss: 1.2208
+2026-01-03 18:20:43 [INFO]: Epoch 023 - training loss (default): 0.1015, validation loss: 1.1764
+2026-01-03 18:20:44 [INFO]: Epoch 024 - training loss (default): 0.0908, validation loss: 1.1740
+2026-01-03 18:20:44 [INFO]: Epoch 025 - training loss (default): 0.1044, validation loss: 1.2523
+2026-01-03 18:20:45 [INFO]: Epoch 026 - training loss (default): 0.0979, validation loss: 1.2008
+2026-01-03 18:20:45 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2026-01-03 18:20:45 [INFO]: Finished training. The best model is from epoch#16.
+2026-01-03 18:20:45 [INFO]: Saved the model to reproduce_imputation/point09_log/BeijingAir_log/TOTEM_BeijingAir/round_0/20260103_T182027/TOTEM.pypots
+2026-01-03 18:20:45 [INFO]: Successfully saved to reproduce_imputation/point09_log/BeijingAir_log/TOTEM_BeijingAir/round_0/imputation.pkl
+2026-01-03 18:20:45 [INFO]: Round0 - TOTEM on BeijingAir: MAE=0.7388, MSE=1.1160, MRE=0.9797
+2026-01-03 18:20:45 [INFO]: Have set the random seed as 2025 for numpy and pytorch.
+2026-01-03 18:20:45 [INFO]: Using the given device: cuda:0
+2026-01-03 18:20:45 [INFO]: Model files will be saved to reproduce_imputation/point09_log/BeijingAir_log/TOTEM_BeijingAir/round_1/20260103_T182045
+2026-01-03 18:20:45 [INFO]: Tensorboard file will be saved to reproduce_imputation/point09_log/BeijingAir_log/TOTEM_BeijingAir/round_1/20260103_T182045/tensorboard
+2026-01-03 18:20:45 [INFO]: TOTEM initialized with the given hyperparameters, the number of trainable parameters: 98,865
+2026-01-03 18:20:46 [INFO]: Epoch 001 - training loss (default): 0.3694, validation loss: 2.6429
+2026-01-03 18:20:47 [INFO]: Epoch 002 - training loss (default): 1.2330, validation loss: 2.5346
+2026-01-03 18:20:47 [INFO]: Epoch 003 - training loss (default): 1.0806, validation loss: 2.4944
+2026-01-03 18:20:48 [INFO]: Epoch 004 - training loss (default): 1.0976, validation loss: 3.9501
+2026-01-03 18:20:49 [INFO]: Epoch 005 - training loss (default): 0.7854, validation loss: 2.3640
+2026-01-03 18:20:49 [INFO]: Epoch 006 - training loss (default): 0.5734, validation loss: 2.2129
+2026-01-03 18:20:50 [INFO]: Epoch 007 - training loss (default): 0.4919, validation loss: 3.7970
+2026-01-03 18:20:51 [INFO]: Epoch 008 - training loss (default): 0.4929, validation loss: 1.8460
+2026-01-03 18:20:51 [INFO]: Epoch 009 - training loss (default): 0.3409, validation loss: 2.1899
+2026-01-03 18:20:52 [INFO]: Epoch 010 - training loss (default): 0.3338, validation loss: 2.4277
+2026-01-03 18:20:53 [INFO]: Epoch 011 - training loss (default): 0.6681, validation loss: 1.1607
+2026-01-03 18:20:53 [INFO]: Epoch 012 - training loss (default): 0.1121, validation loss: 1.2245
+2026-01-03 18:20:54 [INFO]: Epoch 013 - training loss (default): 0.1589, validation loss: 1.4999
+2026-01-03 18:20:54 [INFO]: Epoch 014 - training loss (default): 0.1613, validation loss: 1.3451
+2026-01-03 18:20:55 [INFO]: Epoch 015 - training loss (default): 0.2448, validation loss: 1.9754
+2026-01-03 18:20:56 [INFO]: Epoch 016 - training loss (default): 0.2942, validation loss: 1.1933
+2026-01-03 18:20:56 [INFO]: Epoch 017 - training loss (default): 0.1625, validation loss: 1.1926
+2026-01-03 18:20:57 [INFO]: Epoch 018 - training loss (default): 0.0931, validation loss: 1.2200
+2026-01-03 18:20:58 [INFO]: Epoch 019 - training loss (default): 0.1182, validation loss: 1.2675
+2026-01-03 18:20:58 [INFO]: Epoch 020 - training loss (default): 0.2468, validation loss: 1.1420
+2026-01-03 18:20:59 [INFO]: Epoch 021 - training loss (default): 0.0803, validation loss: 1.2493
+2026-01-03 18:21:00 [INFO]: Epoch 022 - training loss (default): 0.0807, validation loss: 1.2284
+2026-01-03 18:21:00 [INFO]: Epoch 023 - training loss (default): 0.1058, validation loss: 1.3453
+2026-01-03 18:21:01 [INFO]: Epoch 024 - training loss (default): 0.0802, validation loss: 1.1674
+2026-01-03 18:21:02 [INFO]: Epoch 025 - training loss (default): 0.0888, validation loss: 1.2074
+2026-01-03 18:21:02 [INFO]: Epoch 026 - training loss (default): 0.0929, validation loss: 1.1953
+2026-01-03 18:21:03 [INFO]: Epoch 027 - training loss (default): 0.0981, validation loss: 1.0746
+2026-01-03 18:21:04 [INFO]: Epoch 028 - training loss (default): 0.0479, validation loss: 1.0750
+2026-01-03 18:21:04 [INFO]: Epoch 029 - training loss (default): 0.0583, validation loss: 1.0624
+2026-01-03 18:21:05 [INFO]: Epoch 030 - training loss (default): 0.0446, validation loss: 1.0932
+2026-01-03 18:21:06 [INFO]: Epoch 031 - training loss (default): 0.0426, validation loss: 1.0792
+2026-01-03 18:21:06 [INFO]: Epoch 032 - training loss (default): 0.0395, validation loss: 1.0950
+2026-01-03 18:21:07 [INFO]: Epoch 033 - training loss (default): 0.0443, validation loss: 1.0617
+2026-01-03 18:21:08 [INFO]: Epoch 034 - training loss (default): 0.0372, validation loss: 1.0708
+2026-01-03 18:21:08 [INFO]: Epoch 035 - training loss (default): 0.0373, validation loss: 1.0919
+2026-01-03 18:21:09 [INFO]: Epoch 036 - training loss (default): 0.0389, validation loss: 1.0709
+2026-01-03 18:21:09 [INFO]: Epoch 037 - training loss (default): 0.0384, validation loss: 1.0894
+2026-01-03 18:21:10 [INFO]: Epoch 038 - training loss (default): 0.0384, validation loss: 1.1010
+2026-01-03 18:21:11 [INFO]: Epoch 039 - training loss (default): 0.0354, validation loss: 1.0663
+2026-01-03 18:21:11 [INFO]: Epoch 040 - training loss (default): 0.0317, validation loss: 1.0557
+2026-01-03 18:21:12 [INFO]: Epoch 041 - training loss (default): 0.0671, validation loss: 1.2060
+2026-01-03 18:21:13 [INFO]: Epoch 042 - training loss (default): 0.0650, validation loss: 1.0575
+2026-01-03 18:21:13 [INFO]: Epoch 043 - training loss (default): 0.0500, validation loss: 1.0736
+2026-01-03 18:21:14 [INFO]: Epoch 044 - training loss (default): 0.0458, validation loss: 1.0896
+2026-01-03 18:21:15 [INFO]: Epoch 045 - training loss (default): 0.0494, validation loss: 1.0748
+2026-01-03 18:21:15 [INFO]: Epoch 046 - training loss (default): 0.0511, validation loss: 1.0829
+2026-01-03 18:21:16 [INFO]: Epoch 047 - training loss (default): 0.0419, validation loss: 1.0621
+2026-01-03 18:21:17 [INFO]: Epoch 048 - training loss (default): 0.0402, validation loss: 1.0502
+2026-01-03 18:21:17 [INFO]: Epoch 049 - training loss (default): 0.0362, validation loss: 1.0628
+2026-01-03 18:21:18 [INFO]: Epoch 050 - training loss (default): 0.0372, validation loss: 1.0736
+2026-01-03 18:21:18 [INFO]: Epoch 051 - training loss (default): 0.0344, validation loss: 1.0614
+2026-01-03 18:21:19 [INFO]: Epoch 052 - training loss (default): 0.0322, validation loss: 1.0514
+2026-01-03 18:21:20 [INFO]: Epoch 053 - training loss (default): 0.0311, validation loss: 1.0536
+2026-01-03 18:21:20 [INFO]: Epoch 054 - training loss (default): 0.0326, validation loss: 1.0570
+2026-01-03 18:21:21 [INFO]: Epoch 055 - training loss (default): 0.0319, validation loss: 1.0526
+2026-01-03 18:21:22 [INFO]: Epoch 056 - training loss (default): 0.0309, validation loss: 1.0619
+2026-01-03 18:21:22 [INFO]: Epoch 057 - training loss (default): 0.0304, validation loss: 1.0522
+2026-01-03 18:21:23 [INFO]: Epoch 058 - training loss (default): 0.0300, validation loss: 1.0449
+2026-01-03 18:21:24 [INFO]: Epoch 059 - training loss (default): 0.0303, validation loss: 1.0636
+2026-01-03 18:21:24 [INFO]: Epoch 060 - training loss (default): 0.0337, validation loss: 1.0676
+2026-01-03 18:21:25 [INFO]: Epoch 061 - training loss (default): 0.0344, validation loss: 1.0636
+2026-01-03 18:21:25 [INFO]: Epoch 062 - training loss (default): 0.0326, validation loss: 1.0768
+2026-01-03 18:21:26 [INFO]: Epoch 063 - training loss (default): 0.0450, validation loss: 1.0499
+2026-01-03 18:21:27 [INFO]: Epoch 064 - training loss (default): 0.0315, validation loss: 1.0650
+2026-01-03 18:21:27 [INFO]: Epoch 065 - training loss (default): 0.0356, validation loss: 1.0638
+2026-01-03 18:21:28 [INFO]: Epoch 066 - training loss (default): 0.0332, validation loss: 1.0650
+2026-01-03 18:21:29 [INFO]: Epoch 067 - training loss (default): 0.0363, validation loss: 1.0630
+2026-01-03 18:21:29 [INFO]: Epoch 068 - training loss (default): 0.0356, validation loss: 1.0693
+2026-01-03 18:21:29 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2026-01-03 18:21:29 [INFO]: Finished training. The best model is from epoch#58.
+2026-01-03 18:21:29 [INFO]: Saved the model to reproduce_imputation/point09_log/BeijingAir_log/TOTEM_BeijingAir/round_1/20260103_T182045/TOTEM.pypots
+2026-01-03 18:21:30 [INFO]: Successfully saved to reproduce_imputation/point09_log/BeijingAir_log/TOTEM_BeijingAir/round_1/imputation.pkl
+2026-01-03 18:21:30 [INFO]: Round1 - TOTEM on BeijingAir: MAE=0.7438, MSE=1.1279, MRE=0.9863
+2026-01-03 18:21:30 [INFO]: Have set the random seed as 2026 for numpy and pytorch.
+2026-01-03 18:21:30 [INFO]: Using the given device: cuda:0
+2026-01-03 18:21:30 [INFO]: Model files will be saved to reproduce_imputation/point09_log/BeijingAir_log/TOTEM_BeijingAir/round_2/20260103_T182130
+2026-01-03 18:21:30 [INFO]: Tensorboard file will be saved to reproduce_imputation/point09_log/BeijingAir_log/TOTEM_BeijingAir/round_2/20260103_T182130/tensorboard
+2026-01-03 18:21:30 [INFO]: TOTEM initialized with the given hyperparameters, the number of trainable parameters: 98,865
+2026-01-03 18:21:30 [INFO]: Epoch 001 - training loss (default): 0.3869, validation loss: 1.9638
+2026-01-03 18:21:31 [INFO]: Epoch 002 - training loss (default): 0.6948, validation loss: 4.1157
+2026-01-03 18:21:32 [INFO]: Epoch 003 - training loss (default): 0.4979, validation loss: 2.4780
+2026-01-03 18:21:32 [INFO]: Epoch 004 - training loss (default): 0.5515, validation loss: 2.8670
+2026-01-03 18:21:33 [INFO]: Epoch 005 - training loss (default): 0.4944, validation loss: 1.8409
+2026-01-03 18:21:34 [INFO]: Epoch 006 - training loss (default): 0.3993, validation loss: 1.7910
+2026-01-03 18:21:34 [INFO]: Epoch 007 - training loss (default): 0.3262, validation loss: 1.5820
+2026-01-03 18:21:35 [INFO]: Epoch 008 - training loss (default): 0.3196, validation loss: 2.5540
+2026-01-03 18:21:35 [INFO]: Epoch 009 - training loss (default): 0.6395, validation loss: 2.2816
+2026-01-03 18:21:36 [INFO]: Epoch 010 - training loss (default): 0.2389, validation loss: 1.8642
+2026-01-03 18:21:37 [INFO]: Epoch 011 - training loss (default): 0.2569, validation loss: 1.8609
+2026-01-03 18:21:37 [INFO]: Epoch 012 - training loss (default): 0.2326, validation loss: 1.7710
+2026-01-03 18:21:38 [INFO]: Epoch 013 - training loss (default): 0.1856, validation loss: 1.4209
+2026-01-03 18:21:39 [INFO]: Epoch 014 - training loss (default): 0.1320, validation loss: 1.8387
+2026-01-03 18:21:39 [INFO]: Epoch 015 - training loss (default): 0.1576, validation loss: 1.2813
+2026-01-03 18:21:40 [INFO]: Epoch 016 - training loss (default): 0.2108, validation loss: 1.5873
+2026-01-03 18:21:41 [INFO]: Epoch 017 - training loss (default): 0.1543, validation loss: 1.3852
+2026-01-03 18:21:41 [INFO]: Epoch 018 - training loss (default): 0.1193, validation loss: 1.8198
+2026-01-03 18:21:42 [INFO]: Epoch 019 - training loss (default): 0.1715, validation loss: 1.4475
+2026-01-03 18:21:43 [INFO]: Epoch 020 - training loss (default): 0.1735, validation loss: 1.2559
+2026-01-03 18:21:43 [INFO]: Epoch 021 - training loss (default): 0.1056, validation loss: 1.3628
+2026-01-03 18:21:44 [INFO]: Epoch 022 - training loss (default): 0.1129, validation loss: 1.5745
+2026-01-03 18:21:44 [INFO]: Epoch 023 - training loss (default): 0.1703, validation loss: 1.1858
+2026-01-03 18:21:45 [INFO]: Epoch 024 - training loss (default): 0.0557, validation loss: 1.1833
+2026-01-03 18:21:46 [INFO]: Epoch 025 - training loss (default): 0.0762, validation loss: 1.4283
+2026-01-03 18:21:46 [INFO]: Epoch 026 - training loss (default): 0.1013, validation loss: 1.1954
+2026-01-03 18:21:47 [INFO]: Epoch 027 - training loss (default): 0.0753, validation loss: 1.2709
+2026-01-03 18:21:48 [INFO]: Epoch 028 - training loss (default): 0.1298, validation loss: 1.3779
+2026-01-03 18:21:48 [INFO]: Epoch 029 - training loss (default): 0.1030, validation loss: 1.3073
+2026-01-03 18:21:49 [INFO]: Epoch 030 - training loss (default): 0.1275, validation loss: 1.2837
+2026-01-03 18:21:49 [INFO]: Epoch 031 - training loss (default): 0.0877, validation loss: 1.1399
+2026-01-03 18:21:50 [INFO]: Epoch 032 - training loss (default): 0.0611, validation loss: 1.0843
+2026-01-03 18:21:51 [INFO]: Epoch 033 - training loss (default): 0.0452, validation loss: 1.0873
+2026-01-03 18:21:51 [INFO]: Epoch 034 - training loss (default): 0.0440, validation loss: 1.1163
+2026-01-03 18:21:52 [INFO]: Epoch 035 - training loss (default): 0.0486, validation loss: 1.1438
+2026-01-03 18:21:53 [INFO]: Epoch 036 - training loss (default): 0.0477, validation loss: 1.1229
+2026-01-03 18:21:53 [INFO]: Epoch 037 - training loss (default): 0.0507, validation loss: 1.1256
+2026-01-03 18:21:54 [INFO]: Epoch 038 - training loss (default): 0.0502, validation loss: 1.1121
+2026-01-03 18:21:55 [INFO]: Epoch 039 - training loss (default): 0.0402, validation loss: 1.1253
+2026-01-03 18:21:55 [INFO]: Epoch 040 - training loss (default): 0.0363, validation loss: 1.1126
+2026-01-03 18:21:56 [INFO]: Epoch 041 - training loss (default): 0.0384, validation loss: 1.1068
+2026-01-03 18:21:57 [INFO]: Epoch 042 - training loss (default): 0.0388, validation loss: 1.0684
+2026-01-03 18:21:57 [INFO]: Epoch 043 - training loss (default): 0.0328, validation loss: 1.0736
+2026-01-03 18:21:58 [INFO]: Epoch 044 - training loss (default): 0.0344, validation loss: 1.0901
+2026-01-03 18:21:58 [INFO]: Epoch 045 - training loss (default): 0.0336, validation loss: 1.0878
+2026-01-03 18:21:59 [INFO]: Epoch 046 - training loss (default): 0.0312, validation loss: 1.0839
+2026-01-03 18:22:00 [INFO]: Epoch 047 - training loss (default): 0.0353, validation loss: 1.1453
+2026-01-03 18:22:00 [INFO]: Epoch 048 - training loss (default): 0.0473, validation loss: 1.1293
+2026-01-03 18:22:01 [INFO]: Epoch 049 - training loss (default): 0.0372, validation loss: 1.0679
+2026-01-03 18:22:02 [INFO]: Epoch 050 - training loss (default): 0.0333, validation loss: 1.0626
+2026-01-03 18:22:02 [INFO]: Epoch 051 - training loss (default): 0.0315, validation loss: 1.0821
+2026-01-03 18:22:03 [INFO]: Epoch 052 - training loss (default): 0.0344, validation loss: 1.0852
+2026-01-03 18:22:04 [INFO]: Epoch 053 - training loss (default): 0.0321, validation loss: 1.0975
+2026-01-03 18:22:04 [INFO]: Epoch 054 - training loss (default): 0.0344, validation loss: 1.0496
+2026-01-03 18:22:05 [INFO]: Epoch 055 - training loss (default): 0.0291, validation loss: 1.0538
+2026-01-03 18:22:05 [INFO]: Epoch 056 - training loss (default): 0.0285, validation loss: 1.0619
+2026-01-03 18:22:06 [INFO]: Epoch 057 - training loss (default): 0.0298, validation loss: 1.0515
+2026-01-03 18:22:07 [INFO]: Epoch 058 - training loss (default): 0.0293, validation loss: 1.0411
+2026-01-03 18:22:07 [INFO]: Epoch 059 - training loss (default): 0.0278, validation loss: 1.0655
+2026-01-03 18:22:08 [INFO]: Epoch 060 - training loss (default): 0.0299, validation loss: 1.0676
+2026-01-03 18:22:09 [INFO]: Epoch 061 - training loss (default): 0.0292, validation loss: 1.0555
+2026-01-03 18:22:09 [INFO]: Epoch 062 - training loss (default): 0.0285, validation loss: 1.0596
+2026-01-03 18:22:10 [INFO]: Epoch 063 - training loss (default): 0.0277, validation loss: 1.0468
+2026-01-03 18:22:11 [INFO]: Epoch 064 - training loss (default): 0.0275, validation loss: 1.0528
+2026-01-03 18:22:11 [INFO]: Epoch 065 - training loss (default): 0.0278, validation loss: 1.0503
+2026-01-03 18:22:12 [INFO]: Epoch 066 - training loss (default): 0.0282, validation loss: 1.0486
+2026-01-03 18:22:13 [INFO]: Epoch 067 - training loss (default): 0.0283, validation loss: 1.0455
+2026-01-03 18:22:13 [INFO]: Epoch 068 - training loss (default): 0.0322, validation loss: 1.0479
+2026-01-03 18:22:13 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2026-01-03 18:22:13 [INFO]: Finished training. The best model is from epoch#58.
+2026-01-03 18:22:13 [INFO]: Saved the model to reproduce_imputation/point09_log/BeijingAir_log/TOTEM_BeijingAir/round_2/20260103_T182130/TOTEM.pypots
+2026-01-03 18:22:13 [INFO]: Successfully saved to reproduce_imputation/point09_log/BeijingAir_log/TOTEM_BeijingAir/round_2/imputation.pkl
+2026-01-03 18:22:13 [INFO]: Round2 - TOTEM on BeijingAir: MAE=0.7429, MSE=1.1256, MRE=0.9851
+2026-01-03 18:22:13 [INFO]: Have set the random seed as 2027 for numpy and pytorch.
+2026-01-03 18:22:13 [INFO]: Using the given device: cuda:0
+2026-01-03 18:22:13 [INFO]: Model files will be saved to reproduce_imputation/point09_log/BeijingAir_log/TOTEM_BeijingAir/round_3/20260103_T182213
+2026-01-03 18:22:13 [INFO]: Tensorboard file will be saved to reproduce_imputation/point09_log/BeijingAir_log/TOTEM_BeijingAir/round_3/20260103_T182213/tensorboard
+2026-01-03 18:22:13 [INFO]: TOTEM initialized with the given hyperparameters, the number of trainable parameters: 98,865
+2026-01-03 18:22:14 [INFO]: Epoch 001 - training loss (default): 0.2551, validation loss: 2.6141
+2026-01-03 18:22:15 [INFO]: Epoch 002 - training loss (default): 0.6358, validation loss: 4.6037
+2026-01-03 18:22:15 [INFO]: Epoch 003 - training loss (default): 0.8469, validation loss: 4.6375
+2026-01-03 18:22:16 [INFO]: Epoch 004 - training loss (default): 0.5837, validation loss: 2.3771
+2026-01-03 18:22:17 [INFO]: Epoch 005 - training loss (default): 0.4379, validation loss: 2.3912
+2026-01-03 18:22:17 [INFO]: Epoch 006 - training loss (default): 0.3295, validation loss: 1.7348
+2026-01-03 18:22:18 [INFO]: Epoch 007 - training loss (default): 0.2589, validation loss: 1.8361
+2026-01-03 18:22:19 [INFO]: Epoch 008 - training loss (default): 0.3025, validation loss: 1.6108
+2026-01-03 18:22:19 [INFO]: Epoch 009 - training loss (default): 0.2189, validation loss: 1.5737
+2026-01-03 18:22:20 [INFO]: Epoch 010 - training loss (default): 0.2006, validation loss: 1.7202
+2026-01-03 18:22:21 [INFO]: Epoch 011 - training loss (default): 0.2301, validation loss: 1.2571
+2026-01-03 18:22:21 [INFO]: Epoch 012 - training loss (default): 0.2032, validation loss: 1.2281
+2026-01-03 18:22:22 [INFO]: Epoch 013 - training loss (default): 0.1055, validation loss: 1.2174
+2026-01-03 18:22:23 [INFO]: Epoch 014 - training loss (default): 0.1086, validation loss: 1.2093
+2026-01-03 18:22:23 [INFO]: Epoch 015 - training loss (default): 0.0914, validation loss: 1.3117
+2026-01-03 18:22:24 [INFO]: Epoch 016 - training loss (default): 0.0893, validation loss: 1.2903
+2026-01-03 18:22:25 [INFO]: Epoch 017 - training loss (default): 0.0961, validation loss: 1.3398
+2026-01-03 18:22:25 [INFO]: Epoch 018 - training loss (default): 0.1070, validation loss: 1.3630
+2026-01-03 18:22:26 [INFO]: Epoch 019 - training loss (default): 0.1051, validation loss: 1.4429
+2026-01-03 18:22:26 [INFO]: Epoch 020 - training loss (default): 0.1581, validation loss: 1.2069
+2026-01-03 18:22:27 [INFO]: Epoch 021 - training loss (default): 0.1616, validation loss: 1.2843
+2026-01-03 18:22:28 [INFO]: Epoch 022 - training loss (default): 0.0870, validation loss: 1.4362
+2026-01-03 18:22:28 [INFO]: Epoch 023 - training loss (default): 0.1353, validation loss: 1.0925
+2026-01-03 18:22:29 [INFO]: Epoch 024 - training loss (default): 0.0604, validation loss: 1.1014
+2026-01-03 18:22:30 [INFO]: Epoch 025 - training loss (default): 0.0495, validation loss: 1.1644
+2026-01-03 18:22:30 [INFO]: Epoch 026 - training loss (default): 0.1051, validation loss: 1.2552
+2026-01-03 18:22:31 [INFO]: Epoch 027 - training loss (default): 0.0638, validation loss: 1.1953
+2026-01-03 18:22:32 [INFO]: Epoch 028 - training loss (default): 0.0625, validation loss: 1.2324
+2026-01-03 18:22:32 [INFO]: Epoch 029 - training loss (default): 0.0945, validation loss: 1.1441
+2026-01-03 18:22:33 [INFO]: Epoch 030 - training loss (default): 0.0605, validation loss: 1.2326
+2026-01-03 18:22:34 [INFO]: Epoch 031 - training loss (default): 0.0684, validation loss: 1.1662
+2026-01-03 18:22:34 [INFO]: Epoch 032 - training loss (default): 0.0718, validation loss: 1.1768
+2026-01-03 18:22:35 [INFO]: Epoch 033 - training loss (default): 0.0644, validation loss: 1.1837
+2026-01-03 18:22:35 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2026-01-03 18:22:35 [INFO]: Finished training. The best model is from epoch#23.
+2026-01-03 18:22:35 [INFO]: Saved the model to reproduce_imputation/point09_log/BeijingAir_log/TOTEM_BeijingAir/round_3/20260103_T182213/TOTEM.pypots
+2026-01-03 18:22:35 [INFO]: Successfully saved to reproduce_imputation/point09_log/BeijingAir_log/TOTEM_BeijingAir/round_3/imputation.pkl
+2026-01-03 18:22:35 [INFO]: Round3 - TOTEM on BeijingAir: MAE=0.7417, MSE=1.1238, MRE=0.9836
+2026-01-03 18:22:35 [INFO]: Have set the random seed as 2028 for numpy and pytorch.
+2026-01-03 18:22:35 [INFO]: Using the given device: cuda:0
+2026-01-03 18:22:35 [INFO]: Model files will be saved to reproduce_imputation/point09_log/BeijingAir_log/TOTEM_BeijingAir/round_4/20260103_T182235
+2026-01-03 18:22:35 [INFO]: Tensorboard file will be saved to reproduce_imputation/point09_log/BeijingAir_log/TOTEM_BeijingAir/round_4/20260103_T182235/tensorboard
+2026-01-03 18:22:35 [INFO]: TOTEM initialized with the given hyperparameters, the number of trainable parameters: 98,865
+2026-01-03 18:22:36 [INFO]: Epoch 001 - training loss (default): 1.2813, validation loss: 7.7517
+2026-01-03 18:22:36 [INFO]: Epoch 002 - training loss (default): 2.0734, validation loss: 4.1341
+2026-01-03 18:22:37 [INFO]: Epoch 003 - training loss (default): 1.6092, validation loss: 4.8453
+2026-01-03 18:22:38 [INFO]: Epoch 004 - training loss (default): 1.2456, validation loss: 3.5193
+2026-01-03 18:22:38 [INFO]: Epoch 005 - training loss (default): 1.3041, validation loss: 3.7603
+2026-01-03 18:22:39 [INFO]: Epoch 006 - training loss (default): 1.1061, validation loss: 1.8283
+2026-01-03 18:22:40 [INFO]: Epoch 007 - training loss (default): 0.3656, validation loss: 2.5646
+2026-01-03 18:22:40 [INFO]: Epoch 008 - training loss (default): 0.2949, validation loss: 1.4857
+2026-01-03 18:22:41 [INFO]: Epoch 009 - training loss (default): 0.2463, validation loss: 1.5787
+2026-01-03 18:22:42 [INFO]: Epoch 010 - training loss (default): 0.2483, validation loss: 1.7031
+2026-01-03 18:22:42 [INFO]: Epoch 011 - training loss (default): 0.1304, validation loss: 1.4281
+2026-01-03 18:22:43 [INFO]: Epoch 012 - training loss (default): 0.1789, validation loss: 1.4328
+2026-01-03 18:22:44 [INFO]: Epoch 013 - training loss (default): 0.2098, validation loss: 1.2371
+2026-01-03 18:22:44 [INFO]: Epoch 014 - training loss (default): 0.1091, validation loss: 1.2657
+2026-01-03 18:22:45 [INFO]: Epoch 015 - training loss (default): 0.1657, validation loss: 1.6617
+2026-01-03 18:22:45 [INFO]: Epoch 016 - training loss (default): 0.1142, validation loss: 1.1349
+2026-01-03 18:22:46 [INFO]: Epoch 017 - training loss (default): 0.0640, validation loss: 1.1657
+2026-01-03 18:22:47 [INFO]: Epoch 018 - training loss (default): 0.0869, validation loss: 1.2548
+2026-01-03 18:22:47 [INFO]: Epoch 019 - training loss (default): 0.0909, validation loss: 1.2445
+2026-01-03 18:22:48 [INFO]: Epoch 020 - training loss (default): 0.1114, validation loss: 1.2108
+2026-01-03 18:22:49 [INFO]: Epoch 021 - training loss (default): 0.0713, validation loss: 1.2585
+2026-01-03 18:22:49 [INFO]: Epoch 022 - training loss (default): 0.0631, validation loss: 1.2184
+2026-01-03 18:22:50 [INFO]: Epoch 023 - training loss (default): 0.1228, validation loss: 1.2488
+2026-01-03 18:22:51 [INFO]: Epoch 024 - training loss (default): 0.0898, validation loss: 1.1584
+2026-01-03 18:22:51 [INFO]: Epoch 025 - training loss (default): 0.0724, validation loss: 1.1249
+2026-01-03 18:22:52 [INFO]: Epoch 026 - training loss (default): 0.1119, validation loss: 1.1192
+2026-01-03 18:22:53 [INFO]: Epoch 027 - training loss (default): 0.0524, validation loss: 1.1001
+2026-01-03 18:22:53 [INFO]: Epoch 028 - training loss (default): 0.0461, validation loss: 1.1189
+2026-01-03 18:22:54 [INFO]: Epoch 029 - training loss (default): 0.0526, validation loss: 1.1378
+2026-01-03 18:22:55 [INFO]: Epoch 030 - training loss (default): 0.0845, validation loss: 1.0991
+2026-01-03 18:22:55 [INFO]: Epoch 031 - training loss (default): 0.0519, validation loss: 1.1180
+2026-01-03 18:22:56 [INFO]: Epoch 032 - training loss (default): 0.0571, validation loss: 1.2548
+2026-01-03 18:22:57 [INFO]: Epoch 033 - training loss (default): 0.0676, validation loss: 1.1538
+2026-01-03 18:22:57 [INFO]: Epoch 034 - training loss (default): 0.0561, validation loss: 1.1264
+2026-01-03 18:22:58 [INFO]: Epoch 035 - training loss (default): 0.0568, validation loss: 1.1377
+2026-01-03 18:22:59 [INFO]: Epoch 036 - training loss (default): 0.0634, validation loss: 1.1531
+2026-01-03 18:22:59 [INFO]: Epoch 037 - training loss (default): 0.0810, validation loss: 1.1632
+2026-01-03 18:23:00 [INFO]: Epoch 038 - training loss (default): 0.0505, validation loss: 1.0793
+2026-01-03 18:23:00 [INFO]: Epoch 039 - training loss (default): 0.0366, validation loss: 1.0736
+2026-01-03 18:23:01 [INFO]: Epoch 040 - training loss (default): 0.0339, validation loss: 1.0779
+2026-01-03 18:23:02 [INFO]: Epoch 041 - training loss (default): 0.0358, validation loss: 1.0640
+2026-01-03 18:23:02 [INFO]: Epoch 042 - training loss (default): 0.0324, validation loss: 1.0622
+2026-01-03 18:23:03 [INFO]: Epoch 043 - training loss (default): 0.0315, validation loss: 1.0631
+2026-01-03 18:23:04 [INFO]: Epoch 044 - training loss (default): 0.0310, validation loss: 1.0658
+2026-01-03 18:23:04 [INFO]: Epoch 045 - training loss (default): 0.0319, validation loss: 1.0670
+2026-01-03 18:23:05 [INFO]: Epoch 046 - training loss (default): 0.0318, validation loss: 1.0744
+2026-01-03 18:23:06 [INFO]: Epoch 047 - training loss (default): 0.0307, validation loss: 1.0577
+2026-01-03 18:23:06 [INFO]: Epoch 048 - training loss (default): 0.0305, validation loss: 1.0563
+2026-01-03 18:23:07 [INFO]: Epoch 049 - training loss (default): 0.0305, validation loss: 1.0580
+2026-01-03 18:23:08 [INFO]: Epoch 050 - training loss (default): 0.0297, validation loss: 1.0604
+2026-01-03 18:23:08 [INFO]: Epoch 051 - training loss (default): 0.0299, validation loss: 1.0676
+2026-01-03 18:23:09 [INFO]: Epoch 052 - training loss (default): 0.0306, validation loss: 1.0478
+2026-01-03 18:23:10 [INFO]: Epoch 053 - training loss (default): 0.0279, validation loss: 1.0579
+2026-01-03 18:23:10 [INFO]: Epoch 054 - training loss (default): 0.0334, validation loss: 1.0681
+2026-01-03 18:23:11 [INFO]: Epoch 055 - training loss (default): 0.0346, validation loss: 1.0660
+2026-01-03 18:23:11 [INFO]: Epoch 056 - training loss (default): 0.0365, validation loss: 1.0493
+2026-01-03 18:23:12 [INFO]: Epoch 057 - training loss (default): 0.0290, validation loss: 1.0462
+2026-01-03 18:23:13 [INFO]: Epoch 058 - training loss (default): 0.0282, validation loss: 1.0436
+2026-01-03 18:23:13 [INFO]: Epoch 059 - training loss (default): 0.0278, validation loss: 1.0422
+2026-01-03 18:23:14 [INFO]: Epoch 060 - training loss (default): 0.0310, validation loss: 1.0493
+2026-01-03 18:23:15 [INFO]: Epoch 061 - training loss (default): 0.0380, validation loss: 1.0567
+2026-01-03 18:23:15 [INFO]: Epoch 062 - training loss (default): 0.0377, validation loss: 1.0765
+2026-01-03 18:23:16 [INFO]: Epoch 063 - training loss (default): 0.0419, validation loss: 1.1039
+2026-01-03 18:23:17 [INFO]: Epoch 064 - training loss (default): 0.0405, validation loss: 1.0887
+2026-01-03 18:23:17 [INFO]: Epoch 065 - training loss (default): 0.0342, validation loss: 1.0727
+2026-01-03 18:23:18 [INFO]: Epoch 066 - training loss (default): 0.0389, validation loss: 1.0905
+2026-01-03 18:23:19 [INFO]: Epoch 067 - training loss (default): 0.0392, validation loss: 1.1207
+2026-01-03 18:23:19 [INFO]: Epoch 068 - training loss (default): 0.0406, validation loss: 1.0805
+2026-01-03 18:23:20 [INFO]: Epoch 069 - training loss (default): 0.0365, validation loss: 1.0487
+2026-01-03 18:23:20 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2026-01-03 18:23:20 [INFO]: Finished training. The best model is from epoch#59.
+2026-01-03 18:23:20 [INFO]: Saved the model to reproduce_imputation/point09_log/BeijingAir_log/TOTEM_BeijingAir/round_4/20260103_T182235/TOTEM.pypots
+2026-01-03 18:23:20 [INFO]: Successfully saved to reproduce_imputation/point09_log/BeijingAir_log/TOTEM_BeijingAir/round_4/imputation.pkl
+2026-01-03 18:23:20 [INFO]: Round4 - TOTEM on BeijingAir: MAE=0.7457, MSE=1.1340, MRE=0.9889
+2026-01-03 18:23:20 [INFO]: Done! Final results:
+Averaged TOTEM (98,865 params) on BeijingAir: MAE=0.7426 ± 0.0022841705416479985, MSE=1.1255 ± 0.005863807766822926, MRE=0.9847 ± 0.0030290238281838362, average inference time=0.07
+  0%|          | 0/11 [00:00<?, ?it/s]100%|██████████| 11/11 [00:00<00:00, 310.87it/s]

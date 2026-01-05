@@ -294,3 +294,20 @@ Using eos_token, but it is not set yet.
 2026-01-05 19:03:12 [INFO]: Epoch 030 - training loss (MAE): 0.6365, validation MSE: 0.5983
 2026-01-05 19:15:48 [INFO]: Epoch 031 - training loss (MAE): 0.6378, validation MSE: 0.5950
 2026-01-05 19:28:25 [INFO]: Epoch 032 - training loss (MAE): 0.6393, validation MSE: 0.6024
+2026-01-05 19:41:04 [INFO]: Epoch 033 - training loss (MAE): 0.6383, validation MSE: 0.6086
+2026-01-05 19:53:41 [INFO]: Epoch 034 - training loss (MAE): 0.6358, validation MSE: 0.6312
+2026-01-05 20:06:19 [INFO]: Epoch 035 - training loss (MAE): 0.6351, validation MSE: 0.6300
+2026-01-05 20:18:59 [INFO]: Epoch 036 - training loss (MAE): 0.6353, validation MSE: 0.6206
+2026-01-05 20:31:36 [INFO]: Epoch 037 - training loss (MAE): 0.6329, validation MSE: 0.6000
+2026-01-05 20:44:13 [INFO]: Epoch 038 - training loss (MAE): 0.6317, validation MSE: 0.5972
+2026-01-05 20:56:51 [INFO]: Epoch 039 - training loss (MAE): 0.6296, validation MSE: 0.6360
+2026-01-05 21:09:28 [INFO]: Epoch 040 - training loss (MAE): 0.6327, validation MSE: 0.6367
+2026-01-05 21:22:06 [INFO]: Epoch 041 - training loss (MAE): 0.6291, validation MSE: 0.6039
+2026-01-05 21:22:06 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2026-01-05 21:22:06 [INFO]: Finished training. The best model is from epoch#31.
+2026-01-05 21:22:07 [INFO]: Saved the model to reproduce_imputation/point09_log/BeijingAir_log/TimeLLM_BeijingAir/round_4/20260105_T124404/TimeLLM.pypots
+2026-01-05 21:25:11 [INFO]: Successfully saved to reproduce_imputation/point09_log/BeijingAir_log/TimeLLM_BeijingAir/round_4/imputation.pkl
+2026-01-05 21:25:11 [INFO]: Round4 - TimeLLM on BeijingAir: MAE=0.3858, MSE=0.5523, MRE=0.5117
+2026-01-05 21:25:11 [INFO]: Done! Final results:
+Averaged TimeLLM (31,753,488 params) on BeijingAir: MAE=0.3846 ± 0.005958322432622469, MSE=0.5512 ± 0.00785473924127293, MRE=0.5101 ± 0.0079012929618619, average inference time=184.43
+  0%|          | 0/286 [00:00<?, ?it/s] 34%|███▍      | 98/286 [00:00<00:00, 970.55it/s] 69%|██████▊   | 196/286 [00:00<00:00, 732.10it/s] 95%|█████████▌| 273/286 [00:00<00:00, 646.80it/s]100%|██████████| 286/286 [00:00<00:00, 698.93it/s]

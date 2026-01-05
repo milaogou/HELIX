@@ -131,3 +131,98 @@ Using eos_token, but it is not set yet.
 2026-01-04 17:17:59 [INFO]: Epoch 042 - training loss (MAE): 0.4823, validation MSE: 0.2522
 2026-01-04 17:32:42 [INFO]: Epoch 043 - training loss (MAE): 0.4806, validation MSE: 0.2569
 2026-01-04 17:47:19 [INFO]: Epoch 044 - training loss (MAE): 0.4818, validation MSE: 0.2509
+2026-01-04 18:01:59 [INFO]: Epoch 045 - training loss (MAE): 0.4813, validation MSE: 0.2624
+2026-01-04 18:16:38 [INFO]: Epoch 046 - training loss (MAE): 0.4806, validation MSE: 0.2512
+2026-01-04 18:31:15 [INFO]: Epoch 047 - training loss (MAE): 0.4787, validation MSE: 0.2514
+2026-01-04 18:45:54 [INFO]: Epoch 048 - training loss (MAE): 0.4790, validation MSE: 0.2509
+2026-01-04 19:00:31 [INFO]: Epoch 049 - training loss (MAE): 0.4783, validation MSE: 0.2474
+2026-01-04 19:15:08 [INFO]: Epoch 050 - training loss (MAE): 0.4782, validation MSE: 0.2484
+2026-01-04 19:29:46 [INFO]: Epoch 051 - training loss (MAE): 0.4773, validation MSE: 0.2524
+2026-01-04 19:44:23 [INFO]: Epoch 052 - training loss (MAE): 0.4761, validation MSE: 0.2509
+2026-01-04 19:59:02 [INFO]: Epoch 053 - training loss (MAE): 0.4761, validation MSE: 0.2537
+2026-01-04 20:13:41 [INFO]: Epoch 054 - training loss (MAE): 0.4743, validation MSE: 0.2502
+2026-01-04 20:28:22 [INFO]: Epoch 055 - training loss (MAE): 0.4754, validation MSE: 0.2498
+2026-01-04 20:43:00 [INFO]: Epoch 056 - training loss (MAE): 0.4751, validation MSE: 0.2548
+2026-01-04 20:57:38 [INFO]: Epoch 057 - training loss (MAE): 0.4732, validation MSE: 0.2559
+2026-01-04 21:12:17 [INFO]: Epoch 058 - training loss (MAE): 0.4736, validation MSE: 0.2586
+2026-01-04 21:26:57 [INFO]: Epoch 059 - training loss (MAE): 0.4733, validation MSE: 0.2515
+2026-01-04 21:26:57 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2026-01-04 21:26:57 [INFO]: Finished training. The best model is from epoch#49.
+2026-01-04 21:26:57 [INFO]: Saved the model to reproduce_imputation/point01_log/BeijingAir_log/TimeLLM_BeijingAir/round_2/20260104_T070125/TimeLLM.pypots
+2026-01-04 21:30:38 [INFO]: Successfully saved to reproduce_imputation/point01_log/BeijingAir_log/TimeLLM_BeijingAir/round_2/imputation.pkl
+2026-01-04 21:30:38 [INFO]: Round2 - TimeLLM on BeijingAir: MAE=0.2085, MSE=0.2235, MRE=0.2770
+2026-01-04 21:30:38 [INFO]: Have set the random seed as 2027 for numpy and pytorch.
+2026-01-04 21:30:38 [INFO]: Using the given device: cuda:0
+2026-01-04 21:30:38 [INFO]: Model files will be saved to reproduce_imputation/point01_log/BeijingAir_log/TimeLLM_BeijingAir/round_3/20260104_T213038
+2026-01-04 21:30:38 [INFO]: Tensorboard file will be saved to reproduce_imputation/point01_log/BeijingAir_log/TimeLLM_BeijingAir/round_3/20260104_T213038/tensorboard
+2026-01-04 21:30:38 [INFO]: Using customized MAE as the training loss function.
+2026-01-04 21:30:38 [INFO]: Using customized MSE as the validation metric function.
+Using eos_token, but it is not set yet.
+2026-01-04 21:30:41 [INFO]: TimeLLM initialized with the given hyperparameters, the number of trainable parameters: 31,753,488
+2026-01-04 21:45:21 [INFO]: Epoch 001 - training loss (MAE): 0.6687, validation MSE: 0.2811
+2026-01-04 22:00:01 [INFO]: Epoch 002 - training loss (MAE): 0.6104, validation MSE: 0.2824
+2026-01-04 22:14:41 [INFO]: Epoch 003 - training loss (MAE): 0.5986, validation MSE: 0.2712
+2026-01-04 22:29:20 [INFO]: Epoch 004 - training loss (MAE): 0.5874, validation MSE: 0.2631
+2026-01-04 22:43:59 [INFO]: Epoch 005 - training loss (MAE): 0.5780, validation MSE: 0.2653
+2026-01-04 22:58:39 [INFO]: Epoch 006 - training loss (MAE): 0.5700, validation MSE: 0.2589
+2026-01-04 23:13:20 [INFO]: Epoch 007 - training loss (MAE): 0.5632, validation MSE: 0.2582
+2026-01-04 23:28:02 [INFO]: Epoch 008 - training loss (MAE): 0.5570, validation MSE: 0.2587
+2026-01-04 23:42:42 [INFO]: Epoch 009 - training loss (MAE): 0.5549, validation MSE: 0.2645
+2026-01-04 23:57:25 [INFO]: Epoch 010 - training loss (MAE): 0.5496, validation MSE: 0.2561
+2026-01-05 00:12:06 [INFO]: Epoch 011 - training loss (MAE): 0.5471, validation MSE: 0.2588
+2026-01-05 00:26:48 [INFO]: Epoch 012 - training loss (MAE): 0.5428, validation MSE: 0.2598
+2026-01-05 00:41:32 [INFO]: Epoch 013 - training loss (MAE): 0.5373, validation MSE: 0.2598
+2026-01-05 00:56:17 [INFO]: Epoch 014 - training loss (MAE): 0.5359, validation MSE: 0.2552
+2026-01-05 01:11:02 [INFO]: Epoch 015 - training loss (MAE): 0.5325, validation MSE: 0.2538
+2026-01-05 01:25:45 [INFO]: Epoch 016 - training loss (MAE): 0.5279, validation MSE: 0.2600
+2026-01-05 01:40:30 [INFO]: Epoch 017 - training loss (MAE): 0.5235, validation MSE: 0.2555
+2026-01-05 01:55:12 [INFO]: Epoch 018 - training loss (MAE): 0.5220, validation MSE: 0.2532
+2026-01-05 02:09:55 [INFO]: Epoch 019 - training loss (MAE): 0.5168, validation MSE: 0.2551
+2026-01-05 02:24:35 [INFO]: Epoch 020 - training loss (MAE): 0.5153, validation MSE: 0.2560
+2026-01-05 02:39:19 [INFO]: Epoch 021 - training loss (MAE): 0.5117, validation MSE: 0.2543
+2026-01-05 02:54:03 [INFO]: Epoch 022 - training loss (MAE): 0.5086, validation MSE: 0.2490
+2026-01-05 03:08:46 [INFO]: Epoch 023 - training loss (MAE): 0.5056, validation MSE: 0.2480
+2026-01-05 03:23:30 [INFO]: Epoch 024 - training loss (MAE): 0.4999, validation MSE: 0.2485
+2026-01-05 03:38:15 [INFO]: Epoch 025 - training loss (MAE): 0.4980, validation MSE: 0.2493
+2026-01-05 03:52:59 [INFO]: Epoch 026 - training loss (MAE): 0.4948, validation MSE: 0.2514
+2026-01-05 04:07:42 [INFO]: Epoch 027 - training loss (MAE): 0.4928, validation MSE: 0.2532
+2026-01-05 04:22:26 [INFO]: Epoch 028 - training loss (MAE): 0.4875, validation MSE: 0.2507
+2026-01-05 04:37:09 [INFO]: Epoch 029 - training loss (MAE): 0.4859, validation MSE: 0.2528
+2026-01-05 04:51:51 [INFO]: Epoch 030 - training loss (MAE): 0.4804, validation MSE: 0.2540
+2026-01-05 05:06:34 [INFO]: Epoch 031 - training loss (MAE): 0.4777, validation MSE: 0.2499
+2026-01-05 05:21:15 [INFO]: Epoch 032 - training loss (MAE): 0.4736, validation MSE: 0.2556
+2026-01-05 05:36:00 [INFO]: Epoch 033 - training loss (MAE): 0.4724, validation MSE: 0.2535
+2026-01-05 05:36:00 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2026-01-05 05:36:00 [INFO]: Finished training. The best model is from epoch#23.
+2026-01-05 05:36:00 [INFO]: Saved the model to reproduce_imputation/point01_log/BeijingAir_log/TimeLLM_BeijingAir/round_3/20260104_T213038/TimeLLM.pypots
+2026-01-05 05:39:43 [INFO]: Successfully saved to reproduce_imputation/point01_log/BeijingAir_log/TimeLLM_BeijingAir/round_3/imputation.pkl
+2026-01-05 05:39:43 [INFO]: Round3 - TimeLLM on BeijingAir: MAE=0.2061, MSE=0.2377, MRE=0.2738
+2026-01-05 05:39:43 [INFO]: Have set the random seed as 2028 for numpy and pytorch.
+2026-01-05 05:39:43 [INFO]: Using the given device: cuda:0
+2026-01-05 05:39:43 [INFO]: Model files will be saved to reproduce_imputation/point01_log/BeijingAir_log/TimeLLM_BeijingAir/round_4/20260105_T053943
+2026-01-05 05:39:43 [INFO]: Tensorboard file will be saved to reproduce_imputation/point01_log/BeijingAir_log/TimeLLM_BeijingAir/round_4/20260105_T053943/tensorboard
+2026-01-05 05:39:43 [INFO]: Using customized MAE as the training loss function.
+2026-01-05 05:39:43 [INFO]: Using customized MSE as the validation metric function.
+Using eos_token, but it is not set yet.
+2026-01-05 05:39:45 [INFO]: TimeLLM initialized with the given hyperparameters, the number of trainable parameters: 31,753,488
+2026-01-05 05:54:27 [INFO]: Epoch 001 - training loss (MAE): 0.6737, validation MSE: 0.2747
+2026-01-05 06:09:10 [INFO]: Epoch 002 - training loss (MAE): 0.6053, validation MSE: 0.2635
+2026-01-05 06:23:55 [INFO]: Epoch 003 - training loss (MAE): 0.5859, validation MSE: 0.2571
+2026-01-05 06:38:39 [INFO]: Epoch 004 - training loss (MAE): 0.5707, validation MSE: 0.2581
+2026-01-05 06:53:24 [INFO]: Epoch 005 - training loss (MAE): 0.5665, validation MSE: 0.2714
+2026-01-05 07:08:04 [INFO]: Epoch 006 - training loss (MAE): 0.5592, validation MSE: 0.2604
+2026-01-05 07:22:49 [INFO]: Epoch 007 - training loss (MAE): 0.5524, validation MSE: 0.2652
+2026-01-05 07:37:32 [INFO]: Epoch 008 - training loss (MAE): 0.5522, validation MSE: 0.2610
+2026-01-05 07:52:17 [INFO]: Epoch 009 - training loss (MAE): 0.5472, validation MSE: 0.2689
+2026-01-05 08:06:58 [INFO]: Epoch 010 - training loss (MAE): 0.5433, validation MSE: 0.2621
+2026-01-05 08:21:41 [INFO]: Epoch 011 - training loss (MAE): 0.5401, validation MSE: 0.2607
+2026-01-05 08:36:24 [INFO]: Epoch 012 - training loss (MAE): 0.5375, validation MSE: 0.2729
+2026-01-05 08:51:08 [INFO]: Epoch 013 - training loss (MAE): 0.5344, validation MSE: 0.2757
+2026-01-05 08:51:08 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2026-01-05 08:51:08 [INFO]: Finished training. The best model is from epoch#3.
+2026-01-05 08:51:08 [INFO]: Saved the model to reproduce_imputation/point01_log/BeijingAir_log/TimeLLM_BeijingAir/round_4/20260105_T053943/TimeLLM.pypots
+2026-01-05 08:54:50 [INFO]: Successfully saved to reproduce_imputation/point01_log/BeijingAir_log/TimeLLM_BeijingAir/round_4/imputation.pkl
+2026-01-05 08:54:50 [INFO]: Round4 - TimeLLM on BeijingAir: MAE=0.2198, MSE=0.2375, MRE=0.2921
+2026-01-05 08:54:50 [INFO]: Done! Final results:
+Averaged TimeLLM (31,753,488 params) on BeijingAir: MAE=0.2106 ± 0.005110620643113798, MSE=0.2321 ± 0.005255346815462302, MRE=0.2798 ± 0.006791456797115213, average inference time=221.62
+  0%|          | 0/220 [00:00<?, ?it/s] 42%|████▏     | 93/220 [00:00<00:00, 918.18it/s] 96%|█████████▋| 212/220 [00:00<00:00, 1076.89it/s]100%|██████████| 220/220 [00:00<00:00, 1060.86it/s]

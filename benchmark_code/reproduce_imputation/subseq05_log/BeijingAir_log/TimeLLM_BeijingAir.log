@@ -1,68 +1,79 @@
-2026-01-03 18:13:02 [WARNING]: ‼️ `pypots.utils.metrics` is deprecated. Please import from `pypots.nn.functional` instead.
-2026-01-03 18:13:02 [INFO]: Have set the random seed as 2024 for numpy and pytorch.
-2026-01-03 18:13:02 [INFO]: Using the given device: cuda:0
-2026-01-03 18:13:02 [INFO]: Model files will be saved to reproduce_imputation/subseq05_log/BeijingAir_log/TimeLLM_BeijingAir/round_0/20260103_T181302
-2026-01-03 18:13:02 [INFO]: Tensorboard file will be saved to reproduce_imputation/subseq05_log/BeijingAir_log/TimeLLM_BeijingAir/round_0/20260103_T181302/tensorboard
-2026-01-03 18:13:02 [INFO]: Using customized MAE as the training loss function.
-2026-01-03 18:13:02 [INFO]: Using customized MSE as the validation metric function.
+2026-01-04 21:52:24 [WARNING]: ‼️ `pypots.utils.metrics` is deprecated. Please import from `pypots.nn.functional` instead.
+2026-01-04 21:52:24 [INFO]: Have set the random seed as 2024 for numpy and pytorch.
+2026-01-04 21:52:24 [INFO]: Using the given device: cuda:0
+2026-01-04 21:52:24 [INFO]: Model files will be saved to reproduce_imputation/subseq05_log/BeijingAir_log/TimeLLM_BeijingAir/round_0/20260104_T215224
+2026-01-04 21:52:24 [INFO]: Tensorboard file will be saved to reproduce_imputation/subseq05_log/BeijingAir_log/TimeLLM_BeijingAir/round_0/20260104_T215224/tensorboard
+2026-01-04 21:52:24 [INFO]: Using customized MAE as the training loss function.
+2026-01-04 21:52:24 [INFO]: Using customized MSE as the validation metric function.
 /home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
   warnings.warn(
-urllib3.exceptions.SSLError: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
-    resp = conn.urlopen(
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/urllib3/connectionpool.py", line 844, in urlopen
-    retries = retries.increment(
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/urllib3/util/retry.py", line 515, in increment
-    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
-urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='huggingface.co', port=443): Max retries exceeded with url: /google-bert/bert-base-uncased/resolve/main/config.json (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)')))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/train_model.py", line 153, in <module>
-    model = SUPPORT_MODELS[args.model](**hyperparameters)
-  File "/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/timellm/model.py", line 185, in __init__
-    self.model = _TimeLLM(
-  File "/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/timellm/core.py", line 39, in __init__
-    self.backbone = BackboneTimeLLM(
-  File "/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/nn/modules/timellm/backbone.py", line 93, in __init__
-    self.llm_model = BertModel.from_pretrained(
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/transformers/modeling_utils.py", line 2325, in from_pretrained
-    config, model_kwargs = cls.config_class.from_pretrained(
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/transformers/configuration_utils.py", line 590, in from_pretrained
-    config_dict, kwargs = cls.get_config_dict(pretrained_model_name_or_path, **kwargs)
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/transformers/configuration_utils.py", line 617, in get_config_dict
-    config_dict, kwargs = cls._get_config_dict(pretrained_model_name_or_path, **kwargs)
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/transformers/configuration_utils.py", line 672, in _get_config_dict
-    resolved_config_file = cached_file(
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/transformers/utils/hub.py", line 417, in cached_file
-    resolved_file = hf_hub_download(
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
-    return fn(*args, **kwargs)
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1221, in hf_hub_download
-    return _hf_hub_download_to_cache_dir(
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1282, in _hf_hub_download_to_cache_dir
-    (url_to_download, etag, commit_hash, expected_size, head_call_error) = _get_metadata_or_catch_error(
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1722, in _get_metadata_or_catch_error
-    metadata = get_hf_file_metadata(url=url, proxies=proxies, timeout=etag_timeout, headers=headers)
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
-    return fn(*args, **kwargs)
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1645, in get_hf_file_metadata
-    r = _request_wrapper(
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 372, in _request_wrapper
-    response = _request_wrapper(
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 395, in _request_wrapper
-    response = get_session().request(method=method, url=url, **params)
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
-    resp = self.send(prep, **send_kwargs)
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
-    r = adapter.send(request, **kwargs)
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/huggingface_hub/utils/_http.py", line 66, in send
-    return super().send(request, *args, **kwargs)
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/requests/adapters.py", line 517, in send
-    raise SSLError(e, request=request)
-requests.exceptions.SSLError: (MaxRetryError("HTTPSConnectionPool(host='huggingface.co', port=443): Max retries exceeded with url: /google-bert/bert-base-uncased/resolve/main/config.json (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)')))"), '(Request ID: 6c87184e-f473-4e41-954f-e190171a8716)')
+Using eos_token, but it is not set yet.
+2026-01-04 21:52:27 [INFO]: TimeLLM initialized with the given hyperparameters, the number of trainable parameters: 31,753,488
+2026-01-04 22:06:02 [INFO]: Epoch 001 - training loss (MAE): 0.6526, validation MSE: 0.9949
+2026-01-04 22:19:36 [INFO]: Epoch 002 - training loss (MAE): 0.5693, validation MSE: 0.9890
+2026-01-04 22:33:11 [INFO]: Epoch 003 - training loss (MAE): 0.5577, validation MSE: 0.9847
+2026-01-04 22:46:48 [INFO]: Epoch 004 - training loss (MAE): 0.5458, validation MSE: 0.9437
+2026-01-04 23:00:26 [INFO]: Epoch 005 - training loss (MAE): 0.5402, validation MSE: 0.9430
+2026-01-04 23:14:04 [INFO]: Epoch 006 - training loss (MAE): 0.5326, validation MSE: 0.9336
+2026-01-04 23:27:42 [INFO]: Epoch 007 - training loss (MAE): 0.5258, validation MSE: 0.9506
+2026-01-04 23:41:20 [INFO]: Epoch 008 - training loss (MAE): 0.5209, validation MSE: 0.9523
+2026-01-04 23:54:56 [INFO]: Epoch 009 - training loss (MAE): 0.5182, validation MSE: 0.9670
+2026-01-05 00:08:34 [INFO]: Epoch 010 - training loss (MAE): 0.5155, validation MSE: 0.9698
+2026-01-05 00:22:11 [INFO]: Epoch 011 - training loss (MAE): 0.5108, validation MSE: 0.9287
+2026-01-05 00:35:49 [INFO]: Epoch 012 - training loss (MAE): 0.5095, validation MSE: 0.9291
+2026-01-05 00:49:25 [INFO]: Epoch 013 - training loss (MAE): 0.5063, validation MSE: 0.9359
+2026-01-05 01:03:00 [INFO]: Epoch 014 - training loss (MAE): 0.5049, validation MSE: 0.9342
+2026-01-05 01:16:35 [INFO]: Epoch 015 - training loss (MAE): 0.5025, validation MSE: 0.9511
+2026-01-05 01:30:12 [INFO]: Epoch 016 - training loss (MAE): 0.5013, validation MSE: 0.9486
+2026-01-05 01:43:49 [INFO]: Epoch 017 - training loss (MAE): 0.4977, validation MSE: 0.9252
+2026-01-05 01:57:24 [INFO]: Epoch 018 - training loss (MAE): 0.4953, validation MSE: 0.9316
+2026-01-05 02:11:00 [INFO]: Epoch 019 - training loss (MAE): 0.4939, validation MSE: 0.9492
+2026-01-05 02:24:38 [INFO]: Epoch 020 - training loss (MAE): 0.4914, validation MSE: 0.9232
+2026-01-05 02:38:18 [INFO]: Epoch 021 - training loss (MAE): 0.4908, validation MSE: 0.9331
+2026-01-05 02:51:55 [INFO]: Epoch 022 - training loss (MAE): 0.4909, validation MSE: 0.9184
+2026-01-05 03:05:32 [INFO]: Epoch 023 - training loss (MAE): 0.4861, validation MSE: 0.9145
+2026-01-05 03:19:12 [INFO]: Epoch 024 - training loss (MAE): 0.4853, validation MSE: 0.9352
+2026-01-05 03:32:51 [INFO]: Epoch 025 - training loss (MAE): 0.4830, validation MSE: 0.9143
+2026-01-05 03:46:28 [INFO]: Epoch 026 - training loss (MAE): 0.4819, validation MSE: 0.9029
+2026-01-05 04:00:03 [INFO]: Epoch 027 - training loss (MAE): 0.4791, validation MSE: 0.9215
+2026-01-05 04:13:40 [INFO]: Epoch 028 - training loss (MAE): 0.4787, validation MSE: 0.9016
+2026-01-05 04:27:16 [INFO]: Epoch 029 - training loss (MAE): 0.4770, validation MSE: 0.9147
+2026-01-05 04:40:53 [INFO]: Epoch 030 - training loss (MAE): 0.4764, validation MSE: 0.8998
+2026-01-05 04:54:29 [INFO]: Epoch 031 - training loss (MAE): 0.4737, validation MSE: 0.8992
+2026-01-05 05:08:03 [INFO]: Epoch 032 - training loss (MAE): 0.4735, validation MSE: 0.9352
+2026-01-05 05:21:39 [INFO]: Epoch 033 - training loss (MAE): 0.4727, validation MSE: 0.9243
+2026-01-05 05:35:15 [INFO]: Epoch 034 - training loss (MAE): 0.4702, validation MSE: 0.9092
+2026-01-05 05:48:52 [INFO]: Epoch 035 - training loss (MAE): 0.4673, validation MSE: 0.9174
+2026-01-05 06:02:29 [INFO]: Epoch 036 - training loss (MAE): 0.4665, validation MSE: 0.8982
+2026-01-05 06:16:05 [INFO]: Epoch 037 - training loss (MAE): 0.4636, validation MSE: 0.8955
+2026-01-05 06:29:39 [INFO]: Epoch 038 - training loss (MAE): 0.4625, validation MSE: 0.8849
+2026-01-05 06:43:13 [INFO]: Epoch 039 - training loss (MAE): 0.4593, validation MSE: 0.8793
+2026-01-05 06:56:48 [INFO]: Epoch 040 - training loss (MAE): 0.4575, validation MSE: 0.9001
+2026-01-05 07:10:23 [INFO]: Epoch 041 - training loss (MAE): 0.4558, validation MSE: 0.8855
+2026-01-05 07:23:59 [INFO]: Epoch 042 - training loss (MAE): 0.4544, validation MSE: 0.9057
+2026-01-05 07:37:34 [INFO]: Epoch 043 - training loss (MAE): 0.4520, validation MSE: 0.8857
+2026-01-05 07:51:10 [INFO]: Epoch 044 - training loss (MAE): 0.4467, validation MSE: 0.8790
+2026-01-05 08:04:46 [INFO]: Epoch 045 - training loss (MAE): 0.4478, validation MSE: 0.8818
+2026-01-05 08:18:21 [INFO]: Epoch 046 - training loss (MAE): 0.4452, validation MSE: 0.8864
+2026-01-05 08:31:57 [INFO]: Epoch 047 - training loss (MAE): 0.4433, validation MSE: 0.8874
+2026-01-05 08:45:33 [INFO]: Epoch 048 - training loss (MAE): 0.4417, validation MSE: 0.8987
+2026-01-05 08:59:08 [INFO]: Epoch 049 - training loss (MAE): 0.4403, validation MSE: 0.8634
+2026-01-05 09:12:45 [INFO]: Epoch 050 - training loss (MAE): 0.4375, validation MSE: 0.8763
+2026-01-05 09:26:23 [INFO]: Epoch 051 - training loss (MAE): 0.4340, validation MSE: 0.8741
+2026-01-05 09:39:58 [INFO]: Epoch 052 - training loss (MAE): 0.4328, validation MSE: 0.8498
+2026-01-05 09:53:34 [INFO]: Epoch 053 - training loss (MAE): 0.4293, validation MSE: 0.8397
+2026-01-05 10:07:09 [INFO]: Epoch 054 - training loss (MAE): 0.4270, validation MSE: 0.8409
+2026-01-05 10:20:46 [INFO]: Epoch 055 - training loss (MAE): 0.4260, validation MSE: 0.8429
+2026-01-05 10:34:25 [INFO]: Epoch 056 - training loss (MAE): 0.4254, validation MSE: 0.8625
+2026-01-05 10:48:03 [INFO]: Epoch 057 - training loss (MAE): 0.4245, validation MSE: 0.8195
+2026-01-05 11:01:39 [INFO]: Epoch 058 - training loss (MAE): 0.4228, validation MSE: 0.8241
+2026-01-05 11:15:19 [INFO]: Epoch 059 - training loss (MAE): 0.4218, validation MSE: 0.8135
+2026-01-05 11:28:58 [INFO]: Epoch 060 - training loss (MAE): 0.4197, validation MSE: 0.8161
+2026-01-05 11:42:38 [INFO]: Epoch 061 - training loss (MAE): 0.4175, validation MSE: 0.8138
+2026-01-05 11:56:18 [INFO]: Epoch 062 - training loss (MAE): 0.4178, validation MSE: 0.8139
+2026-01-05 12:09:58 [INFO]: Epoch 063 - training loss (MAE): 0.4153, validation MSE: 0.8202
+2026-01-05 12:23:38 [INFO]: Epoch 064 - training loss (MAE): 0.4156, validation MSE: 0.7975
+2026-01-05 12:37:19 [INFO]: Epoch 065 - training loss (MAE): 0.4145, validation MSE: 0.8117
+2026-01-05 12:51:01 [INFO]: Epoch 066 - training loss (MAE): 0.4143, validation MSE: 0.8046
+2026-01-05 13:04:41 [INFO]: Epoch 067 - training loss (MAE): 0.4147, validation MSE: 0.8198
+2026-01-05 13:18:23 [INFO]: Epoch 068 - training loss (MAE): 0.4112, validation MSE: 0.7980

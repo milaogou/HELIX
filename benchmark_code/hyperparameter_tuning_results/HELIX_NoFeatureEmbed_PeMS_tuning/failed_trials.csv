@@ -1,0 +1,79 @@
+trial_id,completed,failed,fail_reason,n_steps,n_features,epochs,patience,pe_dim,feature_embed_dim,d_model,n_heads,n_layers,dropout,batch_size,lr,mae,mse,mre,inference_time
+13,True,True,"Error: CUDA out of memory. Tried to allocate 1.60 GiB. GPU 0 has a total capacity of 39.39 GiB of which 367.94 MiB is free. Including non-PyTorch memory, this process has 39.02 GiB memory in use. Of the allocated memory 37.15 GiB is allocated by PyTorch, and 1.38 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+Full traceback:
+Traceback (most recent call last):
+  File ""/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/train_model_tuning.py"", line 157, in <module>
+    model.fit(train_set=train_set, val_set=val_set)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/helix_nofeatureembed/model.py"", line 285, in fit
+    self._train_model_with_lr_scheduling(train_dataloader, val_dataloader)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/helix_nofeatureembed/model.py"", line 298, in _train_model_with_lr_scheduling
+    results = self.model.forward(inputs, calc_criterion=True)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/helix_nofeatureembed/core.py"", line 273, in forward
+    reconstruction = self.backbone(X, missing_mask)
+  File ""/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/nn/modules/module.py"", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File ""/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/nn/modules/module.py"", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/helix_nofeatureembed/core.py"", line 209, in forward
+    time_feat = layer_encoders['feature'](time_encoded, 'feature')
+  File ""/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/nn/modules/module.py"", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File ""/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/nn/modules/module.py"", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/helix_nofeatureembed/core.py"", line 154, in forward
+    out = self.encoder(x_reshaped)
+  File ""/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/nn/modules/module.py"", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File ""/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/nn/modules/module.py"", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/helix_nofeatureembed/core.py"", line 128, in forward
+    attn_out, _ = self.attn(x, x, x, need_weights=False)
+  File ""/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/nn/modules/module.py"", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File ""/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/nn/modules/module.py"", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File ""/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/nn/modules/activation.py"", line 1241, in forward
+    attn_output, attn_output_weights = F.multi_head_attention_forward(
+  File ""/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/nn/functional.py"", line 5476, in multi_head_attention_forward
+    attn_output = scaled_dot_product_attention(q, k, v, attn_mask, dropout_p, is_causal)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 1.60 GiB. GPU 0 has a total capacity of 39.39 GiB of which 367.94 MiB is free. Including non-PyTorch memory, this process has 39.02 GiB memory in use. Of the allocated memory 37.15 GiB is allocated by PyTorch, and 1.38 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",24,862,1000,10,24,128,512,12,3,0.1,2,0.0008529604403242329,,,,
+16,True,True,"Error: CUDA out of memory. Tried to allocate 1.60 GiB. GPU 0 has a total capacity of 39.39 GiB of which 367.94 MiB is free. Including non-PyTorch memory, this process has 39.02 GiB memory in use. Of the allocated memory 37.15 GiB is allocated by PyTorch, and 1.38 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+Full traceback:
+Traceback (most recent call last):
+  File ""/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/train_model_tuning.py"", line 157, in <module>
+    model.fit(train_set=train_set, val_set=val_set)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/helix_nofeatureembed/model.py"", line 285, in fit
+    self._train_model_with_lr_scheduling(train_dataloader, val_dataloader)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/helix_nofeatureembed/model.py"", line 298, in _train_model_with_lr_scheduling
+    results = self.model.forward(inputs, calc_criterion=True)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/helix_nofeatureembed/core.py"", line 273, in forward
+    reconstruction = self.backbone(X, missing_mask)
+  File ""/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/nn/modules/module.py"", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File ""/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/nn/modules/module.py"", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/helix_nofeatureembed/core.py"", line 209, in forward
+    time_feat = layer_encoders['feature'](time_encoded, 'feature')
+  File ""/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/nn/modules/module.py"", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File ""/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/nn/modules/module.py"", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/helix_nofeatureembed/core.py"", line 154, in forward
+    out = self.encoder(x_reshaped)
+  File ""/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/nn/modules/module.py"", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File ""/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/nn/modules/module.py"", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/helix_nofeatureembed/core.py"", line 128, in forward
+    attn_out, _ = self.attn(x, x, x, need_weights=False)
+  File ""/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/nn/modules/module.py"", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File ""/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/nn/modules/module.py"", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File ""/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/nn/modules/activation.py"", line 1241, in forward
+    attn_output, attn_output_weights = F.multi_head_attention_forward(
+  File ""/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/nn/functional.py"", line 5476, in multi_head_attention_forward
+    attn_output = scaled_dot_product_attention(q, k, v, attn_mask, dropout_p, is_causal)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 1.60 GiB. GPU 0 has a total capacity of 39.39 GiB of which 367.94 MiB is free. Including non-PyTorch memory, this process has 39.02 GiB memory in use. Of the allocated memory 37.15 GiB is allocated by PyTorch, and 1.38 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",24,862,1000,10,24,128,512,12,3,0.1,2,0.0004775273232484047,,,,

@@ -1,0 +1,120 @@
+trial_id,completed,failed,fail_reason,n_steps,n_features,epochs,patience,pe_dim,feature_embed_dim,d_model,n_heads,n_layers,dropout,ORT_weight,MIT_weight,batch_size,lr,mae,mse,mre,inference_time
+1,True,True,"Error: d_model must be even for rotary positional encoding
+
+Full traceback:
+Traceback (most recent call last):
+  File ""/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/train_model_tuning.py"", line 156, in <module>
+    model = SUPPORT_MODELS[args.model](**model_params)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/helix_nohybrid/model.py"", line 159, in __init__
+    self.model = _HELIX_NoHybrid(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/helix_nohybrid/core.py"", line 245, in __init__
+    self.backbone = BackboneHELIX_NoHybrid(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/helix_nohybrid/core.py"", line 157, in __init__
+    self.embedding = TimeSeriesEmbedding2D(n_features, pe_dim, feature_embed_dim)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/helix_nohybrid/core.py"", line 45, in __init__
+    self.temporal_pe = RotaryPositionalEncoding(d_model=pe_dim)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/helix_nohybrid/core.py"", line 22, in __init__
+    assert d_model % 2 == 0, ""d_model must be even for rotary positional encoding""
+AssertionError: d_model must be even for rotary positional encoding",12,13,1000,10,3,8,64,4,1,0.1,1.0,1.0,32,0.004066699457428972,,,,
+23,True,True,"Error: d_model must be even for rotary positional encoding
+
+Full traceback:
+Traceback (most recent call last):
+  File ""/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/train_model_tuning.py"", line 156, in <module>
+    model = SUPPORT_MODELS[args.model](**model_params)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/helix_nohybrid/model.py"", line 159, in __init__
+    self.model = _HELIX_NoHybrid(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/helix_nohybrid/core.py"", line 245, in __init__
+    self.backbone = BackboneHELIX_NoHybrid(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/helix_nohybrid/core.py"", line 157, in __init__
+    self.embedding = TimeSeriesEmbedding2D(n_features, pe_dim, feature_embed_dim)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/helix_nohybrid/core.py"", line 45, in __init__
+    self.temporal_pe = RotaryPositionalEncoding(d_model=pe_dim)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/helix_nohybrid/core.py"", line 22, in __init__
+    assert d_model % 2 == 0, ""d_model must be even for rotary positional encoding""
+AssertionError: d_model must be even for rotary positional encoding",12,13,1000,10,3,6,64,8,1,0.2,1.0,1.0,16,0.00044686935534190577,,,,
+22,True,True,"Error: d_model must be even for rotary positional encoding
+
+Full traceback:
+Traceback (most recent call last):
+  File ""/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/train_model_tuning.py"", line 156, in <module>
+    model = SUPPORT_MODELS[args.model](**model_params)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/helix_nohybrid/model.py"", line 159, in __init__
+    self.model = _HELIX_NoHybrid(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/helix_nohybrid/core.py"", line 245, in __init__
+    self.backbone = BackboneHELIX_NoHybrid(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/helix_nohybrid/core.py"", line 157, in __init__
+    self.embedding = TimeSeriesEmbedding2D(n_features, pe_dim, feature_embed_dim)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/helix_nohybrid/core.py"", line 45, in __init__
+    self.temporal_pe = RotaryPositionalEncoding(d_model=pe_dim)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/helix_nohybrid/core.py"", line 22, in __init__
+    assert d_model % 2 == 0, ""d_model must be even for rotary positional encoding""
+AssertionError: d_model must be even for rotary positional encoding",12,13,1000,10,3,4,40,4,3,0.0,1.0,1.0,16,0.0005271376572446913,,,,
+15,True,True,"Error: d_model must be even for rotary positional encoding
+
+Full traceback:
+Traceback (most recent call last):
+  File ""/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/train_model_tuning.py"", line 156, in <module>
+    model = SUPPORT_MODELS[args.model](**model_params)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/helix_nohybrid/model.py"", line 159, in __init__
+    self.model = _HELIX_NoHybrid(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/helix_nohybrid/core.py"", line 245, in __init__
+    self.backbone = BackboneHELIX_NoHybrid(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/helix_nohybrid/core.py"", line 157, in __init__
+    self.embedding = TimeSeriesEmbedding2D(n_features, pe_dim, feature_embed_dim)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/helix_nohybrid/core.py"", line 45, in __init__
+    self.temporal_pe = RotaryPositionalEncoding(d_model=pe_dim)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/helix_nohybrid/core.py"", line 22, in __init__
+    assert d_model % 2 == 0, ""d_model must be even for rotary positional encoding""
+AssertionError: d_model must be even for rotary positional encoding",12,13,1000,10,3,4,64,4,1,0.0,1.0,1.0,32,0.00815754293253194,,,,
+21,True,True,"Error: d_model must be even for rotary positional encoding
+
+Full traceback:
+Traceback (most recent call last):
+  File ""/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/train_model_tuning.py"", line 156, in <module>
+    model = SUPPORT_MODELS[args.model](**model_params)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/helix_nohybrid/model.py"", line 159, in __init__
+    self.model = _HELIX_NoHybrid(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/helix_nohybrid/core.py"", line 245, in __init__
+    self.backbone = BackboneHELIX_NoHybrid(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/helix_nohybrid/core.py"", line 157, in __init__
+    self.embedding = TimeSeriesEmbedding2D(n_features, pe_dim, feature_embed_dim)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/helix_nohybrid/core.py"", line 45, in __init__
+    self.temporal_pe = RotaryPositionalEncoding(d_model=pe_dim)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/helix_nohybrid/core.py"", line 22, in __init__
+    assert d_model % 2 == 0, ""d_model must be even for rotary positional encoding""
+AssertionError: d_model must be even for rotary positional encoding",12,13,1000,10,3,8,64,8,3,0.1,1.0,1.0,16,0.0013313029800230114,,,,
+7,True,True,"Error: d_model must be even for rotary positional encoding
+
+Full traceback:
+Traceback (most recent call last):
+  File ""/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/train_model_tuning.py"", line 156, in <module>
+    model = SUPPORT_MODELS[args.model](**model_params)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/helix_nohybrid/model.py"", line 159, in __init__
+    self.model = _HELIX_NoHybrid(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/helix_nohybrid/core.py"", line 245, in __init__
+    self.backbone = BackboneHELIX_NoHybrid(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/helix_nohybrid/core.py"", line 157, in __init__
+    self.embedding = TimeSeriesEmbedding2D(n_features, pe_dim, feature_embed_dim)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/helix_nohybrid/core.py"", line 45, in __init__
+    self.temporal_pe = RotaryPositionalEncoding(d_model=pe_dim)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/helix_nohybrid/core.py"", line 22, in __init__
+    assert d_model % 2 == 0, ""d_model must be even for rotary positional encoding""
+AssertionError: d_model must be even for rotary positional encoding",12,13,1000,10,3,4,40,2,2,0.0,1.0,1.0,16,0.0016901730845718223,,,,
+9,True,True,"Error: d_model must be even for rotary positional encoding
+
+Full traceback:
+Traceback (most recent call last):
+  File ""/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/train_model_tuning.py"", line 156, in <module>
+    model = SUPPORT_MODELS[args.model](**model_params)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/helix_nohybrid/model.py"", line 159, in __init__
+    self.model = _HELIX_NoHybrid(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/helix_nohybrid/core.py"", line 245, in __init__
+    self.backbone = BackboneHELIX_NoHybrid(
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/helix_nohybrid/core.py"", line 157, in __init__
+    self.embedding = TimeSeriesEmbedding2D(n_features, pe_dim, feature_embed_dim)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/helix_nohybrid/core.py"", line 45, in __init__
+    self.temporal_pe = RotaryPositionalEncoding(d_model=pe_dim)
+  File ""/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/helix_nohybrid/core.py"", line 22, in __init__
+    assert d_model % 2 == 0, ""d_model must be even for rotary positional encoding""
+AssertionError: d_model must be even for rotary positional encoding",12,13,1000,10,3,8,32,2,1,0.1,1.0,1.0,32,0.0006170015202437961,,,,

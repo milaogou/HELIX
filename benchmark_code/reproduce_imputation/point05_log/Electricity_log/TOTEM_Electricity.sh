@@ -11,4 +11,4 @@ export PYTHONUNBUFFERED=1
 export http_proxy=http://u-cEoRwn:EDvFuZTe@172.16.4.9:3128
 export https_proxy=http://u-cEoRwn:EDvFuZTe@172.16.4.9:3128   
 export LD_PRELOAD=$LD_PRELOAD:/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/sklearn/utils/../../scikit_learn.libs/libgomp-947d5fa1.so.1.0.0
-python -u train_model.py --model TOTEM --dataset Electricity --dataset_fold_path data/generated_datasets/electricity_load_diagrams_rate05_step96_point --saving_path reproduce_imputation/point05_log/Electricity_log --device cuda:0 
+python -u train_model.py --model TOTEM --dataset Electricity --dataset_fold_path data/generated_datasets/electricity_load_diagrams_rate05_step96_point --saving_path reproduce_imputation/point05_log/Electricity_log --device cuda:0

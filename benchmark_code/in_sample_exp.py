@@ -30,11 +30,6 @@ DATASET_NAME_MAP = {
     'physionet_2019': 'PhysioNet2019',
 }
 
-MODEL_CONFIG_VERSIONS = {
-    # 'HELIX': 'with_LR_decay',  # HELIX使用without_LR_decay版本
-    # 其他模型默认为空字符串，即不添加后缀
-}
-
 DATA_BASE_PATH = "data/generated_datasets"
 OUTPUT_BASE_PATH = "reproduce_imputation"
 BASE_DIR = "/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code"
@@ -42,9 +37,13 @@ BASE_DIR = "/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code
 # 模型列表
 MODELS = [
     # 'HELIX',
+    'HELIX_NoFeatureEmbed',
+    'HELIX_NoFusion',
+    'HELIX_NoHybrid',
+    'HELIX_NoRotaryPE',
     # 'TEFN',
     # 'TimeMixerPP',
-    'TimeLLM',
+    # 'TimeLLM',
     # 'MOMENT',
     # 'TimeMixer',
     # 'ModernTCN',
@@ -55,37 +54,35 @@ MODELS = [
     # 'FreTS',
     # 'NonstationaryTransformer',
     # 'PatchTST',
-    
-    
 ]
 
 dataset_folders = [
-    # 'beijing_air_quality_rate00_step24_block_blocklen6',
+    'beijing_air_quality_rate00_step24_block_blocklen6',
     # 'beijing_air_quality_rate01_step24_point',
-    # 'beijing_air_quality_rate05_step24_point',
+    'beijing_air_quality_rate05_step24_point',
     'beijing_air_quality_rate05_step24_subseq_seqlen18',
-    # 'beijing_air_quality_rate09_step24_point',
-    # 'electricity_load_diagrams_rate00_step96_block_blocklen8',
-    # 'electricity_load_diagrams_rate01_step96_point',
-    # 'electricity_load_diagrams_rate05_step96_point',
-    # 'electricity_load_diagrams_rate05_step96_subseq_seqlen72',
-    # 'electricity_load_diagrams_rate09_step96_point',
+    'beijing_air_quality_rate09_step24_point',
+    'electricity_load_diagrams_rate00_step96_block_blocklen8',
+    'electricity_load_diagrams_rate01_step96_point',
+    'electricity_load_diagrams_rate05_step96_point',
+    'electricity_load_diagrams_rate05_step96_subseq_seqlen72',
+    'electricity_load_diagrams_rate09_step96_point',
     'ett_rate01_step48_point',
     'ett_rate03_step48_block_blocklen6',
     'ett_rate05_step48_point',
     'ett_rate05_step48_subseq_seqlen36',
     'ett_rate09_step48_point',
     'italy_air_quality_rate00_step12_block_blocklen4',
-    # 'italy_air_quality_rate01_step12_point',
-    # 'italy_air_quality_rate05_step12_point',
+    'italy_air_quality_rate01_step12_point',
+    'italy_air_quality_rate05_step12_point',
     'italy_air_quality_rate05_step12_subseq_seqlen8',
     'italy_air_quality_rate09_step12_point',
-    # 'pems_traffic_rate00_step24_block_blocklen6',
-    # 'pems_traffic_rate01_step24_point',
-    # 'pems_traffic_rate05_step24_point',
-    # 'pems_traffic_rate05_step24_subseq_seqlen18',
-    # 'pems_traffic_rate09_step24_point',
-    # 'physionet_2012_rate01_point',
+    'pems_traffic_rate00_step24_block_blocklen6',
+    'pems_traffic_rate01_step24_point',
+    'pems_traffic_rate05_step24_point',
+    'pems_traffic_rate05_step24_subseq_seqlen18',
+    'pems_traffic_rate09_step24_point',
+    'physionet_2012_rate01_point',
 ]
 
 def parse_dataset_info(folder_name):
@@ -112,18 +109,15 @@ def parse_dataset_info(folder_name):
     
     return dataset_name, rate, pattern
 
-def create_sbatch_script(model_name, folder_name, dataset_name, rate, pattern, config_version):
+def create_sbatch_script(model_name, folder_name, dataset_name, rate, pattern):
     log_dir = f"{pattern}{rate}_log"
     dataset_log_dir = f"{log_dir}/{dataset_name}_log"
     
-    version_flag = f"--config_version {config_version}" if config_version else ""
-    version_suffix = f"_{config_version}" if config_version else ""
-    
     script_content = f"""#!/bin/bash
 #SBATCH -x paraai-n32-h-01-agent-[1,4,8,16,17,25,27,28,29,30,31]
-#SBATCH --job-name={model_name}_{dataset_name}_{pattern}{rate}{version_suffix}
-#SBATCH -o {OUTPUT_BASE_PATH}/{dataset_log_dir}/{model_name}_{dataset_name}{version_suffix}.out
-#SBATCH -e {OUTPUT_BASE_PATH}/{dataset_log_dir}/{model_name}_{dataset_name}{version_suffix}.log
+#SBATCH --job-name={model_name}_{dataset_name}_{pattern}{rate}
+#SBATCH -o {OUTPUT_BASE_PATH}/{dataset_log_dir}/{model_name}_{dataset_name}.out
+#SBATCH -e {OUTPUT_BASE_PATH}/{dataset_log_dir}/{model_name}_{dataset_name}.log
 module purge
 module load miniforge3/24.1 
 module load compilers/cuda/12.1   compilers/gcc/11.3.0   cudnn/8.8.1.3_cuda12.x
@@ -132,15 +126,15 @@ export PYTHONUNBUFFERED=1
 export http_proxy=http://u-cEoRwn:EDvFuZTe@172.16.4.9:3128
 export https_proxy=http://u-cEoRwn:EDvFuZTe@172.16.4.9:3128   
 export LD_PRELOAD=$LD_PRELOAD:/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/sklearn/utils/../../scikit_learn.libs/libgomp-947d5fa1.so.1.0.0
-python -u train_model.py --model {model_name} --dataset {dataset_name} --dataset_fold_path {DATA_BASE_PATH}/{folder_name} --saving_path {OUTPUT_BASE_PATH}/{dataset_log_dir} --device cuda:0 {version_flag}
+python -u train_model.py --model {model_name} --dataset {dataset_name} --dataset_fold_path {DATA_BASE_PATH}/{folder_name} --saving_path {OUTPUT_BASE_PATH}/{dataset_log_dir} --device cuda:0
 """
-    return script_content, dataset_log_dir, version_suffix
+    return script_content, dataset_log_dir
 
 submitted_count = 0
-skipped_count =0
+skipped_count = 0
 total_tasks = len(MODELS) * len(dataset_folders)
 
-print(f"准备提交 {len(MODELS)} 个新模型 × {len(dataset_folders)} 个数据集 = {total_tasks} 个任务\n")
+print(f"准备提交 {len(MODELS)} 个模型 × {len(dataset_folders)} 个数据集 = {total_tasks} 个任务\n")
 
 for model_name in MODELS:
     for folder_name in dataset_folders:
@@ -156,14 +150,12 @@ for model_name in MODELS:
             skipped_count += 1
             continue
         
-        config_version = MODEL_CONFIG_VERSIONS.get(model_name, "")
-        
-        script_content, dataset_log_dir, version_suffix = create_sbatch_script(model_name, folder_name, dataset_name, rate, pattern, config_version)
+        script_content, dataset_log_dir = create_sbatch_script(model_name, folder_name, dataset_name, rate, pattern)
         
         output_dir = os.path.join(BASE_DIR, OUTPUT_BASE_PATH, dataset_log_dir)
         os.makedirs(output_dir, exist_ok=True)
 
-        script_filename = os.path.join(output_dir, f"{model_name}_{dataset_name}{version_suffix}.sh")
+        script_filename = os.path.join(output_dir, f"{model_name}_{dataset_name}.sh")
         with open(script_filename, 'w') as f:
             f.write(script_content)
         

@@ -4,6 +4,10 @@ import pandas as pd
 
 model_names = [
     'HELIX',
+    'HELIX_NoFeatureEmbed',
+    'HELIX_NoFusion',
+    'HELIX_NoHybrid',
+    'HELIX_NoRotaryPE',
     'TEFN',
     'TimeMixerPP',
     'TimeLLM',

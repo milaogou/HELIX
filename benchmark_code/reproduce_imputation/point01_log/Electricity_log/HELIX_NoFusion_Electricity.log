@@ -1,0 +1,6 @@
+2026-01-05 22:06:18 [WARNING]: ‼️ `pypots.utils.metrics` is deprecated. Please import from `pypots.nn.functional` instead.
+2026-01-05 22:06:18 [INFO]: Have set the random seed as 2024 for numpy and pytorch.
+Traceback (most recent call last):
+  File "/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/train_model.py", line 146, in <module>
+    hyperparameters = HPO_RESULTS[args.dataset][args.model].copy()
+KeyError: 'HELIX_NoFusion'

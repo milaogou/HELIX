@@ -1,0 +1,456 @@
+2026-01-05 22:05:24 [WARNING]: ‼️ `pypots.utils.metrics` is deprecated. Please import from `pypots.nn.functional` instead.
+2026-01-05 22:05:25 [INFO]: Have set the random seed as 2024 for numpy and pytorch.
+2026-01-05 22:05:25 [INFO]: Using the given device: cuda:0
+2026-01-05 22:05:25 [INFO]: Model files will be saved to reproduce_imputation/point05_log/BeijingAir_log/HELIX_NoFeatureEmbed_BeijingAir/round_0/20260105_T220525
+2026-01-05 22:05:25 [INFO]: Tensorboard file will be saved to reproduce_imputation/point05_log/BeijingAir_log/HELIX_NoFeatureEmbed_BeijingAir/round_0/20260105_T220525/tensorboard
+2026-01-05 22:05:25 [INFO]: Using customized MAE as the training loss function.
+2026-01-05 22:05:25 [INFO]: Using customized MSE as the validation metric function.
+2026-01-05 22:05:25 [INFO]: ============================================================
+2026-01-05 22:05:25 [INFO]: HELIX_NoFeatureEmbed Model Configuration (Ablation):
+2026-01-05 22:05:25 [INFO]: ============================================================
+2026-01-05 22:05:25 [INFO]: Data dimensions:
+2026-01-05 22:05:25 [INFO]:   - n_steps: 24
+2026-01-05 22:05:25 [INFO]:   - n_features: 132
+2026-01-05 22:05:25 [INFO]: Model architecture:
+2026-01-05 22:05:25 [INFO]:   - pe_dim: 24
+2026-01-05 22:05:25 [INFO]:   - feature_embed_dim: 16
+2026-01-05 22:05:25 [INFO]:   - d_model: 192
+2026-01-05 22:05:25 [INFO]:   - n_heads: 4
+2026-01-05 22:05:25 [INFO]:   - n_layers: 3
+2026-01-05 22:05:25 [INFO]:   - dropout: 0.1
+2026-01-05 22:05:25 [INFO]: Training configuration:
+2026-01-05 22:05:25 [INFO]:   - ORT_weight: 1.0
+2026-01-05 22:05:25 [INFO]:   - MIT_weight: 1.0
+2026-01-05 22:05:25 [INFO]:   - batch_size: 4
+2026-01-05 22:05:25 [INFO]:   - epochs: 1000
+2026-01-05 22:05:25 [INFO]:   - patience: 10
+2026-01-05 22:05:25 [INFO]: Optimizer configuration:
+2026-01-05 22:05:25 [INFO]:   - initial_lr: 0.001
+2026-01-05 22:05:25 [INFO]:   - lr_decay: disabled
+2026-01-05 22:05:25 [INFO]: ============================================================
+2026-01-05 22:05:25 [INFO]: HELIX_NoFeatureEmbed initialized with the given hyperparameters, the number of trainable parameters: 2,679,963
+2026-01-05 22:05:25 [INFO]: Learning rate scheduler disabled
+2026-01-05 22:05:39 [INFO]: Epoch 001 - train_loss: 0.6402, val_loss: 0.2817, lr: 0.000122
+2026-01-05 22:05:52 [INFO]: Epoch 002 - train_loss: 0.2895, val_loss: 0.2370, lr: 0.000122
+2026-01-05 22:06:06 [INFO]: Epoch 003 - train_loss: 0.2555, val_loss: 0.2327, lr: 0.000122
+2026-01-05 22:06:19 [INFO]: Epoch 004 - train_loss: 0.2440, val_loss: 0.2265, lr: 0.000122
+2026-01-05 22:06:33 [INFO]: Epoch 005 - train_loss: 0.2352, val_loss: 0.2242, lr: 0.000122
+2026-01-05 22:06:46 [INFO]: Epoch 006 - train_loss: 0.2291, val_loss: 0.2236, lr: 0.000122
+2026-01-05 22:07:00 [INFO]: Epoch 007 - train_loss: 0.2247, val_loss: 0.2215, lr: 0.000122
+2026-01-05 22:07:13 [INFO]: Epoch 008 - train_loss: 0.2208, val_loss: 0.2190, lr: 0.000122
+2026-01-05 22:07:27 [INFO]: Epoch 009 - train_loss: 0.2210, val_loss: 0.2208, lr: 0.000122
+2026-01-05 22:07:40 [INFO]: Epoch 010 - train_loss: 0.2167, val_loss: 0.2178, lr: 0.000122
+2026-01-05 22:07:54 [INFO]: Epoch 011 - train_loss: 0.2140, val_loss: 0.2176, lr: 0.000122
+2026-01-05 22:08:07 [INFO]: Epoch 012 - train_loss: 0.2196, val_loss: 0.2167, lr: 0.000122
+2026-01-05 22:08:20 [INFO]: Epoch 013 - train_loss: 0.2112, val_loss: 0.2177, lr: 0.000122
+2026-01-05 22:08:34 [INFO]: Epoch 014 - train_loss: 0.2104, val_loss: 0.2148, lr: 0.000122
+2026-01-05 22:08:47 [INFO]: Epoch 015 - train_loss: 0.2087, val_loss: 0.2149, lr: 0.000122
+2026-01-05 22:09:01 [INFO]: Epoch 016 - train_loss: 0.2074, val_loss: 0.2111, lr: 0.000122
+2026-01-05 22:09:14 [INFO]: Epoch 017 - train_loss: 0.2068, val_loss: 0.2110, lr: 0.000122
+2026-01-05 22:09:28 [INFO]: Epoch 018 - train_loss: 0.2067, val_loss: 0.2112, lr: 0.000122
+2026-01-05 22:09:41 [INFO]: Epoch 019 - train_loss: 0.2040, val_loss: 0.2106, lr: 0.000122
+2026-01-05 22:09:55 [INFO]: Epoch 020 - train_loss: 0.2035, val_loss: 0.2174, lr: 0.000122
+2026-01-05 22:10:08 [INFO]: Epoch 021 - train_loss: 0.2051, val_loss: 0.2137, lr: 0.000122
+2026-01-05 22:10:21 [INFO]: Epoch 022 - train_loss: 0.2021, val_loss: 0.2093, lr: 0.000122
+2026-01-05 22:10:35 [INFO]: Epoch 023 - train_loss: 0.2033, val_loss: 0.2080, lr: 0.000122
+2026-01-05 22:10:48 [INFO]: Epoch 024 - train_loss: 0.1984, val_loss: 0.2081, lr: 0.000122
+2026-01-05 22:11:02 [INFO]: Epoch 025 - train_loss: 0.1988, val_loss: 0.2087, lr: 0.000122
+2026-01-05 22:11:15 [INFO]: Epoch 026 - train_loss: 0.1988, val_loss: 0.2069, lr: 0.000122
+2026-01-05 22:11:29 [INFO]: Epoch 027 - train_loss: 0.2000, val_loss: 0.2095, lr: 0.000122
+2026-01-05 22:11:42 [INFO]: Epoch 028 - train_loss: 0.1987, val_loss: 0.2106, lr: 0.000122
+2026-01-05 22:11:56 [INFO]: Epoch 029 - train_loss: 0.1984, val_loss: 0.2071, lr: 0.000122
+2026-01-05 22:12:09 [INFO]: Epoch 030 - train_loss: 0.1971, val_loss: 0.2035, lr: 0.000122
+2026-01-05 22:12:22 [INFO]: Epoch 031 - train_loss: 0.1990, val_loss: 0.2040, lr: 0.000122
+2026-01-05 22:12:36 [INFO]: Epoch 032 - train_loss: 0.1957, val_loss: 0.2054, lr: 0.000122
+2026-01-05 22:12:49 [INFO]: Epoch 033 - train_loss: 0.1938, val_loss: 0.2110, lr: 0.000122
+2026-01-05 22:13:03 [INFO]: Epoch 034 - train_loss: 0.1991, val_loss: 0.2005, lr: 0.000122
+2026-01-05 22:13:16 [INFO]: Epoch 035 - train_loss: 0.1938, val_loss: 0.2037, lr: 0.000122
+2026-01-05 22:13:29 [INFO]: Epoch 036 - train_loss: 0.1943, val_loss: 0.2006, lr: 0.000122
+2026-01-05 22:13:43 [INFO]: Epoch 037 - train_loss: 0.1936, val_loss: 0.2001, lr: 0.000122
+2026-01-05 22:13:56 [INFO]: Epoch 038 - train_loss: 0.1942, val_loss: 0.1996, lr: 0.000122
+2026-01-05 22:14:10 [INFO]: Epoch 039 - train_loss: 0.1936, val_loss: 0.2081, lr: 0.000122
+2026-01-05 22:14:23 [INFO]: Epoch 040 - train_loss: 0.1936, val_loss: 0.2061, lr: 0.000122
+2026-01-05 22:14:37 [INFO]: Epoch 041 - train_loss: 0.1931, val_loss: 0.2040, lr: 0.000122
+2026-01-05 22:14:50 [INFO]: Epoch 042 - train_loss: 0.1925, val_loss: 0.2094, lr: 0.000122
+2026-01-05 22:15:03 [INFO]: Epoch 043 - train_loss: 0.1909, val_loss: 0.2033, lr: 0.000122
+2026-01-05 22:15:17 [INFO]: Epoch 044 - train_loss: 0.1919, val_loss: 0.2058, lr: 0.000122
+2026-01-05 22:15:30 [INFO]: Epoch 045 - train_loss: 0.1923, val_loss: 0.2062, lr: 0.000122
+2026-01-05 22:15:44 [INFO]: Epoch 046 - train_loss: 0.1908, val_loss: 0.2023, lr: 0.000122
+2026-01-05 22:15:57 [INFO]: Epoch 047 - train_loss: 0.1895, val_loss: 0.2052, lr: 0.000122
+2026-01-05 22:16:10 [INFO]: Epoch 048 - train_loss: 0.1915, val_loss: 0.2056, lr: 0.000122
+2026-01-05 22:16:10 [INFO]: Early stopping triggered at epoch 48. No improvement for 10 epochs.
+2026-01-05 22:16:11 [INFO]: Saved the model to reproduce_imputation/point05_log/BeijingAir_log/HELIX_NoFeatureEmbed_BeijingAir/round_0/20260105_T220525/HELIX_NoFeatureEmbed.pypots
+2026-01-05 22:16:12 [INFO]: Successfully saved to reproduce_imputation/point05_log/BeijingAir_log/HELIX_NoFeatureEmbed_BeijingAir/round_0/imputation.pkl
+2026-01-05 22:16:12 [INFO]: Round0 - HELIX_NoFeatureEmbed on BeijingAir: MAE=0.1473, MSE=0.2233, MRE=0.1952
+2026-01-05 22:16:12 [INFO]: Have set the random seed as 2025 for numpy and pytorch.
+2026-01-05 22:16:12 [INFO]: Using the given device: cuda:0
+2026-01-05 22:16:12 [INFO]: Model files will be saved to reproduce_imputation/point05_log/BeijingAir_log/HELIX_NoFeatureEmbed_BeijingAir/round_1/20260105_T221612
+2026-01-05 22:16:12 [INFO]: Tensorboard file will be saved to reproduce_imputation/point05_log/BeijingAir_log/HELIX_NoFeatureEmbed_BeijingAir/round_1/20260105_T221612/tensorboard
+2026-01-05 22:16:12 [INFO]: Using customized MAE as the training loss function.
+2026-01-05 22:16:12 [INFO]: Using customized MSE as the validation metric function.
+2026-01-05 22:16:12 [INFO]: ============================================================
+2026-01-05 22:16:12 [INFO]: HELIX_NoFeatureEmbed Model Configuration (Ablation):
+2026-01-05 22:16:12 [INFO]: ============================================================
+2026-01-05 22:16:12 [INFO]: Data dimensions:
+2026-01-05 22:16:12 [INFO]:   - n_steps: 24
+2026-01-05 22:16:12 [INFO]:   - n_features: 132
+2026-01-05 22:16:12 [INFO]: Model architecture:
+2026-01-05 22:16:12 [INFO]:   - pe_dim: 24
+2026-01-05 22:16:12 [INFO]:   - feature_embed_dim: 16
+2026-01-05 22:16:12 [INFO]:   - d_model: 192
+2026-01-05 22:16:12 [INFO]:   - n_heads: 4
+2026-01-05 22:16:12 [INFO]:   - n_layers: 3
+2026-01-05 22:16:12 [INFO]:   - dropout: 0.1
+2026-01-05 22:16:12 [INFO]: Training configuration:
+2026-01-05 22:16:12 [INFO]:   - ORT_weight: 1.0
+2026-01-05 22:16:12 [INFO]:   - MIT_weight: 1.0
+2026-01-05 22:16:12 [INFO]:   - batch_size: 4
+2026-01-05 22:16:12 [INFO]:   - epochs: 1000
+2026-01-05 22:16:12 [INFO]:   - patience: 10
+2026-01-05 22:16:12 [INFO]: Optimizer configuration:
+2026-01-05 22:16:12 [INFO]:   - initial_lr: 0.001
+2026-01-05 22:16:12 [INFO]:   - lr_decay: disabled
+2026-01-05 22:16:12 [INFO]: ============================================================
+2026-01-05 22:16:12 [INFO]: HELIX_NoFeatureEmbed initialized with the given hyperparameters, the number of trainable parameters: 2,679,963
+2026-01-05 22:16:12 [INFO]: Learning rate scheduler disabled
+2026-01-05 22:16:25 [INFO]: Epoch 001 - train_loss: 0.5944, val_loss: 0.2688, lr: 0.000122
+2026-01-05 22:16:39 [INFO]: Epoch 002 - train_loss: 0.2848, val_loss: 0.2404, lr: 0.000122
+2026-01-05 22:16:52 [INFO]: Epoch 003 - train_loss: 0.2512, val_loss: 0.2303, lr: 0.000122
+2026-01-05 22:17:06 [INFO]: Epoch 004 - train_loss: 0.2406, val_loss: 0.2326, lr: 0.000122
+2026-01-05 22:17:19 [INFO]: Epoch 005 - train_loss: 0.2339, val_loss: 0.2234, lr: 0.000122
+2026-01-05 22:17:33 [INFO]: Epoch 006 - train_loss: 0.2276, val_loss: 0.2250, lr: 0.000122
+2026-01-05 22:17:46 [INFO]: Epoch 007 - train_loss: 0.2260, val_loss: 0.2220, lr: 0.000122
+2026-01-05 22:18:00 [INFO]: Epoch 008 - train_loss: 0.2188, val_loss: 0.2222, lr: 0.000122
+2026-01-05 22:18:13 [INFO]: Epoch 009 - train_loss: 0.2178, val_loss: 0.2221, lr: 0.000122
+2026-01-05 22:18:26 [INFO]: Epoch 010 - train_loss: 0.2150, val_loss: 0.2215, lr: 0.000122
+2026-01-05 22:18:40 [INFO]: Epoch 011 - train_loss: 0.2152, val_loss: 0.2199, lr: 0.000122
+2026-01-05 22:18:53 [INFO]: Epoch 012 - train_loss: 0.2136, val_loss: 0.2192, lr: 0.000122
+2026-01-05 22:19:07 [INFO]: Epoch 013 - train_loss: 0.2114, val_loss: 0.2188, lr: 0.000122
+2026-01-05 22:19:20 [INFO]: Epoch 014 - train_loss: 0.2093, val_loss: 0.2174, lr: 0.000122
+2026-01-05 22:19:34 [INFO]: Epoch 015 - train_loss: 0.2084, val_loss: 0.2143, lr: 0.000122
+2026-01-05 22:19:47 [INFO]: Epoch 016 - train_loss: 0.2076, val_loss: 0.2189, lr: 0.000122
+2026-01-05 22:20:00 [INFO]: Epoch 017 - train_loss: 0.2072, val_loss: 0.2176, lr: 0.000122
+2026-01-05 22:20:14 [INFO]: Epoch 018 - train_loss: 0.2066, val_loss: 0.2135, lr: 0.000122
+2026-01-05 22:20:27 [INFO]: Epoch 019 - train_loss: 0.2037, val_loss: 0.2133, lr: 0.000122
+2026-01-05 22:20:41 [INFO]: Epoch 020 - train_loss: 0.2047, val_loss: 0.2124, lr: 0.000122
+2026-01-05 22:20:54 [INFO]: Epoch 021 - train_loss: 0.2038, val_loss: 0.2087, lr: 0.000122
+2026-01-05 22:21:08 [INFO]: Epoch 022 - train_loss: 0.2050, val_loss: 0.2114, lr: 0.000122
+2026-01-05 22:21:21 [INFO]: Epoch 023 - train_loss: 0.2030, val_loss: 0.2149, lr: 0.000122
+2026-01-05 22:21:34 [INFO]: Epoch 024 - train_loss: 0.2004, val_loss: 0.2128, lr: 0.000122
+2026-01-05 22:21:48 [INFO]: Epoch 025 - train_loss: 0.2007, val_loss: 0.2080, lr: 0.000122
+2026-01-05 22:22:01 [INFO]: Epoch 026 - train_loss: 0.2013, val_loss: 0.2073, lr: 0.000122
+2026-01-05 22:22:15 [INFO]: Epoch 027 - train_loss: 0.1986, val_loss: 0.2048, lr: 0.000122
+2026-01-05 22:22:28 [INFO]: Epoch 028 - train_loss: 0.1985, val_loss: 0.2076, lr: 0.000122
+2026-01-05 22:22:42 [INFO]: Epoch 029 - train_loss: 0.2025, val_loss: 0.2028, lr: 0.000122
+2026-01-05 22:22:55 [INFO]: Epoch 030 - train_loss: 0.1995, val_loss: 0.2029, lr: 0.000122
+2026-01-05 22:23:08 [INFO]: Epoch 031 - train_loss: 0.1956, val_loss: 0.2050, lr: 0.000122
+2026-01-05 22:23:22 [INFO]: Epoch 032 - train_loss: 0.1988, val_loss: 0.2068, lr: 0.000122
+2026-01-05 22:23:35 [INFO]: Epoch 033 - train_loss: 0.1964, val_loss: 0.2059, lr: 0.000122
+2026-01-05 22:23:49 [INFO]: Epoch 034 - train_loss: 0.1973, val_loss: 0.2086, lr: 0.000122
+2026-01-05 22:24:02 [INFO]: Epoch 035 - train_loss: 0.1954, val_loss: 0.2065, lr: 0.000122
+2026-01-05 22:24:16 [INFO]: Epoch 036 - train_loss: 0.1941, val_loss: 0.2070, lr: 0.000122
+2026-01-05 22:24:29 [INFO]: Epoch 037 - train_loss: 0.1942, val_loss: 0.2094, lr: 0.000122
+2026-01-05 22:24:42 [INFO]: Epoch 038 - train_loss: 0.1949, val_loss: 0.2031, lr: 0.000122
+2026-01-05 22:24:56 [INFO]: Epoch 039 - train_loss: 0.1959, val_loss: 0.2054, lr: 0.000122
+2026-01-05 22:24:56 [INFO]: Early stopping triggered at epoch 39. No improvement for 10 epochs.
+2026-01-05 22:24:56 [INFO]: Saved the model to reproduce_imputation/point05_log/BeijingAir_log/HELIX_NoFeatureEmbed_BeijingAir/round_1/20260105_T221612/HELIX_NoFeatureEmbed.pypots
+2026-01-05 22:24:57 [INFO]: Successfully saved to reproduce_imputation/point05_log/BeijingAir_log/HELIX_NoFeatureEmbed_BeijingAir/round_1/imputation.pkl
+2026-01-05 22:24:57 [INFO]: Round1 - HELIX_NoFeatureEmbed on BeijingAir: MAE=0.1480, MSE=0.2318, MRE=0.1963
+2026-01-05 22:24:57 [INFO]: Have set the random seed as 2026 for numpy and pytorch.
+2026-01-05 22:24:57 [INFO]: Using the given device: cuda:0
+2026-01-05 22:24:57 [INFO]: Model files will be saved to reproduce_imputation/point05_log/BeijingAir_log/HELIX_NoFeatureEmbed_BeijingAir/round_2/20260105_T222457
+2026-01-05 22:24:57 [INFO]: Tensorboard file will be saved to reproduce_imputation/point05_log/BeijingAir_log/HELIX_NoFeatureEmbed_BeijingAir/round_2/20260105_T222457/tensorboard
+2026-01-05 22:24:57 [INFO]: Using customized MAE as the training loss function.
+2026-01-05 22:24:57 [INFO]: Using customized MSE as the validation metric function.
+2026-01-05 22:24:57 [INFO]: ============================================================
+2026-01-05 22:24:57 [INFO]: HELIX_NoFeatureEmbed Model Configuration (Ablation):
+2026-01-05 22:24:57 [INFO]: ============================================================
+2026-01-05 22:24:57 [INFO]: Data dimensions:
+2026-01-05 22:24:57 [INFO]:   - n_steps: 24
+2026-01-05 22:24:57 [INFO]:   - n_features: 132
+2026-01-05 22:24:57 [INFO]: Model architecture:
+2026-01-05 22:24:57 [INFO]:   - pe_dim: 24
+2026-01-05 22:24:57 [INFO]:   - feature_embed_dim: 16
+2026-01-05 22:24:57 [INFO]:   - d_model: 192
+2026-01-05 22:24:57 [INFO]:   - n_heads: 4
+2026-01-05 22:24:57 [INFO]:   - n_layers: 3
+2026-01-05 22:24:57 [INFO]:   - dropout: 0.1
+2026-01-05 22:24:57 [INFO]: Training configuration:
+2026-01-05 22:24:57 [INFO]:   - ORT_weight: 1.0
+2026-01-05 22:24:57 [INFO]:   - MIT_weight: 1.0
+2026-01-05 22:24:57 [INFO]:   - batch_size: 4
+2026-01-05 22:24:57 [INFO]:   - epochs: 1000
+2026-01-05 22:24:57 [INFO]:   - patience: 10
+2026-01-05 22:24:57 [INFO]: Optimizer configuration:
+2026-01-05 22:24:57 [INFO]:   - initial_lr: 0.001
+2026-01-05 22:24:57 [INFO]:   - lr_decay: disabled
+2026-01-05 22:24:57 [INFO]: ============================================================
+2026-01-05 22:24:57 [INFO]: HELIX_NoFeatureEmbed initialized with the given hyperparameters, the number of trainable parameters: 2,679,963
+2026-01-05 22:24:57 [INFO]: Learning rate scheduler disabled
+2026-01-05 22:25:11 [INFO]: Epoch 001 - train_loss: 0.5932, val_loss: 0.2709, lr: 0.000122
+2026-01-05 22:25:24 [INFO]: Epoch 002 - train_loss: 0.2840, val_loss: 0.2368, lr: 0.000122
+2026-01-05 22:25:37 [INFO]: Epoch 003 - train_loss: 0.2560, val_loss: 0.2298, lr: 0.000122
+2026-01-05 22:25:51 [INFO]: Epoch 004 - train_loss: 0.2408, val_loss: 0.2269, lr: 0.000122
+2026-01-05 22:26:04 [INFO]: Epoch 005 - train_loss: 0.2340, val_loss: 0.2242, lr: 0.000122
+2026-01-05 22:26:18 [INFO]: Epoch 006 - train_loss: 0.2298, val_loss: 0.2216, lr: 0.000122
+2026-01-05 22:26:31 [INFO]: Epoch 007 - train_loss: 0.2244, val_loss: 0.2219, lr: 0.000122
+2026-01-05 22:26:45 [INFO]: Epoch 008 - train_loss: 0.2261, val_loss: 0.2236, lr: 0.000122
+2026-01-05 22:26:58 [INFO]: Epoch 009 - train_loss: 0.2188, val_loss: 0.2204, lr: 0.000122
+2026-01-05 22:27:11 [INFO]: Epoch 010 - train_loss: 0.2163, val_loss: 0.2203, lr: 0.000122
+2026-01-05 22:27:25 [INFO]: Epoch 011 - train_loss: 0.2147, val_loss: 0.2211, lr: 0.000122
+2026-01-05 22:27:38 [INFO]: Epoch 012 - train_loss: 0.2130, val_loss: 0.2153, lr: 0.000122
+2026-01-05 22:27:52 [INFO]: Epoch 013 - train_loss: 0.2120, val_loss: 0.2138, lr: 0.000122
+2026-01-05 22:28:05 [INFO]: Epoch 014 - train_loss: 0.2099, val_loss: 0.2181, lr: 0.000122
+2026-01-05 22:28:18 [INFO]: Epoch 015 - train_loss: 0.2089, val_loss: 0.2081, lr: 0.000122
+2026-01-05 22:28:32 [INFO]: Epoch 016 - train_loss: 0.2083, val_loss: 0.2170, lr: 0.000122
+2026-01-05 22:28:45 [INFO]: Epoch 017 - train_loss: 0.2090, val_loss: 0.2178, lr: 0.000122
+2026-01-05 22:28:59 [INFO]: Epoch 018 - train_loss: 0.2106, val_loss: 0.2148, lr: 0.000122
+2026-01-05 22:29:12 [INFO]: Epoch 019 - train_loss: 0.2044, val_loss: 0.2081, lr: 0.000122
+2026-01-05 22:29:25 [INFO]: Epoch 020 - train_loss: 0.2053, val_loss: 0.2128, lr: 0.000122
+2026-01-05 22:29:39 [INFO]: Epoch 021 - train_loss: 0.2031, val_loss: 0.2096, lr: 0.000122
+2026-01-05 22:29:52 [INFO]: Epoch 022 - train_loss: 0.2046, val_loss: 0.2075, lr: 0.000122
+2026-01-05 22:30:06 [INFO]: Epoch 023 - train_loss: 0.2038, val_loss: 0.2059, lr: 0.000122
+2026-01-05 22:30:19 [INFO]: Epoch 024 - train_loss: 0.2065, val_loss: 0.2073, lr: 0.000122
+2026-01-05 22:30:32 [INFO]: Epoch 025 - train_loss: 0.1994, val_loss: 0.2090, lr: 0.000122
+2026-01-05 22:30:46 [INFO]: Epoch 026 - train_loss: 0.1990, val_loss: 0.2089, lr: 0.000122
+2026-01-05 22:30:59 [INFO]: Epoch 027 - train_loss: 0.1988, val_loss: 0.2046, lr: 0.000122
+2026-01-05 22:31:13 [INFO]: Epoch 028 - train_loss: 0.2007, val_loss: 0.2054, lr: 0.000122
+2026-01-05 22:31:26 [INFO]: Epoch 029 - train_loss: 0.2001, val_loss: 0.2100, lr: 0.000122
+2026-01-05 22:31:39 [INFO]: Epoch 030 - train_loss: 0.1999, val_loss: 0.2120, lr: 0.000122
+2026-01-05 22:31:53 [INFO]: Epoch 031 - train_loss: 0.1986, val_loss: 0.2108, lr: 0.000122
+2026-01-05 22:32:06 [INFO]: Epoch 032 - train_loss: 0.1980, val_loss: 0.2093, lr: 0.000122
+2026-01-05 22:32:20 [INFO]: Epoch 033 - train_loss: 0.1985, val_loss: 0.2074, lr: 0.000122
+2026-01-05 22:32:33 [INFO]: Epoch 034 - train_loss: 0.1976, val_loss: 0.2076, lr: 0.000122
+2026-01-05 22:32:46 [INFO]: Epoch 035 - train_loss: 0.1966, val_loss: 0.2112, lr: 0.000122
+2026-01-05 22:33:00 [INFO]: Epoch 036 - train_loss: 0.2001, val_loss: 0.2075, lr: 0.000122
+2026-01-05 22:33:13 [INFO]: Epoch 037 - train_loss: 0.1949, val_loss: 0.2056, lr: 0.000122
+2026-01-05 22:33:13 [INFO]: Early stopping triggered at epoch 37. No improvement for 10 epochs.
+2026-01-05 22:33:13 [INFO]: Saved the model to reproduce_imputation/point05_log/BeijingAir_log/HELIX_NoFeatureEmbed_BeijingAir/round_2/20260105_T222457/HELIX_NoFeatureEmbed.pypots
+2026-01-05 22:33:14 [INFO]: Successfully saved to reproduce_imputation/point05_log/BeijingAir_log/HELIX_NoFeatureEmbed_BeijingAir/round_2/imputation.pkl
+2026-01-05 22:33:14 [INFO]: Round2 - HELIX_NoFeatureEmbed on BeijingAir: MAE=0.1480, MSE=0.2303, MRE=0.1962
+2026-01-05 22:33:14 [INFO]: Have set the random seed as 2027 for numpy and pytorch.
+2026-01-05 22:33:14 [INFO]: Using the given device: cuda:0
+2026-01-05 22:33:14 [INFO]: Model files will be saved to reproduce_imputation/point05_log/BeijingAir_log/HELIX_NoFeatureEmbed_BeijingAir/round_3/20260105_T223314
+2026-01-05 22:33:14 [INFO]: Tensorboard file will be saved to reproduce_imputation/point05_log/BeijingAir_log/HELIX_NoFeatureEmbed_BeijingAir/round_3/20260105_T223314/tensorboard
+2026-01-05 22:33:14 [INFO]: Using customized MAE as the training loss function.
+2026-01-05 22:33:14 [INFO]: Using customized MSE as the validation metric function.
+2026-01-05 22:33:14 [INFO]: ============================================================
+2026-01-05 22:33:14 [INFO]: HELIX_NoFeatureEmbed Model Configuration (Ablation):
+2026-01-05 22:33:14 [INFO]: ============================================================
+2026-01-05 22:33:14 [INFO]: Data dimensions:
+2026-01-05 22:33:14 [INFO]:   - n_steps: 24
+2026-01-05 22:33:14 [INFO]:   - n_features: 132
+2026-01-05 22:33:14 [INFO]: Model architecture:
+2026-01-05 22:33:14 [INFO]:   - pe_dim: 24
+2026-01-05 22:33:14 [INFO]:   - feature_embed_dim: 16
+2026-01-05 22:33:14 [INFO]:   - d_model: 192
+2026-01-05 22:33:14 [INFO]:   - n_heads: 4
+2026-01-05 22:33:14 [INFO]:   - n_layers: 3
+2026-01-05 22:33:14 [INFO]:   - dropout: 0.1
+2026-01-05 22:33:14 [INFO]: Training configuration:
+2026-01-05 22:33:14 [INFO]:   - ORT_weight: 1.0
+2026-01-05 22:33:14 [INFO]:   - MIT_weight: 1.0
+2026-01-05 22:33:14 [INFO]:   - batch_size: 4
+2026-01-05 22:33:14 [INFO]:   - epochs: 1000
+2026-01-05 22:33:14 [INFO]:   - patience: 10
+2026-01-05 22:33:14 [INFO]: Optimizer configuration:
+2026-01-05 22:33:14 [INFO]:   - initial_lr: 0.001
+2026-01-05 22:33:14 [INFO]:   - lr_decay: disabled
+2026-01-05 22:33:14 [INFO]: ============================================================
+2026-01-05 22:33:14 [INFO]: HELIX_NoFeatureEmbed initialized with the given hyperparameters, the number of trainable parameters: 2,679,963
+2026-01-05 22:33:14 [INFO]: Learning rate scheduler disabled
+2026-01-05 22:33:28 [INFO]: Epoch 001 - train_loss: 0.5546, val_loss: 0.2544, lr: 0.000122
+2026-01-05 22:33:41 [INFO]: Epoch 002 - train_loss: 0.2789, val_loss: 0.2341, lr: 0.000122
+2026-01-05 22:33:55 [INFO]: Epoch 003 - train_loss: 0.2514, val_loss: 0.2292, lr: 0.000122
+2026-01-05 22:34:08 [INFO]: Epoch 004 - train_loss: 0.2402, val_loss: 0.2266, lr: 0.000122
+2026-01-05 22:34:22 [INFO]: Epoch 005 - train_loss: 0.2328, val_loss: 0.2231, lr: 0.000122
+2026-01-05 22:34:35 [INFO]: Epoch 006 - train_loss: 0.2279, val_loss: 0.2232, lr: 0.000122
+2026-01-05 22:34:49 [INFO]: Epoch 007 - train_loss: 0.2247, val_loss: 0.2243, lr: 0.000122
+2026-01-05 22:35:02 [INFO]: Epoch 008 - train_loss: 0.2220, val_loss: 0.2202, lr: 0.000122
+2026-01-05 22:35:16 [INFO]: Epoch 009 - train_loss: 0.2172, val_loss: 0.2205, lr: 0.000122
+2026-01-05 22:35:29 [INFO]: Epoch 010 - train_loss: 0.2173, val_loss: 0.2164, lr: 0.000122
+2026-01-05 22:35:43 [INFO]: Epoch 011 - train_loss: 0.2158, val_loss: 0.2192, lr: 0.000122
+2026-01-05 22:35:56 [INFO]: Epoch 012 - train_loss: 0.2128, val_loss: 0.2196, lr: 0.000122
+2026-01-05 22:36:10 [INFO]: Epoch 013 - train_loss: 0.2126, val_loss: 0.2150, lr: 0.000122
+2026-01-05 22:36:23 [INFO]: Epoch 014 - train_loss: 0.2159, val_loss: 0.2167, lr: 0.000122
+2026-01-05 22:36:36 [INFO]: Epoch 015 - train_loss: 0.2084, val_loss: 0.2159, lr: 0.000122
+2026-01-05 22:36:50 [INFO]: Epoch 016 - train_loss: 0.2082, val_loss: 0.2164, lr: 0.000122
+2026-01-05 22:37:03 [INFO]: Epoch 017 - train_loss: 0.2078, val_loss: 0.2201, lr: 0.000122
+2026-01-05 22:37:17 [INFO]: Epoch 018 - train_loss: 0.2078, val_loss: 0.2168, lr: 0.000122
+2026-01-05 22:37:30 [INFO]: Epoch 019 - train_loss: 0.2053, val_loss: 0.2148, lr: 0.000122
+2026-01-05 22:37:44 [INFO]: Epoch 020 - train_loss: 0.2066, val_loss: 0.2097, lr: 0.000122
+2026-01-05 22:37:57 [INFO]: Epoch 021 - train_loss: 0.2048, val_loss: 0.2211, lr: 0.000122
+2026-01-05 22:38:11 [INFO]: Epoch 022 - train_loss: 0.2060, val_loss: 0.2146, lr: 0.000122
+2026-01-05 22:38:24 [INFO]: Epoch 023 - train_loss: 0.2029, val_loss: 0.2101, lr: 0.000122
+2026-01-05 22:38:38 [INFO]: Epoch 024 - train_loss: 0.2018, val_loss: 0.2136, lr: 0.000122
+2026-01-05 22:38:51 [INFO]: Epoch 025 - train_loss: 0.2015, val_loss: 0.2119, lr: 0.000122
+2026-01-05 22:39:05 [INFO]: Epoch 026 - train_loss: 0.2047, val_loss: 0.2164, lr: 0.000122
+2026-01-05 22:39:18 [INFO]: Epoch 027 - train_loss: 0.2014, val_loss: 0.2131, lr: 0.000122
+2026-01-05 22:39:31 [INFO]: Epoch 028 - train_loss: 0.2006, val_loss: 0.2067, lr: 0.000122
+2026-01-05 22:39:45 [INFO]: Epoch 029 - train_loss: 0.1995, val_loss: 0.2120, lr: 0.000122
+2026-01-05 22:39:58 [INFO]: Epoch 030 - train_loss: 0.1968, val_loss: 0.2128, lr: 0.000122
+2026-01-05 22:40:12 [INFO]: Epoch 031 - train_loss: 0.1972, val_loss: 0.2083, lr: 0.000122
+2026-01-05 22:40:25 [INFO]: Epoch 032 - train_loss: 0.1982, val_loss: 0.2113, lr: 0.000122
+2026-01-05 22:40:39 [INFO]: Epoch 033 - train_loss: 0.1951, val_loss: 0.2095, lr: 0.000122
+2026-01-05 22:40:52 [INFO]: Epoch 034 - train_loss: 0.1977, val_loss: 0.2103, lr: 0.000122
+2026-01-05 22:41:06 [INFO]: Epoch 035 - train_loss: 0.1961, val_loss: 0.2091, lr: 0.000122
+2026-01-05 22:41:19 [INFO]: Epoch 036 - train_loss: 0.1963, val_loss: 0.2071, lr: 0.000122
+2026-01-05 22:41:33 [INFO]: Epoch 037 - train_loss: 0.1947, val_loss: 0.2074, lr: 0.000122
+2026-01-05 22:41:46 [INFO]: Epoch 038 - train_loss: 0.1955, val_loss: 0.2066, lr: 0.000122
+2026-01-05 22:41:59 [INFO]: Epoch 039 - train_loss: 0.1942, val_loss: 0.2089, lr: 0.000122
+2026-01-05 22:42:13 [INFO]: Epoch 040 - train_loss: 0.1946, val_loss: 0.2118, lr: 0.000122
+2026-01-05 22:42:26 [INFO]: Epoch 041 - train_loss: 0.1929, val_loss: 0.2086, lr: 0.000122
+2026-01-05 22:42:40 [INFO]: Epoch 042 - train_loss: 0.1952, val_loss: 0.2128, lr: 0.000122
+2026-01-05 22:42:53 [INFO]: Epoch 043 - train_loss: 0.1927, val_loss: 0.2081, lr: 0.000122
+2026-01-05 22:43:07 [INFO]: Epoch 044 - train_loss: 0.1921, val_loss: 0.2074, lr: 0.000122
+2026-01-05 22:43:20 [INFO]: Epoch 045 - train_loss: 0.1909, val_loss: 0.2048, lr: 0.000122
+2026-01-05 22:43:34 [INFO]: Epoch 046 - train_loss: 0.1927, val_loss: 0.2068, lr: 0.000122
+2026-01-05 22:43:47 [INFO]: Epoch 047 - train_loss: 0.1920, val_loss: 0.2090, lr: 0.000122
+2026-01-05 22:44:01 [INFO]: Epoch 048 - train_loss: 0.1922, val_loss: 0.2089, lr: 0.000122
+2026-01-05 22:44:14 [INFO]: Epoch 049 - train_loss: 0.1915, val_loss: 0.2059, lr: 0.000122
+2026-01-05 22:44:27 [INFO]: Epoch 050 - train_loss: 0.1887, val_loss: 0.2060, lr: 0.000122
+2026-01-05 22:44:41 [INFO]: Epoch 051 - train_loss: 0.1906, val_loss: 0.2090, lr: 0.000122
+2026-01-05 22:44:54 [INFO]: Epoch 052 - train_loss: 0.1909, val_loss: 0.2057, lr: 0.000122
+2026-01-05 22:45:08 [INFO]: Epoch 053 - train_loss: 0.1883, val_loss: 0.2071, lr: 0.000122
+2026-01-05 22:45:21 [INFO]: Epoch 054 - train_loss: 0.1882, val_loss: 0.2075, lr: 0.000122
+2026-01-05 22:45:35 [INFO]: Epoch 055 - train_loss: 0.1883, val_loss: 0.2065, lr: 0.000122
+2026-01-05 22:45:35 [INFO]: Early stopping triggered at epoch 55. No improvement for 10 epochs.
+2026-01-05 22:45:35 [INFO]: Saved the model to reproduce_imputation/point05_log/BeijingAir_log/HELIX_NoFeatureEmbed_BeijingAir/round_3/20260105_T223314/HELIX_NoFeatureEmbed.pypots
+2026-01-05 22:45:36 [INFO]: Successfully saved to reproduce_imputation/point05_log/BeijingAir_log/HELIX_NoFeatureEmbed_BeijingAir/round_3/imputation.pkl
+2026-01-05 22:45:36 [INFO]: Round3 - HELIX_NoFeatureEmbed on BeijingAir: MAE=0.1424, MSE=0.2257, MRE=0.1888
+2026-01-05 22:45:36 [INFO]: Have set the random seed as 2028 for numpy and pytorch.
+2026-01-05 22:45:36 [INFO]: Using the given device: cuda:0
+2026-01-05 22:45:36 [INFO]: Model files will be saved to reproduce_imputation/point05_log/BeijingAir_log/HELIX_NoFeatureEmbed_BeijingAir/round_4/20260105_T224536
+2026-01-05 22:45:36 [INFO]: Tensorboard file will be saved to reproduce_imputation/point05_log/BeijingAir_log/HELIX_NoFeatureEmbed_BeijingAir/round_4/20260105_T224536/tensorboard
+2026-01-05 22:45:36 [INFO]: Using customized MAE as the training loss function.
+2026-01-05 22:45:36 [INFO]: Using customized MSE as the validation metric function.
+2026-01-05 22:45:36 [INFO]: ============================================================
+2026-01-05 22:45:36 [INFO]: HELIX_NoFeatureEmbed Model Configuration (Ablation):
+2026-01-05 22:45:36 [INFO]: ============================================================
+2026-01-05 22:45:36 [INFO]: Data dimensions:
+2026-01-05 22:45:36 [INFO]:   - n_steps: 24
+2026-01-05 22:45:36 [INFO]:   - n_features: 132
+2026-01-05 22:45:36 [INFO]: Model architecture:
+2026-01-05 22:45:36 [INFO]:   - pe_dim: 24
+2026-01-05 22:45:36 [INFO]:   - feature_embed_dim: 16
+2026-01-05 22:45:36 [INFO]:   - d_model: 192
+2026-01-05 22:45:36 [INFO]:   - n_heads: 4
+2026-01-05 22:45:36 [INFO]:   - n_layers: 3
+2026-01-05 22:45:36 [INFO]:   - dropout: 0.1
+2026-01-05 22:45:36 [INFO]: Training configuration:
+2026-01-05 22:45:36 [INFO]:   - ORT_weight: 1.0
+2026-01-05 22:45:36 [INFO]:   - MIT_weight: 1.0
+2026-01-05 22:45:36 [INFO]:   - batch_size: 4
+2026-01-05 22:45:36 [INFO]:   - epochs: 1000
+2026-01-05 22:45:36 [INFO]:   - patience: 10
+2026-01-05 22:45:36 [INFO]: Optimizer configuration:
+2026-01-05 22:45:36 [INFO]:   - initial_lr: 0.001
+2026-01-05 22:45:36 [INFO]:   - lr_decay: disabled
+2026-01-05 22:45:36 [INFO]: ============================================================
+2026-01-05 22:45:36 [INFO]: HELIX_NoFeatureEmbed initialized with the given hyperparameters, the number of trainable parameters: 2,679,963
+2026-01-05 22:45:36 [INFO]: Learning rate scheduler disabled
+2026-01-05 22:45:49 [INFO]: Epoch 001 - train_loss: 0.5457, val_loss: 0.2731, lr: 0.000122
+2026-01-05 22:46:03 [INFO]: Epoch 002 - train_loss: 0.2841, val_loss: 0.2379, lr: 0.000122
+2026-01-05 22:46:16 [INFO]: Epoch 003 - train_loss: 0.2544, val_loss: 0.2350, lr: 0.000122
+2026-01-05 22:46:30 [INFO]: Epoch 004 - train_loss: 0.2394, val_loss: 0.2299, lr: 0.000122
+2026-01-05 22:46:43 [INFO]: Epoch 005 - train_loss: 0.2339, val_loss: 0.2248, lr: 0.000122
+2026-01-05 22:46:56 [INFO]: Epoch 006 - train_loss: 0.2275, val_loss: 0.2293, lr: 0.000122
+2026-01-05 22:47:10 [INFO]: Epoch 007 - train_loss: 0.2257, val_loss: 0.2215, lr: 0.000122
+2026-01-05 22:47:23 [INFO]: Epoch 008 - train_loss: 0.2222, val_loss: 0.2214, lr: 0.000122
+2026-01-05 22:47:37 [INFO]: Epoch 009 - train_loss: 0.2200, val_loss: 0.2215, lr: 0.000122
+2026-01-05 22:47:50 [INFO]: Epoch 010 - train_loss: 0.2145, val_loss: 0.2204, lr: 0.000122
+2026-01-05 22:48:03 [INFO]: Epoch 011 - train_loss: 0.2148, val_loss: 0.2186, lr: 0.000122
+2026-01-05 22:48:17 [INFO]: Epoch 012 - train_loss: 0.2113, val_loss: 0.2185, lr: 0.000122
+2026-01-05 22:48:30 [INFO]: Epoch 013 - train_loss: 0.2119, val_loss: 0.2174, lr: 0.000122
+2026-01-05 22:48:43 [INFO]: Epoch 014 - train_loss: 0.2097, val_loss: 0.2211, lr: 0.000122
+2026-01-05 22:48:57 [INFO]: Epoch 015 - train_loss: 0.2088, val_loss: 0.2163, lr: 0.000122
+2026-01-05 22:49:10 [INFO]: Epoch 016 - train_loss: 0.2050, val_loss: 0.2159, lr: 0.000122
+2026-01-05 22:49:24 [INFO]: Epoch 017 - train_loss: 0.2063, val_loss: 0.2155, lr: 0.000122
+2026-01-05 22:49:37 [INFO]: Epoch 018 - train_loss: 0.2049, val_loss: 0.2123, lr: 0.000122
+2026-01-05 22:49:51 [INFO]: Epoch 019 - train_loss: 0.2036, val_loss: 0.2144, lr: 0.000122
+2026-01-05 22:50:04 [INFO]: Epoch 020 - train_loss: 0.2048, val_loss: 0.2167, lr: 0.000122
+2026-01-05 22:50:17 [INFO]: Epoch 021 - train_loss: 0.2048, val_loss: 0.2156, lr: 0.000122
+2026-01-05 22:50:31 [INFO]: Epoch 022 - train_loss: 0.2015, val_loss: 0.2164, lr: 0.000122
+2026-01-05 22:50:44 [INFO]: Epoch 023 - train_loss: 0.2015, val_loss: 0.2140, lr: 0.000122
+2026-01-05 22:50:57 [INFO]: Epoch 024 - train_loss: 0.2003, val_loss: 0.2114, lr: 0.000122
+2026-01-05 22:51:11 [INFO]: Epoch 025 - train_loss: 0.1996, val_loss: 0.2128, lr: 0.000122
+2026-01-05 22:51:24 [INFO]: Epoch 026 - train_loss: 0.2026, val_loss: 0.2114, lr: 0.000122
+2026-01-05 22:51:38 [INFO]: Epoch 027 - train_loss: 0.1984, val_loss: 0.2146, lr: 0.000122
+2026-01-05 22:51:51 [INFO]: Epoch 028 - train_loss: 0.1974, val_loss: 0.2138, lr: 0.000122
+2026-01-05 22:52:04 [INFO]: Epoch 029 - train_loss: 0.1963, val_loss: 0.2115, lr: 0.000122
+2026-01-05 22:52:18 [INFO]: Epoch 030 - train_loss: 0.1991, val_loss: 0.2092, lr: 0.000122
+2026-01-05 22:52:31 [INFO]: Epoch 031 - train_loss: 0.1982, val_loss: 0.2127, lr: 0.000122
+2026-01-05 22:52:44 [INFO]: Epoch 032 - train_loss: 0.1957, val_loss: 0.2144, lr: 0.000122
+2026-01-05 22:52:58 [INFO]: Epoch 033 - train_loss: 0.1970, val_loss: 0.2047, lr: 0.000122
+2026-01-05 22:53:11 [INFO]: Epoch 034 - train_loss: 0.1945, val_loss: 0.2096, lr: 0.000122
+2026-01-05 22:53:24 [INFO]: Epoch 035 - train_loss: 0.1947, val_loss: 0.2078, lr: 0.000122
+2026-01-05 22:53:38 [INFO]: Epoch 036 - train_loss: 0.1931, val_loss: 0.2117, lr: 0.000122
+2026-01-05 22:53:51 [INFO]: Epoch 037 - train_loss: 0.1955, val_loss: 0.2104, lr: 0.000122
+2026-01-05 22:54:04 [INFO]: Epoch 038 - train_loss: 0.1929, val_loss: 0.2083, lr: 0.000122
+2026-01-05 22:54:18 [INFO]: Epoch 039 - train_loss: 0.1928, val_loss: 0.2086, lr: 0.000122
+2026-01-05 22:54:31 [INFO]: Epoch 040 - train_loss: 0.1921, val_loss: 0.2092, lr: 0.000122
+2026-01-05 22:54:44 [INFO]: Epoch 041 - train_loss: 0.1913, val_loss: 0.2047, lr: 0.000122
+2026-01-05 22:54:58 [INFO]: Epoch 042 - train_loss: 0.1916, val_loss: 0.2027, lr: 0.000122
+2026-01-05 22:55:11 [INFO]: Epoch 043 - train_loss: 0.1895, val_loss: 0.2015, lr: 0.000122
+2026-01-05 22:55:24 [INFO]: Epoch 044 - train_loss: 0.1893, val_loss: 0.2039, lr: 0.000122
+2026-01-05 22:55:38 [INFO]: Epoch 045 - train_loss: 0.1913, val_loss: 0.2120, lr: 0.000122
+2026-01-05 22:55:51 [INFO]: Epoch 046 - train_loss: 0.1935, val_loss: 0.2049, lr: 0.000122
+2026-01-05 22:56:04 [INFO]: Epoch 047 - train_loss: 0.1889, val_loss: 0.2026, lr: 0.000122
+2026-01-05 22:56:18 [INFO]: Epoch 048 - train_loss: 0.1898, val_loss: 0.2031, lr: 0.000122
+2026-01-05 22:56:31 [INFO]: Epoch 049 - train_loss: 0.1897, val_loss: 0.2048, lr: 0.000122
+2026-01-05 22:56:45 [INFO]: Epoch 050 - train_loss: 0.1895, val_loss: 0.2028, lr: 0.000122
+2026-01-05 22:56:58 [INFO]: Epoch 051 - train_loss: 0.1883, val_loss: 0.2001, lr: 0.000122
+2026-01-05 22:57:11 [INFO]: Epoch 052 - train_loss: 0.1878, val_loss: 0.2039, lr: 0.000122
+2026-01-05 22:57:25 [INFO]: Epoch 053 - train_loss: 0.1872, val_loss: 0.2024, lr: 0.000122
+2026-01-05 22:57:38 [INFO]: Epoch 054 - train_loss: 0.1876, val_loss: 0.1994, lr: 0.000122
+2026-01-05 22:57:51 [INFO]: Epoch 055 - train_loss: 0.1869, val_loss: 0.1971, lr: 0.000122
+2026-01-05 22:58:05 [INFO]: Epoch 056 - train_loss: 0.1895, val_loss: 0.2011, lr: 0.000122
+2026-01-05 22:58:18 [INFO]: Epoch 057 - train_loss: 0.1862, val_loss: 0.2003, lr: 0.000122
+2026-01-05 22:58:32 [INFO]: Epoch 058 - train_loss: 0.1854, val_loss: 0.1955, lr: 0.000122
+2026-01-05 22:58:45 [INFO]: Epoch 059 - train_loss: 0.1856, val_loss: 0.2022, lr: 0.000122
+2026-01-05 22:58:58 [INFO]: Epoch 060 - train_loss: 0.1838, val_loss: 0.2004, lr: 0.000122
+2026-01-05 22:59:12 [INFO]: Epoch 061 - train_loss: 0.1849, val_loss: 0.2037, lr: 0.000122
+2026-01-05 22:59:25 [INFO]: Epoch 062 - train_loss: 0.1852, val_loss: 0.1959, lr: 0.000122
+2026-01-05 22:59:38 [INFO]: Epoch 063 - train_loss: 0.1844, val_loss: 0.1974, lr: 0.000122
+2026-01-05 22:59:52 [INFO]: Epoch 064 - train_loss: 0.1828, val_loss: 0.1973, lr: 0.000122
+2026-01-05 23:00:05 [INFO]: Epoch 065 - train_loss: 0.1851, val_loss: 0.1987, lr: 0.000122
+2026-01-05 23:00:18 [INFO]: Epoch 066 - train_loss: 0.1847, val_loss: 0.1952, lr: 0.000122
+2026-01-05 23:00:32 [INFO]: Epoch 067 - train_loss: 0.1838, val_loss: 0.1889, lr: 0.000122
+2026-01-05 23:00:45 [INFO]: Epoch 068 - train_loss: 0.1818, val_loss: 0.1915, lr: 0.000122
+2026-01-05 23:00:58 [INFO]: Epoch 069 - train_loss: 0.1837, val_loss: 0.1924, lr: 0.000122
+2026-01-05 23:01:12 [INFO]: Epoch 070 - train_loss: 0.1811, val_loss: 0.1899, lr: 0.000122
+2026-01-05 23:01:25 [INFO]: Epoch 071 - train_loss: 0.1824, val_loss: 0.1901, lr: 0.000122
+2026-01-05 23:01:38 [INFO]: Epoch 072 - train_loss: 0.1844, val_loss: 0.1892, lr: 0.000122
+2026-01-05 23:01:52 [INFO]: Epoch 073 - train_loss: 0.1797, val_loss: 0.1909, lr: 0.000122
+2026-01-05 23:02:05 [INFO]: Epoch 074 - train_loss: 0.1790, val_loss: 0.1906, lr: 0.000122
+2026-01-05 23:02:18 [INFO]: Epoch 075 - train_loss: 0.1801, val_loss: 0.1904, lr: 0.000122
+2026-01-05 23:02:32 [INFO]: Epoch 076 - train_loss: 0.1790, val_loss: 0.1906, lr: 0.000122
+2026-01-05 23:02:45 [INFO]: Epoch 077 - train_loss: 0.1793, val_loss: 0.1880, lr: 0.000122
+2026-01-05 23:02:59 [INFO]: Epoch 078 - train_loss: 0.1795, val_loss: 0.1896, lr: 0.000122
+2026-01-05 23:03:12 [INFO]: Epoch 079 - train_loss: 0.1786, val_loss: 0.1897, lr: 0.000122
+2026-01-05 23:03:25 [INFO]: Epoch 080 - train_loss: 0.1777, val_loss: 0.1990, lr: 0.000122
+2026-01-05 23:03:39 [INFO]: Epoch 081 - train_loss: 0.1777, val_loss: 0.1899, lr: 0.000122
+2026-01-05 23:03:52 [INFO]: Epoch 082 - train_loss: 0.1778, val_loss: 0.1881, lr: 0.000122
+2026-01-05 23:04:05 [INFO]: Epoch 083 - train_loss: 0.1773, val_loss: 0.1912, lr: 0.000122
+2026-01-05 23:04:19 [INFO]: Epoch 084 - train_loss: 0.1785, val_loss: 0.1946, lr: 0.000122
+2026-01-05 23:04:32 [INFO]: Epoch 085 - train_loss: 0.1784, val_loss: 0.1913, lr: 0.000122
+2026-01-05 23:04:45 [INFO]: Epoch 086 - train_loss: 0.1765, val_loss: 0.1875, lr: 0.000122
+2026-01-05 23:04:59 [INFO]: Epoch 087 - train_loss: 0.1765, val_loss: 0.1898, lr: 0.000122
+2026-01-05 23:05:12 [INFO]: Epoch 088 - train_loss: 0.1773, val_loss: 0.1859, lr: 0.000122
+2026-01-05 23:05:25 [INFO]: Epoch 089 - train_loss: 0.1765, val_loss: 0.1962, lr: 0.000122
+2026-01-05 23:05:39 [INFO]: Epoch 090 - train_loss: 0.1750, val_loss: 0.1991, lr: 0.000122
+2026-01-05 23:05:52 [INFO]: Epoch 091 - train_loss: 0.1771, val_loss: 0.1981, lr: 0.000122
+2026-01-05 23:06:05 [INFO]: Epoch 092 - train_loss: 0.1762, val_loss: 0.1928, lr: 0.000122
+2026-01-05 23:06:19 [INFO]: Epoch 093 - train_loss: 0.1744, val_loss: 0.1919, lr: 0.000122
+2026-01-05 23:06:32 [INFO]: Epoch 094 - train_loss: 0.1741, val_loss: 0.1914, lr: 0.000122
+2026-01-05 23:06:45 [INFO]: Epoch 095 - train_loss: 0.1745, val_loss: 0.1907, lr: 0.000122
+2026-01-05 23:06:59 [INFO]: Epoch 096 - train_loss: 0.1758, val_loss: 0.1874, lr: 0.000122
+2026-01-05 23:07:12 [INFO]: Epoch 097 - train_loss: 0.1761, val_loss: 0.1895, lr: 0.000122
+2026-01-05 23:07:26 [INFO]: Epoch 098 - train_loss: 0.1745, val_loss: 0.1967, lr: 0.000122
+2026-01-05 23:07:26 [INFO]: Early stopping triggered at epoch 98. No improvement for 10 epochs.
+2026-01-05 23:07:26 [INFO]: Saved the model to reproduce_imputation/point05_log/BeijingAir_log/HELIX_NoFeatureEmbed_BeijingAir/round_4/20260105_T224536/HELIX_NoFeatureEmbed.pypots
+2026-01-05 23:07:27 [INFO]: Successfully saved to reproduce_imputation/point05_log/BeijingAir_log/HELIX_NoFeatureEmbed_BeijingAir/round_4/imputation.pkl
+2026-01-05 23:07:27 [INFO]: Round4 - HELIX_NoFeatureEmbed on BeijingAir: MAE=0.1323, MSE=0.2157, MRE=0.1753
+2026-01-05 23:07:27 [INFO]: Done! Final results:
+Averaged HELIX_NoFeatureEmbed (2,679,963 params) on BeijingAir: MAE=0.1436 ± 0.006036883406410154, MSE=0.2254 ± 0.005705702861363643, MRE=0.1904 ± 0.00800290799157795, average inference time=1.19
+  0%|          | 0/11 [00:00<?, ?it/s]100%|██████████| 11/11 [00:00<00:00, 226.76it/s]

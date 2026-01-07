@@ -382,3 +382,14 @@ Using eos_token, but it is not set yet.
 2026-01-06 20:36:27 [INFO]: Epoch 031 - training loss (MAE): 0.4803, validation MSE: 0.6976
 2026-01-06 20:50:22 [INFO]: Epoch 032 - training loss (MAE): 0.4789, validation MSE: 0.7086
 2026-01-06 21:04:19 [INFO]: Epoch 033 - training loss (MAE): 0.4757, validation MSE: 0.6999
+2026-01-06 21:18:15 [INFO]: Epoch 034 - training loss (MAE): 0.4756, validation MSE: 0.7168
+2026-01-06 21:32:10 [INFO]: Epoch 035 - training loss (MAE): 0.4729, validation MSE: 0.7000
+2026-01-06 21:46:06 [INFO]: Epoch 036 - training loss (MAE): 0.4704, validation MSE: 0.7139
+2026-01-06 21:46:06 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2026-01-06 21:46:06 [INFO]: Finished training. The best model is from epoch#26.
+2026-01-06 21:46:06 [INFO]: Saved the model to reproduce_imputation/block00_log/BeijingAir_log/TimeLLM_BeijingAir/round_4/20260106_T132403/TimeLLM.pypots
+2026-01-06 21:49:33 [INFO]: Successfully saved to reproduce_imputation/block00_log/BeijingAir_log/TimeLLM_BeijingAir/round_4/imputation.pkl
+2026-01-06 21:49:33 [INFO]: Round4 - TimeLLM on BeijingAir: MAE=0.5167, MSE=0.6993, MRE=0.6836
+2026-01-06 21:49:33 [INFO]: Done! Final results:
+Averaged TimeLLM (31,753,488 params) on BeijingAir: MAE=0.4685 ± 0.05519554742568535, MSE=0.6245 ± 0.08245561672201113, MRE=0.6199 ± 0.0730232778872073, average inference time=207.85
+  0%|          | 0/418 [00:00<?, ?it/s] 28%|██▊       | 115/418 [00:00<00:00, 1091.15it/s] 54%|█████▍    | 225/418 [00:00<00:00, 1043.89it/s] 92%|█████████▏| 384/418 [00:00<00:00, 1283.63it/s]100%|██████████| 418/418 [00:00<00:00, 1204.70it/s]

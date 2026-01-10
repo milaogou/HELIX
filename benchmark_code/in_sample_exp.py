@@ -37,28 +37,28 @@ BASE_DIR = "/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code
 # 模型列表
 MODELS = [
     'HELIX',
-    # 'HELIX_NoFeatureEmbed',
-    # 'HELIX_NoFusion',
-    # 'HELIX_NoHybrid',
-    # 'HELIX_NoRotaryPE',
-    # 'TEFN',
-    # 'TimeMixerPP',
-    # 'TimeLLM',
-    # 'MOMENT',
-    # 'TimeMixer',
-    # 'ModernTCN',
-    # 'ImputeFormer',
-    # 'TOTEM',
-    # 'iTransformer',
-    # 'SAITS',
-    # 'FreTS',
-    # 'NonstationaryTransformer',
-    # 'PatchTST',
+    'HELIX_NoFeatureEmbed',
+    'HELIX_NoFusion',
+    'HELIX_NoHybrid',
+    'HELIX_NoRotaryPE',
+    'TEFN',
+    'TimeMixerPP',
+    'TimeLLM',
+    'MOMENT',
+    'TimeMixer',
+    'ModernTCN',
+    'ImputeFormer',
+    'TOTEM',
+    'iTransformer',
+    'SAITS',
+    'FreTS',
+    'NonstationaryTransformer',
+    'PatchTST',
 ]
 
 dataset_folders = [
     # 'beijing_air_quality_rate00_step24_block_blocklen6',
-    'beijing_air_quality_rate01_step24_point',
+    # 'beijing_air_quality_rate01_step24_point',
     # 'beijing_air_quality_rate05_step24_point',
     # 'beijing_air_quality_rate05_step24_subseq_seqlen18',
     # 'beijing_air_quality_rate09_step24_point',
@@ -67,11 +67,11 @@ dataset_folders = [
     # 'electricity_load_diagrams_rate05_step96_point',
     # 'electricity_load_diagrams_rate05_step96_subseq_seqlen72',
     # 'electricity_load_diagrams_rate09_step96_point',
-    # 'ett_rate01_step48_point',
-    # 'ett_rate03_step48_block_blocklen6',
-    # 'ett_rate05_step48_point',
-    # 'ett_rate05_step48_subseq_seqlen36',
-    # 'ett_rate09_step48_point',
+    'ett_rate01_step48_point',
+    'ett_rate03_step48_block_blocklen6',
+    'ett_rate05_step48_point',
+    'ett_rate05_step48_subseq_seqlen36',
+    'ett_rate09_step48_point',
     # 'italy_air_quality_rate00_step12_block_blocklen4',
     # 'italy_air_quality_rate01_step12_point',
     # 'italy_air_quality_rate05_step12_point',
@@ -126,7 +126,7 @@ export PYTHONUNBUFFERED=1
 export http_proxy=http://u-cEoRwn:EDvFuZTe@172.16.4.9:3128
 export https_proxy=http://u-cEoRwn:EDvFuZTe@172.16.4.9:3128   
 export LD_PRELOAD=$LD_PRELOAD:/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/sklearn/utils/../../scikit_learn.libs/libgomp-947d5fa1.so.1.0.0
-python -u train_model.py --model {model_name} --dataset {dataset_name} --dataset_fold_path {DATA_BASE_PATH}/{folder_name} --saving_path {OUTPUT_BASE_PATH}/{dataset_log_dir} --device cuda:0
+python -u train_model.py --model {model_name} --dataset {dataset_name} --dataset_fold_path {DATA_BASE_PATH}/{folder_name} --saving_path {OUTPUT_BASE_PATH}/{dataset_log_dir} --device cuda:0 --n_rounds 25 
 """
     return script_content, dataset_log_dir
 

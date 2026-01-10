@@ -342,16 +342,16 @@ def plot_beijing_map(stations, coords_dict, similarity_matrix, output_path,
                 color=color, linewidth=width, alpha=1, zorder=2)
     
     # Plot stations
-    ax.scatter(lons, lats, c='white', s=180, edgecolors='black', 
-              linewidths=1.2, zorder=4)
+    ax.scatter(lons, lats, c='white', s=250, edgecolors='black', 
+          linewidths=1.2, zorder=4)
     
     # Add labels with adjustText if available
     texts = []
     for i, station in enumerate(stations):
         label = STATION_SHORT[station]
         txt = ax.annotate(label, (lons[i], lats[i]), 
-                         fontsize=7, ha='center', va='center',
-                         fontweight='bold', zorder=5,
+                 fontsize=6, ha='center', va='center',
+                 fontweight='bold', zorder=5,
                          bbox=dict(boxstyle='round,pad=0.15', 
                                   facecolor='white', alpha=0.85,
                                   edgecolor='none', linewidth=0))
@@ -423,8 +423,8 @@ def plot_scatter(similarity_matrix, distance_matrix, stations, output_path):
     # Labels and title
     ax.set_xlabel('Geographic Distance (km)', fontsize=10)
     ax.set_ylabel('Embedding Cosine Similarity', fontsize=10)
-    p_str = 'p < 0.01' if p < 0.01 else f'p = {p:.3f}'
-    ax.set_title(f'Similarity vs Distance\n(r = {r:.2f}, {p_str})', fontsize=11)
+    p_str = f'p = {p:.4f}' if p >= 0.0001 else 'p < 0.0001'
+    ax.set_title(f'Similarity vs Distance\n(r = {r:.3f}, {p_str})', fontsize=11)
     
     # Legend
     ax.legend(loc='upper right', fontsize=8, framealpha=0.9)
@@ -529,17 +529,17 @@ def plot_combined_heatmap(similarity_matrix, distance_matrix, stations, output_p
     return r, p
 
 
-def create_figure2_combined(similarity_matrix, distance_matrix, stations, 
-                           output_path, district_boundaries=None, top_n=20):
+def create_figure2(similarity_matrix, distance_matrix, stations, 
+                            output_path, district_boundaries=None, top_n=20):
     """
-    Create combined Figure 2 with 3 subplots: (a) Map, (b) Scatter, (c) Heatmap
-    ICML single-column or double-column figure.
+    Create combined Figure 2 with 3 subplots in VERTICAL layout: 
+    (a) Map, (b) Scatter, (c) Heatmap
     
-    Note: The learned similarity in heatmap is scaled by 0.7 for better visual
-    comparison with geographic proximity (purely for visualization purposes,
-    does not affect the correlation statistics).
+    This layout is suitable for single-column figures in ICML papers.
     """
-    fig = plt.figure(figsize=(14, 4.5))
+    # Vertical layout: 3 rows, 1 column
+    # Adjust figure size for single column (about 3.25 inches wide in ICML)
+    fig = plt.figure(figsize=(5.5, 14))
     
     lons = np.array([BEIJING_STATION_COORDS[s]['longitude'] for s in stations])
     lats = np.array([BEIJING_STATION_COORDS[s]['latitude'] for s in stations])
@@ -547,9 +547,9 @@ def create_figure2_combined(similarity_matrix, distance_matrix, stations,
     short_names = [STATION_SHORT[s] for s in stations]
     
     # ===================
-    # (a) Beijing Map
+    # (a) Beijing Map - Top
     # ===================
-    ax1 = fig.add_subplot(1, 3, 1)
+    ax1 = fig.add_subplot(3, 1, 1)
     
     # Plot district boundaries
     if district_boundaries:
@@ -591,8 +591,8 @@ def create_figure2_combined(similarity_matrix, distance_matrix, stations,
                 color=color, linewidth=width, alpha=1, zorder=2)
     
     # Stations
-    ax1.scatter(lons, lats, c='white', s=120, edgecolors='black', 
-               linewidths=1.0, zorder=4)
+    ax1.scatter(lons, lats, c='white', s=250, edgecolors='black', 
+           linewidths=1.0, zorder=4)
     
     # Labels
     for i, station in enumerate(stations):
@@ -600,25 +600,26 @@ def create_figure2_combined(similarity_matrix, distance_matrix, stations,
                     fontsize=6, ha='center', va='center',
                     fontweight='bold', zorder=5)
     
-    # Colorbar
+    # Colorbar - horizontal at bottom
     sm = ScalarMappable(cmap=cmap, norm=norm)
     sm.set_array([])
-    cbar1 = plt.colorbar(sm, ax=ax1, shrink=0.7, pad=0.02, aspect=20)
-    cbar1.set_label('Similarity', fontsize=8)
-    cbar1.ax.tick_params(labelsize=7)
+    cbar1 = plt.colorbar(sm, ax=ax1, orientation='horizontal', 
+                         shrink=0.6, pad=0.12, aspect=30)
+    cbar1.set_label('Embedding Similarity', fontsize=9)
+    cbar1.ax.tick_params(labelsize=8)
     
-    ax1.set_xlabel('Longitude (°E)', fontsize=9)
-    ax1.set_ylabel('Latitude (°N)', fontsize=9)
-    ax1.set_title(f'(a) Beijing Stations (Top {top_n})', fontsize=10)
+    ax1.set_xlabel('Longitude (°E)', fontsize=10)
+    ax1.set_ylabel('Latitude (°N)', fontsize=10)
+    ax1.set_title(f'(a) Beijing Air Quality Stations (Top {top_n} Connections)', fontsize=11)
     ax1.set_xlim(116.10, 116.72)
     ax1.set_ylim(39.82, 40.38)
     ax1.set_facecolor('#FAFAFA')
     ax1.set_aspect('equal', adjustable='box')
     
     # ===================
-    # (b) Scatter Plot
+    # (b) Scatter Plot - Middle
     # ===================
-    ax2 = fig.add_subplot(1, 3, 2)
+    ax2 = fig.add_subplot(3, 1, 2)
     
     triu_idx = np.triu_indices(n, k=1)
     distances = distance_matrix[triu_idx]
@@ -627,7 +628,7 @@ def create_figure2_combined(similarity_matrix, distance_matrix, stations,
     r, p = pearsonr(distances, similarities)
     
     scatter = ax2.scatter(distances, similarities, c=distances, cmap='viridis_r',
-                         alpha=0.75, s=35, edgecolors='white', linewidths=0.3)
+                         alpha=0.75, s=45, edgecolors='white', linewidths=0.4)
     
     z = np.polyfit(distances, similarities, 1)
     p_line = np.poly1d(z)
@@ -640,17 +641,17 @@ def create_figure2_combined(similarity_matrix, distance_matrix, stations,
                     p_line(x_line) + 1.96*std_err, 
                     color='red', alpha=0.1, label='95% CI')
     
-    ax2.set_xlabel('Distance (km)', fontsize=9)
-    ax2.set_ylabel('Similarity', fontsize=9)
-    p_str = 'p < 0.01' if p < 0.01 else f'p = {p:.3f}'
-    ax2.set_title(f'(b) Similarity vs Distance\n(r = {r:.2f}, {p_str})', fontsize=10)
+    ax2.set_xlabel('Geographic Distance (km)', fontsize=10)
+    ax2.set_ylabel('Embedding Cosine Similarity', fontsize=10)
+    p_str = f'p = {p:.4f}' if p >= 0.0001 else 'p < 0.0001'
+    ax2.set_title(f'(b) Similarity vs Distance (r = {r:.3f}, {p_str})', fontsize=11)
     ax2.grid(True, alpha=0.3, linestyle='-', linewidth=0.4)
-    ax2.legend(loc='upper right', fontsize=7, framealpha=0.9)
+    ax2.legend(loc='upper right', fontsize=8, framealpha=0.9)
     
     # ===================
-    # (c) Combined Heatmap
+    # (c) Combined Heatmap - Bottom
     # ===================
-    ax3 = fig.add_subplot(1, 3, 3)
+    ax3 = fig.add_subplot(3, 1, 3)
     
     # Compute normalized values
     geo_proximity = np.zeros_like(distance_matrix)
@@ -663,7 +664,6 @@ def create_figure2_combined(similarity_matrix, distance_matrix, stations,
     
     upper_mask = np.triu_indices(n, k=1)
     emb_upper = similarity_matrix[upper_mask]
-    # Scale by 0.7 for better visual comparison (does not affect statistics)
     emb_upper_norm = (emb_upper - emb_upper.min()) / (emb_upper.max() - emb_upper.min()) * 0.7
     
     combined = np.full((n, n), np.nan)
@@ -687,19 +687,22 @@ def create_figure2_combined(similarity_matrix, distance_matrix, stations,
     ax3.set_xticklabels(short_names, fontsize=8, rotation=45, ha='right')
     ax3.set_yticklabels(short_names, fontsize=8)
     
-    cbar3 = plt.colorbar(im, ax=ax3, shrink=0.7, pad=0.02, aspect=20)
-    cbar3.set_label('Normalized (0-1)', fontsize=8)
-    cbar3.ax.tick_params(labelsize=7)
+    # Colorbar
+    cbar3 = plt.colorbar(im, ax=ax3, shrink=0.8, pad=0.02)
+    cbar3.set_label('Normalized Value (0-1)', fontsize=9)
+    cbar3.ax.tick_params(labelsize=8)
     
-    # Annotations matching standalone heatmap style
+    # Annotations
     ax3.text(0.25, 0.92, 'Upper: Learned', transform=ax3.transAxes, 
-            fontsize=8, fontweight='bold', ha='center',
+            fontsize=9, fontweight='bold', ha='center',
             bbox=dict(boxstyle='round,pad=0.3', facecolor='wheat', alpha=0.8))
     ax3.text(0.75, 0.08, 'Lower: Geographic', transform=ax3.transAxes, 
-            fontsize=8, fontweight='bold', ha='center',
+            fontsize=9, fontweight='bold', ha='center',
             bbox=dict(boxstyle='round,pad=0.3', facecolor='lightblue', alpha=0.8))
     
-    ax3.set_title(f'(c) Proximity vs Learned (r = {r:.2f})', fontsize=10)
+    # Correlation for heatmap title
+    r_heat, p_heat = pearsonr(geo_proximity[triu_idx], similarity_matrix[triu_idx])
+    ax3.set_title(f'(c) Geographic Proximity vs Learned Similarity (r = {r_heat:.2f})', fontsize=11)
     
     plt.tight_layout()
     plt.savefig(output_path, format='pdf', bbox_inches='tight')
@@ -720,13 +723,13 @@ def main():
     # Configuration - MODIFY THESE PATHS AS NEEDED
     MODEL_PATH = "/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/reproduce_imputation/point01_log/BeijingAir_log/HELIX_BeijingAir/round_0/20260103_T180923/HELIX.pypots"
     OUTPUT_DIR = "/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/embedding_analysis"
-    TOP_N_CONNECTIONS = 20
+    TOP_N_CONNECTIONS = 25
     
     # Create output directory
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     
     print("=" * 70)
-    print("Feature Identity Embedding Analysis - ICML Style")
+    print("Feature Identity Embedding Analysis - ICML Style (VERTICAL LAYOUT)")
     print("=" * 70)
     
     # Fetch Beijing district boundaries
@@ -751,7 +754,7 @@ def main():
     print(f"\nGenerating visualizations...")
     print(f"Output directory: {OUTPUT_DIR}")
     
-    # Individual plots
+    # Individual plots (unchanged)
     print("\n1. Generating Beijing map...")
     plot_beijing_map(STATION_ORDER, BEIJING_STATION_COORDS, similarity_matrix,
                     os.path.join(OUTPUT_DIR, "beijing_map.pdf"),
@@ -766,8 +769,9 @@ def main():
     r2, p2 = plot_combined_heatmap(similarity_matrix, distance_matrix, STATION_ORDER,
                                    os.path.join(OUTPUT_DIR, "beijing_heatmap.pdf"))
     
-    print("\n4. Generating combined figure...")
-    r3, p3 = create_figure2_combined(similarity_matrix, distance_matrix, STATION_ORDER,
+    # NEW: Vertical combined figure
+    print("\n4. Generating VERTICAL combined figure...")
+    r3, p3 = create_figure2(similarity_matrix, distance_matrix, STATION_ORDER,
                                      os.path.join(OUTPUT_DIR, "figure2.pdf"),
                                      district_boundaries=district_boundaries,
                                      top_n=TOP_N_CONNECTIONS)
@@ -776,13 +780,13 @@ def main():
     print("\n" + "=" * 70)
     print("Summary")
     print("=" * 70)
-    print(f"Pearson correlation (embedding similarity vs geographic proximity): r = {r1:.3f}")
+    print(f"Pearson correlation (embedding similarity vs geographic distance): r = {r1:.3f}")
     print(f"p-value: {p1:.6f}")
     print(f"\nGenerated files:")
     print(f"  - {OUTPUT_DIR}/beijing_map.pdf (+ .png)")
     print(f"  - {OUTPUT_DIR}/beijing_scatter.pdf (+ .png)")
     print(f"  - {OUTPUT_DIR}/beijing_heatmap.pdf (+ .png)")
-    print(f"  - {OUTPUT_DIR}/figure2.pdf (+ .png) <- Combined figure for paper")
+    print(f"  - {OUTPUT_DIR}/figure2.pdf (+ .png) <- VERTICAL figure for paper")
     print("=" * 70)
 
 

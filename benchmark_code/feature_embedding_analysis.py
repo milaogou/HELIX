@@ -537,6 +537,7 @@ def create_figure2(similarity_matrix, distance_matrix, stations,
     
     This layout is suitable for single-column figures in ICML papers.
     """
+    from mpl_toolkits.axes_grid1 import make_axes_locatable
     # Vertical layout: 3 rows, 1 column
     # Adjust figure size for single column (about 3.25 inches wide in ICML)
     fig = plt.figure(figsize=(5.5, 14))
@@ -600,16 +601,20 @@ def create_figure2(similarity_matrix, distance_matrix, stations,
                     fontsize=6, ha='center', va='center',
                     fontweight='bold', zorder=5)
     
-    # Colorbar - horizontal at bottom
+    # Colorbar - on the left side (consistent with other subplots)
     sm = ScalarMappable(cmap=cmap, norm=norm)
     sm.set_array([])
-    cbar1 = plt.colorbar(sm, ax=ax1, orientation='horizontal', 
-                         shrink=0.6, pad=0.12, aspect=30)
+    divider1 = make_axes_locatable(ax1)
+    cax1 = divider1.append_axes("left", size="5%", pad=0.5)
+    cbar1 = plt.colorbar(sm, cax=cax1)
     cbar1.set_label('Embedding Similarity', fontsize=9)
     cbar1.ax.tick_params(labelsize=8)
+    cbar1.ax.yaxis.set_ticks_position('left')
+    cbar1.ax.yaxis.set_label_position('left')
     
     ax1.set_xlabel('Longitude (°E)', fontsize=10)
     ax1.set_ylabel('Latitude (°N)', fontsize=10)
+    ax1.yaxis.set_label_coords(-0.075, 0.5)  # 添加这行，调整y轴标签位置
     ax1.set_title(f'(a) Beijing Air Quality Stations (Top {top_n} Connections)', fontsize=11)
     ax1.set_xlim(116.10, 116.72)
     ax1.set_ylim(39.82, 40.38)
@@ -687,10 +692,14 @@ def create_figure2(similarity_matrix, distance_matrix, stations,
     ax3.set_xticklabels(short_names, fontsize=8, rotation=45, ha='right')
     ax3.set_yticklabels(short_names, fontsize=8)
     
-    # Colorbar
-    cbar3 = plt.colorbar(im, ax=ax3, shrink=0.8, pad=0.02)
+    # Colorbar - on the left side (consistent with subplot b's y-axis)
+    divider = make_axes_locatable(ax3)
+    cax3 = divider.append_axes("left", size="5%", pad=0.5)
+    cbar3 = plt.colorbar(im, cax=cax3)
     cbar3.set_label('Normalized Value (0-1)', fontsize=9)
     cbar3.ax.tick_params(labelsize=8)
+    cbar3.ax.yaxis.set_ticks_position('left')
+    cbar3.ax.yaxis.set_label_position('left')
     
     # Annotations
     ax3.text(0.25, 0.92, 'Upper: Learned', transform=ax3.transAxes, 
@@ -705,6 +714,11 @@ def create_figure2(similarity_matrix, distance_matrix, stations,
     ax3.set_title(f'(c) Geographic Proximity vs Learned Similarity (r = {r_heat:.2f})', fontsize=11)
     
     plt.tight_layout()
+    plt.subplots_adjust(hspace=0.10)  # 保持a-b紧凑
+    
+    # 单独下移子图(c)，拉大b-c间距
+    pos3 = ax3.get_position()
+    ax3.set_position([pos3.x0, pos3.y0 - 0.015, pos3.width, pos3.height])
     plt.savefig(output_path, format='pdf', bbox_inches='tight')
     plt.savefig(output_path.replace('.pdf', '.png'), format='png', dpi=300, bbox_inches='tight')
     print(f"Saved: {output_path}")

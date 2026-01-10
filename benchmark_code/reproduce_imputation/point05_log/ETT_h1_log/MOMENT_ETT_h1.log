@@ -163,3 +163,13 @@
 2026-01-10 19:35:42 [INFO]: Epoch 027 - training loss (MAE): 0.2476, validation MSE: 0.6882
 2026-01-10 19:36:33 [INFO]: Epoch 028 - training loss (MAE): 0.2305, validation MSE: 0.7192
 2026-01-10 19:37:23 [INFO]: Epoch 029 - training loss (MAE): 0.2133, validation MSE: 0.7202
+2026-01-10 19:38:14 [INFO]: Epoch 030 - training loss (MAE): 0.1996, validation MSE: 0.7412
+2026-01-10 19:38:14 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2026-01-10 19:38:14 [INFO]: Finished training. The best model is from epoch#20.
+2026-01-10 19:38:14 [INFO]: Saved the model to reproduce_imputation/point05_log/ETT_h1_log/MOMENT_ETT_h1/round_4/20260110_T191259/MOMENT.pypots
+2026-01-10 19:38:18 [INFO]: Successfully saved to reproduce_imputation/point05_log/ETT_h1_log/MOMENT_ETT_h1/round_4/imputation.pkl
+2026-01-10 19:38:18 [INFO]: Round4 - MOMENT on ETT_h1: MAE=0.5750, MSE=0.5698, MRE=0.6791
+Traceback (most recent call last):
+  File "/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/train_model.py", line 142, in <module>
+    set_random_seed(RANDOM_SEEDS[n_round])
+IndexError: list index out of range

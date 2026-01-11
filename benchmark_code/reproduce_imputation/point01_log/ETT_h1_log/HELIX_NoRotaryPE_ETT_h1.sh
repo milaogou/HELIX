@@ -11,4 +11,4 @@ export PYTHONUNBUFFERED=1
 export http_proxy=http://u-cEoRwn:EDvFuZTe@172.16.4.9:3128
 export https_proxy=http://u-cEoRwn:EDvFuZTe@172.16.4.9:3128   
 export LD_PRELOAD=$LD_PRELOAD:/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/sklearn/utils/../../scikit_learn.libs/libgomp-947d5fa1.so.1.0.0
-python -u train_model.py --model HELIX_NoRotaryPE --dataset ETT_h1 --dataset_fold_path data/generated_datasets/ett_rate01_step48_point --saving_path reproduce_imputation/point01_log/ETT_h1_log --device cuda:0 --n_rounds 25 
+python -u train_model.py --model HELIX_NoRotaryPE --dataset ETT_h1 --dataset_fold_path data/generated_datasets/ett_rate01_step48_point --saving_path reproduce_imputation/point01_log/ETT_h1_log --device cuda:0 --n_rounds 5 

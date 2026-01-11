@@ -1,189 +1,183 @@
-2026-01-10 18:16:40 [WARNING]: ‼️ `pypots.utils.metrics` is deprecated. Please import from `pypots.nn.functional` instead.
-2026-01-10 18:16:40 [INFO]: Have set the random seed as 2024 for numpy and pytorch.
-2026-01-10 18:16:40 [INFO]: Using the given device: cuda:0
-2026-01-10 18:16:40 [INFO]: Model files will be saved to reproduce_imputation/subseq05_log/ETT_h1_log/TimeMixerPP_ETT_h1/round_0/20260110_T181640
-2026-01-10 18:16:40 [INFO]: Tensorboard file will be saved to reproduce_imputation/subseq05_log/ETT_h1_log/TimeMixerPP_ETT_h1/round_0/20260110_T181640/tensorboard
-2026-01-10 18:16:40 [INFO]: Using customized MAE as the training loss function.
-2026-01-10 18:16:40 [INFO]: Using customized MSE as the validation metric function.
-2026-01-10 18:16:41 [INFO]: TimeMixerPP initialized with the given hyperparameters, the number of trainable parameters: 11,166,987
-2026-01-10 18:16:44 [INFO]: Epoch 001 - training loss (MAE): 0.6671, validation MSE: 1.0116
-2026-01-10 18:16:46 [INFO]: Epoch 002 - training loss (MAE): 0.5124, validation MSE: 0.8145
-2026-01-10 18:16:47 [INFO]: Epoch 003 - training loss (MAE): 0.4294, validation MSE: 0.7198
-2026-01-10 18:16:48 [INFO]: Epoch 004 - training loss (MAE): 0.3789, validation MSE: 0.6392
-2026-01-10 18:16:49 [INFO]: Epoch 005 - training loss (MAE): 0.3444, validation MSE: 0.6006
-2026-01-10 18:16:50 [INFO]: Epoch 006 - training loss (MAE): 0.3184, validation MSE: 0.5780
-2026-01-10 18:16:51 [INFO]: Epoch 007 - training loss (MAE): 0.2948, validation MSE: 0.5551
-2026-01-10 18:16:53 [INFO]: Epoch 008 - training loss (MAE): 0.2755, validation MSE: 0.5568
-2026-01-10 18:16:54 [INFO]: Epoch 009 - training loss (MAE): 0.2597, validation MSE: 0.5770
-2026-01-10 18:16:55 [INFO]: Epoch 010 - training loss (MAE): 0.2498, validation MSE: 0.5549
-2026-01-10 18:16:56 [INFO]: Epoch 011 - training loss (MAE): 0.2430, validation MSE: 0.5826
-2026-01-10 18:16:57 [INFO]: Epoch 012 - training loss (MAE): 0.2314, validation MSE: 0.5419
-2026-01-10 18:16:58 [INFO]: Epoch 013 - training loss (MAE): 0.2281, validation MSE: 0.5680
-2026-01-10 18:17:00 [INFO]: Epoch 014 - training loss (MAE): 0.2239, validation MSE: 0.5653
-2026-01-10 18:17:01 [INFO]: Epoch 015 - training loss (MAE): 0.2201, validation MSE: 0.5929
-2026-01-10 18:17:02 [INFO]: Epoch 016 - training loss (MAE): 0.2140, validation MSE: 0.5451
-2026-01-10 18:17:03 [INFO]: Epoch 017 - training loss (MAE): 0.2084, validation MSE: 0.5583
-2026-01-10 18:17:04 [INFO]: Epoch 018 - training loss (MAE): 0.2036, validation MSE: 0.5441
-2026-01-10 18:17:05 [INFO]: Epoch 019 - training loss (MAE): 0.2010, validation MSE: 0.5770
-2026-01-10 18:17:07 [INFO]: Epoch 020 - training loss (MAE): 0.1967, validation MSE: 0.5618
-2026-01-10 18:17:08 [INFO]: Epoch 021 - training loss (MAE): 0.2002, validation MSE: 0.5542
-2026-01-10 18:17:09 [INFO]: Epoch 022 - training loss (MAE): 0.1935, validation MSE: 0.6117
-2026-01-10 18:17:09 [INFO]: Exceeded the training patience. Terminating the training procedure...
-2026-01-10 18:17:09 [INFO]: Finished training. The best model is from epoch#12.
-2026-01-10 18:17:09 [INFO]: Saved the model to reproduce_imputation/subseq05_log/ETT_h1_log/TimeMixerPP_ETT_h1/round_0/20260110_T181640/TimeMixerPP.pypots
-2026-01-10 18:17:09 [INFO]: Successfully saved to reproduce_imputation/subseq05_log/ETT_h1_log/TimeMixerPP_ETT_h1/round_0/imputation.pkl
-2026-01-10 18:17:09 [INFO]: Round0 - TimeMixerPP on ETT_h1: MAE=0.6658, MSE=0.9002, MRE=0.7498
-2026-01-10 18:17:09 [INFO]: Have set the random seed as 2025 for numpy and pytorch.
-2026-01-10 18:17:09 [INFO]: Using the given device: cuda:0
-2026-01-10 18:17:09 [INFO]: Model files will be saved to reproduce_imputation/subseq05_log/ETT_h1_log/TimeMixerPP_ETT_h1/round_1/20260110_T181709
-2026-01-10 18:17:09 [INFO]: Tensorboard file will be saved to reproduce_imputation/subseq05_log/ETT_h1_log/TimeMixerPP_ETT_h1/round_1/20260110_T181709/tensorboard
-2026-01-10 18:17:09 [INFO]: Using customized MAE as the training loss function.
-2026-01-10 18:17:09 [INFO]: Using customized MSE as the validation metric function.
-2026-01-10 18:17:10 [INFO]: TimeMixerPP initialized with the given hyperparameters, the number of trainable parameters: 11,166,987
-2026-01-10 18:17:11 [INFO]: Epoch 001 - training loss (MAE): 0.6966, validation MSE: 1.0102
-2026-01-10 18:17:12 [INFO]: Epoch 002 - training loss (MAE): 0.5294, validation MSE: 0.9020
-2026-01-10 18:17:13 [INFO]: Epoch 003 - training loss (MAE): 0.4462, validation MSE: 0.7365
-2026-01-10 18:17:15 [INFO]: Epoch 004 - training loss (MAE): 0.3956, validation MSE: 0.6895
-2026-01-10 18:17:16 [INFO]: Epoch 005 - training loss (MAE): 0.3549, validation MSE: 0.6528
-2026-01-10 18:17:17 [INFO]: Epoch 006 - training loss (MAE): 0.3194, validation MSE: 0.5924
-2026-01-10 18:17:18 [INFO]: Epoch 007 - training loss (MAE): 0.2968, validation MSE: 0.5831
-2026-01-10 18:17:19 [INFO]: Epoch 008 - training loss (MAE): 0.2770, validation MSE: 0.5597
-2026-01-10 18:17:20 [INFO]: Epoch 009 - training loss (MAE): 0.2701, validation MSE: 0.5647
-2026-01-10 18:17:22 [INFO]: Epoch 010 - training loss (MAE): 0.2599, validation MSE: 0.5770
-2026-01-10 18:17:23 [INFO]: Epoch 011 - training loss (MAE): 0.2564, validation MSE: 0.5589
-2026-01-10 18:17:24 [INFO]: Epoch 012 - training loss (MAE): 0.2471, validation MSE: 0.5820
-2026-01-10 18:17:25 [INFO]: Epoch 013 - training loss (MAE): 0.2374, validation MSE: 0.5781
-2026-01-10 18:17:26 [INFO]: Epoch 014 - training loss (MAE): 0.2238, validation MSE: 0.5826
-2026-01-10 18:17:27 [INFO]: Epoch 015 - training loss (MAE): 0.2204, validation MSE: 0.5805
-2026-01-10 18:17:29 [INFO]: Epoch 016 - training loss (MAE): 0.2105, validation MSE: 0.5911
-2026-01-10 18:17:30 [INFO]: Epoch 017 - training loss (MAE): 0.2058, validation MSE: 0.5721
-2026-01-10 18:17:31 [INFO]: Epoch 018 - training loss (MAE): 0.2011, validation MSE: 0.5967
-2026-01-10 18:17:32 [INFO]: Epoch 019 - training loss (MAE): 0.1983, validation MSE: 0.5866
-2026-01-10 18:17:33 [INFO]: Epoch 020 - training loss (MAE): 0.2015, validation MSE: 0.5637
-2026-01-10 18:17:34 [INFO]: Epoch 021 - training loss (MAE): 0.1936, validation MSE: 0.5591
-2026-01-10 18:17:34 [INFO]: Exceeded the training patience. Terminating the training procedure...
-2026-01-10 18:17:34 [INFO]: Finished training. The best model is from epoch#11.
-2026-01-10 18:17:35 [INFO]: Saved the model to reproduce_imputation/subseq05_log/ETT_h1_log/TimeMixerPP_ETT_h1/round_1/20260110_T181709/TimeMixerPP.pypots
-2026-01-10 18:17:35 [INFO]: Successfully saved to reproduce_imputation/subseq05_log/ETT_h1_log/TimeMixerPP_ETT_h1/round_1/imputation.pkl
-2026-01-10 18:17:35 [INFO]: Round1 - TimeMixerPP on ETT_h1: MAE=0.6710, MSE=0.8861, MRE=0.7557
-2026-01-10 18:17:35 [INFO]: Have set the random seed as 2026 for numpy and pytorch.
-2026-01-10 18:17:35 [INFO]: Using the given device: cuda:0
-2026-01-10 18:17:35 [INFO]: Model files will be saved to reproduce_imputation/subseq05_log/ETT_h1_log/TimeMixerPP_ETT_h1/round_2/20260110_T181735
-2026-01-10 18:17:35 [INFO]: Tensorboard file will be saved to reproduce_imputation/subseq05_log/ETT_h1_log/TimeMixerPP_ETT_h1/round_2/20260110_T181735/tensorboard
-2026-01-10 18:17:35 [INFO]: Using customized MAE as the training loss function.
-2026-01-10 18:17:35 [INFO]: Using customized MSE as the validation metric function.
-2026-01-10 18:17:35 [INFO]: TimeMixerPP initialized with the given hyperparameters, the number of trainable parameters: 11,166,987
-2026-01-10 18:17:36 [INFO]: Epoch 001 - training loss (MAE): 0.6972, validation MSE: 0.9969
-2026-01-10 18:17:38 [INFO]: Epoch 002 - training loss (MAE): 0.5178, validation MSE: 0.8146
-2026-01-10 18:17:39 [INFO]: Epoch 003 - training loss (MAE): 0.4485, validation MSE: 0.6788
-2026-01-10 18:17:40 [INFO]: Epoch 004 - training loss (MAE): 0.3913, validation MSE: 0.6132
-2026-01-10 18:17:41 [INFO]: Epoch 005 - training loss (MAE): 0.3472, validation MSE: 0.5821
-2026-01-10 18:17:42 [INFO]: Epoch 006 - training loss (MAE): 0.3221, validation MSE: 0.5952
-2026-01-10 18:17:43 [INFO]: Epoch 007 - training loss (MAE): 0.3086, validation MSE: 0.5719
-2026-01-10 18:17:45 [INFO]: Epoch 008 - training loss (MAE): 0.2839, validation MSE: 0.5717
-2026-01-10 18:17:46 [INFO]: Epoch 009 - training loss (MAE): 0.2645, validation MSE: 0.5903
-2026-01-10 18:17:47 [INFO]: Epoch 010 - training loss (MAE): 0.2563, validation MSE: 0.5502
-2026-01-10 18:17:48 [INFO]: Epoch 011 - training loss (MAE): 0.2434, validation MSE: 0.5525
-2026-01-10 18:17:49 [INFO]: Epoch 012 - training loss (MAE): 0.2387, validation MSE: 0.5491
-2026-01-10 18:17:50 [INFO]: Epoch 013 - training loss (MAE): 0.2293, validation MSE: 0.5424
-2026-01-10 18:17:52 [INFO]: Epoch 014 - training loss (MAE): 0.2231, validation MSE: 0.5592
-2026-01-10 18:17:53 [INFO]: Epoch 015 - training loss (MAE): 0.2218, validation MSE: 0.5271
-2026-01-10 18:17:54 [INFO]: Epoch 016 - training loss (MAE): 0.2204, validation MSE: 0.5634
-2026-01-10 18:17:55 [INFO]: Epoch 017 - training loss (MAE): 0.2106, validation MSE: 0.5472
-2026-01-10 18:17:56 [INFO]: Epoch 018 - training loss (MAE): 0.2055, validation MSE: 0.5694
-2026-01-10 18:17:57 [INFO]: Epoch 019 - training loss (MAE): 0.1980, validation MSE: 0.5630
-2026-01-10 18:17:59 [INFO]: Epoch 020 - training loss (MAE): 0.1920, validation MSE: 0.5476
-2026-01-10 18:18:00 [INFO]: Epoch 021 - training loss (MAE): 0.1916, validation MSE: 0.5494
-2026-01-10 18:18:01 [INFO]: Epoch 022 - training loss (MAE): 0.1893, validation MSE: 0.5773
-2026-01-10 18:18:02 [INFO]: Epoch 023 - training loss (MAE): 0.1869, validation MSE: 0.5588
-2026-01-10 18:18:03 [INFO]: Epoch 024 - training loss (MAE): 0.1862, validation MSE: 0.5731
-2026-01-10 18:18:04 [INFO]: Epoch 025 - training loss (MAE): 0.1821, validation MSE: 0.5696
-2026-01-10 18:18:04 [INFO]: Exceeded the training patience. Terminating the training procedure...
-2026-01-10 18:18:04 [INFO]: Finished training. The best model is from epoch#15.
-2026-01-10 18:18:05 [INFO]: Saved the model to reproduce_imputation/subseq05_log/ETT_h1_log/TimeMixerPP_ETT_h1/round_2/20260110_T181735/TimeMixerPP.pypots
-2026-01-10 18:18:05 [INFO]: Successfully saved to reproduce_imputation/subseq05_log/ETT_h1_log/TimeMixerPP_ETT_h1/round_2/imputation.pkl
-2026-01-10 18:18:05 [INFO]: Round2 - TimeMixerPP on ETT_h1: MAE=0.6509, MSE=0.8300, MRE=0.7331
-2026-01-10 18:18:05 [INFO]: Have set the random seed as 2027 for numpy and pytorch.
-2026-01-10 18:18:05 [INFO]: Using the given device: cuda:0
-2026-01-10 18:18:05 [INFO]: Model files will be saved to reproduce_imputation/subseq05_log/ETT_h1_log/TimeMixerPP_ETT_h1/round_3/20260110_T181805
-2026-01-10 18:18:05 [INFO]: Tensorboard file will be saved to reproduce_imputation/subseq05_log/ETT_h1_log/TimeMixerPP_ETT_h1/round_3/20260110_T181805/tensorboard
-2026-01-10 18:18:05 [INFO]: Using customized MAE as the training loss function.
-2026-01-10 18:18:05 [INFO]: Using customized MSE as the validation metric function.
-2026-01-10 18:18:05 [INFO]: TimeMixerPP initialized with the given hyperparameters, the number of trainable parameters: 11,166,987
-2026-01-10 18:18:06 [INFO]: Epoch 001 - training loss (MAE): 0.7306, validation MSE: 1.1057
-2026-01-10 18:18:08 [INFO]: Epoch 002 - training loss (MAE): 0.5388, validation MSE: 0.8905
-2026-01-10 18:18:09 [INFO]: Epoch 003 - training loss (MAE): 0.4559, validation MSE: 0.7755
-2026-01-10 18:18:10 [INFO]: Epoch 004 - training loss (MAE): 0.3944, validation MSE: 0.6727
-2026-01-10 18:18:11 [INFO]: Epoch 005 - training loss (MAE): 0.3487, validation MSE: 0.6023
-2026-01-10 18:18:12 [INFO]: Epoch 006 - training loss (MAE): 0.3264, validation MSE: 0.5960
-2026-01-10 18:18:13 [INFO]: Epoch 007 - training loss (MAE): 0.3070, validation MSE: 0.5866
-2026-01-10 18:18:15 [INFO]: Epoch 008 - training loss (MAE): 0.2906, validation MSE: 0.5774
-2026-01-10 18:18:16 [INFO]: Epoch 009 - training loss (MAE): 0.2735, validation MSE: 0.5708
-2026-01-10 18:18:17 [INFO]: Epoch 010 - training loss (MAE): 0.2624, validation MSE: 0.5469
-2026-01-10 18:18:18 [INFO]: Epoch 011 - training loss (MAE): 0.2533, validation MSE: 0.5768
-2026-01-10 18:18:19 [INFO]: Epoch 012 - training loss (MAE): 0.2397, validation MSE: 0.5478
-2026-01-10 18:18:21 [INFO]: Epoch 013 - training loss (MAE): 0.2299, validation MSE: 0.5557
-2026-01-10 18:18:22 [INFO]: Epoch 014 - training loss (MAE): 0.2241, validation MSE: 0.5492
-2026-01-10 18:18:23 [INFO]: Epoch 015 - training loss (MAE): 0.2224, validation MSE: 0.5671
-2026-01-10 18:18:24 [INFO]: Epoch 016 - training loss (MAE): 0.2221, validation MSE: 0.5740
-2026-01-10 18:18:25 [INFO]: Epoch 017 - training loss (MAE): 0.2139, validation MSE: 0.6078
-2026-01-10 18:18:26 [INFO]: Epoch 018 - training loss (MAE): 0.2170, validation MSE: 0.5566
-2026-01-10 18:18:28 [INFO]: Epoch 019 - training loss (MAE): 0.2058, validation MSE: 0.5907
-2026-01-10 18:18:29 [INFO]: Epoch 020 - training loss (MAE): 0.2007, validation MSE: 0.5390
-2026-01-10 18:18:30 [INFO]: Epoch 021 - training loss (MAE): 0.1957, validation MSE: 0.5679
-2026-01-10 18:18:31 [INFO]: Epoch 022 - training loss (MAE): 0.1898, validation MSE: 0.5346
-2026-01-10 18:18:32 [INFO]: Epoch 023 - training loss (MAE): 0.1889, validation MSE: 0.5574
-2026-01-10 18:18:33 [INFO]: Epoch 024 - training loss (MAE): 0.1887, validation MSE: 0.5577
-2026-01-10 18:18:35 [INFO]: Epoch 025 - training loss (MAE): 0.1841, validation MSE: 0.5815
-2026-01-10 18:18:36 [INFO]: Epoch 026 - training loss (MAE): 0.1829, validation MSE: 0.5690
-2026-01-10 18:18:37 [INFO]: Epoch 027 - training loss (MAE): 0.1757, validation MSE: 0.5573
-2026-01-10 18:18:38 [INFO]: Epoch 028 - training loss (MAE): 0.1741, validation MSE: 0.5680
-2026-01-10 18:18:39 [INFO]: Epoch 029 - training loss (MAE): 0.1737, validation MSE: 0.5434
-2026-01-10 18:18:40 [INFO]: Epoch 030 - training loss (MAE): 0.1694, validation MSE: 0.5713
-2026-01-10 18:18:42 [INFO]: Epoch 031 - training loss (MAE): 0.1645, validation MSE: 0.5604
-2026-01-10 18:18:43 [INFO]: Epoch 032 - training loss (MAE): 0.1632, validation MSE: 0.5418
-2026-01-10 18:18:43 [INFO]: Exceeded the training patience. Terminating the training procedure...
-2026-01-10 18:18:43 [INFO]: Finished training. The best model is from epoch#22.
-2026-01-10 18:18:43 [INFO]: Saved the model to reproduce_imputation/subseq05_log/ETT_h1_log/TimeMixerPP_ETT_h1/round_3/20260110_T181805/TimeMixerPP.pypots
-2026-01-10 18:18:43 [INFO]: Successfully saved to reproduce_imputation/subseq05_log/ETT_h1_log/TimeMixerPP_ETT_h1/round_3/imputation.pkl
-2026-01-10 18:18:43 [INFO]: Round3 - TimeMixerPP on ETT_h1: MAE=0.6648, MSE=0.8377, MRE=0.7488
-2026-01-10 18:18:43 [INFO]: Have set the random seed as 2028 for numpy and pytorch.
-2026-01-10 18:18:43 [INFO]: Using the given device: cuda:0
-2026-01-10 18:18:43 [INFO]: Model files will be saved to reproduce_imputation/subseq05_log/ETT_h1_log/TimeMixerPP_ETT_h1/round_4/20260110_T181843
-2026-01-10 18:18:43 [INFO]: Tensorboard file will be saved to reproduce_imputation/subseq05_log/ETT_h1_log/TimeMixerPP_ETT_h1/round_4/20260110_T181843/tensorboard
-2026-01-10 18:18:43 [INFO]: Using customized MAE as the training loss function.
-2026-01-10 18:18:43 [INFO]: Using customized MSE as the validation metric function.
-2026-01-10 18:18:44 [INFO]: TimeMixerPP initialized with the given hyperparameters, the number of trainable parameters: 11,166,987
-2026-01-10 18:18:45 [INFO]: Epoch 001 - training loss (MAE): 0.7052, validation MSE: 1.1150
-2026-01-10 18:18:46 [INFO]: Epoch 002 - training loss (MAE): 0.5400, validation MSE: 0.8882
-2026-01-10 18:18:47 [INFO]: Epoch 003 - training loss (MAE): 0.4527, validation MSE: 0.7758
-2026-01-10 18:18:48 [INFO]: Epoch 004 - training loss (MAE): 0.3993, validation MSE: 0.6980
-2026-01-10 18:18:50 [INFO]: Epoch 005 - training loss (MAE): 0.3644, validation MSE: 0.6473
-2026-01-10 18:18:51 [INFO]: Epoch 006 - training loss (MAE): 0.3278, validation MSE: 0.6305
-2026-01-10 18:18:52 [INFO]: Epoch 007 - training loss (MAE): 0.3081, validation MSE: 0.5954
-2026-01-10 18:18:53 [INFO]: Epoch 008 - training loss (MAE): 0.2863, validation MSE: 0.5991
-2026-01-10 18:18:54 [INFO]: Epoch 009 - training loss (MAE): 0.2676, validation MSE: 0.5689
-2026-01-10 18:18:55 [INFO]: Epoch 010 - training loss (MAE): 0.2548, validation MSE: 0.5518
-2026-01-10 18:18:57 [INFO]: Epoch 011 - training loss (MAE): 0.2438, validation MSE: 0.5706
-2026-01-10 18:18:58 [INFO]: Epoch 012 - training loss (MAE): 0.2365, validation MSE: 0.5663
-2026-01-10 18:18:59 [INFO]: Epoch 013 - training loss (MAE): 0.2286, validation MSE: 0.5547
-2026-01-10 18:19:00 [INFO]: Epoch 014 - training loss (MAE): 0.2297, validation MSE: 0.5378
-2026-01-10 18:19:01 [INFO]: Epoch 015 - training loss (MAE): 0.2289, validation MSE: 0.5669
-2026-01-10 18:19:02 [INFO]: Epoch 016 - training loss (MAE): 0.2264, validation MSE: 0.5461
-2026-01-10 18:19:04 [INFO]: Epoch 017 - training loss (MAE): 0.2152, validation MSE: 0.5567
-2026-01-10 18:19:05 [INFO]: Epoch 018 - training loss (MAE): 0.2128, validation MSE: 0.5565
-2026-01-10 18:19:06 [INFO]: Epoch 019 - training loss (MAE): 0.2070, validation MSE: 0.5422
-2026-01-10 18:19:07 [INFO]: Epoch 020 - training loss (MAE): 0.1967, validation MSE: 0.5429
-2026-01-10 18:19:08 [INFO]: Epoch 021 - training loss (MAE): 0.1940, validation MSE: 0.5467
-2026-01-10 18:19:09 [INFO]: Epoch 022 - training loss (MAE): 0.1884, validation MSE: 0.5799
-2026-01-10 18:19:11 [INFO]: Epoch 023 - training loss (MAE): 0.1895, validation MSE: 0.5615
-2026-01-10 18:19:12 [INFO]: Epoch 024 - training loss (MAE): 0.1853, validation MSE: 0.5588
-2026-01-10 18:19:12 [INFO]: Exceeded the training patience. Terminating the training procedure...
-2026-01-10 18:19:12 [INFO]: Finished training. The best model is from epoch#14.
-2026-01-10 18:19:12 [INFO]: Saved the model to reproduce_imputation/subseq05_log/ETT_h1_log/TimeMixerPP_ETT_h1/round_4/20260110_T181843/TimeMixerPP.pypots
-2026-01-10 18:19:12 [INFO]: Successfully saved to reproduce_imputation/subseq05_log/ETT_h1_log/TimeMixerPP_ETT_h1/round_4/imputation.pkl
-2026-01-10 18:19:12 [INFO]: Round4 - TimeMixerPP on ETT_h1: MAE=0.6660, MSE=0.8514, MRE=0.7501
-Traceback (most recent call last):
-  File "/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/train_model.py", line 142, in <module>
-    set_random_seed(RANDOM_SEEDS[n_round])
-IndexError: list index out of range
+2026-01-10 21:13:36 [WARNING]: ‼️ `pypots.utils.metrics` is deprecated. Please import from `pypots.nn.functional` instead.
+2026-01-10 21:13:36 [INFO]: Have set the random seed as 2024 for numpy and pytorch.
+2026-01-10 21:13:36 [INFO]: Using the given device: cuda:0
+2026-01-10 21:13:37 [INFO]: Model files will be saved to reproduce_imputation/subseq05_log/ETT_h1_log/TimeMixerPP_ETT_h1/round_0/20260110_T211336
+2026-01-10 21:13:37 [INFO]: Tensorboard file will be saved to reproduce_imputation/subseq05_log/ETT_h1_log/TimeMixerPP_ETT_h1/round_0/20260110_T211336/tensorboard
+2026-01-10 21:13:37 [INFO]: Using customized MAE as the training loss function.
+2026-01-10 21:13:37 [INFO]: Using customized MSE as the validation metric function.
+2026-01-10 21:13:37 [INFO]: TimeMixerPP initialized with the given hyperparameters, the number of trainable parameters: 11,166,987
+2026-01-10 21:13:41 [INFO]: Epoch 001 - training loss (MAE): 0.6671, validation MSE: 1.0116
+2026-01-10 21:13:42 [INFO]: Epoch 002 - training loss (MAE): 0.5124, validation MSE: 0.8145
+2026-01-10 21:13:44 [INFO]: Epoch 003 - training loss (MAE): 0.4295, validation MSE: 0.7193
+2026-01-10 21:13:45 [INFO]: Epoch 004 - training loss (MAE): 0.3790, validation MSE: 0.6402
+2026-01-10 21:13:46 [INFO]: Epoch 005 - training loss (MAE): 0.3448, validation MSE: 0.6019
+2026-01-10 21:13:48 [INFO]: Epoch 006 - training loss (MAE): 0.3176, validation MSE: 0.5782
+2026-01-10 21:13:49 [INFO]: Epoch 007 - training loss (MAE): 0.2953, validation MSE: 0.5503
+2026-01-10 21:13:50 [INFO]: Epoch 008 - training loss (MAE): 0.2760, validation MSE: 0.5666
+2026-01-10 21:13:52 [INFO]: Epoch 009 - training loss (MAE): 0.2604, validation MSE: 0.5778
+2026-01-10 21:13:53 [INFO]: Epoch 010 - training loss (MAE): 0.2502, validation MSE: 0.5568
+2026-01-10 21:13:54 [INFO]: Epoch 011 - training loss (MAE): 0.2439, validation MSE: 0.5729
+2026-01-10 21:13:56 [INFO]: Epoch 012 - training loss (MAE): 0.2310, validation MSE: 0.5441
+2026-01-10 21:13:57 [INFO]: Epoch 013 - training loss (MAE): 0.2250, validation MSE: 0.5595
+2026-01-10 21:13:58 [INFO]: Epoch 014 - training loss (MAE): 0.2210, validation MSE: 0.5617
+2026-01-10 21:14:00 [INFO]: Epoch 015 - training loss (MAE): 0.2179, validation MSE: 0.5955
+2026-01-10 21:14:01 [INFO]: Epoch 016 - training loss (MAE): 0.2109, validation MSE: 0.5531
+2026-01-10 21:14:02 [INFO]: Epoch 017 - training loss (MAE): 0.2114, validation MSE: 0.5564
+2026-01-10 21:14:04 [INFO]: Epoch 018 - training loss (MAE): 0.2064, validation MSE: 0.5478
+2026-01-10 21:14:05 [INFO]: Epoch 019 - training loss (MAE): 0.2052, validation MSE: 0.5683
+2026-01-10 21:14:06 [INFO]: Epoch 020 - training loss (MAE): 0.2065, validation MSE: 0.5609
+2026-01-10 21:14:08 [INFO]: Epoch 021 - training loss (MAE): 0.2044, validation MSE: 0.5582
+2026-01-10 21:14:09 [INFO]: Epoch 022 - training loss (MAE): 0.1954, validation MSE: 0.5993
+2026-01-10 21:14:09 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2026-01-10 21:14:09 [INFO]: Finished training. The best model is from epoch#12.
+2026-01-10 21:14:09 [INFO]: Saved the model to reproduce_imputation/subseq05_log/ETT_h1_log/TimeMixerPP_ETT_h1/round_0/20260110_T211336/TimeMixerPP.pypots
+2026-01-10 21:14:09 [INFO]: Successfully saved to reproduce_imputation/subseq05_log/ETT_h1_log/TimeMixerPP_ETT_h1/round_0/imputation.pkl
+2026-01-10 21:14:09 [INFO]: Round0 - TimeMixerPP on ETT_h1: MAE=0.6618, MSE=0.8998, MRE=0.7454
+2026-01-10 21:14:09 [INFO]: Have set the random seed as 2025 for numpy and pytorch.
+2026-01-10 21:14:09 [INFO]: Using the given device: cuda:0
+2026-01-10 21:14:09 [INFO]: Model files will be saved to reproduce_imputation/subseq05_log/ETT_h1_log/TimeMixerPP_ETT_h1/round_1/20260110_T211409
+2026-01-10 21:14:09 [INFO]: Tensorboard file will be saved to reproduce_imputation/subseq05_log/ETT_h1_log/TimeMixerPP_ETT_h1/round_1/20260110_T211409/tensorboard
+2026-01-10 21:14:09 [INFO]: Using customized MAE as the training loss function.
+2026-01-10 21:14:09 [INFO]: Using customized MSE as the validation metric function.
+2026-01-10 21:14:10 [INFO]: TimeMixerPP initialized with the given hyperparameters, the number of trainable parameters: 11,166,987
+2026-01-10 21:14:11 [INFO]: Epoch 001 - training loss (MAE): 0.6966, validation MSE: 1.0102
+2026-01-10 21:14:12 [INFO]: Epoch 002 - training loss (MAE): 0.5294, validation MSE: 0.9020
+2026-01-10 21:14:14 [INFO]: Epoch 003 - training loss (MAE): 0.4462, validation MSE: 0.7365
+2026-01-10 21:14:15 [INFO]: Epoch 004 - training loss (MAE): 0.3956, validation MSE: 0.6895
+2026-01-10 21:14:16 [INFO]: Epoch 005 - training loss (MAE): 0.3550, validation MSE: 0.6514
+2026-01-10 21:14:18 [INFO]: Epoch 006 - training loss (MAE): 0.3195, validation MSE: 0.5930
+2026-01-10 21:14:19 [INFO]: Epoch 007 - training loss (MAE): 0.2975, validation MSE: 0.5840
+2026-01-10 21:14:20 [INFO]: Epoch 008 - training loss (MAE): 0.2769, validation MSE: 0.5585
+2026-01-10 21:14:22 [INFO]: Epoch 009 - training loss (MAE): 0.2693, validation MSE: 0.5640
+2026-01-10 21:14:23 [INFO]: Epoch 010 - training loss (MAE): 0.2599, validation MSE: 0.5915
+2026-01-10 21:14:24 [INFO]: Epoch 011 - training loss (MAE): 0.2584, validation MSE: 0.5729
+2026-01-10 21:14:26 [INFO]: Epoch 012 - training loss (MAE): 0.2495, validation MSE: 0.5741
+2026-01-10 21:14:27 [INFO]: Epoch 013 - training loss (MAE): 0.2337, validation MSE: 0.5861
+2026-01-10 21:14:28 [INFO]: Epoch 014 - training loss (MAE): 0.2220, validation MSE: 0.5693
+2026-01-10 21:14:30 [INFO]: Epoch 015 - training loss (MAE): 0.2211, validation MSE: 0.5964
+2026-01-10 21:14:31 [INFO]: Epoch 016 - training loss (MAE): 0.2144, validation MSE: 0.5664
+2026-01-10 21:14:32 [INFO]: Epoch 017 - training loss (MAE): 0.2075, validation MSE: 0.5602
+2026-01-10 21:14:34 [INFO]: Epoch 018 - training loss (MAE): 0.2023, validation MSE: 0.5937
+2026-01-10 21:14:34 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2026-01-10 21:14:34 [INFO]: Finished training. The best model is from epoch#8.
+2026-01-10 21:14:34 [INFO]: Saved the model to reproduce_imputation/subseq05_log/ETT_h1_log/TimeMixerPP_ETT_h1/round_1/20260110_T211409/TimeMixerPP.pypots
+2026-01-10 21:14:34 [INFO]: Successfully saved to reproduce_imputation/subseq05_log/ETT_h1_log/TimeMixerPP_ETT_h1/round_1/imputation.pkl
+2026-01-10 21:14:34 [INFO]: Round1 - TimeMixerPP on ETT_h1: MAE=0.6799, MSE=0.9017, MRE=0.7657
+2026-01-10 21:14:34 [INFO]: Have set the random seed as 2026 for numpy and pytorch.
+2026-01-10 21:14:34 [INFO]: Using the given device: cuda:0
+2026-01-10 21:14:34 [INFO]: Model files will be saved to reproduce_imputation/subseq05_log/ETT_h1_log/TimeMixerPP_ETT_h1/round_2/20260110_T211434
+2026-01-10 21:14:34 [INFO]: Tensorboard file will be saved to reproduce_imputation/subseq05_log/ETT_h1_log/TimeMixerPP_ETT_h1/round_2/20260110_T211434/tensorboard
+2026-01-10 21:14:34 [INFO]: Using customized MAE as the training loss function.
+2026-01-10 21:14:34 [INFO]: Using customized MSE as the validation metric function.
+2026-01-10 21:14:34 [INFO]: TimeMixerPP initialized with the given hyperparameters, the number of trainable parameters: 11,166,987
+2026-01-10 21:14:36 [INFO]: Epoch 001 - training loss (MAE): 0.6972, validation MSE: 0.9969
+2026-01-10 21:14:37 [INFO]: Epoch 002 - training loss (MAE): 0.5178, validation MSE: 0.8146
+2026-01-10 21:14:38 [INFO]: Epoch 003 - training loss (MAE): 0.4486, validation MSE: 0.6794
+2026-01-10 21:14:40 [INFO]: Epoch 004 - training loss (MAE): 0.3917, validation MSE: 0.6144
+2026-01-10 21:14:41 [INFO]: Epoch 005 - training loss (MAE): 0.3487, validation MSE: 0.5841
+2026-01-10 21:14:42 [INFO]: Epoch 006 - training loss (MAE): 0.3237, validation MSE: 0.6013
+2026-01-10 21:14:44 [INFO]: Epoch 007 - training loss (MAE): 0.3075, validation MSE: 0.5704
+2026-01-10 21:14:45 [INFO]: Epoch 008 - training loss (MAE): 0.2820, validation MSE: 0.5855
+2026-01-10 21:14:46 [INFO]: Epoch 009 - training loss (MAE): 0.2675, validation MSE: 0.5870
+2026-01-10 21:14:48 [INFO]: Epoch 010 - training loss (MAE): 0.2586, validation MSE: 0.5598
+2026-01-10 21:14:49 [INFO]: Epoch 011 - training loss (MAE): 0.2441, validation MSE: 0.5476
+2026-01-10 21:14:50 [INFO]: Epoch 012 - training loss (MAE): 0.2364, validation MSE: 0.5519
+2026-01-10 21:14:52 [INFO]: Epoch 013 - training loss (MAE): 0.2289, validation MSE: 0.5547
+2026-01-10 21:14:53 [INFO]: Epoch 014 - training loss (MAE): 0.2223, validation MSE: 0.5729
+2026-01-10 21:14:54 [INFO]: Epoch 015 - training loss (MAE): 0.2191, validation MSE: 0.5385
+2026-01-10 21:14:56 [INFO]: Epoch 016 - training loss (MAE): 0.2202, validation MSE: 0.5606
+2026-01-10 21:14:57 [INFO]: Epoch 017 - training loss (MAE): 0.2115, validation MSE: 0.5680
+2026-01-10 21:14:58 [INFO]: Epoch 018 - training loss (MAE): 0.2061, validation MSE: 0.5757
+2026-01-10 21:15:00 [INFO]: Epoch 019 - training loss (MAE): 0.2006, validation MSE: 0.5802
+2026-01-10 21:15:01 [INFO]: Epoch 020 - training loss (MAE): 0.1956, validation MSE: 0.5388
+2026-01-10 21:15:02 [INFO]: Epoch 021 - training loss (MAE): 0.1915, validation MSE: 0.5418
+2026-01-10 21:15:04 [INFO]: Epoch 022 - training loss (MAE): 0.1864, validation MSE: 0.5614
+2026-01-10 21:15:05 [INFO]: Epoch 023 - training loss (MAE): 0.1866, validation MSE: 0.5749
+2026-01-10 21:15:06 [INFO]: Epoch 024 - training loss (MAE): 0.1879, validation MSE: 0.5910
+2026-01-10 21:15:08 [INFO]: Epoch 025 - training loss (MAE): 0.1870, validation MSE: 0.5860
+2026-01-10 21:15:08 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2026-01-10 21:15:08 [INFO]: Finished training. The best model is from epoch#15.
+2026-01-10 21:15:08 [INFO]: Saved the model to reproduce_imputation/subseq05_log/ETT_h1_log/TimeMixerPP_ETT_h1/round_2/20260110_T211434/TimeMixerPP.pypots
+2026-01-10 21:15:08 [INFO]: Successfully saved to reproduce_imputation/subseq05_log/ETT_h1_log/TimeMixerPP_ETT_h1/round_2/imputation.pkl
+2026-01-10 21:15:08 [INFO]: Round2 - TimeMixerPP on ETT_h1: MAE=0.6573, MSE=0.8496, MRE=0.7403
+2026-01-10 21:15:08 [INFO]: Have set the random seed as 2027 for numpy and pytorch.
+2026-01-10 21:15:08 [INFO]: Using the given device: cuda:0
+2026-01-10 21:15:08 [INFO]: Model files will be saved to reproduce_imputation/subseq05_log/ETT_h1_log/TimeMixerPP_ETT_h1/round_3/20260110_T211508
+2026-01-10 21:15:08 [INFO]: Tensorboard file will be saved to reproduce_imputation/subseq05_log/ETT_h1_log/TimeMixerPP_ETT_h1/round_3/20260110_T211508/tensorboard
+2026-01-10 21:15:08 [INFO]: Using customized MAE as the training loss function.
+2026-01-10 21:15:08 [INFO]: Using customized MSE as the validation metric function.
+2026-01-10 21:15:08 [INFO]: TimeMixerPP initialized with the given hyperparameters, the number of trainable parameters: 11,166,987
+2026-01-10 21:15:10 [INFO]: Epoch 001 - training loss (MAE): 0.7306, validation MSE: 1.1057
+2026-01-10 21:15:11 [INFO]: Epoch 002 - training loss (MAE): 0.5388, validation MSE: 0.8905
+2026-01-10 21:15:13 [INFO]: Epoch 003 - training loss (MAE): 0.4559, validation MSE: 0.7755
+2026-01-10 21:15:14 [INFO]: Epoch 004 - training loss (MAE): 0.3944, validation MSE: 0.6720
+2026-01-10 21:15:15 [INFO]: Epoch 005 - training loss (MAE): 0.3485, validation MSE: 0.6026
+2026-01-10 21:15:17 [INFO]: Epoch 006 - training loss (MAE): 0.3266, validation MSE: 0.5959
+2026-01-10 21:15:18 [INFO]: Epoch 007 - training loss (MAE): 0.3062, validation MSE: 0.5928
+2026-01-10 21:15:19 [INFO]: Epoch 008 - training loss (MAE): 0.2904, validation MSE: 0.5800
+2026-01-10 21:15:21 [INFO]: Epoch 009 - training loss (MAE): 0.2739, validation MSE: 0.5695
+2026-01-10 21:15:22 [INFO]: Epoch 010 - training loss (MAE): 0.2654, validation MSE: 0.5523
+2026-01-10 21:15:23 [INFO]: Epoch 011 - training loss (MAE): 0.2518, validation MSE: 0.5670
+2026-01-10 21:15:24 [INFO]: Epoch 012 - training loss (MAE): 0.2388, validation MSE: 0.5424
+2026-01-10 21:15:26 [INFO]: Epoch 013 - training loss (MAE): 0.2315, validation MSE: 0.5639
+2026-01-10 21:15:27 [INFO]: Epoch 014 - training loss (MAE): 0.2275, validation MSE: 0.5419
+2026-01-10 21:15:28 [INFO]: Epoch 015 - training loss (MAE): 0.2206, validation MSE: 0.5565
+2026-01-10 21:15:30 [INFO]: Epoch 016 - training loss (MAE): 0.2204, validation MSE: 0.5640
+2026-01-10 21:15:31 [INFO]: Epoch 017 - training loss (MAE): 0.2139, validation MSE: 0.6079
+2026-01-10 21:15:32 [INFO]: Epoch 018 - training loss (MAE): 0.2172, validation MSE: 0.5556
+2026-01-10 21:15:34 [INFO]: Epoch 019 - training loss (MAE): 0.2051, validation MSE: 0.5712
+2026-01-10 21:15:35 [INFO]: Epoch 020 - training loss (MAE): 0.1997, validation MSE: 0.5488
+2026-01-10 21:15:36 [INFO]: Epoch 021 - training loss (MAE): 0.1953, validation MSE: 0.5753
+2026-01-10 21:15:38 [INFO]: Epoch 022 - training loss (MAE): 0.1895, validation MSE: 0.5424
+2026-01-10 21:15:39 [INFO]: Epoch 023 - training loss (MAE): 0.1887, validation MSE: 0.5524
+2026-01-10 21:15:40 [INFO]: Epoch 024 - training loss (MAE): 0.1881, validation MSE: 0.5576
+2026-01-10 21:15:40 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2026-01-10 21:15:40 [INFO]: Finished training. The best model is from epoch#14.
+2026-01-10 21:15:40 [INFO]: Saved the model to reproduce_imputation/subseq05_log/ETT_h1_log/TimeMixerPP_ETT_h1/round_3/20260110_T211508/TimeMixerPP.pypots
+2026-01-10 21:15:41 [INFO]: Successfully saved to reproduce_imputation/subseq05_log/ETT_h1_log/TimeMixerPP_ETT_h1/round_3/imputation.pkl
+2026-01-10 21:15:41 [INFO]: Round3 - TimeMixerPP on ETT_h1: MAE=0.6627, MSE=0.8422, MRE=0.7464
+2026-01-10 21:15:41 [INFO]: Have set the random seed as 2028 for numpy and pytorch.
+2026-01-10 21:15:41 [INFO]: Using the given device: cuda:0
+2026-01-10 21:15:41 [INFO]: Model files will be saved to reproduce_imputation/subseq05_log/ETT_h1_log/TimeMixerPP_ETT_h1/round_4/20260110_T211541
+2026-01-10 21:15:41 [INFO]: Tensorboard file will be saved to reproduce_imputation/subseq05_log/ETT_h1_log/TimeMixerPP_ETT_h1/round_4/20260110_T211541/tensorboard
+2026-01-10 21:15:41 [INFO]: Using customized MAE as the training loss function.
+2026-01-10 21:15:41 [INFO]: Using customized MSE as the validation metric function.
+2026-01-10 21:15:41 [INFO]: TimeMixerPP initialized with the given hyperparameters, the number of trainable parameters: 11,166,987
+2026-01-10 21:15:42 [INFO]: Epoch 001 - training loss (MAE): 0.7052, validation MSE: 1.1150
+2026-01-10 21:15:44 [INFO]: Epoch 002 - training loss (MAE): 0.5400, validation MSE: 0.8882
+2026-01-10 21:15:45 [INFO]: Epoch 003 - training loss (MAE): 0.4527, validation MSE: 0.7758
+2026-01-10 21:15:46 [INFO]: Epoch 004 - training loss (MAE): 0.3993, validation MSE: 0.6979
+2026-01-10 21:15:48 [INFO]: Epoch 005 - training loss (MAE): 0.3644, validation MSE: 0.6459
+2026-01-10 21:15:49 [INFO]: Epoch 006 - training loss (MAE): 0.3276, validation MSE: 0.6306
+2026-01-10 21:15:50 [INFO]: Epoch 007 - training loss (MAE): 0.3091, validation MSE: 0.5958
+2026-01-10 21:15:51 [INFO]: Epoch 008 - training loss (MAE): 0.2878, validation MSE: 0.6056
+2026-01-10 21:15:53 [INFO]: Epoch 009 - training loss (MAE): 0.2692, validation MSE: 0.5635
+2026-01-10 21:15:54 [INFO]: Epoch 010 - training loss (MAE): 0.2570, validation MSE: 0.5571
+2026-01-10 21:15:55 [INFO]: Epoch 011 - training loss (MAE): 0.2467, validation MSE: 0.5641
+2026-01-10 21:15:57 [INFO]: Epoch 012 - training loss (MAE): 0.2356, validation MSE: 0.5645
+2026-01-10 21:15:58 [INFO]: Epoch 013 - training loss (MAE): 0.2291, validation MSE: 0.5567
+2026-01-10 21:15:59 [INFO]: Epoch 014 - training loss (MAE): 0.2299, validation MSE: 0.5348
+2026-01-10 21:16:01 [INFO]: Epoch 015 - training loss (MAE): 0.2270, validation MSE: 0.5671
+2026-01-10 21:16:02 [INFO]: Epoch 016 - training loss (MAE): 0.2268, validation MSE: 0.5327
+2026-01-10 21:16:03 [INFO]: Epoch 017 - training loss (MAE): 0.2154, validation MSE: 0.5451
+2026-01-10 21:16:05 [INFO]: Epoch 018 - training loss (MAE): 0.2116, validation MSE: 0.5352
+2026-01-10 21:16:06 [INFO]: Epoch 019 - training loss (MAE): 0.2065, validation MSE: 0.5439
+2026-01-10 21:16:07 [INFO]: Epoch 020 - training loss (MAE): 0.1968, validation MSE: 0.5248
+2026-01-10 21:16:08 [INFO]: Epoch 021 - training loss (MAE): 0.1927, validation MSE: 0.5538
+2026-01-10 21:16:10 [INFO]: Epoch 022 - training loss (MAE): 0.1908, validation MSE: 0.5838
+2026-01-10 21:16:11 [INFO]: Epoch 023 - training loss (MAE): 0.1859, validation MSE: 0.5552
+2026-01-10 21:16:12 [INFO]: Epoch 024 - training loss (MAE): 0.1853, validation MSE: 0.5649
+2026-01-10 21:16:14 [INFO]: Epoch 025 - training loss (MAE): 0.1801, validation MSE: 0.5474
+2026-01-10 21:16:15 [INFO]: Epoch 026 - training loss (MAE): 0.1817, validation MSE: 0.5773
+2026-01-10 21:16:16 [INFO]: Epoch 027 - training loss (MAE): 0.1796, validation MSE: 0.5649
+2026-01-10 21:16:18 [INFO]: Epoch 028 - training loss (MAE): 0.1760, validation MSE: 0.5495
+2026-01-10 21:16:19 [INFO]: Epoch 029 - training loss (MAE): 0.1702, validation MSE: 0.5454
+2026-01-10 21:16:20 [INFO]: Epoch 030 - training loss (MAE): 0.1732, validation MSE: 0.5366
+2026-01-10 21:16:20 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2026-01-10 21:16:20 [INFO]: Finished training. The best model is from epoch#20.
+2026-01-10 21:16:20 [INFO]: Saved the model to reproduce_imputation/subseq05_log/ETT_h1_log/TimeMixerPP_ETT_h1/round_4/20260110_T211541/TimeMixerPP.pypots
+2026-01-10 21:16:21 [INFO]: Successfully saved to reproduce_imputation/subseq05_log/ETT_h1_log/TimeMixerPP_ETT_h1/round_4/imputation.pkl
+2026-01-10 21:16:21 [INFO]: Round4 - TimeMixerPP on ETT_h1: MAE=0.6653, MSE=0.8549, MRE=0.7494
+2026-01-10 21:16:21 [INFO]: Done! Final results:
+Averaged TimeMixerPP (11,166,987 params) on ETT_h1: MAE=0.6654 ± 0.007693619392581447, MSE=0.8696 ± 0.025753376128769438, MRE=0.7494 ± 0.008665009900836811, average inference time=0.21
+  0%|          | 0/11 [00:00<?, ?it/s]100%|██████████| 11/11 [00:00<00:00, 316.79it/s]

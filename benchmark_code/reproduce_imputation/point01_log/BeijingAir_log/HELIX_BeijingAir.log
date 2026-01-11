@@ -488,3 +488,101 @@
 2026-01-10 20:05:43 [INFO]: Epoch 058 - train_loss: 0.1038, val_loss: 0.1351, lr: 0.000287
 2026-01-10 20:06:10 [INFO]: Epoch 059 - train_loss: 0.1039, val_loss: 0.1313, lr: 0.000287
 2026-01-10 20:06:36 [INFO]: Epoch 060 - train_loss: 0.1035, val_loss: 0.1236, lr: 0.000287
+2026-01-10 20:07:02 [INFO]: Epoch 061 - train_loss: 0.1013, val_loss: 0.1320, lr: 0.000287
+2026-01-10 20:07:29 [INFO]: Epoch 062 - train_loss: 0.1024, val_loss: 0.1268, lr: 0.000287
+2026-01-10 20:07:55 [INFO]: Epoch 063 - train_loss: 0.1020, val_loss: 0.1246, lr: 0.000287
+2026-01-10 20:08:21 [INFO]: Epoch 064 - train_loss: 0.1008, val_loss: 0.1356, lr: 0.000287
+2026-01-10 20:08:47 [INFO]: Epoch 065 - train_loss: 0.1018, val_loss: 0.1253, lr: 0.000287
+2026-01-10 20:09:14 [INFO]: Epoch 066 - train_loss: 0.1012, val_loss: 0.1270, lr: 0.000287
+2026-01-10 20:09:40 [INFO]: Epoch 067 - train_loss: 0.1006, val_loss: 0.1283, lr: 0.000287
+2026-01-10 20:10:06 [INFO]: Epoch 068 - train_loss: 0.1019, val_loss: 0.1369, lr: 0.000287
+2026-01-10 20:10:33 [INFO]: Epoch 069 - train_loss: 0.1006, val_loss: 0.1274, lr: 0.000287
+2026-01-10 20:10:59 [INFO]: Epoch 070 - train_loss: 0.1011, val_loss: 0.1266, lr: 0.000287
+2026-01-10 20:10:59 [INFO]: Early stopping triggered at epoch 70. No improvement for 10 epochs.
+2026-01-10 20:10:59 [INFO]: Saved the model to reproduce_imputation/point01_log/BeijingAir_log/HELIX_BeijingAir/round_3/20260110_T194016/HELIX.pypots
+2026-01-10 20:11:02 [INFO]: Successfully saved to reproduce_imputation/point01_log/BeijingAir_log/HELIX_BeijingAir/round_3/imputation.pkl
+2026-01-10 20:11:02 [INFO]: Round3 - HELIX on BeijingAir: MAE=0.0713, MSE=0.1487, MRE=0.0948
+2026-01-10 20:11:02 [INFO]: Have set the random seed as 2028 for numpy and pytorch.
+2026-01-10 20:11:02 [INFO]: Using the given device: cuda:0
+2026-01-10 20:11:02 [INFO]: Model files will be saved to reproduce_imputation/point01_log/BeijingAir_log/HELIX_BeijingAir/round_4/20260110_T201102
+2026-01-10 20:11:02 [INFO]: Tensorboard file will be saved to reproduce_imputation/point01_log/BeijingAir_log/HELIX_BeijingAir/round_4/20260110_T201102/tensorboard
+2026-01-10 20:11:02 [INFO]: Using customized MAE as the training loss function.
+2026-01-10 20:11:02 [INFO]: Using customized MSE as the validation metric function.
+2026-01-10 20:11:02 [WARNING]: ‼️ d_model (256) must be divisible by n_heads (12)
+2026-01-10 20:11:02 [WARNING]: ⚠️ d_model is adjusted to 252
+2026-01-10 20:11:02 [INFO]: ============================================================
+2026-01-10 20:11:02 [INFO]: HELIX Model Configuration:
+2026-01-10 20:11:02 [INFO]: ============================================================
+2026-01-10 20:11:02 [INFO]: Data dimensions:
+2026-01-10 20:11:02 [INFO]:   - n_steps: 24
+2026-01-10 20:11:02 [INFO]:   - n_features: 132
+2026-01-10 20:11:02 [INFO]: Model architecture:
+2026-01-10 20:11:02 [INFO]:   - pe_dim: 12
+2026-01-10 20:11:02 [INFO]:   - feature_embed_dim: 24
+2026-01-10 20:11:02 [INFO]:   - d_model: 252
+2026-01-10 20:11:02 [INFO]:   - n_heads: 12
+2026-01-10 20:11:02 [INFO]:   - n_layers: 3
+2026-01-10 20:11:02 [INFO]:   - dropout: 0.2
+2026-01-10 20:11:02 [INFO]: Training configuration:
+2026-01-10 20:11:02 [INFO]:   - ORT_weight: 1.0
+2026-01-10 20:11:02 [INFO]:   - MIT_weight: 1.0
+2026-01-10 20:11:02 [INFO]:   - batch_size: 4
+2026-01-10 20:11:02 [INFO]:   - epochs: 1000
+2026-01-10 20:11:02 [INFO]:   - patience: 10
+2026-01-10 20:11:02 [INFO]: Optimizer configuration:
+2026-01-10 20:11:02 [INFO]:   - initial_lr: 0.001
+2026-01-10 20:11:02 [INFO]:   - lr_decay: disabled
+2026-01-10 20:11:02 [INFO]: Other settings:
+2026-01-10 20:11:02 [INFO]:   - num_workers: 0
+2026-01-10 20:11:02 [INFO]:   - device: cuda:0
+2026-01-10 20:11:02 [INFO]:   - model_saving_strategy: best
+2026-01-10 20:11:02 [INFO]: ============================================================
+2026-01-10 20:11:02 [INFO]: HELIX initialized with the given hyperparameters, the number of trainable parameters: 4,615,311
+2026-01-10 20:11:02 [INFO]: Learning rate scheduler disabled (lr_decay_patience not set)
+2026-01-10 20:11:28 [INFO]: Epoch 001 - train_loss: 0.5913, val_loss: 0.2342, lr: 0.000287
+2026-01-10 20:11:55 [INFO]: Epoch 002 - train_loss: 0.2668, val_loss: 0.2024, lr: 0.000287
+2026-01-10 20:12:21 [INFO]: Epoch 003 - train_loss: 0.2242, val_loss: 0.1945, lr: 0.000287
+2026-01-10 20:12:47 [INFO]: Epoch 004 - train_loss: 0.2084, val_loss: 0.1864, lr: 0.000287
+2026-01-10 20:13:14 [INFO]: Epoch 005 - train_loss: 0.1968, val_loss: 0.1768, lr: 0.000287
+2026-01-10 20:13:40 [INFO]: Epoch 006 - train_loss: 0.1893, val_loss: 0.1760, lr: 0.000287
+2026-01-10 20:14:06 [INFO]: Epoch 007 - train_loss: 0.1831, val_loss: 0.1748, lr: 0.000287
+2026-01-10 20:14:33 [INFO]: Epoch 008 - train_loss: 0.1787, val_loss: 0.1724, lr: 0.000287
+2026-01-10 20:14:59 [INFO]: Epoch 009 - train_loss: 0.1745, val_loss: 0.1728, lr: 0.000287
+2026-01-10 20:15:25 [INFO]: Epoch 010 - train_loss: 0.1659, val_loss: 0.1655, lr: 0.000287
+2026-01-10 20:15:52 [INFO]: Epoch 011 - train_loss: 0.1631, val_loss: 0.1575, lr: 0.000287
+2026-01-10 20:16:18 [INFO]: Epoch 012 - train_loss: 0.1561, val_loss: 0.1605, lr: 0.000287
+2026-01-10 20:16:45 [INFO]: Epoch 013 - train_loss: 0.1572, val_loss: 0.1580, lr: 0.000287
+2026-01-10 20:17:11 [INFO]: Epoch 014 - train_loss: 0.1479, val_loss: 0.1582, lr: 0.000287
+2026-01-10 20:17:37 [INFO]: Epoch 015 - train_loss: 0.1484, val_loss: 0.1530, lr: 0.000287
+2026-01-10 20:18:04 [INFO]: Epoch 016 - train_loss: 0.1436, val_loss: 0.1614, lr: 0.000287
+2026-01-10 20:18:30 [INFO]: Epoch 017 - train_loss: 0.1404, val_loss: 0.1578, lr: 0.000287
+2026-01-10 20:18:56 [INFO]: Epoch 018 - train_loss: 0.1404, val_loss: 0.1545, lr: 0.000287
+2026-01-10 20:19:23 [INFO]: Epoch 019 - train_loss: 0.1392, val_loss: 0.1552, lr: 0.000287
+2026-01-10 20:19:49 [INFO]: Epoch 020 - train_loss: 0.1388, val_loss: 0.1537, lr: 0.000287
+2026-01-10 20:20:15 [INFO]: Epoch 021 - train_loss: 0.1363, val_loss: 0.1469, lr: 0.000287
+2026-01-10 20:20:42 [INFO]: Epoch 022 - train_loss: 0.1334, val_loss: 0.1510, lr: 0.000287
+2026-01-10 20:21:08 [INFO]: Epoch 023 - train_loss: 0.1331, val_loss: 0.1504, lr: 0.000287
+2026-01-10 20:21:34 [INFO]: Epoch 024 - train_loss: 0.1318, val_loss: 0.1444, lr: 0.000287
+2026-01-10 20:22:01 [INFO]: Epoch 025 - train_loss: 0.1272, val_loss: 0.1469, lr: 0.000287
+2026-01-10 20:22:27 [INFO]: Epoch 026 - train_loss: 0.1296, val_loss: 0.1438, lr: 0.000287
+2026-01-10 20:22:53 [INFO]: Epoch 027 - train_loss: 0.1267, val_loss: 0.1437, lr: 0.000287
+2026-01-10 20:23:20 [INFO]: Epoch 028 - train_loss: 0.1262, val_loss: 0.1476, lr: 0.000287
+2026-01-10 20:23:46 [INFO]: Epoch 029 - train_loss: 0.1240, val_loss: 0.1465, lr: 0.000287
+2026-01-10 20:24:12 [INFO]: Epoch 030 - train_loss: 0.1223, val_loss: 0.1415, lr: 0.000287
+2026-01-10 20:24:39 [INFO]: Epoch 031 - train_loss: 0.1219, val_loss: 0.1447, lr: 0.000287
+2026-01-10 20:25:05 [INFO]: Epoch 032 - train_loss: 0.1211, val_loss: 0.1441, lr: 0.000287
+2026-01-10 20:25:31 [INFO]: Epoch 033 - train_loss: 0.1210, val_loss: 0.1447, lr: 0.000287
+2026-01-10 20:25:58 [INFO]: Epoch 034 - train_loss: 0.1172, val_loss: 0.1421, lr: 0.000287
+2026-01-10 20:26:24 [INFO]: Epoch 035 - train_loss: 0.1197, val_loss: 0.1443, lr: 0.000287
+2026-01-10 20:26:50 [INFO]: Epoch 036 - train_loss: 0.1184, val_loss: 0.1450, lr: 0.000287
+2026-01-10 20:27:17 [INFO]: Epoch 037 - train_loss: 0.1151, val_loss: 0.1442, lr: 0.000287
+2026-01-10 20:27:43 [INFO]: Epoch 038 - train_loss: 0.1163, val_loss: 0.1415, lr: 0.000287
+2026-01-10 20:28:09 [INFO]: Epoch 039 - train_loss: 0.1154, val_loss: 0.1433, lr: 0.000287
+2026-01-10 20:28:36 [INFO]: Epoch 040 - train_loss: 0.1152, val_loss: 0.1441, lr: 0.000287
+2026-01-10 20:28:36 [INFO]: Early stopping triggered at epoch 40. No improvement for 10 epochs.
+2026-01-10 20:28:36 [INFO]: Saved the model to reproduce_imputation/point01_log/BeijingAir_log/HELIX_BeijingAir/round_4/20260110_T201102/HELIX.pypots
+2026-01-10 20:28:39 [INFO]: Successfully saved to reproduce_imputation/point01_log/BeijingAir_log/HELIX_BeijingAir/round_4/imputation.pkl
+2026-01-10 20:28:39 [INFO]: Round4 - HELIX on BeijingAir: MAE=0.0805, MSE=0.1689, MRE=0.1070
+2026-01-10 20:28:39 [INFO]: Done! Final results:
+Averaged HELIX (4,615,311 params) on BeijingAir: MAE=0.0733 ± 0.003689592034732969, MSE=0.1514 ± 0.009062167894792654, MRE=0.0974 ± 0.0049030649411696955, average inference time=2.44
+  0%|          | 0/22 [00:00<?, ?it/s]100%|██████████| 22/22 [00:00<00:00, 325.90it/s]

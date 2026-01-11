@@ -62,11 +62,11 @@ NAIVE_METHOD_MAP = {
 
 # 实验配置
 EXPERIMENTS = {
-    'point01': ["BeijingAir", "Electricity", "ETT_h1", "ItalyAir", "PeMS", "PhysioNet2012"],
-    'point05': ["BeijingAir", "Electricity", "ETT_h1", "ItalyAir", "PeMS"],
-    'point09': ["BeijingAir", "Electricity", "ETT_h1", "ItalyAir", "PeMS"],
-    'block05': ["BeijingAir", "Electricity", "ETT_h1", "ItalyAir", "PeMS"],
-    'subseq05': ["BeijingAir", "Electricity", "ETT_h1", "ItalyAir", "PeMS"],
+    'point01': ["BeijingAir",  "ETT_h1", "ItalyAir", "PeMS", "PhysioNet2012"],
+    'point05': ["BeijingAir",  "ETT_h1", "ItalyAir", "PeMS"],
+    'point09': ["BeijingAir", "ETT_h1", "ItalyAir", "PeMS"],
+    'block05': ["BeijingAir",  "ETT_h1", "ItalyAir", "PeMS"],
+    'subseq05': ["BeijingAir",  "ETT_h1", "ItalyAir", "PeMS"],
 }
 
 def parse_logs_to_csv():

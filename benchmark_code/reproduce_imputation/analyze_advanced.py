@@ -39,11 +39,11 @@ NAIVE_METHOD_MAP = {
 }
 
 EXPERIMENTS = {
-    'point01': ["BeijingAir", "Electricity", "ETT_h1", "ItalyAir", "PeMS", "PhysioNet2012"],
-    'point05': ["BeijingAir", "Electricity", "ETT_h1", "ItalyAir", "PeMS"],
-    'point09': ["BeijingAir", "Electricity", "ETT_h1", "ItalyAir", "PeMS"],
-    'block05': ["BeijingAir", "Electricity", "ETT_h1", "ItalyAir", "PeMS"],
-    'subseq05': ["BeijingAir", "Electricity", "ETT_h1", "ItalyAir", "PeMS"],
+    'point01': ["BeijingAir","ETT_h1", "ItalyAir", "PeMS", "PhysioNet2012"],
+    'point05': ["BeijingAir", "ETT_h1", "ItalyAir", "PeMS"],
+    'point09': ["BeijingAir", "ETT_h1", "ItalyAir", "PeMS"],
+    'block05': ["BeijingAir", "ETT_h1", "ItalyAir", "PeMS"],
+    'subseq05': ["BeijingAir", "ETT_h1", "ItalyAir", "PeMS"],
 }
 
 ABLATION_MODELS = ['HELIX', 'HELIX_NoFeatureEmbed', 'HELIX_NoFusion', 'HELIX_NoHybrid', 'HELIX_NoRotaryPE']
@@ -330,20 +330,8 @@ def analysis_vs_naive(all_results):
     df_summary = pd.DataFrame(summary)
     df_summary = df_summary.sort_values('Avg_Improvement_vs_LinearInterp', ascending=False)
     
-    # 汇总（排除 Electricity）
-    summary_no_elec = {'Model': [], 'Avg_Improvement_vs_LinearInterp (excl. Electricity)': []}
-    df_no_elec = df_result[df_result['Dataset'] != 'Electricity']
-    for model in models_to_compare:
-        col = f'{model}_Improv%'
-        if col in df_no_elec.columns:
-            avg_improv = df_no_elec[col].dropna().mean()
-            summary_no_elec['Model'].append(model)
-            summary_no_elec['Avg_Improvement_vs_LinearInterp (excl. Electricity)'].append(round(avg_improv, 1))
     
-    df_summary_no_elec = pd.DataFrame(summary_no_elec)
-    df_summary_no_elec = df_summary_no_elec.sort_values('Avg_Improvement_vs_LinearInterp (excl. Electricity)', ascending=False)
-    
-    return df_result, df_summary, df_summary_no_elec
+    return df_result, df_summary
 
 # ============== 分析 5: HELIX 胜率统计（修复版） ==============
 
@@ -493,10 +481,7 @@ def main():
     print("\n" + "=" * 80)
     print("分析 4: vs Naive 改进百分比")
     print("=" * 80)
-    df_vs_naive, df_vs_naive_summary, df_vs_naive_summary_no_elec = analysis_vs_naive(all_results)
-    df_vs_naive_summary_no_elec.to_csv(os.path.join(output_dir, "analysis_vs_naive_summary_no_electricity.csv"), index=False)
-    print("\n汇总（排除 Electricity）:")
-    print(df_vs_naive_summary_no_elec.to_string(index=False))
+    df_vs_naive, df_vs_naive_summary = analysis_vs_naive(all_results)
     df_vs_naive.to_csv(os.path.join(output_dir, "analysis_vs_naive_detailed.csv"), index=False)
     df_vs_naive_summary.to_csv(os.path.join(output_dir, "analysis_vs_naive_summary.csv"), index=False)
     print("汇总:")

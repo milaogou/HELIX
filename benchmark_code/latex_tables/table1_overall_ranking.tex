@@ -7,30 +7,31 @@
         \toprule
         \textbf{Model} & \textbf{Avg. Rank} $\downarrow$ & \textbf{Valid Exps.} & \textbf{Global Rank} & \textbf{Category} \\
         \midrule
-        \textbf{HELIX (Ours)} & \textbf{2.99} & 26/26 & \textbf{1} & Ours \\
+        \textbf{HELIX (Ours)} & \textbf{2.25} & 21/21 & \textbf{1} & Ours \\
         \midrule
-        \textit{w/o Multi-level Fusion} & \textit{3.86} & 26/26 & \textit{2} & Ablation \\
-        \textit{w/o Rotary PE} & \textit{4.58} & 26/26 & \textit{3} & Ablation \\
-        \textit{w/o Hybrid Encoding} & \textit{4.64} & 26/26 & \textit{4} & Ablation \\
-        \textit{w/o Feature Identity Emb.} & \textit{6.95} & 26/26 & \textit{5} & Ablation \\
+        \textit{w/o Multi-level Fusion} & \textit{2.56} & 21/21 & \textit{2} & Ablation \\
+        \textit{w/o Rotary PE} & \textit{3.32} & 21/21 & \textit{3} & Ablation \\
+        \textit{w/o Hybrid Encoding} & \textit{3.43} & 21/21 & \textit{4} & Ablation \\
         \midrule
-        ImputeFormer & 7.04 & 26/26 & 6 & Imputation-specific \\
-        SAITS & 8.37 & 26/26 & 7 & Imputation-specific \\
-        Linear Interpolation & 8.50 & 26/26 & 8 & Naive \\
-        Nonstationary Trans. & 9.26 & 26/26 & 9 & Transformer \\
-        TEFN & 10.46 & 26/26 & 10 & Recent (2024) \\
-        PatchTST & 10.53 & 26/26 & 11 & Transformer \\
-        FreTS & 10.94 & 26/26 & 12 & Frequency-domain \\
-        iTransformer & 12.09 & 26/26 & 13 & Transformer \\
-        LOCF & 14.00 & 26/26 & 14 & Naive \\
-        Time-LLM$^\dagger$ & 14.88 & 16/26 & 15 & Foundation \\
-        ModernTCN & 14.99 & 26/26 & 16 & Recent (2024) \\
-        TimeMixer & 15.94 & 26/26 & 17 & Recent (2024) \\
-        Median Imputation & 16.05 & 26/26 & 18 & Naive \\
-        Mean Imputation & 16.37 & 26/26 & 19 & Naive \\
-        TimeMixer++$^\dagger$ & 16.77 & 16/26 & 20 & Recent (2024) \\
-        TOTEM & 18.13 & 26/26 & 21 & Recent (2024) \\
-        MOMENT$^\dagger$ & 21.21 & 11/26 & 22 & Foundation \\
+        ImputeFormer & 6.14 & 21/21 & 5 & Imputation-specific \\
+        SAITS & 6.43 & 21/21 & 6 & Imputation-specific \\
+        \textit{w/o Feature Identity Emb.} & \textit{7.03} & 21/21 & \textit{7} & Ablation \\
+        \midrule
+        PatchTST & 9.84 & 21/21 & 8 & Transformer \\
+        FreTS & 9.98 & 21/21 & 9 & Frequency-domain \\
+        Linear Interpolation & 10.25 & 21/21 & 10 & Naive \\
+        Nonstationary Trans. & 10.70 & 21/21 & 11 & Transformer \\
+        iTransformer & 11.38 & 21/21 & 12 & Transformer \\
+        TEFN & 12.17 & 21/21 & 13 & Recent (2024) \\
+        Time-LLM$^\dagger$ & 14.88 & 16/21 & 14 & Foundation \\
+        TimeMixer & 15.35 & 21/21 & 15 & Recent (2024) \\
+        ModernTCN & 15.59 & 21/21 & 16 & Recent (2024) \\
+        LOCF & 16.17 & 21/21 & 17 & Naive \\
+        TimeMixer++$^\dagger$ & 16.77 & 16/21 & 18 & Recent (2024) \\
+        Median Imputation & 18.02 & 21/21 & 19 & Naive \\
+        TOTEM & 18.14 & 21/21 & 20 & Recent (2024) \\
+        Mean Imputation & 18.29 & 21/21 & 21 & Naive \\
+        MOMENT$^\dagger$ & 21.21 & 11/21 & 22 & Foundation \\
         \bottomrule
     \end{tabular}
     \end{small}

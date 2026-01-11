@@ -60,7 +60,6 @@ DATASET_NAMES = {
     'BeijingAir': 'BeijingAir (24 steps, 132 features)',
     'ETT_h1': 'ETT-h1 (48 steps, 7 features)',
     'ItalyAir': 'ItalyAir (12 steps, 13 features)',
-    'Electricity': 'Electricity (96 steps, 370 features)',
     'PeMS': 'PeMS (24 steps, 862 features)',
     'PhysioNet2012': 'PhysioNet2012 (48 steps, 37 features)',
 }
@@ -462,7 +461,6 @@ def generate_appendix_tables(base_path, output_dir):
         'BeijingAir': ['point01', 'point05', 'point09', 'block05', 'subseq05'],
         'ETT_h1': ['point01', 'point05', 'point09', 'block05', 'subseq05'],
         'ItalyAir': ['point01', 'point05', 'point09', 'block05', 'subseq05'],
-        'Electricity': ['point01', 'point05', 'point09', 'block05', 'subseq05'],
         'PeMS': ['point01', 'point05', 'point09', 'block05', 'subseq05'],
         'PhysioNet2012': ['point01'],  # Only point01
     }
@@ -587,13 +585,13 @@ def generate_appendix_tables(base_path, output_dir):
         print(f"✓ Generated: {output_path}")
 
 # =============================================================================
-# Additional: vs Naive Summary (excl. Electricity)
+# Additional: vs Naive Summary
 # =============================================================================
 
 def generate_vs_naive_summary(base_path, output_dir):
-    """Generate summary of improvement vs Linear Interpolation (excl. Electricity)."""
+    """Generate summary of improvement vs Linear Interpolation."""
     
-    csv_path = os.path.join(base_path, 'analysis', 'analysis_vs_naive_summary_no_electricity.csv')
+    csv_path = os.path.join(base_path, 'analysis', 'analysis_vs_naive_summary.csv')
     if not os.path.exists(csv_path):
         print(f"⚠ Skipped: {csv_path} not found")
         return
@@ -601,8 +599,8 @@ def generate_vs_naive_summary(base_path, output_dir):
     df = pd.read_csv(csv_path)
     
     # Sort by improvement
-    if 'Avg_Improvement_vs_LinearInterp (excl. Electricity)' in df.columns:
-        sort_col = 'Avg_Improvement_vs_LinearInterp (excl. Electricity)'
+    if 'Avg_Improvement_vs_LinearInterp' in df.columns:
+        sort_col = 'Avg_Improvement_vs_LinearInterp'
     else:
         # Try to find similar column
         improvement_cols = [c for c in df.columns if 'Improvement' in c or 'improvement' in c]
@@ -616,7 +614,7 @@ def generate_vs_naive_summary(base_path, output_dir):
     
     latex = []
     latex.append("% " + "=" * 70)
-    latex.append("% VS NAIVE SUMMARY (excluding Electricity)")
+    latex.append("% VS NAIVE SUMMARY")
     latex.append("% " + "=" * 70)
     latex.append("% Average improvement over Linear Interpolation:")
     latex.append("%")

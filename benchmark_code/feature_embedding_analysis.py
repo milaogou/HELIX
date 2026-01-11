@@ -286,261 +286,31 @@ def compute_geographic_distance_matrix(stations, coords_dict):
 # =============================================================================
 # Visualization Functions
 # =============================================================================
-
-def plot_beijing_map(stations, coords_dict, similarity_matrix, output_path, 
-                     district_boundaries=None, top_n=20):
-    """
-    Plot Beijing stations with connections on a map with district boundaries.
-    Uses Blue-to-Red colormap for better visibility.
-    """
-    fig, ax = plt.subplots(1, 1, figsize=(7, 6))
-    
-    # Extract coordinates
-    lons = np.array([coords_dict[s]['longitude'] for s in stations])
-    lats = np.array([coords_dict[s]['latitude'] for s in stations])
-    n_stations = len(stations)
-    
-    # Plot district boundaries if available
-    if district_boundaries:
-        for name, polygons in district_boundaries.items():
-            for poly in polygons:
-                if len(poly) > 0:
-                    ax.plot(poly[:, 0], poly[:, 1], color='#CCCCCC', 
-                           linewidth=0.6, zorder=1)
-    
-    # Plot simplified ring roads
-    ring_colors = ['#E8E8E8', '#E0E0E0', '#D8D8D8', '#D0D0D0', '#C8C8C8']
-    for idx, (ring_name, ring_info) in enumerate(RING_ROADS.items()):
-        ring_coords = create_ring_road_circle(
-            ring_info['center'][0], ring_info['center'][1], 
-            ring_info['radius_km'], n_points=100
-        )
-        ax.plot(ring_coords[:, 0], ring_coords[:, 1], 
-               color=ring_colors[idx], linewidth=0.8, 
-               linestyle='--', alpha=0.6, zorder=1)
-    
-    # Get top connections
-    connections = []
-    for i in range(n_stations):
-        for j in range(i+1, n_stations):
-            connections.append((i, j, similarity_matrix[i, j]))
-    connections.sort(key=lambda x: x[2], reverse=True)
-    top_connections = connections[:top_n]
-    
-    sim_values = [c[2] for c in top_connections]
-    sim_min, sim_max = min(sim_values), max(sim_values)
-    
-    # Blue to Red colormap (coolwarm) - high contrast
-    cmap = plt.cm.coolwarm
-    norm = Normalize(vmin=sim_min, vmax=sim_max)
-    
-    # Plot connections
-    for i, j, sim in top_connections:
-        color = cmap(norm(sim))
-        width = 1.5 + 0.5 * (sim - sim_min) / (sim_max - sim_min + 1e-8)
-        ax.plot([lons[i], lons[j]], [lats[i], lats[j]], 
-                color=color, linewidth=width, alpha=1, zorder=2)
-    
-    # Plot stations
-    ax.scatter(lons, lats, c='white', s=250, edgecolors='black', 
-          linewidths=1.2, zorder=4)
-    
-    # Add labels with adjustText if available
-    texts = []
-    for i, station in enumerate(stations):
-        label = STATION_SHORT[station]
-        txt = ax.annotate(label, (lons[i], lats[i]), 
-                 fontsize=6, ha='center', va='center',
-                 fontweight='bold', zorder=5,
-                         bbox=dict(boxstyle='round,pad=0.15', 
-                                  facecolor='white', alpha=0.85,
-                                  edgecolor='none', linewidth=0))
-        texts.append(txt)
-    
-    # Adjust text positions if adjustText available
-    if HAS_ADJUST_TEXT and len(texts) > 0:
-        # Convert annotations to text objects for adjustText
-        # Note: adjustText works better with ax.text()
-        pass  # Labels are inside stations, no need to adjust
-    
-    # Colorbar
-    sm = ScalarMappable(cmap=cmap, norm=norm)
-    sm.set_array([])
-    cbar = plt.colorbar(sm, ax=ax, shrink=0.7, pad=0.02, aspect=25)
-    cbar.set_label('Embedding Similarity', fontsize=9)
-    cbar.ax.tick_params(labelsize=8)
-    
-    # Axis settings
-    ax.set_xlabel('Longitude (°E)', fontsize=10)
-    ax.set_ylabel('Latitude (°N)', fontsize=10)
-    ax.set_title(f'Beijing Air Quality Monitoring Stations\n(Top {top_n} connections by learned similarity)', 
-                fontsize=11)
-    ax.set_xlim(116.08, 116.75)
-    ax.set_ylim(39.78, 40.40)
-    ax.set_aspect('equal', adjustable='box')
-    
-    # Clean background
-    ax.set_facecolor('#FAFAFA')
-    
-    plt.tight_layout()
-    plt.savefig(output_path, format='pdf', bbox_inches='tight')
-    plt.savefig(output_path.replace('.pdf', '.png'), format='png', dpi=300, bbox_inches='tight')
-    print(f"Saved: {output_path}")
-    plt.close()
-
-
-def plot_scatter(similarity_matrix, distance_matrix, stations, output_path):
-    """
-    Scatter plot: Embedding similarity vs Geographic distance.
-    Nature/Science style.
-    """
-    fig, ax = plt.subplots(1, 1, figsize=(4.5, 4))
-    
-    n = len(stations)
-    triu_idx = np.triu_indices(n, k=1)
-    distances = distance_matrix[triu_idx]
-    similarities = similarity_matrix[triu_idx]
-    
-    r, p = pearsonr(distances, similarities)
-    
-    # Scatter with gradient coloring by distance
-    scatter = ax.scatter(distances, similarities, c=distances, cmap='viridis_r',
-                        alpha=0.75, s=45, edgecolors='white', linewidths=0.4)
-    
-    # Linear fit
-    z = np.polyfit(distances, similarities, 1)
-    p_line = np.poly1d(z)
-    x_line = np.linspace(distances.min(), distances.max(), 100)
-    ax.plot(x_line, p_line(x_line), 'r-', linewidth=1.5, label='Linear fit')
-    
-    # 95% CI band (simplified)
-    residuals = similarities - p_line(distances)
-    std_err = np.std(residuals)
-    ax.fill_between(x_line, p_line(x_line) - 1.96*std_err, 
-                   p_line(x_line) + 1.96*std_err, 
-                   color='red', alpha=0.1, label='95% CI')
-    
-    # Labels and title
-    ax.set_xlabel('Geographic Distance (km)', fontsize=10)
-    ax.set_ylabel('Embedding Cosine Similarity', fontsize=10)
-    p_str = f'p = {p:.4f}' if p >= 0.0001 else 'p < 0.0001'
-    ax.set_title(f'Similarity vs Distance\n(r = {r:.3f}, {p_str})', fontsize=11)
-    
-    # Legend
-    ax.legend(loc='upper right', fontsize=8, framealpha=0.9)
-    
-    # Grid (subtle)
-    ax.grid(True, alpha=0.3, linestyle='-', linewidth=0.5)
-    
-    plt.tight_layout()
-    plt.savefig(output_path, format='pdf', bbox_inches='tight')
-    plt.savefig(output_path.replace('.pdf', '.png'), format='png', dpi=300, bbox_inches='tight')
-    print(f"Saved: {output_path}")
-    plt.close()
-    
-    return r, p
-
-
-def plot_combined_heatmap(similarity_matrix, distance_matrix, stations, output_path):
-    """
-    Combined heatmap:
-    - Lower triangle: Geographic proximity (1/distance, normalized)
-    - Upper triangle: Learned embedding similarity (normalized)
-    - Diagonal: White/blank
-    
-    Note: The learned similarity values are scaled by 0.7 for better visual
-    comparison with geographic proximity. This scaling is purely for visualization
-    purposes and does not affect the correlation statistics reported.
-    """
-    n = len(stations)
-    short_names = [STATION_SHORT[s] for s in stations]
-    
-    # Compute geographic proximity (inverse distance)
-    geo_proximity = np.zeros_like(distance_matrix)
-    mask = distance_matrix > 0
-    geo_proximity[mask] = 1.0 / distance_matrix[mask]
-    
-    # Normalize each triangle independently (excluding diagonal)
-    lower_mask = np.tril_indices(n, k=-1)
-    geo_lower = geo_proximity[lower_mask]
-    geo_lower_norm = (geo_lower - geo_lower.min()) / (geo_lower.max() - geo_lower.min())
-    
-    upper_mask = np.triu_indices(n, k=1)
-    emb_upper = similarity_matrix[upper_mask]
-    emb_upper_norm = (emb_upper - emb_upper.min()) / (emb_upper.max() - emb_upper.min()) * 0.7
-    
-    # Create combined matrix
-    combined = np.full((n, n), np.nan)
-    for idx, (i, j) in enumerate(zip(*lower_mask)):
-        combined[i, j] = geo_lower_norm[idx]
-    for idx, (i, j) in enumerate(zip(*upper_mask)):
-        combined[i, j] = emb_upper_norm[idx]
-    
-    # Create figure
-    fig, ax = plt.subplots(1, 1, figsize=(6, 5.5))
-    
-    # Colormap
-    cmap = plt.cm.YlOrRd.copy()
-    cmap.set_bad(color='white')
-    
-    im = ax.imshow(combined, cmap=cmap, vmin=0, vmax=1, aspect='equal')
-    
-    # Grid lines
-    for i in range(n + 1):
-        ax.axhline(i - 0.5, color='white', linewidth=0.5)
-        ax.axvline(i - 0.5, color='white', linewidth=0.5)
-    
-    # Diagonal line
-    ax.plot([-0.5, n - 0.5], [-0.5, n - 0.5], 'k-', linewidth=1.2)
-    
-    # Labels
-    ax.set_xticks(range(n))
-    ax.set_yticks(range(n))
-    ax.set_xticklabels(short_names, fontsize=8)
-    ax.set_yticklabels(short_names, fontsize=8)
-    
-    # Colorbar
-    cbar = plt.colorbar(im, ax=ax, shrink=0.8, pad=0.02)
-    cbar.set_label('Normalized Value (0-1)', fontsize=9)
-    cbar.ax.tick_params(labelsize=8)
-    
-    # Annotations
-    ax.text(0.25, 0.92, 'Upper: Learned', transform=ax.transAxes, 
-           fontsize=9, fontweight='bold', ha='center',
-           bbox=dict(boxstyle='round,pad=0.3', facecolor='wheat', alpha=0.8))
-    ax.text(0.75, 0.08, 'Lower: Geographic', transform=ax.transAxes, 
-           fontsize=9, fontweight='bold', ha='center',
-           bbox=dict(boxstyle='round,pad=0.3', facecolor='lightblue', alpha=0.8))
-    
-    # Correlation
-    triu_idx = np.triu_indices(n, k=1)
-    r, p = pearsonr(geo_proximity[triu_idx], similarity_matrix[triu_idx])
-    p_str = 'p < 0.01' if p < 0.01 else f'p = {p:.3f}'
-    
-    ax.set_title(f'Geographic Proximity vs Learned Similarity\n(Pearson r = {r:.3f}, {p_str})', 
-                fontsize=11)
-    
-    plt.tight_layout()
-    plt.savefig(output_path, format='pdf', bbox_inches='tight')
-    plt.savefig(output_path.replace('.pdf', '.png'), format='png', dpi=300, bbox_inches='tight')
-    print(f"Saved: {output_path}")
-    plt.close()
-    
-    return r, p
-
-
 def create_figure2(similarity_matrix, distance_matrix, stations, 
                             output_path, district_boundaries=None, top_n=20):
     """
-    Create combined Figure 2 with 3 subplots in VERTICAL layout: 
+    Create combined Figure 2 with 3 subplots in HORIZONTAL layout: 
     (a) Map, (b) Scatter, (c) Heatmap
     
     This layout is suitable for single-column figures in ICML papers.
     """
     from mpl_toolkits.axes_grid1 import make_axes_locatable
-    # Vertical layout: 3 rows, 1 column
-    # Adjust figure size for single column (about 3.25 inches wide in ICML)
-    fig = plt.figure(figsize=(5.5, 14))
+    import matplotlib.gridspec as gridspec
+    
+    fig = plt.figure(figsize=(16, 4.2))
+    # 外层GridSpec：a单独，b+c一起
+    outer_gs = gridspec.GridSpec(1, 2, figure=fig, width_ratios=[1, 2.1], 
+                                  wspace=0.16, left=0.04, right=0.92,
+                                  top=0.92, bottom=0.02)
+    
+    # a单独占左边
+    ax1 = fig.add_subplot(outer_gs[0, 0])
+    
+    # b和c用内层GridSpec，间距更小
+    inner_gs = gridspec.GridSpecFromSubplotSpec(1, 2, subplot_spec=outer_gs[0, 1],
+                                                 wspace=0.13)  # b和c之间更小的间距
+    ax2 = fig.add_subplot(inner_gs[0, 0])
+    ax3 = fig.add_subplot(inner_gs[0, 1])
     
     lons = np.array([BEIJING_STATION_COORDS[s]['longitude'] for s in stations])
     lats = np.array([BEIJING_STATION_COORDS[s]['latitude'] for s in stations])
@@ -548,9 +318,8 @@ def create_figure2(similarity_matrix, distance_matrix, stations,
     short_names = [STATION_SHORT[s] for s in stations]
     
     # ===================
-    # (a) Beijing Map - Top
+    # (a) Beijing Map
     # ===================
-    ax1 = fig.add_subplot(3, 1, 1)
     
     # Plot district boundaries
     if district_boundaries:
@@ -601,30 +370,24 @@ def create_figure2(similarity_matrix, distance_matrix, stations,
                     fontsize=6, ha='center', va='center',
                     fontweight='bold', zorder=5)
     
-    # Colorbar - on the left side (consistent with other subplots)
+    # Colorbar for map
     sm = ScalarMappable(cmap=cmap, norm=norm)
     sm.set_array([])
-    divider1 = make_axes_locatable(ax1)
-    cax1 = divider1.append_axes("left", size="5%", pad=0.5)
-    cbar1 = plt.colorbar(sm, cax=cax1)
+    cbar1 = fig.colorbar(sm, ax=ax1, fraction=0.046, pad=0.02)
     cbar1.set_label('Embedding Similarity', fontsize=9)
     cbar1.ax.tick_params(labelsize=8)
-    cbar1.ax.yaxis.set_ticks_position('left')
-    cbar1.ax.yaxis.set_label_position('left')
     
     ax1.set_xlabel('Longitude (°E)', fontsize=10)
     ax1.set_ylabel('Latitude (°N)', fontsize=10)
-    ax1.yaxis.set_label_coords(-0.075, 0.5)  # 添加这行，调整y轴标签位置
     ax1.set_title(f'(a) Beijing Air Quality Stations (Top {top_n} Connections)', fontsize=11)
     ax1.set_xlim(116.10, 116.72)
     ax1.set_ylim(39.82, 40.38)
     ax1.set_facecolor('#FAFAFA')
-    ax1.set_aspect('equal', adjustable='box')
+    ax1.set_aspect('auto')
     
     # ===================
-    # (b) Scatter Plot - Middle
+    # (b) Scatter Plot - 恢复colorbar
     # ===================
-    ax2 = fig.add_subplot(3, 1, 2)
     
     triu_idx = np.triu_indices(n, k=1)
     distances = distance_matrix[triu_idx]
@@ -632,6 +395,7 @@ def create_figure2(similarity_matrix, distance_matrix, stations,
     
     r, p = pearsonr(distances, similarities)
     
+    # 恢复颜色映射
     scatter = ax2.scatter(distances, similarities, c=distances, cmap='viridis_r',
                          alpha=0.75, s=45, edgecolors='white', linewidths=0.4)
     
@@ -653,10 +417,18 @@ def create_figure2(similarity_matrix, distance_matrix, stations,
     ax2.grid(True, alpha=0.3, linestyle='-', linewidth=0.4)
     ax2.legend(loc='upper right', fontsize=8, framealpha=0.9)
     
+    # 恢复colorbar，使用与c相同的方式
+    cbar2 = fig.colorbar(scatter, ax=ax2, fraction=0.046, pad=0.02)
+    cbar2.set_label('Distance (km)', fontsize=9)
+    cbar2.ax.tick_params(labelsize=8)
+    
+    # 扩展y轴范围，增加上下边距（不用aspect='equal'）
+    ymin, ymax = ax2.get_ylim()
+    ax2.set_ylim(ymin - 0.02, ymax + 0.02)
+    
     # ===================
-    # (c) Combined Heatmap - Bottom
+    # (c) Combined Heatmap - colorbar手动定位
     # ===================
-    ax3 = fig.add_subplot(3, 1, 3)
     
     # Compute normalized values
     geo_proximity = np.zeros_like(distance_matrix)
@@ -681,6 +453,7 @@ def create_figure2(similarity_matrix, distance_matrix, stations,
     cmap_heat.set_bad(color='white')
     
     im = ax3.imshow(combined, cmap=cmap_heat, vmin=0, vmax=1, aspect='equal')
+    ax3.set_anchor('N')
     
     for i in range(n + 1):
         ax3.axhline(i - 0.5, color='white', linewidth=0.4)
@@ -689,17 +462,14 @@ def create_figure2(similarity_matrix, distance_matrix, stations,
     
     ax3.set_xticks(range(n))
     ax3.set_yticks(range(n))
-    ax3.set_xticklabels(short_names, fontsize=8, rotation=45, ha='right')
+    ax3.set_xticklabels(short_names, fontsize=8, rotation=45, ha='right', rotation_mode='anchor')
     ax3.set_yticklabels(short_names, fontsize=8)
     
-    # Colorbar - on the left side (consistent with subplot b's y-axis)
-    divider = make_axes_locatable(ax3)
-    cax3 = divider.append_axes("left", size="5%", pad=0.5)
-    cbar3 = plt.colorbar(im, cax=cax3)
+    # Colorbar - 使用fig.colorbar手动定位，避免从subplot借空间
+    # 获取ax3的位置后，在其右侧添加colorbar
+    cbar3 = fig.colorbar(im, ax=ax3, fraction=0.046, pad=0.02)
     cbar3.set_label('Normalized Value (0-1)', fontsize=9)
     cbar3.ax.tick_params(labelsize=8)
-    cbar3.ax.yaxis.set_ticks_position('left')
-    cbar3.ax.yaxis.set_label_position('left')
     
     # Annotations
     ax3.text(0.25, 0.92, 'Upper: Learned', transform=ax3.transAxes, 
@@ -713,12 +483,6 @@ def create_figure2(similarity_matrix, distance_matrix, stations,
     r_heat, p_heat = pearsonr(geo_proximity[triu_idx], similarity_matrix[triu_idx])
     ax3.set_title(f'(c) Geographic Proximity vs Learned Similarity (r = {r_heat:.3f})', fontsize=11)
     
-    plt.tight_layout()
-    plt.subplots_adjust(hspace=0.10)  # 保持a-b紧凑
-    
-    # 单独下移子图(c)，拉大b-c间距
-    pos3 = ax3.get_position()
-    ax3.set_position([pos3.x0, pos3.y0 - 0.015, pos3.width, pos3.height])
     plt.savefig(output_path, format='pdf', bbox_inches='tight')
     plt.savefig(output_path.replace('.pdf', '.png'), format='png', dpi=300, bbox_inches='tight')
     print(f"Saved: {output_path}")
@@ -743,7 +507,7 @@ def main():
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     
     print("=" * 70)
-    print("Feature Identity Embedding Analysis - ICML Style (VERTICAL LAYOUT)")
+    print("Feature Identity Embedding Analysis - ICML Style (horizontal LAYOUT)")
     print("=" * 70)
     
     # Fetch Beijing district boundaries
@@ -768,23 +532,7 @@ def main():
     print(f"\nGenerating visualizations...")
     print(f"Output directory: {OUTPUT_DIR}")
     
-    # Individual plots (unchanged)
-    # print("\n1. Generating Beijing map...")
-    # plot_beijing_map(STATION_ORDER, BEIJING_STATION_COORDS, similarity_matrix,
-    #                 os.path.join(OUTPUT_DIR, "beijing_map.pdf"),
-    #                 district_boundaries=district_boundaries, 
-    #                 top_n=TOP_N_CONNECTIONS)
-    
-    # print("\n2. Generating scatter plot...")
-    # r1, p1 = plot_scatter(similarity_matrix, distance_matrix, STATION_ORDER,
-    #                       os.path.join(OUTPUT_DIR, "beijing_scatter.pdf"))
-    
-    # print("\n3. Generating combined heatmap...")
-    # r2, p2 = plot_combined_heatmap(similarity_matrix, distance_matrix, STATION_ORDER,
-    #                                os.path.join(OUTPUT_DIR, "beijing_heatmap.pdf"))
-    
-    # NEW: Vertical combined figure
-    print("\n4. Generating VERTICAL combined figure...")
+    print("\n4. Generating horizontal combined figure...")
     r3, p3 = create_figure2(similarity_matrix, distance_matrix, STATION_ORDER,
                                      os.path.join(OUTPUT_DIR, "figure2.pdf"),
                                      district_boundaries=district_boundaries,
@@ -800,7 +548,7 @@ def main():
     # print(f"  - {OUTPUT_DIR}/beijing_map.pdf (+ .png)")
     # print(f"  - {OUTPUT_DIR}/beijing_scatter.pdf (+ .png)")
     # print(f"  - {OUTPUT_DIR}/beijing_heatmap.pdf (+ .png)")
-    print(f"  - {OUTPUT_DIR}/figure2.pdf (+ .png) <- VERTICAL figure for paper")
+    print(f"  - {OUTPUT_DIR}/figure2.pdf (+ .png) <- horizontal figure for paper")
     print("=" * 70)
 
 

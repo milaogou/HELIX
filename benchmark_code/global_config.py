@@ -6,7 +6,13 @@ Global configs for running code of time-series imputation survey.
 # License: BSD-3-Clause
 
 # random seeds for five rounds of experiments
-RANDOM_SEEDS = [2024, 2025, 2026, 2027, 2028]
+RANDOM_SEEDS = [
+    2024, 2025, 2026, 2027, 2028,
+    2029, 2030, 2031, 2032, 2033,
+    2034, 2035, 2036, 2037, 2038,
+    2039, 2040, 2041, 2042, 2043,
+    2044, 2045, 2046, 2047, 2048,
+]
 # number of threads for pytorch
 TORCH_N_THREADS = 1
 

@@ -1,8 +1,6 @@
 """
 Extract Feature Attention Weights from HELIX model
-Simplified version - directly access saved attention weights (no hooks needed)
-
-Requires the modified core.py with attention weight saving.
+Generates Figure 3 (Feature Attention) and Appendix A1 (Temporal Attention)
 
 Author: Generated for HELIX ICML 2026 submission
 """
@@ -18,8 +16,6 @@ import matplotlib.pyplot as plt
 from scipy.stats import pearsonr
 import warnings
 warnings.filterwarnings('ignore')
-
-sys.path.insert(0, '/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code')
 
 # =============================================================================
 # Configuration
@@ -54,9 +50,33 @@ STATION_SHORT = {
 N_STATIONS = 12
 N_FEATURES_PER_STATION = 11
 
+# Matplotlib style
+plt.rcParams.update({
+    'font.family': 'serif',
+    'font.serif': ['Times New Roman', 'Times', 'DejaVu Serif'],
+    'font.size': 9,
+    'axes.labelsize': 10,
+    'axes.titlesize': 11,
+    'xtick.labelsize': 8,
+    'ytick.labelsize': 8,
+    'figure.dpi': 150,
+    'savefig.dpi': 300,
+    'savefig.bbox': 'tight',
+})
+
+
+# =============================================================================
+# Helper Functions
+# =============================================================================
 
 def load_model(model_path, dataset_name, device):
-    """Load trained HELIX model with attention saving capability."""
+    """Load trained HELIX model."""
+    # Add benchmark_code to path
+    benchmark_path = os.path.dirname(os.path.dirname(model_path.split('reproduce_imputation')[0]))
+    if 'benchmark_code' in model_path:
+        benchmark_path = model_path.split('reproduce_imputation')[0]
+    sys.path.insert(0, benchmark_path)
+    
     from hpo_results import HPO_RESULTS
     from pypots.imputation import HELIX
     
@@ -75,7 +95,7 @@ def load_model(model_path, dataset_name, device):
     return model
 
 
-def load_data(data_path, n_samples=64):
+def load_data(data_path, n_samples=256):
     """Load sample data."""
     with h5py.File(data_path, 'r') as f:
         X = f['X'][:n_samples]
@@ -85,27 +105,6 @@ def load_data(data_path, n_samples=64):
     missing_mask = (~np.isnan(X_ori)).astype(np.float32)
     
     return X, missing_mask
-
-
-def aggregate_attention_to_stations(attn, n_stations=12, n_features=11):
-    """
-    Aggregate feature-level attention to station-level.
-    
-    For feature attention: attn shape is [B*T, F, F] -> averaged to [F, F]
-    Then aggregate [F, F] to [n_stations, n_stations]
-    """
-    # Average over batch*time if needed
-    if len(attn.shape) == 3:
-        attn = attn.mean(axis=0)  # [F, F]
-    
-    station_attn = np.zeros((n_stations, n_stations))
-    for i in range(n_stations):
-        for j in range(n_stations):
-            i_s, i_e = i * n_features, (i + 1) * n_features
-            j_s, j_e = j * n_features, (j + 1) * n_features
-            station_attn[i, j] = attn[i_s:i_e, j_s:j_e].mean()
-    
-    return station_attn
 
 
 def compute_geo_distance(stations, coords):
@@ -126,103 +125,173 @@ def compute_geo_distance(stations, coords):
     return dist
 
 
-def plot_attention_analysis(station_attn, geo_dist, stations, output_dir, layer_name="layer0"):
-    """Generate attention analysis plots."""
-    n = len(stations)
+def aggregate_to_stations(attn, n_stations=12, n_features=11):
+    """Aggregate feature-level attention to station-level."""
+    if len(attn.shape) == 3:
+        attn = attn.mean(axis=0)  # [F, F]
+    
+    station_attn = np.zeros((n_stations, n_stations))
+    for i in range(n_stations):
+        for j in range(n_stations):
+            i_s, i_e = i * n_features, (i + 1) * n_features
+            j_s, j_e = j * n_features, (j + 1) * n_features
+            station_attn[i, j] = attn[i_s:i_e, j_s:j_e].mean()
+    
+    return station_attn
+
+
+# =============================================================================
+# Plotting Functions
+# =============================================================================
+
+def plot_figure3_feature_attention(attn_dict, geo_dist, stations, output_dir, 
+                                    n_stations=12, n_features=11):
+    """
+    Generate Figure 3: Feature Attention captures spatial structure.
+    Shows feature attention heatmaps with r/p values indicating correlation with geography.
+    """
     short_names = [STATION_SHORT[s] for s in stations]
     
-    # Compute geo proximity
+    # Compute geographic proximity
     geo_prox = np.zeros_like(geo_dist)
     mask = geo_dist > 0
     geo_prox[mask] = 1.0 / geo_dist[mask]
-    geo_prox = geo_prox / geo_prox.max()
-    np.fill_diagonal(geo_prox, 1.0)
+    triu = np.triu_indices(n_stations, k=1)
     
-    # Correlation
-    triu = np.triu_indices(n, k=1)
-    r, p = pearsonr(geo_prox[triu], station_attn[triu])
-    print(f"{layer_name} Attention vs Geographic Proximity: r = {r:.4f}, p = {p:.6f}")
+    # Collect feature attentions
+    feature_data = []
+    for key in sorted(attn_dict.keys()):
+        if 'feature' in key:
+            attn = attn_dict[key]
+            attn_np = attn.cpu().numpy() if torch.is_tensor(attn) else attn
+            station_attn = aggregate_to_stations(attn_np, n_stations, n_features)
+            r, p = pearsonr(geo_prox[triu], station_attn[triu])
+            feature_data.append((key, station_attn, r, p))
     
-    # === Combined heatmap ===
-    fig, ax = plt.subplots(figsize=(8, 7))
+    # Create figure
+    n_layers = len(feature_data)
+    fig, axes = plt.subplots(1, n_layers, figsize=(4.5 * n_layers, 4.2))
+    if n_layers == 1:
+        axes = [axes]
     
-    lower_mask = np.tril_indices(n, k=-1)
-    upper_mask = np.triu_indices(n, k=1)
+    for idx, (key, station_attn, r, p) in enumerate(feature_data):
+        ax = axes[idx]
+        
+        im = ax.imshow(station_attn, cmap='YlOrRd', aspect='equal')
+        
+        # Grid
+        for i in range(n_stations + 1):
+            ax.axhline(i - 0.5, color='white', linewidth=0.3)
+            ax.axvline(i - 0.5, color='white', linewidth=0.3)
+        
+        # Labels
+        ax.set_xticks(range(n_stations))
+        ax.set_yticks(range(n_stations))
+        ax.set_xticklabels(short_names, fontsize=7, rotation=45, ha='right')
+        ax.set_yticklabels(short_names, fontsize=7)
+        ax.set_xlabel('Key Station', fontsize=9)
+        ax.set_ylabel('Query Station', fontsize=9)
+        
+        # Title with r and p
+        layer_num = key.replace('layer', '').replace('_feature', '')
+        p_str = 'p < 0.0001' if p < 0.0001 else f'p = {p:.4f}'
+        ax.set_title(f'Layer {layer_num} Feature Attention\n(r = {r:.3f}, {p_str})', 
+                    fontsize=10, fontweight='bold')
+        
+        plt.colorbar(im, ax=ax, shrink=0.8)
     
-    geo_lower = geo_prox[lower_mask]
-    geo_lower_norm = (geo_lower - geo_lower.min()) / (geo_lower.max() - geo_lower.min() + 1e-8)
+    # 主标题：降低 y 值，减少顶部留白
+    plt.suptitle('Feature Attention Increasingly Captures Spatial Structure', 
+                 fontsize=12, fontweight='bold', y=0.98)
     
-    attn_upper = station_attn[upper_mask]
-    attn_upper_norm = (attn_upper - attn_upper.min()) / (attn_upper.max() - attn_upper.min() + 1e-8)
+    # 使用 subplots_adjust 精细控制边距
+    plt.subplots_adjust(top=0.88, bottom=0.15, left=0.05, right=0.95, wspace=0.3)
     
-    combined = np.full((n, n), np.nan)
-    for idx, (i, j) in enumerate(zip(*lower_mask)):
-        combined[i, j] = geo_lower_norm[idx]
-    for idx, (i, j) in enumerate(zip(*upper_mask)):
-        combined[i, j] = attn_upper_norm[idx]
-    
-    cmap = plt.cm.YlOrRd.copy()
-    cmap.set_bad(color='white')
-    
-    im = ax.imshow(combined, cmap=cmap, vmin=0, vmax=1)
-    for i in range(n + 1):
-        ax.axhline(i - 0.5, color='white', linewidth=0.5)
-        ax.axvline(i - 0.5, color='white', linewidth=0.5)
-    ax.plot([-0.5, n - 0.5], [-0.5, n - 0.5], 'k-', linewidth=1.5)
-    
-    ax.set_xticks(range(n))
-    ax.set_yticks(range(n))
-    ax.set_xticklabels(short_names, fontsize=10)
-    ax.set_yticklabels(short_names, fontsize=10)
-    
-    plt.colorbar(im, ax=ax, shrink=0.8, label='Normalized Value')
-    
-    ax.text(0.25, 0.95, 'Upper: Learned Attention', transform=ax.transAxes,
-           fontsize=10, fontweight='bold', ha='center', va='top',
-           bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.8))
-    ax.text(0.75, 0.05, 'Lower: Geographic Proximity', transform=ax.transAxes,
-           fontsize=10, fontweight='bold', ha='center', va='bottom',
-           bbox=dict(boxstyle='round', facecolor='lightblue', alpha=0.8))
-    
-    p_str = 'p < 0.01' if p < 0.01 else f'p = {p:.3f}'
-    ax.set_title(f'Geographic Proximity vs Feature Attention ({layer_name})\n(Pearson r = {r:.2f}, {p_str})',
-                fontsize=12, fontweight='bold')
-    
-    plt.tight_layout()
-    plt.savefig(os.path.join(output_dir, f'attention_{layer_name}_combined.pdf'), bbox_inches='tight')
-    plt.savefig(os.path.join(output_dir, f'attention_{layer_name}_combined.png'), dpi=300, bbox_inches='tight')
+    plt.savefig(os.path.join(output_dir, 'figure3_feature_attention.pdf'), bbox_inches='tight')
+    plt.savefig(os.path.join(output_dir, 'figure3_feature_attention.png'), dpi=300, bbox_inches='tight')
     plt.close()
     
-    return r, p
+    print(f"Saved: {output_dir}/figure3_feature_attention.pdf")
+    return feature_data
 
+
+def plot_appendix_temporal_attention(attn_dict, output_dir):
+    """
+    Generate Appendix A1: Temporal Attention Heatmaps.
+    Shows how temporal attention evolves from local to broader context.
+    """
+    # Collect temporal attentions
+    temporal_attns = []
+    for key in sorted(attn_dict.keys()):
+        if 'time' in key:
+            attn = attn_dict[key]
+            attn_np = attn.cpu().numpy() if torch.is_tensor(attn) else attn
+            temporal_attns.append((key, attn_np))
+    
+    # Create figure
+    n_layers = len(temporal_attns)
+    fig, axes = plt.subplots(1, n_layers, figsize=(4.5 * n_layers, 4))
+    if n_layers == 1:
+        axes = [axes]
+    
+    for idx, (key, attn) in enumerate(temporal_attns):
+        ax = axes[idx]
+        attn_avg = attn.mean(axis=0)  # [T, T]
+        
+        im = ax.imshow(attn_avg, cmap='Blues', aspect='equal')
+        
+        layer_num = key.replace('layer', '').replace('_time', '')
+        ax.set_title(f'Layer {layer_num} Temporal Attention\n(averaged over samples)', fontsize=10)
+        ax.set_xlabel('Key Time Step', fontsize=9)
+        ax.set_ylabel('Query Time Step', fontsize=9)
+        plt.colorbar(im, ax=ax, shrink=0.8)
+    
+    plt.suptitle('Appendix A1: Temporal Attention Evolution\n(From local focus to broader context)', 
+                 fontsize=12, fontweight='bold', y=1.02)
+    plt.tight_layout()
+    plt.savefig(os.path.join(output_dir, 'appendix_a1_attention.pdf'), bbox_inches='tight')
+    plt.savefig(os.path.join(output_dir, 'appendix_a1_attention.png'), dpi=300, bbox_inches='tight')
+    plt.close()
+    
+    print(f"Saved: {output_dir}/appendix_a1_attention.pdf")
+
+
+# =============================================================================
+# Main Function
+# =============================================================================
 
 def main():
     import argparse
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--device', type=str, default='cuda:0')
-    parser.add_argument('--n_samples', type=int, default=64)
+    parser = argparse.ArgumentParser(description='HELIX Attention Analysis')
+    parser.add_argument('--model_path', type=str, required=True,
+                        help='Path to trained HELIX model (.pypots file)')
+    parser.add_argument('--data_path', type=str, required=True,
+                        help='Path to test data (.h5 file)')
+    parser.add_argument('--output_dir', type=str, required=True,
+                        help='Output directory for figures')
+    parser.add_argument('--device', type=str, default='cuda:0',
+                        help='Device (default: cuda:0)')
+    parser.add_argument('--n_samples', type=int, default=256,
+                        help='Number of samples (default: 256)')
     args = parser.parse_args()
     
-    MODEL_PATH = "/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/reproduce_imputation/point01_log/BeijingAir_log/HELIX_BeijingAir_attn/round_0/HELIX.pypots"
-    DATA_PATH = "/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/data/generated_datasets/beijing_air_quality_rate01_step24_point/test.h5"
-    OUTPUT_DIR = "/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/attention_analysis"
-    os.makedirs(OUTPUT_DIR, exist_ok=True)
+    os.makedirs(args.output_dir, exist_ok=True)
     
     print("=" * 70)
-    print("Feature Attention Analysis (Modified Model)")
+    print("HELIX Attention Analysis")
     print("=" * 70)
     
     # Load model
     print("\nLoading model...")
-    model = load_model(MODEL_PATH, 'BeijingAir', args.device)
+    model = load_model(args.model_path, 'BeijingAir', args.device)
     
     # Load data
-    print("\nLoading data...")
-    X, missing_mask = load_data(DATA_PATH, args.n_samples)
-    print(f"Data shape: {X.shape}")
+    print("Loading data...")
+    X, missing_mask = load_data(args.data_path, args.n_samples)
+    print(f"Data shape: {X.shape}, Samples: {args.n_samples}")
     
     # Forward pass
-    print("\nRunning forward pass...")
+    print("Running forward pass...")
     X_tensor = torch.tensor(X, dtype=torch.float32).to(args.device)
     mask_tensor = torch.tensor(missing_mask, dtype=torch.float32).to(args.device)
     
@@ -231,42 +300,37 @@ def main():
         _ = model.model.forward(inputs)
     
     # Get attention weights
-    print("\nExtracting attention weights...")
+    print("Extracting attention weights...")
     attn_dict = model.model.get_attention_weights()
-    
-    print(f"Available attention keys: {list(attn_dict.keys())}")
+    print(f"Available keys: {list(attn_dict.keys())}")
     
     # Compute geographic distance
     geo_dist = compute_geo_distance(STATION_ORDER, BEIJING_STATION_COORDS)
     
-    # Analyze each layer's feature attention
-    results = {}
-    for key, attn in attn_dict.items():
-        if 'feature' in key:
-            print(f"\n{key}: shape {attn.shape}")
-            
-            # Convert to numpy
-            attn_np = attn.cpu().numpy() if torch.is_tensor(attn) else attn
-            
-            # Save raw attention
-            np.save(os.path.join(OUTPUT_DIR, f'{key}_raw.npy'), attn_np)
-            
-            # Aggregate to stations
-            station_attn = aggregate_attention_to_stations(attn_np, N_STATIONS, N_FEATURES_PER_STATION)
-            np.save(os.path.join(OUTPUT_DIR, f'{key}_station.npy'), station_attn)
-            
-            # Generate plots
-            r, p = plot_attention_analysis(station_attn, geo_dist, STATION_ORDER, OUTPUT_DIR, key)
-            results[key] = (r, p)
+    # Generate Figure 3: Feature Attention
+    print("\n" + "-" * 70)
+    print("Generating Figure 3: Feature Attention...")
+    feature_results = plot_figure3_feature_attention(
+        attn_dict, geo_dist, STATION_ORDER, args.output_dir, N_STATIONS, N_FEATURES_PER_STATION
+    )
+    
+    # Generate Appendix A1: Temporal Attention
+    print("\n" + "-" * 70)
+    print("Generating Appendix A1: Temporal Attention...")
+    plot_appendix_temporal_attention(attn_dict, args.output_dir)
     
     # Summary
     print("\n" + "=" * 70)
-    print("Summary")
+    print("Summary: Feature Attention vs Geographic Structure")
     print("=" * 70)
-    for key, (r, p) in results.items():
-        p_str = 'p < 0.01' if p < 0.01 else f'p = {p:.4f}'
-        print(f"{key}: r = {r:.4f}, {p_str}")
-    print(f"\nOutput: {OUTPUT_DIR}")
+    for key, station_attn, r, p in feature_results:
+        p_str = 'p < 0.0001' if p < 0.0001 else f'p = {p:.4f}'
+        print(f"  {key}: r = {r:.3f}, {p_str}")
+    
+    print(f"\nKey insight: Correlation increases with depth!")
+    print(f"\nOutput files:")
+    print(f"  - {args.output_dir}/figure3_feature_attention.pdf (Main text)")
+    print(f"  - {args.output_dir}/appendix_a1_attention.pdf (Appendix)")
     print("=" * 70)
 
 

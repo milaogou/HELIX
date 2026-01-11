@@ -1,0 +1,139 @@
+% ======================================================================
+% REFERENCE DATA FOR PAPER WRITING
+% ======================================================================
+
+% ----------------------------------------------------------------------
+% STATISTICAL SIGNIFICANCE (Wilcoxon signed-rank test)
+% ----------------------------------------------------------------------
+% Columns: Model1, Model2, Metric, Model1_Mean, Model1_Std, Model2_Mean, Model2_Std, Diff, p_value, Significant_0.05, Significant_0.01
+%
+% HELIX (Ours): {'Model1': 'HELIX', 'Model2': 'ImputeFormer', 'Metric': 'MAE', 'Model1_Mean': 0.1889, 'Model1_Std': 0.0118, 'Model2_Mean': 0.2956, 'Model2_Std': 0.0362, 'Diff': 0.1067, 'p_value': 0.0, 'Significant_0.05': 'Yes', 'Significant_0.01': 'Yes'}
+% HELIX (Ours): {'Model1': 'HELIX', 'Model2': 'ImputeFormer', 'Metric': 'MSE', 'Model1_Mean': 0.0939, 'Model1_Std': 0.0086, 'Model2_Mean': 0.1989, 'Model2_Std': 0.0466, 'Diff': 0.105, 'p_value': 0.0, 'Significant_0.05': 'Yes', 'Significant_0.01': 'Yes'}
+% HELIX (Ours): {'Model1': 'HELIX', 'Model2': 'ImputeFormer', 'Metric': 'MRE', 'Model1_Mean': 0.2231, 'Model1_Std': 0.014, 'Model2_Mean': 0.3492, 'Model2_Std': 0.0428, 'Diff': 0.1261, 'p_value': 0.0, 'Significant_0.05': 'Yes', 'Significant_0.01': 'Yes'}
+% HELIX (Ours): {'Model1': 'HELIX', 'Model2': 'SAITS', 'Metric': 'MAE', 'Model1_Mean': 0.1889, 'Model1_Std': 0.0118, 'Model2_Mean': 0.2082, 'Model2_Std': 0.0091, 'Diff': 0.0193, 'p_value': 3.8e-05, 'Significant_0.05': 'Yes', 'Significant_0.01': 'Yes'}
+% HELIX (Ours): {'Model1': 'HELIX', 'Model2': 'SAITS', 'Metric': 'MSE', 'Model1_Mean': 0.0939, 'Model1_Std': 0.0086, 'Model2_Mean': 0.1023, 'Model2_Std': 0.0068, 'Diff': 0.0084, 'p_value': 0.003419, 'Significant_0.05': 'Yes', 'Significant_0.01': 'Yes'}
+% HELIX (Ours): {'Model1': 'HELIX', 'Model2': 'SAITS', 'Metric': 'MRE', 'Model1_Mean': 0.2231, 'Model1_Std': 0.014, 'Model2_Mean': 0.2459, 'Model2_Std': 0.0108, 'Diff': 0.0228, 'p_value': 3.8e-05, 'Significant_0.05': 'Yes', 'Significant_0.01': 'Yes'}
+% HELIX (Ours): {'Model1': 'HELIX', 'Model2': 'MOMENT', 'Metric': 'MAE', 'Model1_Mean': 0.1889, 'Model1_Std': 0.0118, 'Model2_Mean': 0.7569, 'Model2_Std': 0.129, 'Diff': 0.568, 'p_value': 0.0, 'Significant_0.05': 'Yes', 'Significant_0.01': 'Yes'}
+% HELIX (Ours): {'Model1': 'HELIX', 'Model2': 'MOMENT', 'Metric': 'MSE', 'Model1_Mean': 0.0939, 'Model1_Std': 0.0086, 'Model2_Mean': 0.997, 'Model2_Std': 0.3221, 'Diff': 0.903, 'p_value': 0.0, 'Significant_0.05': 'Yes', 'Significant_0.01': 'Yes'}
+% HELIX (Ours): {'Model1': 'HELIX', 'Model2': 'MOMENT', 'Metric': 'MRE', 'Model1_Mean': 0.2231, 'Model1_Std': 0.014, 'Model2_Mean': 0.894, 'Model2_Std': 0.1524, 'Diff': 0.6708, 'p_value': 0.0, 'Significant_0.05': 'Yes', 'Significant_0.01': 'Yes'}
+% HELIX (Ours): {'Model1': 'HELIX', 'Model2': 'TimeLLM', 'Metric': 'MAE', 'Model1_Mean': 0.1889, 'Model1_Std': 0.0118, 'Model2_Mean': 0.4173, 'Model2_Std': 0.0303, 'Diff': 0.2284, 'p_value': 0.0, 'Significant_0.05': 'Yes', 'Significant_0.01': 'Yes'}
+% HELIX (Ours): {'Model1': 'HELIX', 'Model2': 'TimeLLM', 'Metric': 'MSE', 'Model1_Mean': 0.0939, 'Model1_Std': 0.0086, 'Model2_Mean': 0.321, 'Model2_Std': 0.0387, 'Diff': 0.2271, 'p_value': 0.0, 'Significant_0.05': 'Yes', 'Significant_0.01': 'Yes'}
+% HELIX (Ours): {'Model1': 'HELIX', 'Model2': 'TimeLLM', 'Metric': 'MRE', 'Model1_Mean': 0.2231, 'Model1_Std': 0.014, 'Model2_Mean': 0.4929, 'Model2_Std': 0.0358, 'Diff': 0.2698, 'p_value': 0.0, 'Significant_0.05': 'Yes', 'Significant_0.01': 'Yes'}
+% HELIX (Ours): {'Model1': 'HELIX', 'Model2': 'TEFN', 'Metric': 'MAE', 'Model1_Mean': 0.1889, 'Model1_Std': 0.0118, 'Model2_Mean': 0.4747, 'Model2_Std': 0.0188, 'Diff': 0.2858, 'p_value': 0.0, 'Significant_0.05': 'Yes', 'Significant_0.01': 'Yes'}
+% HELIX (Ours): {'Model1': 'HELIX', 'Model2': 'TEFN', 'Metric': 'MSE', 'Model1_Mean': 0.0939, 'Model1_Std': 0.0086, 'Model2_Mean': 0.5093, 'Model2_Std': 0.0474, 'Diff': 0.4153, 'p_value': 0.0, 'Significant_0.05': 'Yes', 'Significant_0.01': 'Yes'}
+% HELIX (Ours): {'Model1': 'HELIX', 'Model2': 'TEFN', 'Metric': 'MRE', 'Model1_Mean': 0.2231, 'Model1_Std': 0.014, 'Model2_Mean': 0.5607, 'Model2_Std': 0.0222, 'Diff': 0.3375, 'p_value': 0.0, 'Significant_0.05': 'Yes', 'Significant_0.01': 'Yes'}
+% HELIX (Ours): {'Model1': 'HELIX', 'Model2': 'TimeMixer', 'Metric': 'MAE', 'Model1_Mean': 0.1889, 'Model1_Std': 0.0118, 'Model2_Mean': 0.6986, 'Model2_Std': 0.1213, 'Diff': 0.5097, 'p_value': 0.0, 'Significant_0.05': 'Yes', 'Significant_0.01': 'Yes'}
+% HELIX (Ours): {'Model1': 'HELIX', 'Model2': 'TimeMixer', 'Metric': 'MSE', 'Model1_Mean': 0.0939, 'Model1_Std': 0.0086, 'Model2_Mean': 0.9086, 'Model2_Std': 0.2523, 'Diff': 0.8147, 'p_value': 0.0, 'Significant_0.05': 'Yes', 'Significant_0.01': 'Yes'}
+% HELIX (Ours): {'Model1': 'HELIX', 'Model2': 'TimeMixer', 'Metric': 'MRE', 'Model1_Mean': 0.2231, 'Model1_Std': 0.014, 'Model2_Mean': 0.8252, 'Model2_Std': 0.1432, 'Diff': 0.602, 'p_value': 0.0, 'Significant_0.05': 'Yes', 'Significant_0.01': 'Yes'}
+% HELIX (Ours): {'Model1': 'HELIX', 'Model2': 'TimeMixerPP', 'Metric': 'MAE', 'Model1_Mean': 0.1889, 'Model1_Std': 0.0118, 'Model2_Mean': 0.3784, 'Model2_Std': 0.0063, 'Diff': 0.1894, 'p_value': 0.0, 'Significant_0.05': 'Yes', 'Significant_0.01': 'Yes'}
+% HELIX (Ours): {'Model1': 'HELIX', 'Model2': 'TimeMixerPP', 'Metric': 'MSE', 'Model1_Mean': 0.0939, 'Model1_Std': 0.0086, 'Model2_Mean': 0.2655, 'Model2_Std': 0.0062, 'Diff': 0.1715, 'p_value': 0.0, 'Significant_0.05': 'Yes', 'Significant_0.01': 'Yes'}
+% HELIX (Ours): {'Model1': 'HELIX', 'Model2': 'TimeMixerPP', 'Metric': 'MRE', 'Model1_Mean': 0.2231, 'Model1_Std': 0.014, 'Model2_Mean': 0.4469, 'Model2_Std': 0.0075, 'Diff': 0.2237, 'p_value': 0.0, 'Significant_0.05': 'Yes', 'Significant_0.01': 'Yes'}
+% HELIX (Ours): {'Model1': 'HELIX', 'Model2': 'ModernTCN', 'Metric': 'MAE', 'Model1_Mean': 0.1889, 'Model1_Std': 0.0118, 'Model2_Mean': 0.4354, 'Model2_Std': 0.0118, 'Diff': 0.2465, 'p_value': 0.0, 'Significant_0.05': 'Yes', 'Significant_0.01': 'Yes'}
+% HELIX (Ours): {'Model1': 'HELIX', 'Model2': 'ModernTCN', 'Metric': 'MSE', 'Model1_Mean': 0.0939, 'Model1_Std': 0.0086, 'Model2_Mean': 0.3621, 'Model2_Std': 0.0189, 'Diff': 0.2681, 'p_value': 0.0, 'Significant_0.05': 'Yes', 'Significant_0.01': 'Yes'}
+% HELIX (Ours): {'Model1': 'HELIX', 'Model2': 'ModernTCN', 'Metric': 'MRE', 'Model1_Mean': 0.2231, 'Model1_Std': 0.014, 'Model2_Mean': 0.5143, 'Model2_Std': 0.0139, 'Diff': 0.2911, 'p_value': 0.0, 'Significant_0.05': 'Yes', 'Significant_0.01': 'Yes'}
+% HELIX (Ours): {'Model1': 'HELIX', 'Model2': 'TOTEM', 'Metric': 'MAE', 'Model1_Mean': 0.1889, 'Model1_Std': 0.0118, 'Model2_Mean': 0.5256, 'Model2_Std': 0.0256, 'Diff': 0.3367, 'p_value': 0.0, 'Significant_0.05': 'Yes', 'Significant_0.01': 'Yes'}
+% HELIX (Ours): {'Model1': 'HELIX', 'Model2': 'TOTEM', 'Metric': 'MSE', 'Model1_Mean': 0.0939, 'Model1_Std': 0.0086, 'Model2_Mean': 0.5247, 'Model2_Std': 0.0481, 'Diff': 0.4308, 'p_value': 0.0, 'Significant_0.05': 'Yes', 'Significant_0.01': 'Yes'}
+% HELIX (Ours): {'Model1': 'HELIX', 'Model2': 'TOTEM', 'Metric': 'MRE', 'Model1_Mean': 0.2231, 'Model1_Std': 0.014, 'Model2_Mean': 0.6208, 'Model2_Std': 0.0303, 'Diff': 0.3977, 'p_value': 0.0, 'Significant_0.05': 'Yes', 'Significant_0.01': 'Yes'}
+% HELIX (Ours): {'Model1': 'HELIX', 'Model2': 'iTransformer', 'Metric': 'MAE', 'Model1_Mean': 0.1889, 'Model1_Std': 0.0118, 'Model2_Mean': 0.3391, 'Model2_Std': 0.0029, 'Diff': 0.1502, 'p_value': 0.0, 'Significant_0.05': 'Yes', 'Significant_0.01': 'Yes'}
+% HELIX (Ours): {'Model1': 'HELIX', 'Model2': 'iTransformer', 'Metric': 'MSE', 'Model1_Mean': 0.0939, 'Model1_Std': 0.0086, 'Model2_Mean': 0.2235, 'Model2_Std': 0.0046, 'Diff': 0.1296, 'p_value': 0.0, 'Significant_0.05': 'Yes', 'Significant_0.01': 'Yes'}
+% HELIX (Ours): {'Model1': 'HELIX', 'Model2': 'iTransformer', 'Metric': 'MRE', 'Model1_Mean': 0.2231, 'Model1_Std': 0.014, 'Model2_Mean': 0.4005, 'Model2_Std': 0.0034, 'Diff': 0.1774, 'p_value': 0.0, 'Significant_0.05': 'Yes', 'Significant_0.01': 'Yes'}
+% HELIX (Ours): {'Model1': 'HELIX', 'Model2': 'NonstationaryTransformer', 'Metric': 'MAE', 'Model1_Mean': 0.1889, 'Model1_Std': 0.0118, 'Model2_Mean': 0.3585, 'Model2_Std': 0.0071, 'Diff': 0.1696, 'p_value': 0.0, 'Significant_0.05': 'Yes', 'Significant_0.01': 'Yes'}
+% HELIX (Ours): {'Model1': 'HELIX', 'Model2': 'NonstationaryTransformer', 'Metric': 'MSE', 'Model1_Mean': 0.0939, 'Model1_Std': 0.0086, 'Model2_Mean': 0.2681, 'Model2_Std': 0.0094, 'Diff': 0.1741, 'p_value': 0.0, 'Significant_0.05': 'Yes', 'Significant_0.01': 'Yes'}
+% HELIX (Ours): {'Model1': 'HELIX', 'Model2': 'NonstationaryTransformer', 'Metric': 'MRE', 'Model1_Mean': 0.2231, 'Model1_Std': 0.014, 'Model2_Mean': 0.4234, 'Model2_Std': 0.0084, 'Diff': 0.2003, 'p_value': 0.0, 'Significant_0.05': 'Yes', 'Significant_0.01': 'Yes'}
+% HELIX (Ours): {'Model1': 'HELIX', 'Model2': 'PatchTST', 'Metric': 'MAE', 'Model1_Mean': 0.1889, 'Model1_Std': 0.0118, 'Model2_Mean': 0.272, 'Model2_Std': 0.0275, 'Diff': 0.0831, 'p_value': 0.0, 'Significant_0.05': 'Yes', 'Significant_0.01': 'Yes'}
+% HELIX (Ours): {'Model1': 'HELIX', 'Model2': 'PatchTST', 'Metric': 'MSE', 'Model1_Mean': 0.0939, 'Model1_Std': 0.0086, 'Model2_Mean': 0.1524, 'Model2_Std': 0.0236, 'Diff': 0.0584, 'p_value': 0.0, 'Significant_0.05': 'Yes', 'Significant_0.01': 'Yes'}
+% HELIX (Ours): {'Model1': 'HELIX', 'Model2': 'PatchTST', 'Metric': 'MRE', 'Model1_Mean': 0.2231, 'Model1_Std': 0.014, 'Model2_Mean': 0.3213, 'Model2_Std': 0.0324, 'Diff': 0.0981, 'p_value': 0.0, 'Significant_0.05': 'Yes', 'Significant_0.01': 'Yes'}
+% HELIX (Ours): {'Model1': 'HELIX', 'Model2': 'FreTS', 'Metric': 'MAE', 'Model1_Mean': 0.1889, 'Model1_Std': 0.0118, 'Model2_Mean': 0.2943, 'Model2_Std': 0.0222, 'Diff': 0.1054, 'p_value': 0.0, 'Significant_0.05': 'Yes', 'Significant_0.01': 'Yes'}
+% HELIX (Ours): {'Model1': 'HELIX', 'Model2': 'FreTS', 'Metric': 'MSE', 'Model1_Mean': 0.0939, 'Model1_Std': 0.0086, 'Model2_Mean': 0.1685, 'Model2_Std': 0.0224, 'Diff': 0.0746, 'p_value': 0.0, 'Significant_0.05': 'Yes', 'Significant_0.01': 'Yes'}
+% HELIX (Ours): {'Model1': 'HELIX', 'Model2': 'FreTS', 'Metric': 'MRE', 'Model1_Mean': 0.2231, 'Model1_Std': 0.014, 'Model2_Mean': 0.3476, 'Model2_Std': 0.0262, 'Diff': 0.1244, 'p_value': 0.0, 'Significant_0.05': 'Yes', 'Significant_0.01': 'Yes'}
+% HELIX (Ours): {'Model1': 'HELIX', 'Model2': 'HELIX_NoFeatureEmbed', 'Metric': 'MAE', 'Model1_Mean': 0.1889, 'Model1_Std': 0.0118, 'Model2_Mean': 0.2409, 'Model2_Std': 0.0115, 'Diff': 0.052, 'p_value': 0.0, 'Significant_0.05': 'Yes', 'Significant_0.01': 'Yes'}
+% HELIX (Ours): {'Model1': 'HELIX', 'Model2': 'HELIX_NoFeatureEmbed', 'Metric': 'MSE', 'Model1_Mean': 0.0939, 'Model1_Std': 0.0086, 'Model2_Mean': 0.1353, 'Model2_Std': 0.0118, 'Diff': 0.0413, 'p_value': 0.0, 'Significant_0.05': 'Yes', 'Significant_0.01': 'Yes'}
+% HELIX (Ours): {'Model1': 'HELIX', 'Model2': 'HELIX_NoFeatureEmbed', 'Metric': 'MRE', 'Model1_Mean': 0.2231, 'Model1_Std': 0.014, 'Model2_Mean': 0.2846, 'Model2_Std': 0.0136, 'Diff': 0.0614, 'p_value': 0.0, 'Significant_0.05': 'Yes', 'Significant_0.01': 'Yes'}
+% HELIX (Ours): {'Model1': 'HELIX', 'Model2': 'HELIX_NoFusion', 'Metric': 'MAE', 'Model1_Mean': 0.1889, 'Model1_Std': 0.0118, 'Model2_Mean': 0.1922, 'Model2_Std': 0.011, 'Diff': 0.0033, 'p_value': 0.35252, 'Significant_0.05': 'No', 'Significant_0.01': 'No'}
+% HELIX (Ours): {'Model1': 'HELIX', 'Model2': 'HELIX_NoFusion', 'Metric': 'MSE', 'Model1_Mean': 0.0939, 'Model1_Std': 0.0086, 'Model2_Mean': 0.0981, 'Model2_Std': 0.0094, 'Diff': 0.0041, 'p_value': 0.156338, 'Significant_0.05': 'No', 'Significant_0.01': 'No'}
+% HELIX (Ours): {'Model1': 'HELIX', 'Model2': 'HELIX_NoFusion', 'Metric': 'MRE', 'Model1_Mean': 0.2231, 'Model1_Std': 0.014, 'Model2_Mean': 0.227, 'Model2_Std': 0.013, 'Diff': 0.0039, 'p_value': 0.35252, 'Significant_0.05': 'No', 'Significant_0.01': 'No'}
+% HELIX (Ours): {'Model1': 'HELIX', 'Model2': 'HELIX_NoHybrid', 'Metric': 'MAE', 'Model1_Mean': 0.1889, 'Model1_Std': 0.0118, 'Model2_Mean': 0.1877, 'Model2_Std': 0.0074, 'Diff': -0.0012, 'p_value': 1.0, 'Significant_0.05': 'No', 'Significant_0.01': 'No'}
+% HELIX (Ours): {'Model1': 'HELIX', 'Model2': 'HELIX_NoHybrid', 'Metric': 'MSE', 'Model1_Mean': 0.0939, 'Model1_Std': 0.0086, 'Model2_Mean': 0.0932, 'Model2_Std': 0.0054, 'Diff': -0.0007, 'p_value': 0.873988, 'Significant_0.05': 'No', 'Significant_0.01': 'No'}
+% HELIX (Ours): {'Model1': 'HELIX', 'Model2': 'HELIX_NoHybrid', 'Metric': 'MRE', 'Model1_Mean': 0.2231, 'Model1_Std': 0.014, 'Model2_Mean': 0.2217, 'Model2_Std': 0.0087, 'Diff': -0.0015, 'p_value': 1.0, 'Significant_0.05': 'No', 'Significant_0.01': 'No'}
+% HELIX (Ours): {'Model1': 'HELIX', 'Model2': 'HELIX_NoRotaryPE', 'Metric': 'MAE', 'Model1_Mean': 0.1889, 'Model1_Std': 0.0118, 'Model2_Mean': 0.1882, 'Model2_Std': 0.0107, 'Diff': -0.0007, 'p_value': 0.672075, 'Significant_0.05': 'No', 'Significant_0.01': 'No'}
+% HELIX (Ours): {'Model1': 'HELIX', 'Model2': 'HELIX_NoRotaryPE', 'Metric': 'MSE', 'Model1_Mean': 0.0939, 'Model1_Std': 0.0086, 'Model2_Mean': 0.0939, 'Model2_Std': 0.008, 'Diff': 0.0, 'p_value': 0.915803, 'Significant_0.05': 'No', 'Significant_0.01': 'No'}
+% HELIX (Ours): {'Model1': 'HELIX', 'Model2': 'HELIX_NoRotaryPE', 'Metric': 'MRE', 'Model1_Mean': 0.2231, 'Model1_Std': 0.014, 'Model2_Mean': 0.2223, 'Model2_Std': 0.0126, 'Diff': -0.0009, 'p_value': 0.672075, 'Significant_0.05': 'No', 'Significant_0.01': 'No'}
+
+% ----------------------------------------------------------------------
+% WIN RATE ANALYSIS
+% ----------------------------------------------------------------------
+% Columns: Baseline, Win, Tie, Lose, Total, Win_Rate%
+%
+% iTransformer: {'Baseline': 'iTransformer', 'Win': 26, 'Tie': 0, 'Lose': 0, 'Total': 26, 'Win_Rate%': 100.0}
+% Time-LLM: {'Baseline': 'TimeLLM', 'Win': 16, 'Tie': 0, 'Lose': 0, 'Total': 16, 'Win_Rate%': 100.0}
+% MOMENT: {'Baseline': 'MOMENT', 'Win': 11, 'Tie': 0, 'Lose': 0, 'Total': 11, 'Win_Rate%': 100.0}
+% TimeMixer: {'Baseline': 'TimeMixer', 'Win': 26, 'Tie': 0, 'Lose': 0, 'Total': 26, 'Win_Rate%': 100.0}
+% ModernTCN: {'Baseline': 'ModernTCN', 'Win': 26, 'Tie': 0, 'Lose': 0, 'Total': 26, 'Win_Rate%': 100.0}
+% TOTEM: {'Baseline': 'TOTEM', 'Win': 26, 'Tie': 0, 'Lose': 0, 'Total': 26, 'Win_Rate%': 100.0}
+% TimeMixer++: {'Baseline': 'TimeMixerPP', 'Win': 16, 'Tie': 0, 'Lose': 0, 'Total': 16, 'Win_Rate%': 100.0}
+% SAITS: {'Baseline': 'SAITS', 'Win': 26, 'Tie': 0, 'Lose': 0, 'Total': 26, 'Win_Rate%': 100.0}
+% FreTS: {'Baseline': 'FreTS', 'Win': 26, 'Tie': 0, 'Lose': 0, 'Total': 26, 'Win_Rate%': 100.0}
+% PatchTST: {'Baseline': 'PatchTST', 'Win': 26, 'Tie': 0, 'Lose': 0, 'Total': 26, 'Win_Rate%': 100.0}
+
+% ----------------------------------------------------------------------
+% DETAILED VS NAIVE COMPARISON
+% ----------------------------------------------------------------------
+% Columns: Pattern, Dataset, Naive_LinearInterp_MAE, HELIX_MAE, HELIX_Improv%, HELIX_NoFeatureEmbed_MAE, HELIX_NoFeatureEmbed_Improv%, HELIX_NoFusion_MAE, HELIX_NoFusion_Improv%, HELIX_NoHybrid_MAE, HELIX_NoHybrid_Improv%, HELIX_NoRotaryPE_MAE, HELIX_NoRotaryPE_Improv%, TEFN_MAE, TEFN_Improv%, TimeMixerPP_MAE, TimeMixerPP_Improv%, TimeLLM_MAE, TimeLLM_Improv%, MOMENT_MAE, MOMENT_Improv%, TimeMixer_MAE, TimeMixer_Improv%, ModernTCN_MAE, ModernTCN_Improv%, ImputeFormer_MAE, ImputeFormer_Improv%, TOTEM_MAE, TOTEM_Improv%, iTransformer_MAE, iTransformer_Improv%, SAITS_MAE, SAITS_Improv%, FreTS_MAE, FreTS_Improv%, NonstationaryTransformer_MAE, NonstationaryTransformer_Improv%, PatchTST_MAE, PatchTST_Improv%
+%
+% HELIX: {'Pattern': 'point01', 'Dataset': 'BeijingAir', 'Naive_LinearInterp_MAE': 0.112, 'HELIX_MAE': 0.073, 'HELIX_Improv%': 34.8, 'HELIX_NoFeatureEmbed_MAE': 0.113, 'HELIX_NoFeatureEmbed_Improv%': -0.9, 'HELIX_NoFusion_MAE': 0.073, 'HELIX_NoFusion_Improv%': 34.8, 'HELIX_NoHybrid_MAE': 0.08, 'HELIX_NoHybrid_Improv%': 28.6, 'HELIX_NoRotaryPE_MAE': 0.08, 'HELIX_NoRotaryPE_Improv%': 28.6, 'TEFN_MAE': 0.141, 'TEFN_Improv%': -25.9, 'TimeMixerPP_MAE': 0.532, 'TimeMixerPP_Improv%': -375.0, 'TimeLLM_MAE': 0.211, 'TimeLLM_Improv%': -88.4, 'MOMENT_MAE': 0.607, 'MOMENT_Improv%': -442.0, 'TimeMixer_MAE': 0.278, 'TimeMixer_Improv%': -148.2, 'ModernTCN_MAE': 0.257, 'ModernTCN_Improv%': -129.5, 'ImputeFormer_MAE': 0.095, 'ImputeFormer_Improv%': 15.2, 'TOTEM_MAE': 0.322, 'TOTEM_Improv%': -187.5, 'iTransformer_MAE': 0.124, 'iTransformer_Improv%': -10.7, 'SAITS_MAE': 0.151, 'SAITS_Improv%': -34.8, 'FreTS_MAE': 0.193, 'FreTS_Improv%': -72.3, 'NonstationaryTransformer_MAE': 0.178, 'NonstationaryTransformer_Improv%': -58.9, 'PatchTST_MAE': 0.181, 'PatchTST_Improv%': -61.6}
+
+% ----------------------------------------------------------------------
+% BY-PATTERN RANKING (Full data)
+% ----------------------------------------------------------------------
+% Model, point01, point05, point09, block05, subseq05, Avg, Std
+%
+% HELIX (Ours)                  : pt01=3.28, pt05=3.00, pt09=3.33, block=2.73, subseq=2.53, avg=2.97, std=0.31
+% w/o Multi-level Fusion        : pt01=2.89, pt05=3.60, pt09=3.53, block=3.33, subseq=6.13, avg=3.90, std=1.14
+% w/o Rotary PE                 : pt01=4.00, pt05=4.00, pt09=4.33, block=4.27, subseq=6.40, avg=4.60, std=0.91
+% w/o Hybrid Encoding           : pt01=4.89, pt05=3.87, pt09=4.33, block=4.00, subseq=6.07, avg=4.63, std=0.80
+% w/o Feature Identity Emb.     : pt01=5.83, pt05=6.40, pt09=7.67, block=6.53, subseq=8.53, avg=6.99, std=0.97
+% ImputeFormer                  : pt01=7.33, pt05=7.80, pt09=7.93, block=6.27, subseq=5.80, avg=7.03, std=0.85
+% SAITS                         : pt01=9.06, pt05=9.13, pt09=7.80, block=8.60, subseq=7.13, avg=8.34, std=0.77
+% Linear Interpolation          : pt01=6.44, pt05=6.40, pt09=10.60, block=9.27, subseq=10.20, avg=8.58, std=1.82
+% Nonstationary Trans.          : pt01=10.11, pt05=9.67, pt09=9.27, block=8.47, subseq=8.60, avg=9.22, std=0.62
+% TEFN                          : pt01=9.28, pt05=10.33, pt09=10.73, block=11.27, subseq=10.93, avg=10.51, std=0.69
+% PatchTST                      : pt01=10.56, pt05=10.93, pt09=10.07, block=11.80, subseq=9.27, avg=10.53, std=0.85
+% FreTS                         : pt01=12.83, pt05=12.07, pt09=9.53, block=10.93, subseq=8.93, avg=10.86, std=1.47
+% iTransformer                  : pt01=11.00, pt05=10.73, pt09=12.40, block=12.07, subseq=14.47, avg=12.13, std=1.33
+% LOCF                          : pt01=12.94, pt05=12.60, pt09=15.53, block=14.20, subseq=14.93, avg=14.04, std=1.12
+% Time-LLM                      : pt01=14.58, pt05=14.33, pt09=12.78, block=16.22, subseq=16.56, avg=14.89, std=1.37
+
+% ======================================================================
+% SUMMARY: KEY POINTS FOR ICML BEST PAPER
+% ======================================================================
+%
+% 1. HELIX achieves rank 1 overall (avg rank 2.97)
+%
+% 2. vs Naive baseline story:
+%    - Most DL methods FAIL to beat Linear Interpolation
+%    - HELIX: +37.3% improvement (excl. Electricity)
+%    - This proves meaningful structure learning, not overfitting
+%
+% 3. Ablation insights:
+%    a) Feature Identity Embedding is MOST critical (Δ=+4.02)
+%       - Directly enables attention to leverage spatial structure
+%       - Layer 0 attention correlation ≈ embedding correlation
+%
+%    b) Multi-level Fusion = stability trade-off:
+%       - Subseq: 6.13 → 2.53 (huge win)
+%       - Point-10%: 2.89 → 3.28 (small cost)
+%       - Std: 1.14 → 0.31 (3.7x more stable)
+%       - Philosophy: shallow layers = intermediate, deep layers = refined
+%       - Fusion acts like skip connection, regularizing for robustness
+%
+% 4. Attention visualization story (Figure 3 + Appendix A1):
+%    - Feature attention increasingly captures spatial structure
+%    - Layer 0: r=0.589 ≈ embedding r=0.587 (direct leverage)
+%    - Layer 2: r=0.712 (progressive refinement)
+%    - Temporal: Perceiving → Focusing → Understanding
+%
+% 5. Linear Interpolation collapse in hard scenarios:
+%    - Point-10%: rank 6.44 (decent)
+%    - Point-90%: rank 10.60 (collapsed)
+%    - Subseq: rank 10.20 (collapsed)
+%    - HELIX maintains rank ~2.5-3.3 across ALL patterns

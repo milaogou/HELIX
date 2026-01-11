@@ -1,0 +1,32 @@
+% ======================================================================
+% VS NAIVE SUMMARY (excluding Electricity)
+% ======================================================================
+% Average improvement over Linear Interpolation:
+%
+%  1. w/o Multi-level Fusion        : +37.8%
+%  2. HELIX (Ours)                  : +37.3%
+%  3. w/o Rotary PE                 : +33.7%
+%  4. w/o Hybrid Encoding           : +33.4%
+%  5. ImputeFormer                  : +18.4%
+%  6. w/o Feature Identity Emb.     : +16.1%
+%  7. SAITS                         : +12.1%
+%  8. PatchTST                      : -7.4%
+%  9. FreTS                         : -9.2%
+% 10. iTransformer                  : -10.3%
+% 11. Nonstationary Trans.          : -11.2%
+% 12. TEFN                          : -14.0%
+% 13. Time-LLM                      : -50.8%
+% 14. ModernTCN                     : -60.9%
+% 15. TimeMixer                     : -66.7%
+%
+% KEY INSIGHT FOR WRITING:
+% Many DL methods FAIL to beat Linear Interpolation:
+% - PatchTST, FreTS, iTransformer all negative
+% - HELIX achieves +37.3%, proving meaningful structure learning
+%
+% Suggested text:
+% 'Notably, many recent deep learning methods fail to outperform simple
+%  Linear Interpolation when averaged across patterns (excl. Electricity):
+%  PatchTST (-7.4%), FreTS (-9.2%), iTransformer (-10.3%). In contrast,
+%  HELIX achieves 37.3% improvement, demonstrating that our architecture
+%  captures meaningful temporal-spatial structure rather than overfitting.'

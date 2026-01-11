@@ -1,0 +1,38 @@
+\begin{table}[h]
+    \caption{Complete results on PhysioNet2012 across all missing patterns. MAE shown (mean $\pm$ std).}
+    \label{tab:full_physionet2012}
+    \centering
+    \begin{footnotesize}
+    \begin{tabular}{l|c}
+        \toprule
+        \textbf{Model} & \textbf{Point-10\%} \\
+        \midrule
+        \multicolumn{2}{l}{\textit{Naive Baselines}} \\
+        Mean Imputation & 0.708$\pm$N/A \\
+        Median Imputation & 0.690$\pm$N/A \\
+        LOCF & 0.449$\pm$N/A \\
+        Linear Interpolation & 0.366$\pm$N/A \\
+        \midrule
+        \multicolumn{2}{l}{\textit{Deep Learning Methods}} \\
+        \textbf{HELIX (Ours)} & 0.215$\pm$0.003 \\
+        w/o Multi-level Fusion & 0.216$\pm$0.004 \\
+        w/o Rotary PE & 0.216$\pm$0.001 \\
+        w/o Hybrid Encoding & 0.207$\pm$0.004 \\
+        w/o Feature Identity Emb. & 0.235$\pm$0.006 \\
+        ImputeFormer & 0.240$\pm$0.009 \\
+        SAITS & 0.247$\pm$0.010 \\
+        Nonstationary Trans. & 0.316$\pm$0.002 \\
+        PatchTST & 0.282$\pm$0.010 \\
+        iTransformer & 0.373$\pm$0.003 \\
+        TEFN & 0.364$\pm$0.001 \\
+        TimeMixer & 0.429$\pm$0.002 \\
+        TimeMixer++ & 0.417$\pm$0.001 \\
+        ModernTCN & 0.499$\pm$0.006 \\
+        TOTEM & 0.474$\pm$0.012 \\
+        FreTS & 0.317$\pm$0.012 \\
+        Time-LLM & 0.457$\pm$0.003 \\
+        MOMENT & 0.569$\pm$0.071 \\
+        \bottomrule
+    \end{tabular}
+    \end{footnotesize}
+\end{table}

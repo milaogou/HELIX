@@ -1,0 +1,37 @@
+\begin{table*}[t]
+    \caption{Detailed results on PhysioNet2012 (Point-10\%, left) and ETT-h1 (Point-50\%, right). Mean $\pm$ std over 5 runs. \textbf{Bold} indicates best among all methods.}
+    \label{tab:detailed_results}
+    \centering
+    \begin{small}
+    \begin{tabular}{l|ccc|cc||l|ccc|cc}
+        \toprule
+        \multicolumn{6}{c||}{\textbf{PhysioNet2012 (Point-10\%)}} & \multicolumn{6}{c}{\textbf{ETT-h1 (Point-50\%)}} \\
+        \textbf{Method} & \textbf{MAE}$\downarrow$ & \textbf{MSE}$\downarrow$ & \textbf{MRE}$\downarrow$ & \textbf{\#Params} & \textbf{Time} & \textbf{Method} & \textbf{MAE}$\downarrow$ & \textbf{MSE}$\downarrow$ & \textbf{MRE}$\downarrow$ & \textbf{\#Params} & \textbf{Time} \\
+        \midrule
+        Mean Imputation & 0.708$\pm$N/A & 0.967$\pm$N/A & 0.999$\pm$N/A & N/A & N/A & Mean Imputation & 0.738$\pm$N/A & 0.971$\pm$N/A & 0.873$\pm$N/A & N/A & N/A \\
+        Median Imputation & 0.690$\pm$N/A & 1.000$\pm$N/A & 0.973$\pm$N/A & N/A & N/A & Median Imputation & 0.708$\pm$N/A & 1.022$\pm$N/A & 0.837$\pm$N/A & N/A & N/A \\
+        LOCF & 0.449$\pm$N/A & 0.604$\pm$N/A & 0.633$\pm$N/A & N/A & N/A & LOCF & 0.425$\pm$N/A & 0.491$\pm$N/A & 0.502$\pm$N/A & N/A & N/A \\
+        Linear Interpolation & 0.366$\pm$N/A & 0.425$\pm$N/A & 0.516$\pm$N/A & N/A & N/A & Linear Interpolation & 0.267$\pm$N/A & 0.178$\pm$N/A & 0.316$\pm$N/A & N/A & N/A \\
+        \midrule
+        HELIX (Ours) & 0.215$\pm$0.003 & 0.205$\pm$0.003 & 0.305$\pm$0.004 & 454.9K & 0.90s & HELIX (Ours) & 0.189$\pm$0.012 & 0.094$\pm$0.009 & 0.223$\pm$0.014 & 803.5K & 0.06s \\
+        w/o Multi-level Fusion & 0.216$\pm$0.004 & 0.206$\pm$0.007 & 0.306$\pm$0.005 & 678.5K & 1.18s & w/o Multi-level Fusion & 0.192$\pm$0.011 & 0.098$\pm$0.009 & 0.227$\pm$0.013 & 2.7M & 0.08s \\
+        w/o Hybrid Encoding & \textbf{0.207$\pm$0.004} & \textbf{0.198$\pm$0.004} & \textbf{0.293$\pm$0.005} & 1.2M & 0.79s & w/o Hybrid Encoding & \textbf{0.188$\pm$0.007} & \textbf{0.093$\pm$0.005} & \textbf{0.222$\pm$0.009} & 2.7M & 0.06s \\
+        w/o Rotary PE & 0.216$\pm$0.001 & 0.211$\pm$0.004 & 0.305$\pm$0.002 & 800.6K & 0.59s & w/o Rotary PE & 0.188$\pm$0.011 & 0.094$\pm$0.008 & 0.222$\pm$0.013 & 803.5K & 0.06s \\
+        w/o Feature Identity Emb. & 0.235$\pm$0.006 & 0.229$\pm$0.006 & 0.332$\pm$0.008 & 674.1K & 1.21s & w/o Feature Identity Emb. & 0.241$\pm$0.012 & 0.135$\pm$0.012 & 0.285$\pm$0.014 & 1.2M & 0.05s \\
+        ImputeFormer & 0.240$\pm$0.009 & 0.229$\pm$0.008 & 0.340$\pm$0.013 & 1.4M & 0.96s & ImputeFormer & 0.296$\pm$0.036 & 0.199$\pm$0.047 & 0.349$\pm$0.043 & 124.0K & 0.08s \\
+        SAITS & 0.247$\pm$0.010 & 0.229$\pm$0.009 & 0.350$\pm$0.015 & 44.3M & 0.31s & SAITS & 0.208$\pm$0.009 & 0.102$\pm$0.007 & 0.246$\pm$0.011 & 88.2M & 0.08s \\
+        Nonstationary Trans. & 0.316$\pm$0.002 & 0.300$\pm$0.003 & 0.447$\pm$0.003 & 1.6M & 0.15s & Nonstationary Trans. & 0.358$\pm$0.007 & 0.268$\pm$0.009 & 0.423$\pm$0.008 & 589.9K & 0.01s \\
+        PatchTST & 0.282$\pm$0.010 & 0.274$\pm$0.015 & 0.399$\pm$0.014 & 644.1K & 0.45s & PatchTST & 0.272$\pm$0.027 & 0.152$\pm$0.024 & 0.321$\pm$0.032 & 72.2K & 0.01s \\
+        iTransformer & 0.373$\pm$0.003 & 0.360$\pm$0.005 & 0.528$\pm$0.005 & 6.9M & 0.13s & iTransformer & 0.339$\pm$0.003 & 0.224$\pm$0.005 & 0.401$\pm$0.003 & 23.7M & 0.02s \\
+        TEFN & 0.364$\pm$0.001 & 0.376$\pm$0.002 & 0.515$\pm$0.002 & 3.1K & 0.11s & TEFN & 0.475$\pm$0.019 & 0.509$\pm$0.047 & 0.561$\pm$0.022 & 985 & 0.01s \\
+        TimeMixer & 0.429$\pm$0.002 & 0.447$\pm$0.003 & 0.607$\pm$0.003 & 73.4K & 0.28s & TimeMixer & 0.699$\pm$0.121 & 0.909$\pm$0.252 & 0.825$\pm$0.143 & 11.1K & 0.01s \\
+        TimeMixer++ & 0.417$\pm$0.001 & 0.410$\pm$0.002 & 0.590$\pm$0.001 & 44.7M & 3.19s & TimeMixer++ & 0.378$\pm$0.006 & 0.266$\pm$0.006 & 0.447$\pm$0.007 & 11.2M & 0.18s \\
+        ModernTCN & 0.499$\pm$0.006 & 0.573$\pm$0.016 & 0.706$\pm$0.008 & 850.2K & 0.16s & ModernTCN & 0.435$\pm$0.012 & 0.362$\pm$0.019 & 0.514$\pm$0.014 & 175.7K & 0.03s \\
+        TOTEM & 0.474$\pm$0.012 & 0.519$\pm$0.017 & 0.670$\pm$0.017 & 86.6K & 0.35s & TOTEM & 0.526$\pm$0.026 & 0.525$\pm$0.048 & 0.621$\pm$0.030 & 23.8K & 0.03s \\
+        FreTS & 0.317$\pm$0.012 & 0.314$\pm$0.016 & 0.448$\pm$0.018 & 1.9M & 0.32s & FreTS & 0.294$\pm$0.022 & 0.169$\pm$0.022 & 0.348$\pm$0.026 & 465.3K & 0.01s \\
+        Time-LLM & 0.457$\pm$0.003 & 0.474$\pm$0.006 & 0.647$\pm$0.004 & 31.1M & 147.49s & Time-LLM & 0.417$\pm$0.030 & 0.321$\pm$0.039 & 0.493$\pm$0.036 & 31.1M & 3.38s \\
+        MOMENT & 0.569$\pm$0.071 & 0.690$\pm$0.140 & 0.805$\pm$0.100 & 35.4M & 3.49s & MOMENT & 0.757$\pm$0.129 & 0.997$\pm$0.322 & 0.894$\pm$0.152 & 109.7M & 3.80s \\
+        \bottomrule
+    \end{tabular}
+    \end{small}
+\end{table*}

@@ -1,0 +1,38 @@
+\begin{table}[h]
+    \caption{Complete results on PeMS across all missing patterns. MAE shown (mean $\pm$ std).}
+    \label{tab:full_pems}
+    \centering
+    \begin{footnotesize}
+    \begin{tabular}{l|ccccc}
+        \toprule
+        \textbf{Model} & \textbf{Point-10\%} & \textbf{Point-50\%} & \textbf{Point-90\%} & \textbf{Block-50\%} & \textbf{Subseq-50\%} \\
+        \midrule
+        \multicolumn{6}{l}{\textit{Naive Baselines}} \\
+        Mean Imputation & 0.798$\pm$N/A & 0.799$\pm$N/A & 0.800$\pm$N/A & 0.829$\pm$N/A & 0.849$\pm$N/A \\
+        Median Imputation & 0.778$\pm$N/A & 0.777$\pm$N/A & 0.779$\pm$N/A & 0.856$\pm$N/A & 0.886$\pm$N/A \\
+        LOCF & 0.375$\pm$N/A & 0.547$\pm$N/A & 0.899$\pm$N/A & 0.920$\pm$N/A & 1.203$\pm$N/A \\
+        Linear Interpolation & 0.211$\pm$N/A & 0.343$\pm$N/A & 0.834$\pm$N/A & 0.716$\pm$N/A & 1.000$\pm$N/A \\
+        \midrule
+        \multicolumn{6}{l}{\textit{Deep Learning Methods}} \\
+        \textbf{HELIX (Ours)} & 0.097$\pm$0.002 & 0.134$\pm$0.001 & 0.256$\pm$0.008 & 0.203$\pm$0.004 & 0.311$\pm$0.092 \\
+        w/o Multi-level Fusion & 0.095$\pm$0.003 & 0.133$\pm$0.002 & 0.250$\pm$0.006 & 0.198$\pm$0.002 & 0.542$\pm$0.009 \\
+        w/o Rotary PE & 0.096$\pm$0.001 & 0.127$\pm$0.004 & 0.266$\pm$0.004 & 0.195$\pm$0.006 & 0.468$\pm$0.102 \\
+        w/o Hybrid Encoding & 0.098$\pm$0.005 & 0.136$\pm$0.003 & 0.256$\pm$0.005 & 0.202$\pm$0.004 & 0.355$\pm$0.113 \\
+        w/o Feature Identity Emb. & 0.152$\pm$0.003 & 0.196$\pm$0.002 & 0.363$\pm$0.004 & 0.331$\pm$0.004 & 0.457$\pm$0.014 \\
+        ImputeFormer & 0.164$\pm$0.007 & 0.186$\pm$0.007 & 0.278$\pm$0.007 & 0.257$\pm$0.003 & 0.338$\pm$0.011 \\
+        SAITS & 0.277$\pm$0.001 & 0.285$\pm$0.001 & 0.317$\pm$0.001 & 0.325$\pm$0.001 & 0.348$\pm$0.001 \\
+        Nonstationary Trans. & 0.284$\pm$0.010 & 0.345$\pm$0.002 & 0.712$\pm$0.001 & 0.631$\pm$0.005 & 0.991$\pm$0.006 \\
+        PatchTST & 0.299$\pm$0.004 & 0.310$\pm$0.005 & 0.380$\pm$0.008 & 0.363$\pm$0.006 & 0.408$\pm$0.011 \\
+        iTransformer & 0.181$\pm$0.004 & 0.228$\pm$0.005 & 0.392$\pm$0.008 & 0.422$\pm$0.058 & 0.625$\pm$0.008 \\
+        TEFN & 0.284$\pm$0.003 & 0.382$\pm$0.004 & 0.761$\pm$0.001 & 0.693$\pm$0.003 & 1.015$\pm$0.003 \\
+        TimeMixer & 0.329$\pm$0.004 & 0.328$\pm$0.004 & 0.362$\pm$0.002 & 0.363$\pm$0.002 & 0.388$\pm$0.010 \\
+        TimeMixer++ & -- & -- & -- & -- & -- \\
+        ModernTCN & 0.486$\pm$0.040 & 0.566$\pm$0.027 & 0.705$\pm$0.014 & 0.624$\pm$0.010 & 0.655$\pm$0.011 \\
+        TOTEM & 0.282$\pm$0.013 & 0.610$\pm$0.014 & 0.764$\pm$0.011 & 0.738$\pm$0.008 & 0.788$\pm$0.007 \\
+        FreTS & 0.342$\pm$0.016 & 0.352$\pm$0.008 & 0.388$\pm$0.004 & 0.408$\pm$0.008 & 0.442$\pm$0.009 \\
+        Time-LLM & -- & -- & -- & -- & -- \\
+        MOMENT & -- & -- & -- & -- & -- \\
+        \bottomrule
+    \end{tabular}
+    \end{footnotesize}
+\end{table}

@@ -517,7 +517,7 @@ def plot_combined_heatmap(similarity_matrix, distance_matrix, stations, output_p
     r, p = pearsonr(geo_proximity[triu_idx], similarity_matrix[triu_idx])
     p_str = 'p < 0.01' if p < 0.01 else f'p = {p:.3f}'
     
-    ax.set_title(f'Geographic Proximity vs Learned Similarity\n(Pearson r = {r:.2f}, {p_str})', 
+    ax.set_title(f'Geographic Proximity vs Learned Similarity\n(Pearson r = {r:.3f}, {p_str})', 
                 fontsize=11)
     
     plt.tight_layout()
@@ -711,7 +711,7 @@ def create_figure2(similarity_matrix, distance_matrix, stations,
     
     # Correlation for heatmap title
     r_heat, p_heat = pearsonr(geo_proximity[triu_idx], similarity_matrix[triu_idx])
-    ax3.set_title(f'(c) Geographic Proximity vs Learned Similarity (r = {r_heat:.2f})', fontsize=11)
+    ax3.set_title(f'(c) Geographic Proximity vs Learned Similarity (r = {r_heat:.3f})', fontsize=11)
     
     plt.tight_layout()
     plt.subplots_adjust(hspace=0.10)  # 保持a-b紧凑
@@ -769,19 +769,19 @@ def main():
     print(f"Output directory: {OUTPUT_DIR}")
     
     # Individual plots (unchanged)
-    print("\n1. Generating Beijing map...")
-    plot_beijing_map(STATION_ORDER, BEIJING_STATION_COORDS, similarity_matrix,
-                    os.path.join(OUTPUT_DIR, "beijing_map.pdf"),
-                    district_boundaries=district_boundaries, 
-                    top_n=TOP_N_CONNECTIONS)
+    # print("\n1. Generating Beijing map...")
+    # plot_beijing_map(STATION_ORDER, BEIJING_STATION_COORDS, similarity_matrix,
+    #                 os.path.join(OUTPUT_DIR, "beijing_map.pdf"),
+    #                 district_boundaries=district_boundaries, 
+    #                 top_n=TOP_N_CONNECTIONS)
     
-    print("\n2. Generating scatter plot...")
-    r1, p1 = plot_scatter(similarity_matrix, distance_matrix, STATION_ORDER,
-                          os.path.join(OUTPUT_DIR, "beijing_scatter.pdf"))
+    # print("\n2. Generating scatter plot...")
+    # r1, p1 = plot_scatter(similarity_matrix, distance_matrix, STATION_ORDER,
+    #                       os.path.join(OUTPUT_DIR, "beijing_scatter.pdf"))
     
-    print("\n3. Generating combined heatmap...")
-    r2, p2 = plot_combined_heatmap(similarity_matrix, distance_matrix, STATION_ORDER,
-                                   os.path.join(OUTPUT_DIR, "beijing_heatmap.pdf"))
+    # print("\n3. Generating combined heatmap...")
+    # r2, p2 = plot_combined_heatmap(similarity_matrix, distance_matrix, STATION_ORDER,
+    #                                os.path.join(OUTPUT_DIR, "beijing_heatmap.pdf"))
     
     # NEW: Vertical combined figure
     print("\n4. Generating VERTICAL combined figure...")
@@ -794,12 +794,12 @@ def main():
     print("\n" + "=" * 70)
     print("Summary")
     print("=" * 70)
-    print(f"Pearson correlation (embedding similarity vs geographic distance): r = {r1:.3f}")
-    print(f"p-value: {p1:.6f}")
+    print(f"Pearson correlation (embedding similarity vs geographic distance): r = {r3:.3f}")
+    print(f"p-value: {p3:.6f}")
     print(f"\nGenerated files:")
-    print(f"  - {OUTPUT_DIR}/beijing_map.pdf (+ .png)")
-    print(f"  - {OUTPUT_DIR}/beijing_scatter.pdf (+ .png)")
-    print(f"  - {OUTPUT_DIR}/beijing_heatmap.pdf (+ .png)")
+    # print(f"  - {OUTPUT_DIR}/beijing_map.pdf (+ .png)")
+    # print(f"  - {OUTPUT_DIR}/beijing_scatter.pdf (+ .png)")
+    # print(f"  - {OUTPUT_DIR}/beijing_heatmap.pdf (+ .png)")
     print(f"  - {OUTPUT_DIR}/figure2.pdf (+ .png) <- VERTICAL figure for paper")
     print("=" * 70)
 

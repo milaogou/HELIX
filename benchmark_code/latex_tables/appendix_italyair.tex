@@ -1,37 +1,37 @@
 \begin{table}[h]
-    \caption{Complete results on ItalyAir across all missing patterns. MAE shown (mean $\pm$ std).}
+    \caption{Complete MAE results on ItalyAir across all missing patterns. Mean $\pm$ std over 5 runs. Ranking: \underline{\textbf{1st}}, \textbf{2nd}, \textcolor{gray}{\textbf{\textit{3rd}}}, \underline{4th}, \textit{5th}.}
     \label{tab:full_italyair}
     \centering
     \begin{footnotesize}
-    \begin{tabular}{l|ccccc}
+    \begin{tabular}{l|ccccc|cc}
         \toprule
-        \textbf{Model} & \textbf{Point-10\%} & \textbf{Point-50\%} & \textbf{Point-90\%} & \textbf{Block-50\%} & \textbf{Subseq-50\%} \\
+        \textbf{Model} & \textbf{Point-10\%} & \textbf{Point-50\%} & \textbf{Point-90\%} & \textbf{Block-50\%} & \textbf{Subseq-50\%} & \textbf{\#Params}$\downarrow$ & \textbf{Time}$\downarrow$ \\
         \midrule
-        \multicolumn{6}{l}{\textit{Naive Baselines}} \\
-        Mean Imputation & 0.574$\pm$N/A & 0.588$\pm$N/A & 0.598$\pm$N/A & 0.625$\pm$N/A & 0.612$\pm$N/A \\
-        Median Imputation & 0.518$\pm$N/A & 0.533$\pm$N/A & 0.533$\pm$N/A & 0.589$\pm$N/A & 0.549$\pm$N/A \\
-        LOCF & 0.233$\pm$N/A & 0.346$\pm$N/A & 0.614$\pm$N/A & 0.493$\pm$N/A & 0.528$\pm$N/A \\
-        Linear Interpolation & 0.135$\pm$N/A & 0.214$\pm$N/A & 0.481$\pm$N/A & 0.377$\pm$N/A & 0.329$\pm$N/A \\
+        \multicolumn{8}{l}{\textit{Naive Baselines}} \\
+        Linear Interpolation & 0.135$\pm$N/A & 0.214$\pm$N/A & 0.481$\pm$N/A & 0.377$\pm$N/A & 0.329$\pm$N/A & N/A & N/A \\
+        LOCF & 0.233$\pm$N/A & 0.346$\pm$N/A & 0.614$\pm$N/A & 0.493$\pm$N/A & 0.528$\pm$N/A & N/A & N/A \\
+        Median Imputation & 0.518$\pm$N/A & 0.533$\pm$N/A & 0.533$\pm$N/A & 0.589$\pm$N/A & 0.549$\pm$N/A & N/A & N/A \\
+        Mean Imputation & 0.574$\pm$N/A & 0.588$\pm$N/A & 0.598$\pm$N/A & 0.625$\pm$N/A & 0.612$\pm$N/A & N/A & N/A \\
         \midrule
-        \multicolumn{6}{l}{\textit{Deep Learning Methods}} \\
-        \textbf{HELIX (Ours)} & 0.122$\pm$0.010 & 0.203$\pm$0.009 & 0.471$\pm$0.009 & 0.332$\pm$0.011 & 0.297$\pm$0.015 \\
-        w/o Multi-level Fusion & 0.109$\pm$0.013 & 0.185$\pm$0.013 & 0.472$\pm$0.014 & 0.317$\pm$0.028 & 0.284$\pm$0.022 \\
-        w/o Rotary PE & 0.123$\pm$0.020 & 0.214$\pm$0.008 & 0.469$\pm$0.008 & 0.345$\pm$0.012 & 0.323$\pm$0.022 \\
-        w/o Hybrid Encoding & 0.142$\pm$0.076 & 0.207$\pm$0.012 & 0.517$\pm$0.016 & 0.339$\pm$0.023 & 0.308$\pm$0.025 \\
-        w/o Feature Identity Emb. & 0.133$\pm$0.005 & 0.242$\pm$0.010 & 0.541$\pm$0.006 & 0.403$\pm$0.017 & 0.388$\pm$0.006 \\
-        ImputeFormer & 0.192$\pm$0.017 & 0.282$\pm$0.015 & 0.535$\pm$0.008 & 0.397$\pm$0.019 & 0.356$\pm$0.009 \\
-        SAITS & 0.173$\pm$0.004 & 0.276$\pm$0.008 & 0.478$\pm$0.017 & 0.413$\pm$0.015 & 0.396$\pm$0.006 \\
-        Nonstationary Trans. & 0.230$\pm$0.004 & 0.281$\pm$0.004 & 0.496$\pm$0.012 & 0.417$\pm$0.009 & 0.381$\pm$0.008 \\
-        PatchTST & 0.271$\pm$0.018 & 0.340$\pm$0.019 & 0.550$\pm$0.063 & 0.514$\pm$0.015 & 0.496$\pm$0.006 \\
-        iTransformer & 0.220$\pm$0.010 & 0.319$\pm$0.008 & 0.584$\pm$0.003 & 0.504$\pm$0.012 & 0.556$\pm$0.017 \\
-        TEFN & 0.142$\pm$0.001 & 0.267$\pm$0.004 & 0.485$\pm$0.004 & 0.421$\pm$0.001 & 0.391$\pm$0.004 \\
-        TimeMixer & 0.580$\pm$0.157 & 0.664$\pm$0.105 & 0.745$\pm$0.015 & 0.797$\pm$0.044 & 0.751$\pm$0.032 \\
-        TimeMixer++ & 0.615$\pm$0.054 & 0.642$\pm$0.018 & 0.698$\pm$0.028 & 0.733$\pm$0.020 & 0.730$\pm$0.018 \\
-        ModernTCN & 0.348$\pm$0.015 & 0.461$\pm$0.016 & 0.690$\pm$0.024 & 0.614$\pm$0.014 & 0.599$\pm$0.008 \\
-        TOTEM & 0.677$\pm$0.108 & 0.698$\pm$0.060 & 0.760$\pm$0.004 & 0.815$\pm$0.021 & 0.757$\pm$0.028 \\
-        FreTS & 0.279$\pm$0.018 & 0.320$\pm$0.010 & 0.489$\pm$0.009 & 0.498$\pm$0.017 & 0.447$\pm$0.008 \\
-        Time-LLM & 0.287$\pm$0.008 & 0.436$\pm$0.016 & 0.567$\pm$0.004 & 0.682$\pm$0.005 & 0.625$\pm$0.004 \\
-        MOMENT & -- & -- & -- & -- & -- \\
+        \multicolumn{8}{l}{\textit{Deep Learning Methods}} \\
+        \textbf{HELIX (Ours)} & \textbf{0.122$\pm$0.010} & \textbf{0.203$\pm$0.009} & \textbf{0.471$\pm$0.009} & \textbf{0.332$\pm$0.011} & \textbf{0.297$\pm$0.015} & 77.3K & 0.18s \\
+        w/o Multi-level Fusion & \underline{\textbf{0.109$\pm$0.013}} & \underline{\textbf{0.185$\pm$0.013}} & \textcolor{gray}{\textbf{\textit{0.472$\pm$0.014}}} & \underline{\textbf{0.317$\pm$0.028}} & \underline{\textbf{0.284$\pm$0.022}} & 202.4K & 0.11s \\
+        w/o Rotary PE & \textcolor{gray}{\textbf{\textit{0.123$\pm$0.020}}} & \underline{0.214$\pm$0.008} & \underline{\textbf{0.469$\pm$0.008}} & \underline{0.345$\pm$0.012} & \underline{0.323$\pm$0.022} & 302.0K & 0.05s \\
+        w/o Hybrid Encoding & \textit{0.142$\pm$0.076} & \textcolor{gray}{\textbf{\textit{0.207$\pm$0.012}}} & 0.517$\pm$0.016 & \textcolor{gray}{\textbf{\textit{0.339$\pm$0.023}}} & \textcolor{gray}{\textbf{\textit{0.308$\pm$0.025}}} & 201.8K & 0.05s \\
+        w/o Feature Identity Emb. & \underline{0.133$\pm$0.005} & \textit{0.242$\pm$0.010} & 0.541$\pm$0.006 & 0.403$\pm$0.017 & 0.388$\pm$0.006 & 79.7K & 0.13s \\
+        ImputeFormer & 0.192$\pm$0.017 & 0.282$\pm$0.015 & 0.535$\pm$0.008 & \textit{0.397$\pm$0.019} & \textit{0.356$\pm$0.009} & 149.1K & 0.09s \\
+        SAITS & 0.173$\pm$0.004 & 0.276$\pm$0.008 & \underline{0.478$\pm$0.017} & 0.413$\pm$0.015 & 0.396$\pm$0.006 & 16.6M & 0.04s \\
+        Nonstationary Trans. & 0.230$\pm$0.004 & 0.281$\pm$0.004 & 0.496$\pm$0.012 & 0.417$\pm$0.009 & 0.381$\pm$0.008 & 8.4M & 0.02s \\
+        PatchTST & 0.271$\pm$0.018 & 0.340$\pm$0.019 & 0.550$\pm$0.063 & 0.514$\pm$0.015 & 0.496$\pm$0.006 & 5.1M & 0.37s \\
+        iTransformer & 0.220$\pm$0.010 & 0.319$\pm$0.008 & 0.584$\pm$0.003 & 0.504$\pm$0.012 & 0.556$\pm$0.017 & 18.9M & 0.03s \\
+        TEFN & 0.142$\pm$0.001 & 0.267$\pm$0.004 & \textit{0.485$\pm$0.004} & 0.421$\pm$0.001 & 0.391$\pm$0.004 & 551 & 0.03s \\
+        TimeMixer & 0.580$\pm$0.157 & 0.664$\pm$0.105 & 0.745$\pm$0.015 & 0.797$\pm$0.044 & 0.751$\pm$0.032 & 9.6K & 0.04s \\
+        TimeMixer++ & 0.615$\pm$0.054 & 0.642$\pm$0.018 & 0.698$\pm$0.028 & 0.733$\pm$0.020 & 0.730$\pm$0.018 & 4.2M & 0.15s \\
+        ModernTCN & 0.348$\pm$0.015 & 0.461$\pm$0.016 & 0.690$\pm$0.024 & 0.614$\pm$0.014 & 0.599$\pm$0.008 & 58.1K & 0.02s \\
+        TOTEM & 0.677$\pm$0.108 & 0.698$\pm$0.060 & 0.760$\pm$0.004 & 0.815$\pm$0.021 & 0.757$\pm$0.028 & 27.9K & 0.07s \\
+        FreTS & 0.279$\pm$0.018 & 0.320$\pm$0.010 & 0.489$\pm$0.009 & 0.498$\pm$0.017 & 0.447$\pm$0.008 & 668.3K & 0.02s \\
+        Time-LLM & 0.287$\pm$0.008 & 0.436$\pm$0.016 & 0.567$\pm$0.004 & 0.682$\pm$0.005 & 0.625$\pm$0.004 & 31.1M & 9.44s \\
+        MOMENT & -- & -- & -- & -- & -- & N/A & 0.00s \\
         \bottomrule
     \end{tabular}
     \end{footnotesize}

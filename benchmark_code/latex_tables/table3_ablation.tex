@@ -1,33 +1,22 @@
 \begin{table}[t]
-    \caption{Ablation study: Impact of each component. Avg = average rank across all patterns; Std = standard deviation across patterns (lower = more stable). Removing Feature Identity Embedding causes the largest degradation ($\Delta$=+4.02). Multi-level Fusion is crucial for Subseq pattern (6.13$\to$2.53) while reducing cross-pattern variance (Std: 1.14$\to$0.31).}
+    \caption{Ablation study: Impact of each component. Avg = average rank across all patterns; $\Delta$ = change vs.\ full HELIX; Std = standard deviation across patterns (lower = more stable). Removing Feature Identity Embedding causes the largest degradation ($\Delta$=+4.02). Multi-level Fusion reduces cross-pattern variance (Std: 1.14$\to$0.31).}
     \label{tab:ablation}
     \centering
     \begin{small}
-    \begin{tabular}{l|ccc|ccccc}
+    \begin{tabular}{l|ccccc}
         \toprule
-        & \multicolumn{3}{c|}{\textbf{Overall}} & \multicolumn{5}{c}{\textbf{Rank by Missing Pattern}} \\
-        \textbf{Variant} & \textbf{Avg}$\downarrow$ & \textbf{$\Delta$} & \textbf{Std}$\downarrow$ & \textbf{Pt-10} & \textbf{Pt-50} & \textbf{Pt-90} & \textbf{Block} & \textbf{Subseq} \\
+        \textbf{Metric} & \textbf{HELIX} & \textbf{w/o Fusion} & \textbf{w/o Rotary} & \textbf{w/o Hybrid} & \textbf{w/o FeatEmb} \\
         \midrule
-        \textbf{HELIX (Ours)} & \textbf{2.97} & -- & \textbf{0.31} & 3.28 & 3.00 & 3.33 & 2.73 & \textbf{2.53} \\
-        w/o Multi-level Fusion & 3.90 & +0.93 & \textbf{1.14} & 2.89 & 3.60 & 3.53 & 3.33 & \textbf{6.13} \\
-        w/o Rotary PE & 4.60 & +1.63 & 0.91 & 4.00 & 4.00 & 4.33 & 4.27 & \textbf{6.40} \\
-        w/o Hybrid Encoding & 4.63 & +1.66 & 0.80 & 4.89 & 3.87 & 4.33 & 4.00 & \textbf{6.07} \\
-        w/o Feature Identity Emb. & 6.99 & \textbf{+4.02} & 0.97 & 5.83 & 6.40 & 7.67 & 6.53 & \textbf{8.53} \\
+        Avg Rank $\downarrow$ & \textbf{2.97} & 3.90 & 4.60 & 4.63 & 6.99 \\
+        $\Delta$ & -- & +0.93 & +1.63 & +1.66 & +4.02 \\
+        Std $\downarrow$ & \textbf{0.31} & 1.14 & 0.91 & 0.80 & 0.97 \\
+        \midrule
+        Point-10\% & 3.28 & 2.89 & 4.00 & 4.89 & 5.83 \\
+        Point-50\% & 3.00 & 3.60 & 4.00 & 3.87 & 6.40 \\
+        Point-90\% & 3.33 & 3.53 & 4.33 & 4.33 & 7.67 \\
+        Block-50\% & 2.73 & 3.33 & 4.27 & 4.00 & 6.53 \\
+        Subseq-50\% & 2.53 & 6.13 & 6.40 & 6.07 & 8.53 \\
         \bottomrule
     \end{tabular}
     \end{small}
 \end{table}
-
-% ======================================================================
-% KEY INSIGHTS FOR WRITING:
-% ======================================================================
-% 1. Feature Identity Embedding is most critical: Δ = +4.02 (6.99 vs 2.97)
-% 2. Multi-level Fusion trade-off:
-%    - Subseq improvement: 6.13 → 2.53 (Δ = -3.60, huge win)
-%    - Point-10% cost: 2.89 → 3.28 (Δ = +0.39, small cost)
-%    - Stability gain: Std 1.14 → 0.31 (much more robust)
-% 3. Component importance ranking by Δ:
-%    - NoFeatureEmbed: +4.02 (most critical)
-%    - NoHybrid: +1.66
-%    - NoRotaryPE: +1.63
-%    - NoFusion: +0.93 (but crucial for stability)

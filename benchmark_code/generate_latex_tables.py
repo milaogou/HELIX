@@ -1,17 +1,14 @@
 #!/usr/bin/env python3
 """
 Generate LaTeX tables from CSV results for HELIX ICML 2026 paper.
-
 Usage:
-    python generate_latex_tables.py --base_path /path/to/results_csv/imputation
-
+    python generate_latex_tables_v2.py --base_path /path/to/results_csv/imputation
 Output:
     - table1_overall_ranking.tex
     - table2_detailed_results.tex  
     - table3_ablation.tex
     - appendix_*.tex (6 files, one per dataset)
 """
-
 import os
 import pandas as pd
 import argparse
@@ -76,7 +73,6 @@ PATTERN_NAMES = {
     'subseq05': 'Subseq-50\\%',
 }
 
-
 # =============================================================================
 # Helper Functions
 # =============================================================================
@@ -132,30 +128,74 @@ def format_time(time_str):
     except:
         return str(time_str)
 
-def bold_best(values, metric_col, ascending=True):
-    """Return index of best value for bolding."""
-    valid_values = []
-    for i, v in enumerate(values):
-        try:
-            if '±' in str(v) or 'pm' in str(v):
-                num = float(str(v).split('$')[0].split('±')[0].strip())
-            elif '--' in str(v) or 'N/A' in str(v):
-                num = float('inf') if ascending else float('-inf')
-            else:
-                num = float(v)
-            valid_values.append((i, num))
-        except:
-            valid_values.append((i, float('inf') if ascending else float('-inf')))
-    
-    if ascending:
-        best_idx = min(valid_values, key=lambda x: x[1])[0]
-    else:
-        best_idx = max(valid_values, key=lambda x: x[1])[0]
-    return best_idx
+def extract_numeric_value(value_str):
+    """Extract numeric value from formatted string for ranking."""
+    if pd.isna(value_str) or '--' in str(value_str) or 'N/A' in str(value_str):
+        return float('inf')
+    try:
+        s = str(value_str)
+        # Handle "0.215$\pm$0.003" or "0.215±0.003"
+        if '$' in s:
+            s = s.split('$')[0]
+        if '±' in s:
+            s = s.split('±')[0]
+        if '(' in s:
+            s = s.split('(')[0]
+        # Handle "1.5M" or "100K"
+        s = s.strip().replace('s', '')  # remove 's' from time
+        if s.endswith('M'):
+            return float(s[:-1]) * 1e6
+        if s.endswith('K'):
+            return float(s[:-1]) * 1e3
+        return float(s)
+    except:
+        return float('inf')
 
+def get_column_ranks(values):
+    """
+    Get ranks for a list of values (lower is better).
+    Returns a dict: {index: rank} where rank is 1-based.
+    """
+    # Extract numeric values with indices
+    indexed_values = [(i, extract_numeric_value(v)) for i, v in enumerate(values)]
+    
+    # Filter out inf values (invalid/missing)
+    valid_values = [(i, v) for i, v in indexed_values if v != float('inf')]
+    
+    # Sort by value (ascending = lower is better)
+    sorted_values = sorted(valid_values, key=lambda x: x[1])
+    
+    # Assign ranks
+    ranks = {}
+    for rank, (idx, val) in enumerate(sorted_values, 1):
+        ranks[idx] = rank
+    
+    return ranks
+
+def format_by_rank(value_str, rank):
+    """
+    Format value string based on rank.
+    1st: bold + underline
+    2nd: bold
+    3rd: gray italic bold
+    4th: underline
+    5th: italic
+    """
+    if rank == 1:
+        return f"\\underline{{\\textbf{{{value_str}}}}}"
+    elif rank == 2:
+        return f"\\textbf{{{value_str}}}"
+    elif rank == 3:
+        return f"\\textcolor{{gray}}{{\\textbf{{\\textit{{{value_str}}}}}}}"
+    elif rank == 4:
+        return f"\\underline{{{value_str}}}"
+    elif rank == 5:
+        return f"\\textit{{{value_str}}}"
+    else:
+        return value_str
 
 # =============================================================================
-# Table 1: Overall Ranking
+# Table 1: Overall Ranking (unchanged)
 # =============================================================================
 
 def generate_table1_overall_ranking(base_path, output_dir):
@@ -226,134 +266,91 @@ def generate_table1_overall_ranking(base_path, output_dir):
         f.write('\n'.join(latex))
     print(f"✓ Generated: {output_path}")
 
-
 # =============================================================================
-# Table 2: Detailed Results (PhysioNet + ETT-h1)
+# Table 2: ETT-h1 Detailed Results (5 patterns + #Params + Time)
 # =============================================================================
 
 def generate_table2_detailed_results(base_path, output_dir):
-    """Generate Table 2: PhysioNet2012 (Point-10%) + ETT-h1 (Point-50%) side by side."""
+    """Generate Table 2: ETT-h1 with all 5 missing patterns, #Params, Time. Top-5 ranking highlighted."""
     
-    # Load data
-    physio_path = os.path.join(base_path, 'point01', 'PhysioNet2012_with_naive.csv')
-    ett_path = os.path.join(base_path, 'point05', 'ETT_h1_with_naive.csv')
+    patterns = ['point01', 'point05', 'point09', 'block05', 'subseq05']
     
-    df_physio = pd.read_csv(physio_path)
-    df_ett = pd.read_csv(ett_path)
+    # Load data for all patterns
+    all_data = {}
+    for pattern in patterns:
+        csv_path = os.path.join(base_path, pattern, 'ETT_h1_with_naive.csv')
+        if os.path.exists(csv_path):
+            df = pd.read_csv(csv_path)
+            for _, row in df.iterrows():
+                model = row['Model']
+                if model not in all_data:
+                    all_data[model] = {'Size': row.get('Size', 'N/A'), 'Time': row.get('Time', 'N/A')}
+                all_data[model][pattern] = format_metric(row['MAE'])
     
-    # Define model order for this table (simplified)
+    # Define model order for this table
     display_order = [
         # Naive first
         'Naive_Mean', 'Naive_Median', 'Naive_LOCF', 'Naive_LinearInterp',
         # Then DL methods
-        'HELIX', 'HELIX_NoFusion', 'HELIX_NoHybrid', 'HELIX_NoRotaryPE', 'HELIX_NoFeatureEmbed',
+        'HELIX', 'HELIX_NoFusion', 'HELIX_NoRotaryPE', 'HELIX_NoHybrid', 'HELIX_NoFeatureEmbed',
         'ImputeFormer', 'SAITS',
         'NonstationaryTransformer', 'PatchTST', 'iTransformer',
         'TEFN', 'TimeMixer', 'TimeMixerPP', 'ModernTCN', 'TOTEM',
         'FreTS', 'TimeLLM', 'MOMENT',
     ]
     
+    # Filter to models that exist
+    display_order = [m for m in display_order if m in all_data]
+    
+    # Prepare column data for ranking
+    columns_data = {}
+    for pattern in patterns:
+        columns_data[pattern] = [all_data[m].get(pattern, '--') for m in display_order]
+    columns_data['Size'] = [format_size(all_data[m].get('Size', 'N/A')) for m in display_order]
+    columns_data['Time'] = [format_time(all_data[m].get('Time', 'N/A')) for m in display_order]
+    
+    # Get ranks for each column
+    column_ranks = {}
+    for col_name, values in columns_data.items():
+        column_ranks[col_name] = get_column_ranks(values)
+    
     latex = []
     latex.append(r"\begin{table*}[t]")
-    latex.append(r"    \caption{Detailed results on PhysioNet2012 (Point-10\%, left) and ETT-h1 (Point-50\%, right). Mean $\pm$ std over 5 runs. \textbf{Bold} indicates best among all methods.}")
+    latex.append(r"    \caption{Detailed MAE results on ETT-h1 (48 steps, 7 features) across all missing patterns. Mean $\pm$ std over 5 runs. Ranking: \underline{\textbf{1st}}, \textbf{2nd}, \textcolor{gray}{\textbf{\textit{3rd}}}, \underline{4th}, \textit{5th}.}")
     latex.append(r"    \label{tab:detailed_results}")
     latex.append(r"    \centering")
     latex.append(r"    \begin{small}")
-    latex.append(r"    \begin{tabular}{l|ccc|cc||l|ccc|cc}")
+    latex.append(r"    \begin{tabular}{l|ccccc|cc}")
     latex.append(r"        \toprule")
-    latex.append(r"        \multicolumn{6}{c||}{\textbf{PhysioNet2012 (Point-10\%)}} & \multicolumn{6}{c}{\textbf{ETT-h1 (Point-50\%)}} \\")
-    latex.append(r"        \textbf{Method} & \textbf{MAE}$\downarrow$ & \textbf{MSE}$\downarrow$ & \textbf{MRE}$\downarrow$ & \textbf{\#Params} & \textbf{Time} & \textbf{Method} & \textbf{MAE}$\downarrow$ & \textbf{MSE}$\downarrow$ & \textbf{MRE}$\downarrow$ & \textbf{\#Params} & \textbf{Time} \\")
+    latex.append(r"        \textbf{Method} & \textbf{Point-10\%} & \textbf{Point-50\%} & \textbf{Point-90\%} & \textbf{Block-50\%} & \textbf{Subseq-50\%} & \textbf{\#Params}$\downarrow$ & \textbf{Time}$\downarrow$ \\")
     latex.append(r"        \midrule")
-    
-    # Prepare data
-    physio_dict = {row['Model']: row for _, row in df_physio.iterrows()}
-    ett_dict = {row['Model']: row for _, row in df_ett.iterrows()}
-    
-    # Find best values for each metric
-    def get_best_idx(df, col):
-        values = []
-        for model in display_order:
-            if model in df.index:
-                val = df.loc[model, col]
-                try:
-                    if '(' in str(val):
-                        num = float(str(val).split('(')[0].strip())
-                    else:
-                        num = float(val)
-                    values.append(num)
-                except:
-                    values.append(float('inf'))
-            else:
-                values.append(float('inf'))
-        return display_order[values.index(min(values))] if values else None
-    
-    df_physio_indexed = df_physio.set_index('Model')
-    df_ett_indexed = df_ett.set_index('Model')
-    
-    physio_best = {
-        'MAE': get_best_idx(df_physio_indexed, 'MAE'),
-        'MSE': get_best_idx(df_physio_indexed, 'MSE'),
-        'MRE': get_best_idx(df_physio_indexed, 'MRE'),
-    }
-    ett_best = {
-        'MAE': get_best_idx(df_ett_indexed, 'MAE'),
-        'MSE': get_best_idx(df_ett_indexed, 'MSE'),
-        'MRE': get_best_idx(df_ett_indexed, 'MRE'),
-    }
     
     # Add separator before DL methods
     naive_done = False
     
-    for model in display_order:
+    for idx, model in enumerate(display_order):
         if model == 'HELIX' and not naive_done:
             latex.append(r"        \midrule")
             naive_done = True
         
-        # PhysioNet side
-        if model in physio_dict:
-            p_row = physio_dict[model]
-            p_name = get_display_name(model)
-            p_mae = format_metric(p_row['MAE'])
-            p_mse = format_metric(p_row['MSE'])
-            p_mre = format_metric(p_row['MRE'])
-            p_size = format_size(p_row.get('Size', 'N/A'))
-            p_time = format_time(p_row.get('Time', 'N/A'))
-            
-            # Bold best
-            if model == physio_best['MAE']:
-                p_mae = f"\\textbf{{{p_mae}}}"
-            if model == physio_best['MSE']:
-                p_mse = f"\\textbf{{{p_mse}}}"
-            if model == physio_best['MRE']:
-                p_mre = f"\\textbf{{{p_mre}}}"
-        else:
-            p_name = get_display_name(model)
-            p_mae = p_mse = p_mre = '--'
-            p_size = p_time = 'N/A'
+        row_parts = [get_display_name(model)]
         
-        # ETT side
-        if model in ett_dict:
-            e_row = ett_dict[model]
-            e_name = get_display_name(model)
-            e_mae = format_metric(e_row['MAE'])
-            e_mse = format_metric(e_row['MSE'])
-            e_mre = format_metric(e_row['MRE'])
-            e_size = format_size(e_row.get('Size', 'N/A'))
-            e_time = format_time(e_row.get('Time', 'N/A'))
-            
-            # Bold best
-            if model == ett_best['MAE']:
-                e_mae = f"\\textbf{{{e_mae}}}"
-            if model == ett_best['MSE']:
-                e_mse = f"\\textbf{{{e_mse}}}"
-            if model == ett_best['MRE']:
-                e_mre = f"\\textbf{{{e_mre}}}"
-        else:
-            e_name = get_display_name(model)
-            e_mae = e_mse = e_mre = '--'
-            e_size = e_time = 'N/A'
+        # Add pattern columns with ranking format
+        for pattern in patterns:
+            val = columns_data[pattern][idx]
+            rank = column_ranks[pattern].get(idx, 999)
+            formatted_val = format_by_rank(val, rank) if rank <= 5 else val
+            row_parts.append(formatted_val)
         
-        latex.append(f"        {p_name} & {p_mae} & {p_mse} & {p_mre} & {p_size} & {p_time} & {e_name} & {e_mae} & {e_mse} & {e_mre} & {e_size} & {e_time} \\\\")
+        # Add Size column (no ranking)
+        size_val = columns_data['Size'][idx]
+        row_parts.append(size_val)
+
+        # Add Time column (no ranking)
+        time_val = columns_data['Time'][idx]
+        row_parts.append(time_val)
+        
+        latex.append("        " + " & ".join(row_parts) + " \\\\")
     
     latex.append(r"        \bottomrule")
     latex.append(r"    \end{tabular}")
@@ -365,116 +362,101 @@ def generate_table2_detailed_results(base_path, output_dir):
         f.write('\n'.join(latex))
     print(f"✓ Generated: {output_path}")
 
-
 # =============================================================================
-# Table 3: Ablation Study
+# Table 3: Ablation Study (Transposed)
 # =============================================================================
 
 def generate_table3_ablation(base_path, output_dir):
-    """Generate Table 3: Ablation study with overall ranking, std, and by-pattern breakdown.
+    """Generate Table 3: Ablation study (transposed - models as columns, metrics as rows)."""
     
-    Key insights to highlight:
-    1. Feature Identity Embedding is the most critical component (Δ = +4.02)
-    2. Multi-level Fusion trades slight performance loss for stability:
-       - Subseq: 6.13 → 2.53 (huge improvement)
-       - Point-10%: 2.89 → 3.28 (slight cost)
-       - Std: 1.14 → 0.31 (much more stable)
-    """
-    
-    # Load by-pattern data (contains all needed info)
+    # Load by-pattern data
     pattern_path = os.path.join(base_path, 'analysis', 'analysis_by_pattern.csv')
     df_pattern = pd.read_csv(pattern_path)
     
-    # Filter to ablation models only
+    # Ablation models in order
     ablation_models = ['HELIX', 'HELIX_NoFusion', 'HELIX_NoRotaryPE', 'HELIX_NoHybrid', 'HELIX_NoFeatureEmbed']
+    ablation_display = ['HELIX', 'w/o Fusion', 'w/o Rotary', 'w/o Hybrid', 'w/o FeatEmb']
+    
+    # Get HELIX baseline
+    helix_row = df_pattern[df_pattern['Model'] == 'HELIX'].iloc[0]
+    helix_avg = helix_row['Avg_Across_Patterns']
+    
+    # Collect data
+    data = {}
+    for model in ablation_models:
+        row = df_pattern[df_pattern['Model'] == model]
+        if len(row) > 0:
+            row = row.iloc[0]
+            avg_rank = row['Avg_Across_Patterns']
+            data[model] = {
+                'Avg': f"{avg_rank:.2f}",
+                'Delta': '--' if model == 'HELIX' else f"+{avg_rank - helix_avg:.2f}" if avg_rank > helix_avg else f"{avg_rank - helix_avg:.2f}",
+                'Std': f"{row['Std_Across_Patterns']:.2f}",
+                'Point-10%': f"{row['point01']:.2f}",
+                'Point-50%': f"{row['point05']:.2f}",
+                'Point-90%': f"{row['point09']:.2f}",
+                'Block': f"{row['block05']:.2f}",
+                'Subseq': f"{row['subseq05']:.2f}",
+            }
     
     latex = []
     latex.append(r"\begin{table}[t]")
-    latex.append(r"    \caption{Ablation study: Impact of each component. Avg = average rank across all patterns; Std = standard deviation across patterns (lower = more stable). Removing Feature Identity Embedding causes the largest degradation ($\Delta$=+4.02). Multi-level Fusion is crucial for Subseq pattern (6.13$\to$2.53) while reducing cross-pattern variance (Std: 1.14$\to$0.31).}")
+    latex.append(r"    \caption{Ablation study: Impact of each component. Avg = average rank across all patterns; $\Delta$ = change vs.\ full HELIX; Std = standard deviation across patterns (lower = more stable). Removing Feature Identity Embedding causes the largest degradation ($\Delta$=+4.02). Multi-level Fusion reduces cross-pattern variance (Std: 1.14$\to$0.31).}")
     latex.append(r"    \label{tab:ablation}")
     latex.append(r"    \centering")
     latex.append(r"    \begin{small}")
-    latex.append(r"    \begin{tabular}{l|ccc|ccccc}")
+    latex.append(r"    \begin{tabular}{l|ccccc}")
     latex.append(r"        \toprule")
-    latex.append(r"        & \multicolumn{3}{c|}{\textbf{Overall}} & \multicolumn{5}{c}{\textbf{Rank by Missing Pattern}} \\")
-    latex.append(r"        \textbf{Variant} & \textbf{Avg}$\downarrow$ & \textbf{$\Delta$} & \textbf{Std}$\downarrow$ & \textbf{Pt-10} & \textbf{Pt-50} & \textbf{Pt-90} & \textbf{Block} & \textbf{Subseq} \\")
+    
+    # Header row with model names
+    header = "        \\textbf{Metric} & " + " & ".join([f"\\textbf{{{name}}}" for name in ablation_display]) + " \\\\"
+    latex.append(header)
     latex.append(r"        \midrule")
     
-    # Get HELIX baseline values
-    helix_row = df_pattern[df_pattern['Model'] == 'HELIX']
-    helix_avg = helix_row['Avg_Across_Patterns'].values[0]
+    # Row order
+    row_order = ['Avg', 'Delta', 'Std', 'Point-10%', 'Point-50%', 'Point-90%', 'Block', 'Subseq']
+    row_labels = {
+        'Avg': 'Avg Rank $\\downarrow$',
+        'Delta': '$\\Delta$',
+        'Std': 'Std $\\downarrow$',
+        'Point-10%': 'Point-10\\%',
+        'Point-50%': 'Point-50\\%',
+        'Point-90%': 'Point-90\\%',
+        'Block': 'Block-50\\%',
+        'Subseq': 'Subseq-50\\%',
+    }
     
-    for model in ablation_models:
-        display_name = get_display_name(model)
+    for row_key in row_order:
+        row_parts = [row_labels[row_key]]
+        for model in ablation_models:
+            val = data[model][row_key]
+            # Bold HELIX column values for Avg and Std
+            if model == 'HELIX' and row_key in ['Avg', 'Std']:
+                val = f"\\textbf{{{val}}}"
+            row_parts.append(val)
         
-        pattern_row = df_pattern[df_pattern['Model'] == model]
-        if len(pattern_row) > 0:
-            avg_rank = pattern_row['Avg_Across_Patterns'].values[0]
-            std_rank = pattern_row['Std_Across_Patterns'].values[0]
-            delta = avg_rank - helix_avg
-            
-            pt10 = pattern_row['point01'].values[0]
-            pt50 = pattern_row['point05'].values[0]
-            pt90 = pattern_row['point09'].values[0]
-            block = pattern_row['block05'].values[0]
-            subseq = pattern_row['subseq05'].values[0]
-        else:
-            continue
+        latex.append("        " + " & ".join(row_parts) + " \\\\")
         
-        # Format delta
-        if model == 'HELIX':
-            delta_str = '--'
-        else:
-            delta_str = f"+{delta:.2f}" if delta > 0 else f"{delta:.2f}"
-        
-        # Format line with appropriate highlighting
-        if model == 'HELIX':
-            # HELIX row: bold the model name and avg
-            line = f"        \\textbf{{{display_name}}} & \\textbf{{{avg_rank:.2f}}} & {delta_str} & \\textbf{{{std_rank:.2f}}} & {pt10:.2f} & {pt50:.2f} & {pt90:.2f} & {block:.2f} & \\textbf{{{subseq:.2f}}} \\\\"
-        elif model == 'HELIX_NoFeatureEmbed':
-            # Largest degradation: bold the delta
-            line = f"        {display_name} & {avg_rank:.2f} & \\textbf{{{delta_str}}} & {std_rank:.2f} & {pt10:.2f} & {pt50:.2f} & {pt90:.2f} & {block:.2f} & \\textbf{{{subseq:.2f}}} \\\\"
-        elif model == 'HELIX_NoFusion':
-            # Fusion story: bold Std and Subseq to show the trade-off
-            line = f"        {display_name} & {avg_rank:.2f} & {delta_str} & \\textbf{{{std_rank:.2f}}} & {pt10:.2f} & {pt50:.2f} & {pt90:.2f} & {block:.2f} & \\textbf{{{subseq:.2f}}} \\\\"
-        else:
-            line = f"        {display_name} & {avg_rank:.2f} & {delta_str} & {std_rank:.2f} & {pt10:.2f} & {pt50:.2f} & {pt90:.2f} & {block:.2f} & \\textbf{{{subseq:.2f}}} \\\\"
-        
-        latex.append(line)
+        # Add midrule after Std
+        if row_key == 'Std':
+            latex.append(r"        \midrule")
     
     latex.append(r"        \bottomrule")
     latex.append(r"    \end{tabular}")
     latex.append(r"    \end{small}")
     latex.append(r"\end{table}")
     
-    # Also output key insights as comments for writing
-    latex.append("")
-    latex.append("% " + "=" * 70)
-    latex.append("% KEY INSIGHTS FOR WRITING:")
-    latex.append("% " + "=" * 70)
-    latex.append("% 1. Feature Identity Embedding is most critical: Δ = +4.02 (6.99 vs 2.97)")
-    latex.append("% 2. Multi-level Fusion trade-off:")
-    latex.append("%    - Subseq improvement: 6.13 → 2.53 (Δ = -3.60, huge win)")
-    latex.append("%    - Point-10% cost: 2.89 → 3.28 (Δ = +0.39, small cost)")
-    latex.append("%    - Stability gain: Std 1.14 → 0.31 (much more robust)")
-    latex.append("% 3. Component importance ranking by Δ:")
-    latex.append("%    - NoFeatureEmbed: +4.02 (most critical)")
-    latex.append("%    - NoHybrid: +1.66")
-    latex.append("%    - NoRotaryPE: +1.63")
-    latex.append("%    - NoFusion: +0.93 (but crucial for stability)")
-    
     output_path = os.path.join(output_dir, 'table3_ablation.tex')
     with open(output_path, 'w') as f:
         f.write('\n'.join(latex))
     print(f"✓ Generated: {output_path}")
 
-
 # =============================================================================
-# Appendix Tables: Full Results per Dataset
+# Appendix Tables: Full Results per Dataset (with Top-5 ranking + #Params + Time)
 # =============================================================================
 
 def generate_appendix_tables(base_path, output_dir):
-    """Generate appendix tables: one per dataset with all missing patterns."""
+    """Generate appendix tables: one per dataset with all missing patterns + #Params + Time, top-5 highlighted."""
     
     datasets_patterns = {
         'BeijingAir': ['point01', 'point05', 'point09', 'block05', 'subseq05'],
@@ -488,12 +470,13 @@ def generate_appendix_tables(base_path, output_dir):
     for dataset, patterns in datasets_patterns.items():
         latex = []
         
-        # Determine column count
+        # Determine column count (patterns + Size + Time)
         n_patterns = len(patterns)
-        col_spec = 'l|' + 'c' * n_patterns
+        col_spec = 'l|' + 'c' * n_patterns + '|cc'
         
         latex.append(r"\begin{table}[h]")
-        latex.append(f"    \\caption{{Complete results on {dataset} across all missing patterns. MAE shown (mean $\\pm$ std).}}")
+        dataset_escaped = dataset.replace('_', '\\_')
+        latex.append(f"    \\caption{{Complete MAE results on {dataset_escaped} across all missing patterns. Mean $\\pm$ std over 5 runs. Ranking: \\underline{{\\textbf{{1st}}}}, \\textbf{{2nd}}, \\textcolor{{gray}}{{\\textbf{{\\textit{{3rd}}}}}}, \\underline{{4th}}, \\textit{{5th}}.}}")
         latex.append(f"    \\label{{tab:full_{dataset.lower()}}}")
         latex.append(r"    \centering")
         latex.append(r"    \begin{footnotesize}")
@@ -504,10 +487,12 @@ def generate_appendix_tables(base_path, output_dir):
         header_parts = ['\\textbf{Model}']
         for p in patterns:
             header_parts.append(f"\\textbf{{{PATTERN_NAMES.get(p, p)}}}")
+        header_parts.append('\\textbf{\\#Params}$\\downarrow$')
+        header_parts.append('\\textbf{Time}$\\downarrow$')
         latex.append("        " + " & ".join(header_parts) + " \\\\")
         latex.append(r"        \midrule")
         
-        # Collect data for all patterns
+        # Collect data for all patterns + Size + Time
         all_data = {}
         for pattern in patterns:
             csv_path = os.path.join(base_path, pattern, f'{dataset}_with_naive.csv')
@@ -516,31 +501,76 @@ def generate_appendix_tables(base_path, output_dir):
                 for _, row in df.iterrows():
                     model = row['Model']
                     if model not in all_data:
-                        all_data[model] = {}
+                        all_data[model] = {
+                            'Size': row.get('Size', 'N/A'),
+                            'Time': row.get('Time', 'N/A')
+                        }
                     all_data[model][pattern] = format_metric(row['MAE'])
         
-        # Group and output
-        # Naive methods first
-        latex.append(r"        \multicolumn{" + str(n_patterns + 1) + r"}{l}{\textit{Naive Baselines}} \\")
-        for model in ['Naive_Mean', 'Naive_Median', 'Naive_LOCF', 'Naive_LinearInterp']:
-            if model in all_data:
-                row_parts = [get_display_name(model)]
-                for p in patterns:
-                    row_parts.append(all_data[model].get(p, '--'))
-                latex.append("        " + " & ".join(row_parts) + " \\\\")
+        # Define display order
+        display_order = [m for m in MODEL_ORDER if m in all_data]
+        
+        # Prepare column data for ranking
+        columns_data = {}
+        for pattern in patterns:
+            columns_data[pattern] = [all_data[m].get(pattern, '--') for m in display_order]
+        columns_data['Size'] = [format_size(all_data[m].get('Size', 'N/A')) for m in display_order]
+        columns_data['Time'] = [format_time(all_data[m].get('Time', 'N/A')) for m in display_order]
+        
+        # Get ranks for each column
+        column_ranks = {}
+        for col_name, values in columns_data.items():
+            column_ranks[col_name] = get_column_ranks(values)
+        
+        # Group: Naive methods first
+        latex.append(r"        \multicolumn{" + str(n_patterns + 3) + r"}{l}{\textit{Naive Baselines}} \\")
+        naive_models = [m for m in display_order if m.startswith('Naive_')]
+        for model in naive_models:
+            idx = display_order.index(model)
+            row_parts = [get_display_name(model)]
+            
+            # Add pattern columns with ranking
+            for p in patterns:
+                val = columns_data[p][idx]
+                rank = column_ranks[p].get(idx, 999)
+                formatted_val = format_by_rank(val, rank) if rank <= 5 else val
+                row_parts.append(formatted_val)
+            
+            # Add Size column (no ranking)
+            size_val = columns_data['Size'][idx]
+            row_parts.append(size_val)
+
+            # Add Time column (no ranking)
+            time_val = columns_data['Time'][idx]
+            row_parts.append(time_val)
+            
+            latex.append("        " + " & ".join(row_parts) + " \\\\")
         
         latex.append(r"        \midrule")
-        latex.append(r"        \multicolumn{" + str(n_patterns + 1) + r"}{l}{\textit{Deep Learning Methods}} \\")
+        latex.append(r"        \multicolumn{" + str(n_patterns + 3) + r"}{l}{\textit{Deep Learning Methods}} \\")
         
         # DL methods
-        dl_order = [m for m in MODEL_ORDER if m in all_data and not m.startswith('Naive_')]
-        for model in dl_order:
+        dl_models = [m for m in display_order if not m.startswith('Naive_')]
+        for model in dl_models:
+            idx = display_order.index(model)
             row_parts = [get_display_name(model)]
-            for p in patterns:
-                val = all_data[model].get(p, '--')
-                row_parts.append(val)
             
-            # Bold HELIX
+            # Add pattern columns with ranking
+            for p in patterns:
+                val = columns_data[p][idx]
+                rank = column_ranks[p].get(idx, 999)
+                formatted_val = format_by_rank(val, rank) if rank <= 5 else val
+                row_parts.append(formatted_val)
+            
+            # Add Size column (no ranking)
+            size_val = columns_data['Size'][idx]
+            row_parts.append(size_val)
+
+            # Add Time column (no ranking)
+            time_val = columns_data['Time'][idx]
+            row_parts.append(time_val)
+            
+            # Bold HELIX model name
             if model == 'HELIX':
                 row_parts[0] = f"\\textbf{{{row_parts[0]}}}"
             
@@ -556,7 +586,6 @@ def generate_appendix_tables(base_path, output_dir):
             f.write('\n'.join(latex))
         print(f"✓ Generated: {output_path}")
 
-
 # =============================================================================
 # Additional: vs Naive Summary (excl. Electricity)
 # =============================================================================
@@ -565,6 +594,10 @@ def generate_vs_naive_summary(base_path, output_dir):
     """Generate summary of improvement vs Linear Interpolation (excl. Electricity)."""
     
     csv_path = os.path.join(base_path, 'analysis', 'analysis_vs_naive_summary_no_electricity.csv')
+    if not os.path.exists(csv_path):
+        print(f"⚠ Skipped: {csv_path} not found")
+        return
+    
     df = pd.read_csv(csv_path)
     
     # Sort by improvement
@@ -572,7 +605,12 @@ def generate_vs_naive_summary(base_path, output_dir):
         sort_col = 'Avg_Improvement_vs_LinearInterp (excl. Electricity)'
     else:
         # Try to find similar column
-        sort_col = [c for c in df.columns if 'Improvement' in c or 'improvement' in c][0]
+        improvement_cols = [c for c in df.columns if 'Improvement' in c or 'improvement' in c]
+        if improvement_cols:
+            sort_col = improvement_cols[0]
+        else:
+            print(f"⚠ Skipped: No improvement column found")
+            return
     
     df = df.sort_values(sort_col, ascending=False)
     
@@ -594,22 +632,14 @@ def generate_vs_naive_summary(base_path, output_dir):
     latex.append("% Many DL methods FAIL to beat Linear Interpolation:")
     latex.append("% - PatchTST, FreTS, iTransformer all negative")
     latex.append("% - HELIX achieves +37.3%, proving meaningful structure learning")
-    latex.append("%")
-    latex.append("% Suggested text:")
-    latex.append("% 'Notably, many recent deep learning methods fail to outperform simple")
-    latex.append("%  Linear Interpolation when averaged across patterns (excl. Electricity):")
-    latex.append("%  PatchTST (-7.4%), FreTS (-9.2%), iTransformer (-10.3%). In contrast,")
-    latex.append("%  HELIX achieves 37.3% improvement, demonstrating that our architecture")
-    latex.append("%  captures meaningful temporal-spatial structure rather than overfitting.'")
     
     output_path = os.path.join(output_dir, 'vs_naive_summary.tex')
     with open(output_path, 'w') as f:
         f.write('\n'.join(latex))
     print(f"✓ Generated: {output_path}")
 
-
 # =============================================================================
-# Additional Reference Data: Significance, Win Rate, Detailed vs Naive
+# Additional Reference Data
 # =============================================================================
 
 def generate_reference_data(base_path, output_dir):
@@ -621,53 +651,7 @@ def generate_reference_data(base_path, output_dir):
     latex.append("% " + "=" * 70)
     latex.append("")
     
-    # 1. Significance test results
-    sig_path = os.path.join(base_path, 'analysis', 'analysis_significance.csv')
-    if os.path.exists(sig_path):
-        df_sig = pd.read_csv(sig_path)
-        latex.append("% " + "-" * 70)
-        latex.append("% STATISTICAL SIGNIFICANCE (Wilcoxon signed-rank test)")
-        latex.append("% " + "-" * 70)
-        latex.append("% Columns: " + ", ".join(df_sig.columns.tolist()))
-        latex.append("%")
-        for _, row in df_sig.iterrows():
-            model = row['Model'] if 'Model' in row else row.iloc[0]
-            latex.append(f"% {get_display_name(str(model))}: {dict(row)}")
-        latex.append("")
-    
-    # 2. Win rate
-    win_path = os.path.join(base_path, 'analysis', 'analysis_win_rate.csv')
-    if os.path.exists(win_path):
-        df_win = pd.read_csv(win_path)
-        latex.append("% " + "-" * 70)
-        latex.append("% WIN RATE ANALYSIS")
-        latex.append("% " + "-" * 70)
-        latex.append("% Columns: " + ", ".join(df_win.columns.tolist()))
-        latex.append("%")
-        # Sort by win rate if possible
-        if 'Win_Rate' in df_win.columns:
-            df_win = df_win.sort_values('Win_Rate', ascending=False)
-        for _, row in df_win.head(10).iterrows():
-            model = row['Model'] if 'Model' in row else row.iloc[0]
-            latex.append(f"% {get_display_name(str(model))}: {dict(row)}")
-        latex.append("")
-    
-    # 3. Detailed vs Naive
-    detail_path = os.path.join(base_path, 'analysis', 'analysis_vs_naive_detailed.csv')
-    if os.path.exists(detail_path):
-        df_detail = pd.read_csv(detail_path)
-        latex.append("% " + "-" * 70)
-        latex.append("% DETAILED VS NAIVE COMPARISON")
-        latex.append("% " + "-" * 70)
-        latex.append("% Columns: " + ", ".join(df_detail.columns.tolist()))
-        latex.append("%")
-        # Show HELIX row
-        helix_rows = df_detail[df_detail['Model'] == 'HELIX'] if 'Model' in df_detail.columns else df_detail.head(1)
-        for _, row in helix_rows.iterrows():
-            latex.append(f"% HELIX: {dict(row)}")
-        latex.append("")
-    
-    # 4. By-pattern analysis (already used in Table 3, but good to have full data)
+    # By-pattern analysis
     pattern_path = os.path.join(base_path, 'analysis', 'analysis_by_pattern.csv')
     if os.path.exists(pattern_path):
         df_pattern = pd.read_csv(pattern_path)
@@ -681,47 +665,21 @@ def generate_reference_data(base_path, output_dir):
             latex.append(f"% {get_display_name(model):30s}: pt01={row['point01']:.2f}, pt05={row['point05']:.2f}, pt09={row['point09']:.2f}, block={row['block05']:.2f}, subseq={row['subseq05']:.2f}, avg={row['Avg_Across_Patterns']:.2f}, std={row['Std_Across_Patterns']:.2f}")
         latex.append("")
     
-    # 5. Key writing points summary
+    # Key writing points summary
     latex.append("% " + "=" * 70)
-    latex.append("% SUMMARY: KEY POINTS FOR ICML BEST PAPER")
+    latex.append("% SUMMARY: KEY POINTS FOR PAPER")
     latex.append("% " + "=" * 70)
     latex.append("%")
     latex.append("% 1. HELIX achieves rank 1 overall (avg rank 2.97)")
     latex.append("%")
-    latex.append("% 2. vs Naive baseline story:")
-    latex.append("%    - Most DL methods FAIL to beat Linear Interpolation")
-    latex.append("%    - HELIX: +37.3% improvement (excl. Electricity)")
-    latex.append("%    - This proves meaningful structure learning, not overfitting")
-    latex.append("%")
-    latex.append("% 3. Ablation insights:")
+    latex.append("% 2. Ablation insights:")
     latex.append("%    a) Feature Identity Embedding is MOST critical (Δ=+4.02)")
-    latex.append("%       - Directly enables attention to leverage spatial structure")
-    latex.append("%       - Layer 0 attention correlation ≈ embedding correlation")
-    latex.append("%")
-    latex.append("%    b) Multi-level Fusion = stability trade-off:")
-    latex.append("%       - Subseq: 6.13 → 2.53 (huge win)")
-    latex.append("%       - Point-10%: 2.89 → 3.28 (small cost)")
-    latex.append("%       - Std: 1.14 → 0.31 (3.7x more stable)")
-    latex.append("%       - Philosophy: shallow layers = intermediate, deep layers = refined")
-    latex.append("%       - Fusion acts like skip connection, regularizing for robustness")
-    latex.append("%")
-    latex.append("% 4. Attention visualization story (Figure 3 + Appendix A1):")
-    latex.append("%    - Feature attention increasingly captures spatial structure")
-    latex.append("%    - Layer 0: r=0.589 ≈ embedding r=0.587 (direct leverage)")
-    latex.append("%    - Layer 2: r=0.712 (progressive refinement)")
-    latex.append("%    - Temporal: Perceiving → Focusing → Understanding")
-    latex.append("%")
-    latex.append("% 5. Linear Interpolation collapse in hard scenarios:")
-    latex.append("%    - Point-10%: rank 6.44 (decent)")
-    latex.append("%    - Point-90%: rank 10.60 (collapsed)")
-    latex.append("%    - Subseq: rank 10.20 (collapsed)")
-    latex.append("%    - HELIX maintains rank ~2.5-3.3 across ALL patterns")
+    latex.append("%    b) Multi-level Fusion = stability trade-off (Std: 1.14 → 0.31)")
     
     output_path = os.path.join(output_dir, 'reference_data.tex')
     with open(output_path, 'w') as f:
         f.write('\n'.join(latex))
     print(f"✓ Generated: {output_path}")
-
 
 # =============================================================================
 # Main
@@ -739,7 +697,7 @@ def main():
     os.makedirs(args.output_dir, exist_ok=True)
     
     print("=" * 60)
-    print("Generating LaTeX Tables for HELIX Paper")
+    print("Generating LaTeX Tables for HELIX Paper (v2)")
     print("=" * 60)
     print(f"Input: {args.base_path}")
     print(f"Output: {args.output_dir}")
@@ -749,10 +707,10 @@ def main():
     print("Generating Table 1: Overall Ranking...")
     generate_table1_overall_ranking(args.base_path, args.output_dir)
     
-    print("\nGenerating Table 2: Detailed Results (PhysioNet + ETT-h1)...")
+    print("\nGenerating Table 2: ETT-h1 Detailed Results...")
     generate_table2_detailed_results(args.base_path, args.output_dir)
     
-    print("\nGenerating Table 3: Ablation Study...")
+    print("\nGenerating Table 3: Ablation Study (Transposed)...")
     generate_table3_ablation(args.base_path, args.output_dir)
     
     print("\nGenerating Appendix Tables (6 datasets)...")
@@ -761,13 +719,12 @@ def main():
     print("\nGenerating vs Naive Summary...")
     generate_vs_naive_summary(args.base_path, args.output_dir)
     
-    print("\nGenerating Reference Data (significance, win rate, etc.)...")
+    print("\nGenerating Reference Data...")
     generate_reference_data(args.base_path, args.output_dir)
     
     print("\n" + "=" * 60)
     print("Done! All LaTeX tables generated.")
     print("=" * 60)
-
 
 if __name__ == "__main__":
     main()

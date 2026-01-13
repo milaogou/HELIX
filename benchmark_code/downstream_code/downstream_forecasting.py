@@ -257,20 +257,25 @@ if __name__ == "__main__":
     val_X_collector = []
     test_X_collector = []
 
-    # 对于 train/val 使用原始数据（NaN填0）
-    train_X = np.nan_to_num(pots_train_X, nan=0.0)
-    val_X = np.nan_to_num(pots_val_X, nan=0.0)
-    
-    # 只有 test 使用模型填补结果（取5轮平均）
     for n_round in range(5):
         imputed_data_path = os.path.join(
             args.model_result_parent_fold,
             f"round_{n_round}/imputation.pkl",
         )
         imputed_data = pickle_load(imputed_data_path)
-        _test_X = imputed_data["test_set_imputation"]
+        _train_X, _val_X, _test_X = (
+            imputed_data["train_set_imputation"],
+            imputed_data["val_set_imputation"],
+            imputed_data["test_set_imputation"],
+        )
+        train_X_collector.append(_train_X)
+        val_X_collector.append(_val_X)
         test_X_collector.append(_test_X)
-    test_X = np.mean(np.stack(test_X_collector), axis=0)
+    train_X, val_X, test_X = (
+        np.mean(np.stack(train_X_collector), axis=0),
+        np.mean(np.stack(val_X_collector), axis=0),
+        np.mean(np.stack(test_X_collector), axis=0),
+    )
 
     xgb_wo_metrics_collector = {"mae": [], "mse": [], "mre": []}
     xgb_metrics_collector = {"mae": [], "mse": [], "mre": []}

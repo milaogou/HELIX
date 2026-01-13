@@ -320,7 +320,7 @@ if __name__ == "__main__":
             n_classes=args.n_classes,
         )
         simple_rnn_classifier = simple_rnn_classifier.to(args.device)
-        proba_predictions = train(simple_rnn_classifier, train_loader, val_loader)
+        proba_predictions = train(simple_rnn_classifier, train_loader, val_loader, test_loader)
         if args.n_classes == 2:
             classification_metrics = calc_binary_classification_metrics(
                 proba_predictions, test_y
@@ -349,7 +349,7 @@ if __name__ == "__main__":
             n_classes=args.n_classes,
         )
         transformer_classifier = transformer_classifier.to(args.device)
-        proba_predictions = train(transformer_classifier, train_loader, val_loader)
+        proba_predictions = train(transformer_classifier, train_loader, val_loader, test_loader)
         if args.n_classes == 2:
             classification_metrics = calc_binary_classification_metrics(
                 proba_predictions, test_y

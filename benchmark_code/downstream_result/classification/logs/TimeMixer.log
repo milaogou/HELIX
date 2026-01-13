@@ -1,79 +1,29 @@
-Traceback (most recent call last):
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1099, in _get_module
-    return importlib.import_module("." + module_name, self.__name__)
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/importlib/__init__.py", line 126, in import_module
-    return _bootstrap._gcd_import(name[level:], package, level)
-  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
-  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
-  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
-  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
-  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
-  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 32, in <module>
-    from ...modeling_utils import PreTrainedModel
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/transformers/modeling_utils.py", line 86, in <module>
-    from accelerate import dispatch_model, infer_auto_device_map, init_empty_weights
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/accelerate/__init__.py", line 16, in <module>
-    from .accelerator import Accelerator
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/accelerate/accelerator.py", line 35, in <module>
-    from .checkpointing import load_accelerator_state, load_custom_state, save_accelerator_state, save_custom_state
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/accelerate/checkpointing.py", line 24, in <module>
-    from .utils import (
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/accelerate/utils/__init__.py", line 172, in <module>
-    from .fsdp_utils import load_fsdp_model, load_fsdp_optimizer, save_fsdp_model, save_fsdp_optimizer
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/accelerate/utils/fsdp_utils.py", line 26, in <module>
-    import torch.distributed.checkpoint as dist_cp
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/distributed/checkpoint/__init__.py", line 1, in <module>
-    from .metadata import (
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/distributed/checkpoint/metadata.py", line 3, in <module>
-    from torch.distributed._shard.sharded_tensor.metadata import TensorProperties
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/distributed/_shard/__init__.py", line 1, in <module>
-    from .api import (
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/distributed/_shard/api.py", line 6, in <module>
-    from torch.distributed._shard.sharded_tensor import (
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/distributed/_shard/sharded_tensor/__init__.py", line 8, in <module>
-    from .api import (
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/distributed/_shard/sharded_tensor/api.py", line 38, in <module>
-    from .reshard import reshuffle_local_shard, reshard_local_shard
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/distributed/_shard/sharded_tensor/reshard.py", line 14, in <module>
-    from torch.distributed.nn.functional import (
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/distributed/nn/__init__.py", line 3, in <module>
-    from .api.remote_module import RemoteModule
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/distributed/nn/api/remote_module.py", line 24, in <module>
-    from torch.distributed.nn.jit import instantiator
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/torch/distributed/nn/jit/instantiator.py", line 19, in <module>
-    _TEMP_DIR = tempfile.TemporaryDirectory()
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/tempfile.py", line 819, in __init__
-    self.name = mkdtemp(suffix, prefix, dir)
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/tempfile.py", line 368, in mkdtemp
-    _os.mkdir(file, 0o700)
-FileNotFoundError: [Errno 2] No such file or directory: '/tmp/tmpzwo7yu8k'
+[34m
+████████╗██╗███╗   ███╗███████╗    ███████╗███████╗██████╗ ██╗███████╗███████╗    █████╗ ██╗
+╚══██╔══╝██║████╗ ████║██╔════╝    ██╔════╝██╔════╝██╔══██╗██║██╔════╝██╔════╝   ██╔══██╗██║
+   ██║   ██║██╔████╔██║█████╗█████╗███████╗█████╗  ██████╔╝██║█████╗  ███████╗   ███████║██║
+   ██║   ██║██║╚██╔╝██║██╔══╝╚════╝╚════██║██╔══╝  ██╔══██╗██║██╔══╝  ╚════██║   ██╔══██║██║
+   ██║   ██║██║ ╚═╝ ██║███████╗    ███████║███████╗██║  ██║██║███████╗███████║██╗██║  ██║██║
+   ╚═╝   ╚═╝╚═╝     ╚═╝╚══════╝    ╚══════╝╚══════╝╚═╝  ╚═╝╚═╝╚══════╝╚══════╝╚═╝╚═╝  ╚═╝╚═╝
+ai4ts v0.0.3 - building AI for unified time-series analysis, https://time-series.ai [0m
 
-The above exception was the direct cause of the following exception:
+2026-01-13 09:52:42 [WARNING]: ‼️ `pypots.utils.metrics` is deprecated. Please import from `pypots.nn.functional` instead.
+2026-01-13 09:52:43 [INFO]: Have set the random seed as 2024 for numpy and pytorch.
+/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+2026-01-13 09:52:55 [INFO]: Have set the random seed as 2025 for numpy and pytorch.
+/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+2026-01-13 09:53:07 [INFO]: Have set the random seed as 2026 for numpy and pytorch.
+/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+2026-01-13 09:53:13 [INFO]: Have set the random seed as 2027 for numpy and pytorch.
+/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+2026-01-13 09:53:22 [INFO]: Have set the random seed as 2028 for numpy and pytorch.
+2026-01-13 09:53:39 [INFO]: 
+XGB without imputation PR_AUC: 0.3933±0.0000, ROC_AUC: 0.7741±0.0000
+XGB with TimeMixer imputation PR_AUC: 0.3147±0.0000, ROC_AUC: 0.7353±0.0000
+RNN with TimeMixer imputation PR_AUC: 0.3197±0.0421, ROC_AUC: 0.6861±0.0450
+Transformer with TimeMixer imputation PR_AUC: 0.2254±0.0335, ROC_AUC: 0.6531±0.0385
 
-Traceback (most recent call last):
-  File "/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/downstream_code/downstream_classification.py", line 16, in <module>
-    from pypots.data.saving import pickle_load
-  File "/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/__init__.py", line 9, in <module>
-    from . import (
-  File "/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/__init__.py", line 49, in <module>
-    from .timellm import TimeLLM
-  File "/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/timellm/__init__.py", line 21, in <module>
-    from .model import TimeLLM
-  File "/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/timellm/model.py", line 15, in <module>
-    from .core import _TimeLLM
-  File "/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/imputation/timellm/core.py", line 12, in <module>
-    from ...nn.modules.timellm import BackboneTimeLLM
-  File "/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/nn/modules/timellm/__init__.py", line 20, in <module>
-    from .backbone import BackboneTimeLLM
-  File "/home/bingxing2/home/scx7644/HELIX/PyPOTS/pypots/nn/modules/timellm/backbone.py", line 12, in <module>
-    from transformers import (
-  File "<frozen importlib._bootstrap>", line 1075, in _handle_fromlist
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1090, in __getattr__
-    value = getattr(module, name)
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1089, in __getattr__
-    module = self._get_module(self._class_to_module[name])
-  File "/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1101, in _get_module
-    raise RuntimeError(
-RuntimeError: Failed to import transformers.models.llama.modeling_llama because of the following error (look up to see its traceback):
-[Errno 2] No such file or directory: '/tmp/tmpzwo7yu8k'

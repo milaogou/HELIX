@@ -7,9 +7,21 @@
    ╚═╝   ╚═╝╚═╝     ╚═╝╚══════╝    ╚══════╝╚══════╝╚═╝  ╚═╝╚═╝╚══════╝╚══════╝╚═╝╚═╝  ╚═╝╚═╝
 ai4ts v0.0.3 - building AI for unified time-series analysis, https://time-series.ai [0m
 
-2026-01-12 23:14:34 [WARNING]: ‼️ `pypots.utils.metrics` is deprecated. Please import from `pypots.nn.functional` instead.
-2026-01-12 23:14:34 [INFO]: Have set the random seed as 2024 for numpy and pytorch.
-Traceback (most recent call last):
-  File "/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/downstream_code/downstream_classification.py", line 323, in <module>
-    proba_predictions = train(simple_rnn_classifier, train_loader, val_loader)
-TypeError: train() missing 1 required positional argument: 'test_loader'
+2026-01-13 09:47:12 [WARNING]: ‼️ `pypots.utils.metrics` is deprecated. Please import from `pypots.nn.functional` instead.
+2026-01-13 09:47:12 [INFO]: Have set the random seed as 2024 for numpy and pytorch.
+/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+2026-01-13 09:47:25 [INFO]: Have set the random seed as 2025 for numpy and pytorch.
+/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+2026-01-13 09:47:37 [INFO]: Have set the random seed as 2026 for numpy and pytorch.
+2026-01-13 09:47:44 [INFO]: Have set the random seed as 2027 for numpy and pytorch.
+/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+2026-01-13 09:47:53 [INFO]: Have set the random seed as 2028 for numpy and pytorch.
+2026-01-13 09:48:11 [INFO]: 
+XGB without imputation PR_AUC: 0.3933±0.0000, ROC_AUC: 0.7741±0.0000
+XGB with HELIX_NoRotaryPE imputation PR_AUC: 0.3029±0.0000, ROC_AUC: 0.7441±0.0000
+RNN with HELIX_NoRotaryPE imputation PR_AUC: 0.3216±0.0368, ROC_AUC: 0.6904±0.0443
+Transformer with HELIX_NoRotaryPE imputation PR_AUC: 0.2880±0.0481, ROC_AUC: 0.7142±0.0321
+

@@ -7,8 +7,25 @@
    ╚═╝   ╚═╝╚═╝     ╚═╝╚══════╝    ╚══════╝╚══════╝╚═╝  ╚═╝╚═╝╚══════╝╚══════╝╚═╝╚═╝  ╚═╝╚═╝
 ai4ts v0.0.3 - building AI for unified time-series analysis, https://time-series.ai [0m
 
-2026-01-12 22:52:31 [WARNING]: ‼️ `pypots.utils.metrics` is deprecated. Please import from `pypots.nn.functional` instead.
-Traceback (most recent call last):
-  File "/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/downstream_code/downstream_classification.py", line 24, in <module>
-    from global_config import RANDOM_SEEDS
-ModuleNotFoundError: No module named 'global_config'
+2026-01-13 09:57:05 [WARNING]: ‼️ `pypots.utils.metrics` is deprecated. Please import from `pypots.nn.functional` instead.
+2026-01-13 09:57:06 [INFO]: Have set the random seed as 2024 for numpy and pytorch.
+/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+2026-01-13 09:57:18 [INFO]: Have set the random seed as 2025 for numpy and pytorch.
+/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+2026-01-13 09:57:30 [INFO]: Have set the random seed as 2026 for numpy and pytorch.
+/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+2026-01-13 09:57:37 [INFO]: Have set the random seed as 2027 for numpy and pytorch.
+/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+2026-01-13 09:57:46 [INFO]: Have set the random seed as 2028 for numpy and pytorch.
+/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+2026-01-13 09:58:04 [INFO]: 
+XGB without imputation PR_AUC: 0.3933±0.0000, ROC_AUC: 0.7741±0.0000
+XGB with iTransformer imputation PR_AUC: 0.3690±0.0000, ROC_AUC: 0.7705±0.0000
+RNN with iTransformer imputation PR_AUC: 0.3257±0.0276, ROC_AUC: 0.6972±0.0342
+Transformer with iTransformer imputation PR_AUC: 0.2996±0.0427, ROC_AUC: 0.7251±0.0219
+

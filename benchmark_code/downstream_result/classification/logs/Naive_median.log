@@ -1,4 +1,50 @@
-Traceback (most recent call last):
-  File "/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/downstream_code/downstream_classification_naive.py", line 17, in <module>
-    from global_config import RANDOM_SEEDS
-ModuleNotFoundError: No module named 'global_config'
+Running downstream classification for Naive_median
+Dataset: /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/data/generated_datasets/physionet_2012_rate01_point
+
+=== Round 0 (seed=2024) ===
+XGB_ROC_AUC: 0.7730
+XGB_PR_AUC: 0.3903
+RNN_ROC_AUC: 0.7818
+RNN_PR_AUC: 0.3577
+Transformer_ROC_AUC: 0.7327
+Transformer_PR_AUC: 0.3143
+
+=== Round 1 (seed=2025) ===
+XGB_ROC_AUC: 0.7730
+XGB_PR_AUC: 0.3903
+RNN_ROC_AUC: 0.7421
+RNN_PR_AUC: 0.3233
+Transformer_ROC_AUC: 0.7280
+Transformer_PR_AUC: 0.2963
+
+=== Round 2 (seed=2026) ===
+XGB_ROC_AUC: 0.7730
+XGB_PR_AUC: 0.3903
+RNN_ROC_AUC: 0.7519
+RNN_PR_AUC: 0.3526
+Transformer_ROC_AUC: 0.6834
+Transformer_PR_AUC: 0.2828
+
+=== Round 3 (seed=2027) ===
+XGB_ROC_AUC: 0.7730
+XGB_PR_AUC: 0.3903
+RNN_ROC_AUC: 0.7803
+RNN_PR_AUC: 0.3624
+Transformer_ROC_AUC: 0.7178
+Transformer_PR_AUC: 0.2706
+
+=== Round 4 (seed=2028) ===
+XGB_ROC_AUC: 0.7730
+XGB_PR_AUC: 0.3903
+RNN_ROC_AUC: 0.7733
+RNN_PR_AUC: 0.3448
+Transformer_ROC_AUC: 0.7059
+Transformer_PR_AUC: 0.3330
+
+=== Average Results ===
+XGB_ROC_AUC: 0.7730 ± 0.0000
+XGB_PR_AUC: 0.3903 ± 0.0000
+RNN_ROC_AUC: 0.7659 ± 0.0160
+RNN_PR_AUC: 0.3482 ± 0.0137
+Transformer_ROC_AUC: 0.7135 ± 0.0177
+Transformer_PR_AUC: 0.2994 ± 0.0222

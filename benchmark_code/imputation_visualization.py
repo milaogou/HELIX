@@ -117,7 +117,11 @@ PATTERN_CONFIG = {
         'result_dir': 'subseq05_log/BeijingAir_log',
     },
 }
-
+MANUAL_SAMPLES = {
+    'Point-50%': (2, 6),
+    'Block-50%': (4, 51),
+    'Subseq-50%': (8, 96),
+}
 MODEL_NAMES = ['HELIX', 'ImputeFormer', 'SAITS']
 MODEL_DIRS = {
     'HELIX': 'HELIX_BeijingAir',
@@ -339,64 +343,40 @@ def plot_time_series_panel(ax, X_ori, X_obs, missing_mask, imputations,
 
 
 def plot_error_distribution(ax, errors_by_pattern, methods):
-    """
-    Plot violin plot of error distributions across patterns.
-    
-    Args:
-        ax: matplotlib axis
-        errors_by_pattern: dict {pattern: {method: errors_array}}
-        methods: list of method names
-    """
-    positions = []
-    data = []
-    colors = []
-    labels = []
-    
+    """Plot grouped bar chart with error bars."""
     pattern_names = list(errors_by_pattern.keys())
     n_patterns = len(pattern_names)
     n_methods = len(methods)
     
-    width = 0.8 / n_methods
+    x = np.arange(n_patterns)
+    width = 0.25
     
-    for p_idx, pattern in enumerate(pattern_names):
-        for m_idx, method in enumerate(methods):
+    for m_idx, method in enumerate(methods):
+        means = []
+        stds = []
+        for pattern in pattern_names:
             if method in errors_by_pattern[pattern]:
-                pos = p_idx + (m_idx - n_methods/2 + 0.5) * width
-                positions.append(pos)
                 err = errors_by_pattern[pattern][method]
-                # Flatten and sample if too large
-                err_flat = err.flatten()
-                if len(err_flat) > 10000:
-                    err_flat = np.random.choice(err_flat, 10000, replace=False)
-                data.append(err_flat)
-                colors.append(COLORS[method])
+                means.append(np.mean(err))
+                stds.append(np.std(err) / np.sqrt(len(err)) * 1.96)  # 95% CI
+            else:
+                means.append(0)
+                stds.append(0)
+        
+        offset = (m_idx - n_methods/2 + 0.5) * width
+        label = 'HELIX (Ours)' if method == 'HELIX' else method
+        ax.bar(x + offset, means, width * 0.9, yerr=stds,
+               color=COLORS[method], label=label, alpha=0.85,
+               capsize=3, error_kw={'linewidth': 1})
     
-    # Create violin plot
-    parts = ax.violinplot(data, positions=positions, widths=width*0.9,
-                          showmeans=True, showmedians=False, showextrema=False)
-    
-    # Color the violins
-    for idx, pc in enumerate(parts['bodies']):
-        pc.set_facecolor(colors[idx])
-        pc.set_alpha(0.7)
-    
-    parts['cmeans'].set_color('black')
-    parts['cmeans'].set_linewidth(1)
-    
-    # X-axis
-    ax.set_xticks(range(n_patterns))
+    ax.set_xticks(x)
     ax.set_xticklabels(pattern_names, fontsize=9)
     ax.set_xlabel('Missing Pattern')
-    ax.set_ylabel('Absolute Error')
-    ax.set_title('(d) Error Distribution by Pattern', fontweight='bold')
-    
-    # Legend
-    legend_elements = [plt.Rectangle((0,0), 1, 1, facecolor=COLORS[m], alpha=0.7, 
-                                      label=m if m != 'HELIX' else 'HELIX (Ours)') 
-                       for m in methods]
-    ax.legend(handles=legend_elements, loc='upper right', fontsize=7)
-    
+    ax.set_ylabel('Mean Absolute Error')
+    ax.set_title('(d) Imputation Error Comparison', fontweight='bold')
+    ax.legend(loc='upper left', fontsize=7)
     ax.grid(True, alpha=0.3, axis='y')
+    ax.set_ylim(0, None)
 
 
 def compute_boundary_errors(X_ori, imputations, missing_mask, valid_mask, boundary_width=2):
@@ -450,36 +430,57 @@ def compute_boundary_errors(X_ori, imputations, missing_mask, valid_mask, bounda
     return results
 
 
-def plot_boundary_analysis(ax, boundary_errors_by_pattern, methods):
-    """
-    Plot bar chart of boundary errors across patterns.
-    """
-    pattern_names = list(boundary_errors_by_pattern.keys())
-    n_patterns = len(pattern_names)
-    n_methods = len(methods)
+def compute_error_by_gap_length(X_ori, imputations, missing_mask, valid_mask):
+    """Compute MAE grouped by missing region length."""
+    length_bins = [(1, 2), (3, 5), (6, 10), (11, 24)]
+    results = {method: {b: [] for b in length_bins} for method in imputations}
     
-    x = np.arange(n_patterns)
-    width = 0.8 / n_methods
+    for sample_idx in range(X_ori.shape[0]):
+        for feat_idx in range(X_ori.shape[2]):
+            mask = missing_mask[sample_idx, :, feat_idx].astype(int)
+            valid = valid_mask[sample_idx, :, feat_idx]
+            regions = find_missing_regions(mask)
+            
+            for start, end in regions:
+                length = end - start
+                for (lo, hi) in length_bins:
+                    if lo <= length <= hi:
+                        for method, imp in imputations.items():
+                            if imp is None:
+                                continue
+                            for t in range(start, end):
+                                if valid[t]:
+                                    err = abs(X_ori[sample_idx, t, feat_idx] - 
+                                             imp[sample_idx, t, feat_idx])
+                                    results[method][(lo, hi)].append(err)
+                        break
+    
+    # Convert to means
+    final = {}
+    for method in results:
+        final[method] = {b: np.mean(results[method][b]) if results[method][b] else np.nan 
+                         for b in length_bins}
+    return final, length_bins
+
+
+def plot_error_by_gap_length(ax, gap_errors, length_bins, methods):
+    """Plot error vs gap length - shows HELIX advantage in longer gaps."""
+    x = np.arange(len(length_bins))
+    width = 0.25
     
     for m_idx, method in enumerate(methods):
-        values = []
-        for pattern in pattern_names:
-            if method in boundary_errors_by_pattern[pattern]:
-                values.append(boundary_errors_by_pattern[pattern][method])
-            else:
-                values.append(0)
-        
-        offset = (m_idx - n_methods/2 + 0.5) * width
-        label = method if method != 'HELIX' else 'HELIX (Ours)'
-        ax.bar(x + offset, values, width * 0.9, 
-               color=COLORS[method], label=label, alpha=0.8)
+        values = [gap_errors[method][b] for b in length_bins]
+        offset = (m_idx - len(methods)/2 + 0.5) * width
+        label = 'HELIX (Ours)' if method == 'HELIX' else method
+        ax.bar(x + offset, values, width * 0.9, color=COLORS[method], 
+               label=label, alpha=0.85)
     
     ax.set_xticks(x)
-    ax.set_xticklabels(pattern_names, fontsize=9)
-    ax.set_xlabel('Missing Pattern')
-    ax.set_ylabel('MAE at Boundaries')
-    ax.set_title('(e) Boundary Region Analysis', fontweight='bold')
-    ax.legend(loc='upper right', fontsize=7)
+    ax.set_xticklabels(['1-2', '3-5', '6-10', '11+'], fontsize=9)
+    ax.set_xlabel('Missing Region Length (time steps)')
+    ax.set_ylabel('Mean Absolute Error')
+    ax.set_title('(e) Error vs Gap Length', fontweight='bold')
+    ax.legend(loc='upper left', fontsize=7)
     ax.grid(True, alpha=0.3, axis='y')
 
 
@@ -509,7 +510,7 @@ def compute_station_correlation_benefit(X_ori, imputations, missing_mask, valid_
         correlations = []
         errors = []
         
-        for sample_idx in range(min(N, 200)):  # Limit for speed
+        for sample_idx in range(N):  # Limit for speed
             for t in range(T):
                 for s in range(n_stations):
                     # Get first feature of this station
@@ -554,7 +555,7 @@ def plot_correlation_analysis(ax, corr_results, methods):
     Plot scatter/binned analysis of error vs correlation.
     """
     # Bin the correlations and compute mean error per bin
-    n_bins = 5
+    n_bins = 6
     bin_edges = np.linspace(0, 1, n_bins + 1)
     bin_centers = (bin_edges[:-1] + bin_edges[1:]) / 2
     
@@ -635,9 +636,13 @@ def generate_figure5(output_dir):
         all_imputations[pattern_name] = imputations
         
         # Select representative sample AND feature (now returns both)
-        sample_idx, feature_idx = select_representative_sample(
-            X_ori, missing_mask, valid_mask, pattern_name
-        )
+        if pattern_name in MANUAL_SAMPLES:
+            sample_idx, feature_idx = MANUAL_SAMPLES[pattern_name]
+            print(f"  Using manual selection: sample {sample_idx}, feature {feature_idx}")
+        else:
+            sample_idx, feature_idx = select_representative_sample(
+                X_ori, missing_mask, valid_mask, pattern_name
+            )
         selected_samples[pattern_name] = sample_idx
         selected_features[pattern_name] = feature_idx
     
@@ -725,18 +730,27 @@ def generate_figure5(output_dir):
             all_valid_mask[pattern_name]
         )
     
-    # (e) Boundary analysis
-    print("  Plotting boundary analysis...")
-    ax_e = fig.add_subplot(gs[1, 1])
-    plot_boundary_analysis(ax_e, boundary_errors_by_pattern, MODEL_NAMES)
-    
-    # Compute correlation benefit (using Point-50% as it's clearest)
-    print("  Computing correlation analysis...")
-    corr_results = compute_station_correlation_benefit(
+    # (e) Error vs Gap Length
+    print("  Computing error by gap length...")
+    # 使用Point-50%的数据（数据量最大）
+    gap_errors, length_bins = compute_error_by_gap_length(
         all_X_ori['Point-50%'],
         all_imputations['Point-50%'],
         all_missing_mask['Point-50%'],
         all_valid_mask['Point-50%']
+    )
+    
+    print("  Plotting error by gap length...")
+    ax_e = fig.add_subplot(gs[1, 1])
+    plot_error_by_gap_length(ax_e, gap_errors, length_bins, MODEL_NAMES)
+    
+    # Compute correlation benefit
+    print("  Computing correlation analysis...")
+    corr_results = compute_station_correlation_benefit(
+        all_X_ori['Block-50%'],  # 换成Block
+        all_imputations['Block-50%'],
+        all_missing_mask['Block-50%'],
+        all_valid_mask['Block-50%']
     )
     
     # (f) Correlation analysis

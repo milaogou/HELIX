@@ -7,19 +7,15 @@
    ╚═╝   ╚═╝╚═╝     ╚═╝╚══════╝    ╚══════╝╚══════╝╚═╝  ╚═╝╚═╝╚══════╝╚══════╝╚═╝╚═╝  ╚═╝╚═╝
 ai4ts v0.0.3 - building AI for unified time-series analysis, https://time-series.ai [0m
 
-2026-01-13 09:46:05 [WARNING]: ‼️ `pypots.utils.metrics` is deprecated. Please import from `pypots.nn.functional` instead.
-2026-01-13 09:46:05 [INFO]: Have set the random seed as 2024 for numpy and pytorch.
-2026-01-13 09:46:18 [INFO]: Have set the random seed as 2025 for numpy and pytorch.
-/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
-2026-01-13 09:46:30 [INFO]: Have set the random seed as 2026 for numpy and pytorch.
-2026-01-13 09:46:37 [INFO]: Have set the random seed as 2027 for numpy and pytorch.
-/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
-2026-01-13 09:46:46 [INFO]: Have set the random seed as 2028 for numpy and pytorch.
-2026-01-13 09:47:04 [INFO]: 
+2026-01-14 11:19:24 [WARNING]: ‼️ `pypots.utils.metrics` is deprecated. Please import from `pypots.nn.functional` instead.
+2026-01-14 11:19:24 [INFO]: Have set the random seed as 2024 for numpy and pytorch.
+2026-01-14 11:19:37 [INFO]: Have set the random seed as 2025 for numpy and pytorch.
+2026-01-14 11:19:49 [INFO]: Have set the random seed as 2026 for numpy and pytorch.
+2026-01-14 11:19:59 [INFO]: Have set the random seed as 2027 for numpy and pytorch.
+2026-01-14 11:20:09 [INFO]: Have set the random seed as 2028 for numpy and pytorch.
+2026-01-14 11:20:20 [INFO]: 
 XGB without imputation PR_AUC: 0.3933±0.0000, ROC_AUC: 0.7741±0.0000
-XGB with HELIX_NoHybrid imputation PR_AUC: 0.3186±0.0000, ROC_AUC: 0.7396±0.0000
-RNN with HELIX_NoHybrid imputation PR_AUC: 0.3327±0.0366, ROC_AUC: 0.6984±0.0472
-Transformer with HELIX_NoHybrid imputation PR_AUC: 0.2889±0.0507, ROC_AUC: 0.7140±0.0353
+XGB with HELIX_NoHybrid imputation PR_AUC: 0.3960±0.0000, ROC_AUC: 0.8072±0.0000
+RNN with HELIX_NoHybrid imputation PR_AUC: 0.3803±0.0465, ROC_AUC: 0.7146±0.0731
+Transformer with HELIX_NoHybrid imputation PR_AUC: 0.4132±0.0167, ROC_AUC: 0.7660±0.0146
 

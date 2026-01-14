@@ -1,0 +1,39 @@
+\begin{table}[H]
+\centering
+\caption{ImputeFormer Hyperparameter Search Space}
+\label{tab:hyperparam_imputeformer}
+\begin{adjustbox}{max width=\textwidth}
+\begin{small}
+\begin{tabular}{l|ccccc}
+\toprule
+\textbf{Parameter} & \textbf{ETT-h1} & \textbf{BeijingAir} & \textbf{ItalyAir} & \textbf{PeMS} & \textbf{PhysioNet2012} \\
+\midrule
+\multicolumn{6}{l}{\textit{Dataset Properties}} \\
+n\_steps & 48 & 24 & 12 & 24 & 48 \\
+n\_features & 7 & 132 & 13 & 862 & 35 \\
+\midrule
+\multicolumn{6}{l}{\textit{Model Architecture}} \\
+d\_ffn & \{32, 64, 128\} & \{96, 128, 192\} & \{32, 48, 64\} & \{128, 256, 512\} & \{64, 96, 128\} \\
+d\_input\_embed & \{16, 32, 64\} & \{48, 64, 96\} & \{16, 24, 32\} & \{64, 128, 256\} & \{32, 48, 64\} \\
+d\_learnable\_embed & \{16, 32, 64\} & \{48, 64, 96\} & \{16, 24, 32\} & \{64, 128, 256\} & \{32, 48, 64\} \\
+d\_proj & \{16, 32, 64\} & \{48, 64, 96\} & \{16, 24, 32\} & \{64, 128, 256\} & \{32, 48, 64\} \\
+dropout & \{0, 0.1, 0.2\} & \{0, 0.1, 0.2\} & \{0, 0.1, 0.2\} & \{0, 0.1, 0.2\} & \{0, 0.1, 0.2\} \\
+input\_dim & -- & 1 & 1 & -- & 1 \\
+n\_layers & \{1, 2, 3\} & \{1, 2, 3\} & \{1, 2, 3\} & \{1, 2, 3\} & \{1, 2, 3\} \\
+n\_temporal\_heads & \{2, 4, 8\} & \{2, 4, 8\} & \{2, 4, 8\} & \{4, 8, 16\} & \{2, 4, 8\} \\
+output\_dim & -- & 1 & 1 & -- & 1 \\
+\midrule
+\multicolumn{6}{l}{\textit{Training Configuration}} \\
+epochs & 1000 & 1000 & 1000 & 1000 & 1000 \\
+patience & 10 & 10 & 10 & 10 & 10 \\
+batch\_size & \{8, 16, 32\} & \{4, 8, 16\} & \{8, 16, 32\} & \{1, 2\} & \{8, 16, 32\} \\
+lr & [1e-4, 0.01] (log) & [1e-4, 0.01] (log) & [1e-4, 0.01] (log) & [1e-4, 0.005] (log) & [1e-4, 0.01] (log) \\
+\midrule
+\multicolumn{6}{l}{\textit{Loss Weights}} \\
+ORT\_weight & -- & 1.0 & 1.0 & -- & 1.0 \\
+MIT\_weight & -- & 1.0 & 1.0 & -- & 1.0 \\
+\bottomrule
+\end{tabular}
+\end{small}
+\end{adjustbox}
+\end{table}

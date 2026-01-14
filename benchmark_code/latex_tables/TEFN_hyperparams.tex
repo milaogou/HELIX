@@ -1,0 +1,32 @@
+\begin{table}[H]
+\centering
+\caption{TEFN Hyperparameter Search Space}
+\label{tab:hyperparam_tefn}
+\begin{adjustbox}{max width=\textwidth}
+\begin{small}
+\begin{tabular}{l|ccccc}
+\toprule
+\textbf{Parameter} & \textbf{ETT-h1} & \textbf{BeijingAir} & \textbf{ItalyAir} & \textbf{PeMS} & \textbf{PhysioNet2012} \\
+\midrule
+\multicolumn{6}{l}{\textit{Dataset Properties}} \\
+n\_steps & 48 & 24 & 12 & 24 & 48 \\
+n\_features & 7 & 132 & 13 & 862 & 35 \\
+\midrule
+\multicolumn{6}{l}{\textit{Model Architecture}} \\
+apply\_nonstationary\_norm & \{T, F\} & \{T, F\} & \{T, F\} & \{T, F\} & \{T, F\} \\
+n\_fod & \{1, 2, 3\} & \{1, 2, 3\} & \{1, 2, 3\} & \{1, 2, 3\} & \{1, 2, 3\} \\
+\midrule
+\multicolumn{6}{l}{\textit{Training Configuration}} \\
+epochs & 1000 & 1000 & 1000 & 1000 & 1000 \\
+patience & 10 & 10 & 10 & 10 & 10 \\
+batch\_size & \{8, 16, 32\} & \{4, 8, 16\} & \{8, 16, 32\} & \{1, 2\} & \{8, 16, 32\} \\
+lr & [1e-4, 0.01] (log) & [1e-4, 0.01] (log) & [1e-4, 0.01] (log) & [1e-4, 0.005] (log) & [1e-4, 0.01] (log) \\
+\midrule
+\multicolumn{6}{l}{\textit{Loss Weights}} \\
+ORT\_weight & -- & 1.0 & 1.0 & -- & 1.0 \\
+MIT\_weight & -- & 1.0 & 1.0 & -- & 1.0 \\
+\bottomrule
+\end{tabular}
+\end{small}
+\end{adjustbox}
+\end{table}

@@ -1,0 +1,37 @@
+\begin{table}[H]
+\centering
+\caption{TimeMixer Hyperparameter Search Space}
+\label{tab:hyperparam_timemixer}
+\begin{adjustbox}{max width=\textwidth}
+\begin{small}
+\begin{tabular}{l|ccccc}
+\toprule
+\textbf{Parameter} & \textbf{ETT-h1} & \textbf{BeijingAir} & \textbf{ItalyAir} & \textbf{PeMS} & \textbf{PhysioNet2012} \\
+\midrule
+\multicolumn{6}{l}{\textit{Dataset Properties}} \\
+n\_steps & 48 & 24 & 12 & 24 & 48 \\
+n\_features & 7 & 132 & 13 & 862 & 35 \\
+\midrule
+\multicolumn{6}{l}{\textit{Model Architecture}} \\
+apply\_nonstationary\_norm & False & False & False & False & False \\
+channel\_independence & \{T, F\} & \{T, F\} & \{T, F\} & \{T, F\} & \{T, F\} \\
+d\_ffn & \{64, 128, 256\} & \{128, 256, 384\} & \{48, 64, 96\} & \{256, 512, 1024\} & \{64, 128, 256\} \\
+d\_model & \{32, 64, 128\} & \{64, 128, 192\} & \{24, 32, 48\} & \{128, 256, 512\} & \{32, 64, 128\} \\
+decomp\_method & "moving\_avg" & "moving\_avg" & "moving\_avg" & "moving\_avg" & "moving\_avg" \\
+downsampling\_layers & \{1, 2\} & \{1, 2\} & \{1, 2\} & \{1, 2\} & \{1, 2\} \\
+downsampling\_window & \{2, 4\} & \{2, 3, 4\} & \{2, 3\} & \{2, 4\} & \{2, 3, 4\} \\
+dropout & \{0, 0.1, 0.2\} & \{0, 0.1, 0.2\} & \{0, 0.1, 0.2\} & \{0, 0.1, 0.2\} & \{0, 0.1, 0.2\} \\
+moving\_avg & \{5, 13, 25\} & \{3, 5, 7\} & \{3, 5\} & \{5, 13, 25\} & \{3, 5, 7\} \\
+n\_layers & \{1, 2, 3\} & \{1, 2, 3\} & \{1, 2, 3\} & \{1, 2, 3\} & \{1, 2, 3\} \\
+top\_k & \{3, 5, 7\} & \{3, 5, 7\} & \{2, 3, 5\} & \{3, 5, 7\} & \{3, 5, 7\} \\
+\midrule
+\multicolumn{6}{l}{\textit{Training Configuration}} \\
+epochs & 1000 & 1000 & 1000 & 1000 & 1000 \\
+patience & 10 & 10 & 10 & 10 & 10 \\
+batch\_size & \{8, 16, 32\} & \{4, 8, 16\} & \{8, 16, 32\} & \{1, 2\} & \{8, 16, 32\} \\
+lr & [1e-4, 0.01] (log) & [1e-4, 0.01] (log) & [1e-4, 0.01] (log) & [1e-4, 0.005] (log) & [1e-4, 0.01] (log) \\
+\bottomrule
+\end{tabular}
+\end{small}
+\end{adjustbox}
+\end{table}

@@ -1,0 +1,40 @@
+\begin{table}[H]
+\centering
+\caption{ModernTCN Hyperparameter Search Space}
+\label{tab:hyperparam_moderntcn}
+\begin{adjustbox}{max width=\textwidth}
+\begin{small}
+\begin{tabular}{l|ccccc}
+\toprule
+\textbf{Parameter} & \textbf{ETT-h1} & \textbf{BeijingAir} & \textbf{ItalyAir} & \textbf{PeMS} & \textbf{PhysioNet2012} \\
+\midrule
+\multicolumn{6}{l}{\textit{Dataset Properties}} \\
+n\_steps & 48 & 24 & 12 & 24 & 48 \\
+n\_features & 7 & 132 & 13 & 862 & 35 \\
+\midrule
+\multicolumn{6}{l}{\textit{Model Architecture}} \\
+apply\_nonstationary\_norm & False & False & False & False & False \\
+backbone\_dropout & \{0, 0.1, 0.2\} & \{0, 0.1, 0.2\} & \{0, 0.1, 0.2\} & \{0, 0.1, 0.2\} & \{0, 0.1, 0.2\} \\
+dims & \{[32, 32], [64, 64], [32, 64]\} & \{[48, 48], [64, 64], [48, 64]\} & \{[24], [32], [24, 32]\} & \{[64, 64], [128, 128], [64, 128]\} & \{[24, 24], [32, 32], [24, 32]\} \\
+downsampling\_ratio & \{2, 4\} & \{2, 4\} & \{2, 3\} & \{2, 4\} & \{2, 4\} \\
+ffn\_ratio & \{2, 4\} & \{2, 4\} & \{2, 4\} & \{2, 4\} & \{2, 4\} \\
+head\_dropout & \{0, 0.1, 0.2\} & \{0, 0.1, 0.2\} & \{0, 0.1, 0.2\} & \{0, 0.1, 0.2\} & \{0, 0.1, 0.2\} \\
+individual & False & False & False & False & False \\
+large\_size & [7, 7] & \{[7, 7], [5, 5]\} & \{[5], [5, 5]\} & [7, 7] & \{[7, 7], [5, 5]\} \\
+num\_blocks & [1, 1] & \{[1, 1], [1, 2]\} & \{[1], [1, 1]\} & [1, 1] & \{[1, 1], [1, 2]\} \\
+patch\_size & \{4, 6, 8\} & \{4, 6, 8\} & \{3, 4, 6\} & \{4, 6, 8\} & \{6, 8, 12\} \\
+patch\_stride & \{4, 6, 8\} & \{4, 6, 8\} & \{3, 4, 6\} & \{4, 6, 8\} & \{6, 8, 12\} \\
+small\_kernel\_merged & False & False & False & False & False \\
+small\_size & [3, 3] & [3, 3] & \{[3], [3, 3]\} & [3, 3] & [3, 3] \\
+use\_multi\_scale & False & False & False & False & False \\
+\midrule
+\multicolumn{6}{l}{\textit{Training Configuration}} \\
+epochs & 1000 & 1000 & 1000 & 1000 & 1000 \\
+patience & 10 & 10 & 10 & 10 & 10 \\
+batch\_size & \{8, 16, 32\} & \{4, 8, 16\} & \{8, 16, 32\} & \{1, 2\} & \{8, 16, 32\} \\
+lr & [1e-4, 0.01] (log) & [1e-4, 0.01] (log) & [1e-4, 0.01] (log) & [1e-4, 0.005] (log) & [1e-4, 0.01] (log) \\
+\bottomrule
+\end{tabular}
+\end{small}
+\end{adjustbox}
+\end{table}

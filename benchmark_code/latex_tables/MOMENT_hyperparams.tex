@@ -1,0 +1,43 @@
+\begin{table}[H]
+\centering
+\caption{MOMENT Hyperparameter Search Space}
+\label{tab:hyperparam_moment}
+\begin{adjustbox}{max width=\textwidth}
+\begin{small}
+\begin{tabular}{l|ccccc}
+\toprule
+\textbf{Parameter} & \textbf{ETT-h1} & \textbf{BeijingAir} & \textbf{ItalyAir} & \textbf{PeMS} & \textbf{PhysioNet2012} \\
+\midrule
+\multicolumn{6}{l}{\textit{Dataset Properties}} \\
+n\_steps & 48 & 24 & -- & -- & 48 \\
+n\_features & 7 & 132 & -- & -- & 35 \\
+\midrule
+\multicolumn{6}{l}{\textit{Model Architecture}} \\
+add\_positional\_embedding & True & True & -- & -- & True \\
+d\_ffn & \{1024, 2048, 4096\} & \{1024, 2048, 4096\} & -- & -- & \{512, 1024, 2048\} \\
+d\_model & 768 & 768 & -- & -- & 512 \\
+dropout & \{0, 0.1, 0.2\} & \{0, 0.1, 0.2\} & -- & -- & \{0, 0.1, 0.2\} \\
+finetuning\_mode & \{"linear-probing", "end-to-end"\} & \{"linear-probing", "end-to-end"\} & -- & -- & \{"linear-probing", "end-to-end"\} \\
+head\_dropout & \{0, 0.1, 0.2\} & \{0, 0.1, 0.2\} & -- & -- & \{0, 0.1, 0.2\} \\
+mask\_ratio & \{0.1, 0.3, 0.5\} & \{0.1, 0.3, 0.5\} & -- & -- & \{0.1, 0.3, 0.5\} \\
+n\_layers & \{2, 4, 6\} & \{2, 4, 6\} & -- & -- & \{2, 4\} \\
+orth\_gain & 1.41 & 1.41 & -- & -- & 1.41 \\
+patch\_size & \{8, 12, 16\} & \{6, 8, 12\} & -- & -- & \{12, 24\} \\
+patch\_stride & \{8, 12, 16\} & \{6, 8, 12\} & -- & -- & \{12, 24\} \\
+revin\_affine & True & True & -- & -- & True \\
+transformer\_backbone & "t5-base" & "t5-base" & -- & -- & "t5-small" \\
+transformer\_type & "encoder\_only" & "encoder\_only" & -- & -- & "encoder\_only" \\
+value\_embedding\_bias & True & True & -- & -- & True \\
+\midrule
+\multicolumn{6}{l}{\textit{Training Configuration}} \\
+epochs & 1000 & 1000 & -- & -- & 100 \\
+patience & 10 & 10 & -- & -- & 5 \\
+batch\_size & \{8, 16, 32\} & \{2, 4, 8\} & -- & -- & \{8, 16, 32\} \\
+lr & [5e-5, 0.001] (log) & [5e-5, 0.001] (log) & -- & -- & [5e-4, 0.005] (log) \\
+\bottomrule
+\end{tabular}
+\end{small}
+\end{adjustbox}
+\\[2pt]
+\footnotesize{\textit{Note: MOMENT was not evaluated on ItalyAir and PeMS due to sequence length constraints (requires minimum patch count).}}
+\end{table}

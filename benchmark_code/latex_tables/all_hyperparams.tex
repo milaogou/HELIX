@@ -1,0 +1,368 @@
+% Required packages (add to document preamble if not already present):
+% \usepackage{adjustbox}
+% \usepackage{booktabs}
+% \usepackage{float}
+
+% ==============================================================================
+% HYPERPARAMETER SEARCH SPACES
+% ==============================================================================
+
+
+\begin{table}[H]
+\centering
+\caption{HELIX Hyperparameter Search Space}
+\label{tab:hyperparam_helix}
+\begin{adjustbox}{max width=\textwidth}
+\begin{small}
+\begin{tabular}{l|ccccc}
+\toprule
+\textbf{Parameter} & \textbf{ETT-h1} & \textbf{BeijingAir} & \textbf{ItalyAir} & \textbf{PeMS} & \textbf{PhysioNet2012} \\
+\midrule
+\multicolumn{6}{l}{\textit{Dataset Properties}} \\
+n\_steps & 48 & 24 & 12 & 24 & 48 \\
+n\_features & 7 & 132 & 13 & 862 & 35 \\
+\midrule
+\multicolumn{6}{l}{\textit{Model Architecture}} \\
+d\_model & \{96, 128, 192, 256\} & \{192, 256, 384\} & \{32, 40, 64\} & \{384, 512, 576, 768\} & \{64, 96, 128\} \\
+dropout & \{0, 0.1, 0.2, 0.3\} & \{0, 0.1, 0.2\} & \{0, 0.1, 0.2\} & \{0, 0.1, 0.2\} & \{0, 0.1, 0.2\} \\
+feature\_embed\_dim & \{6, 12, 24\} & \{16, 24, 32\} & \{4, 6, 8\} & \{32, 64, 128\} & \{8, 10, 16\} \\
+n\_heads & \{4, 6, 8\} & \{4, 8, 12\} & \{2, 4, 8\} & \{6, 8, 12\} & \{2, 4, 8\} \\
+n\_layers & \{1, 2, 3\} & \{1, 2, 3\} & \{1, 2, 3\} & \{1, 2, 3\} & \{1, 2, 3\} \\
+pe\_dim & \{12, 24, 48\} & \{6, 12, 24\} & \{3, 4, 6\} & \{6, 12, 24\} & \{8, 12, 16\} \\
+\midrule
+\multicolumn{6}{l}{\textit{Training Configuration}} \\
+epochs & 1000 & 1000 & 1000 & 1000 & 1000 \\
+patience & 10 & 10 & 10 & 10 & 10 \\
+batch\_size & \{8, 16, 32\} & \{4, 8, 16\} & \{8, 16, 32\} & \{1, 2\} & \{8, 16, 32\} \\
+lr & [1e-4, 0.01] (log) & [1e-4, 0.01] (log) & [1e-4, 0.01] (log) & [1e-4, 0.005] (log) & [1e-4, 0.01] (log) \\
+\midrule
+\multicolumn{6}{l}{\textit{Loss Weights}} \\
+ORT\_weight & -- & 1.0 & 1.0 & -- & 1.0 \\
+MIT\_weight & -- & 1.0 & 1.0 & -- & 1.0 \\
+\bottomrule
+\end{tabular}
+\end{small}
+\end{adjustbox}
+\\[2pt]
+\footnotesize{\textit{Note: The ablation variants (w/o Rotary PE, w/o Feature Identity Embedding, w/o Hybrid Encoding, w/o Multi-level Fusion) use the same search space.}}
+\end{table}
+
+\clearpage
+
+\begin{table}[H]
+\centering
+\caption{TEFN Hyperparameter Search Space}
+\label{tab:hyperparam_tefn}
+\begin{adjustbox}{max width=\textwidth}
+\begin{small}
+\begin{tabular}{l|ccccc}
+\toprule
+\textbf{Parameter} & \textbf{ETT-h1} & \textbf{BeijingAir} & \textbf{ItalyAir} & \textbf{PeMS} & \textbf{PhysioNet2012} \\
+\midrule
+\multicolumn{6}{l}{\textit{Dataset Properties}} \\
+n\_steps & 48 & 24 & 12 & 24 & 48 \\
+n\_features & 7 & 132 & 13 & 862 & 35 \\
+\midrule
+\multicolumn{6}{l}{\textit{Model Architecture}} \\
+apply\_nonstationary\_norm & \{T, F\} & \{T, F\} & \{T, F\} & \{T, F\} & \{T, F\} \\
+n\_fod & \{1, 2, 3\} & \{1, 2, 3\} & \{1, 2, 3\} & \{1, 2, 3\} & \{1, 2, 3\} \\
+\midrule
+\multicolumn{6}{l}{\textit{Training Configuration}} \\
+epochs & 1000 & 1000 & 1000 & 1000 & 1000 \\
+patience & 10 & 10 & 10 & 10 & 10 \\
+batch\_size & \{8, 16, 32\} & \{4, 8, 16\} & \{8, 16, 32\} & \{1, 2\} & \{8, 16, 32\} \\
+lr & [1e-4, 0.01] (log) & [1e-4, 0.01] (log) & [1e-4, 0.01] (log) & [1e-4, 0.005] (log) & [1e-4, 0.01] (log) \\
+\midrule
+\multicolumn{6}{l}{\textit{Loss Weights}} \\
+ORT\_weight & -- & 1.0 & 1.0 & -- & 1.0 \\
+MIT\_weight & -- & 1.0 & 1.0 & -- & 1.0 \\
+\bottomrule
+\end{tabular}
+\end{small}
+\end{adjustbox}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\caption{TimeMixer Hyperparameter Search Space}
+\label{tab:hyperparam_timemixer}
+\begin{adjustbox}{max width=\textwidth}
+\begin{small}
+\begin{tabular}{l|ccccc}
+\toprule
+\textbf{Parameter} & \textbf{ETT-h1} & \textbf{BeijingAir} & \textbf{ItalyAir} & \textbf{PeMS} & \textbf{PhysioNet2012} \\
+\midrule
+\multicolumn{6}{l}{\textit{Dataset Properties}} \\
+n\_steps & 48 & 24 & 12 & 24 & 48 \\
+n\_features & 7 & 132 & 13 & 862 & 35 \\
+\midrule
+\multicolumn{6}{l}{\textit{Model Architecture}} \\
+apply\_nonstationary\_norm & False & False & False & False & False \\
+channel\_independence & \{T, F\} & \{T, F\} & \{T, F\} & \{T, F\} & \{T, F\} \\
+d\_ffn & \{64, 128, 256\} & \{128, 256, 384\} & \{48, 64, 96\} & \{256, 512, 1024\} & \{64, 128, 256\} \\
+d\_model & \{32, 64, 128\} & \{64, 128, 192\} & \{24, 32, 48\} & \{128, 256, 512\} & \{32, 64, 128\} \\
+decomp\_method & "moving\_avg" & "moving\_avg" & "moving\_avg" & "moving\_avg" & "moving\_avg" \\
+downsampling\_layers & \{1, 2\} & \{1, 2\} & \{1, 2\} & \{1, 2\} & \{1, 2\} \\
+downsampling\_window & \{2, 4\} & \{2, 3, 4\} & \{2, 3\} & \{2, 4\} & \{2, 3, 4\} \\
+dropout & \{0, 0.1, 0.2\} & \{0, 0.1, 0.2\} & \{0, 0.1, 0.2\} & \{0, 0.1, 0.2\} & \{0, 0.1, 0.2\} \\
+moving\_avg & \{5, 13, 25\} & \{3, 5, 7\} & \{3, 5\} & \{5, 13, 25\} & \{3, 5, 7\} \\
+n\_layers & \{1, 2, 3\} & \{1, 2, 3\} & \{1, 2, 3\} & \{1, 2, 3\} & \{1, 2, 3\} \\
+top\_k & \{3, 5, 7\} & \{3, 5, 7\} & \{2, 3, 5\} & \{3, 5, 7\} & \{3, 5, 7\} \\
+\midrule
+\multicolumn{6}{l}{\textit{Training Configuration}} \\
+epochs & 1000 & 1000 & 1000 & 1000 & 1000 \\
+patience & 10 & 10 & 10 & 10 & 10 \\
+batch\_size & \{8, 16, 32\} & \{4, 8, 16\} & \{8, 16, 32\} & \{1, 2\} & \{8, 16, 32\} \\
+lr & [1e-4, 0.01] (log) & [1e-4, 0.01] (log) & [1e-4, 0.01] (log) & [1e-4, 0.005] (log) & [1e-4, 0.01] (log) \\
+\bottomrule
+\end{tabular}
+\end{small}
+\end{adjustbox}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\caption{ModernTCN Hyperparameter Search Space}
+\label{tab:hyperparam_moderntcn}
+\begin{adjustbox}{max width=\textwidth}
+\begin{small}
+\begin{tabular}{l|ccccc}
+\toprule
+\textbf{Parameter} & \textbf{ETT-h1} & \textbf{BeijingAir} & \textbf{ItalyAir} & \textbf{PeMS} & \textbf{PhysioNet2012} \\
+\midrule
+\multicolumn{6}{l}{\textit{Dataset Properties}} \\
+n\_steps & 48 & 24 & 12 & 24 & 48 \\
+n\_features & 7 & 132 & 13 & 862 & 35 \\
+\midrule
+\multicolumn{6}{l}{\textit{Model Architecture}} \\
+apply\_nonstationary\_norm & False & False & False & False & False \\
+backbone\_dropout & \{0, 0.1, 0.2\} & \{0, 0.1, 0.2\} & \{0, 0.1, 0.2\} & \{0, 0.1, 0.2\} & \{0, 0.1, 0.2\} \\
+dims & \{[32, 32], [64, 64], [32, 64]\} & \{[48, 48], [64, 64], [48, 64]\} & \{[24], [32], [24, 32]\} & \{[64, 64], [128, 128], [64, 128]\} & \{[24, 24], [32, 32], [24, 32]\} \\
+downsampling\_ratio & \{2, 4\} & \{2, 4\} & \{2, 3\} & \{2, 4\} & \{2, 4\} \\
+ffn\_ratio & \{2, 4\} & \{2, 4\} & \{2, 4\} & \{2, 4\} & \{2, 4\} \\
+head\_dropout & \{0, 0.1, 0.2\} & \{0, 0.1, 0.2\} & \{0, 0.1, 0.2\} & \{0, 0.1, 0.2\} & \{0, 0.1, 0.2\} \\
+individual & False & False & False & False & False \\
+large\_size & [7, 7] & \{[7, 7], [5, 5]\} & \{[5], [5, 5]\} & [7, 7] & \{[7, 7], [5, 5]\} \\
+num\_blocks & [1, 1] & \{[1, 1], [1, 2]\} & \{[1], [1, 1]\} & [1, 1] & \{[1, 1], [1, 2]\} \\
+patch\_size & \{4, 6, 8\} & \{4, 6, 8\} & \{3, 4, 6\} & \{4, 6, 8\} & \{6, 8, 12\} \\
+patch\_stride & \{4, 6, 8\} & \{4, 6, 8\} & \{3, 4, 6\} & \{4, 6, 8\} & \{6, 8, 12\} \\
+small\_kernel\_merged & False & False & False & False & False \\
+small\_size & [3, 3] & [3, 3] & \{[3], [3, 3]\} & [3, 3] & [3, 3] \\
+use\_multi\_scale & False & False & False & False & False \\
+\midrule
+\multicolumn{6}{l}{\textit{Training Configuration}} \\
+epochs & 1000 & 1000 & 1000 & 1000 & 1000 \\
+patience & 10 & 10 & 10 & 10 & 10 \\
+batch\_size & \{8, 16, 32\} & \{4, 8, 16\} & \{8, 16, 32\} & \{1, 2\} & \{8, 16, 32\} \\
+lr & [1e-4, 0.01] (log) & [1e-4, 0.01] (log) & [1e-4, 0.01] (log) & [1e-4, 0.005] (log) & [1e-4, 0.01] (log) \\
+\bottomrule
+\end{tabular}
+\end{small}
+\end{adjustbox}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\caption{ImputeFormer Hyperparameter Search Space}
+\label{tab:hyperparam_imputeformer}
+\begin{adjustbox}{max width=\textwidth}
+\begin{small}
+\begin{tabular}{l|ccccc}
+\toprule
+\textbf{Parameter} & \textbf{ETT-h1} & \textbf{BeijingAir} & \textbf{ItalyAir} & \textbf{PeMS} & \textbf{PhysioNet2012} \\
+\midrule
+\multicolumn{6}{l}{\textit{Dataset Properties}} \\
+n\_steps & 48 & 24 & 12 & 24 & 48 \\
+n\_features & 7 & 132 & 13 & 862 & 35 \\
+\midrule
+\multicolumn{6}{l}{\textit{Model Architecture}} \\
+d\_ffn & \{32, 64, 128\} & \{96, 128, 192\} & \{32, 48, 64\} & \{128, 256, 512\} & \{64, 96, 128\} \\
+d\_input\_embed & \{16, 32, 64\} & \{48, 64, 96\} & \{16, 24, 32\} & \{64, 128, 256\} & \{32, 48, 64\} \\
+d\_learnable\_embed & \{16, 32, 64\} & \{48, 64, 96\} & \{16, 24, 32\} & \{64, 128, 256\} & \{32, 48, 64\} \\
+d\_proj & \{16, 32, 64\} & \{48, 64, 96\} & \{16, 24, 32\} & \{64, 128, 256\} & \{32, 48, 64\} \\
+dropout & \{0, 0.1, 0.2\} & \{0, 0.1, 0.2\} & \{0, 0.1, 0.2\} & \{0, 0.1, 0.2\} & \{0, 0.1, 0.2\} \\
+input\_dim & -- & 1 & 1 & -- & 1 \\
+n\_layers & \{1, 2, 3\} & \{1, 2, 3\} & \{1, 2, 3\} & \{1, 2, 3\} & \{1, 2, 3\} \\
+n\_temporal\_heads & \{2, 4, 8\} & \{2, 4, 8\} & \{2, 4, 8\} & \{4, 8, 16\} & \{2, 4, 8\} \\
+output\_dim & -- & 1 & 1 & -- & 1 \\
+\midrule
+\multicolumn{6}{l}{\textit{Training Configuration}} \\
+epochs & 1000 & 1000 & 1000 & 1000 & 1000 \\
+patience & 10 & 10 & 10 & 10 & 10 \\
+batch\_size & \{8, 16, 32\} & \{4, 8, 16\} & \{8, 16, 32\} & \{1, 2\} & \{8, 16, 32\} \\
+lr & [1e-4, 0.01] (log) & [1e-4, 0.01] (log) & [1e-4, 0.01] (log) & [1e-4, 0.005] (log) & [1e-4, 0.01] (log) \\
+\midrule
+\multicolumn{6}{l}{\textit{Loss Weights}} \\
+ORT\_weight & -- & 1.0 & 1.0 & -- & 1.0 \\
+MIT\_weight & -- & 1.0 & 1.0 & -- & 1.0 \\
+\bottomrule
+\end{tabular}
+\end{small}
+\end{adjustbox}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\caption{TOTEM Hyperparameter Search Space}
+\label{tab:hyperparam_totem}
+\begin{adjustbox}{max width=\textwidth}
+\begin{small}
+\begin{tabular}{l|ccccc}
+\toprule
+\textbf{Parameter} & \textbf{ETT-h1} & \textbf{BeijingAir} & \textbf{ItalyAir} & \textbf{PeMS} & \textbf{PhysioNet2012} \\
+\midrule
+\multicolumn{6}{l}{\textit{Dataset Properties}} \\
+n\_steps & 48 & 24 & 12 & 24 & 48 \\
+n\_features & 7 & 132 & 13 & 862 & 35 \\
+\midrule
+\multicolumn{6}{l}{\textit{Model Architecture}} \\
+commitment\_cost & \{0.1, 0.25, 0.5\} & \{0.1, 0.25, 0.5\} & \{0.1, 0.25, 0.5\} & \{0.1, 0.25, 0.5\} & \{0.1, 0.25, 0.5\} \\
+compression\_factor & \{2, 4, 8\} & \{2, 3, 4\} & \{2, 3, 4\} & \{2, 4, 8\} & \{2, 3, 4\} \\
+d\_block\_hidden & \{16, 32, 64\} & \{48, 64, 96\} & \{16, 24, 32\} & \{64, 128, 256\} & \{32, 48, 64\} \\
+d\_embedding & \{16, 32, 64\} & \{48, 64, 96\} & \{16, 24, 32\} & \{64, 128, 256\} & \{32, 48, 64\} \\
+d\_residual\_hidden & \{8, 16, 32\} & \{24, 32, 48\} & \{8, 12, 16\} & \{32, 64, 128\} & \{16, 24, 32\} \\
+n\_embeddings & \{128, 256, 512\} & \{256, 512, 768\} & \{64, 128, 256\} & \{256, 512, 1024\} & \{128, 256, 512\} \\
+n\_residual\_layers & \{1, 2, 3\} & \{1, 2, 3\} & \{1, 2, 3\} & \{1, 2, 3\} & \{1, 2, 3\} \\
+\midrule
+\multicolumn{6}{l}{\textit{Training Configuration}} \\
+epochs & 1000 & 1000 & 1000 & 1000 & 1000 \\
+patience & 10 & 10 & 10 & 10 & 10 \\
+batch\_size & \{8, 16, 32\} & \{4, 8, 16\} & \{8, 16, 32\} & \{1, 2\} & \{8, 16, 32\} \\
+lr & [1e-4, 0.01] (log) & [1e-4, 0.01] (log) & [5e-5, 0.001] (log) & [1e-4, 0.005] (log) & [1e-4, 0.01] (log) \\
+\bottomrule
+\end{tabular}
+\end{small}
+\end{adjustbox}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\caption{TimeMixer++ Hyperparameter Search Space}
+\label{tab:hyperparam_timemixerpp}
+\begin{adjustbox}{max width=\textwidth}
+\begin{small}
+\begin{tabular}{l|ccccc}
+\toprule
+\textbf{Parameter} & \textbf{ETT-h1} & \textbf{BeijingAir} & \textbf{ItalyAir} & \textbf{PeMS} & \textbf{PhysioNet2012} \\
+\midrule
+\multicolumn{6}{l}{\textit{Dataset Properties}} \\
+n\_steps & 48 & 24 & 12 & -- & 48 \\
+n\_features & 7 & 132 & 13 & -- & 35 \\
+\midrule
+\multicolumn{6}{l}{\textit{Model Architecture}} \\
+apply\_nonstationary\_norm & False & False & False & -- & False \\
+channel\_independence & \{T, F\} & \{T, F\} & \{T, F\} & -- & \{T, F\} \\
+channel\_mixing & \{T, F\} & \{T, F\} & \{T, F\} & -- & \{T, F\} \\
+d\_ffn & \{64, 128, 256\} & \{128, 256, 384\} & \{48, 64, 96\} & -- & \{64, 128, 256\} \\
+d\_model & \{32, 64, 128\} & \{64, 128, 192\} & \{24, 32, 48\} & -- & \{32, 64, 128\} \\
+downsampling\_layers & \{1, 2\} & \{1, 2\} & \{1, 2\} & -- & \{1, 2\} \\
+downsampling\_window & \{2, 4\} & \{2, 3, 4\} & \{2, 3\} & -- & \{2, 3, 4\} \\
+dropout & \{0, 0.1, 0.2\} & \{0, 0.1, 0.2\} & \{0, 0.1, 0.2\} & -- & \{0, 0.1, 0.2\} \\
+n\_heads & \{2, 4, 8\} & \{2, 4, 8\} & \{2, 4, 8\} & -- & \{2, 4, 8\} \\
+n\_kernels & \{4, 6, 8\} & \{4, 6, 8\} & \{4, 6, 8\} & -- & \{4, 6, 8\} \\
+n\_layers & \{1, 2, 3\} & \{1, 2, 3\} & \{1, 2, 3\} & -- & \{1, 2, 3\} \\
+top\_k & \{3, 5, 7\} & \{3, 5, 7\} & \{2, 3, 5\} & -- & \{2, 3, 5\} \\
+\midrule
+\multicolumn{6}{l}{\textit{Training Configuration}} \\
+epochs & 1000 & 1000 & 1000 & -- & 1000 \\
+patience & 10 & 10 & 10 & -- & 10 \\
+batch\_size & \{8, 16, 32\} & \{4, 8, 16\} & \{8, 16, 32\} & -- & \{8, 16, 32\} \\
+lr & [1e-4, 0.01] (log) & [1e-4, 0.01] (log) & [1e-4, 0.01] (log) & -- & [1e-4, 0.01] (log) \\
+\bottomrule
+\end{tabular}
+\end{small}
+\end{adjustbox}
+\\[2pt]
+\footnotesize{\textit{Note: TimeMixer++ was not evaluated on PeMS due to excessive memory requirements.}}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\caption{TimeLLM Hyperparameter Search Space}
+\label{tab:hyperparam_timellm}
+\begin{adjustbox}{max width=\textwidth}
+\begin{small}
+\begin{tabular}{l|ccccc}
+\toprule
+\textbf{Parameter} & \textbf{ETT-h1} & \textbf{BeijingAir} & \textbf{ItalyAir} & \textbf{PeMS} & \textbf{PhysioNet2012} \\
+\midrule
+\multicolumn{6}{l}{\textit{Dataset Properties}} \\
+n\_steps & 48 & -- & -- & -- & -- \\
+n\_features & 7 & -- & -- & -- & -- \\
+\midrule
+\multicolumn{6}{l}{\textit{Model Architecture}} \\
+d\_ffn & \{32, 64, 128\} & -- & -- & -- & -- \\
+d\_llm & 768 & -- & -- & -- & -- \\
+d\_model & \{16, 32, 64\} & -- & -- & -- & -- \\
+domain\_prompt\_content & (see note) & -- & -- & -- & -- \\
+dropout & \{0, 0.1, 0.2\} & -- & -- & -- & -- \\
+llm\_model\_type & "BERT" & -- & -- & -- & -- \\
+n\_heads & \{2, 4, 8\} & -- & -- & -- & -- \\
+n\_layers & \{1, 2, 3\} & -- & -- & -- & -- \\
+patch\_size & \{8, 12, 16\} & -- & -- & -- & -- \\
+patch\_stride & \{8, 12, 16\} & -- & -- & -- & -- \\
+\midrule
+\multicolumn{6}{l}{\textit{Training Configuration}} \\
+epochs & 1000 & -- & -- & -- & -- \\
+patience & 10 & -- & -- & -- & -- \\
+batch\_size & \{8, 16, 32\} & -- & -- & -- & -- \\
+lr & [5e-5, 0.001] (log) & -- & -- & -- & -- \\
+\bottomrule
+\end{tabular}
+\end{small}
+\end{adjustbox}
+\\[2pt]
+\footnotesize{\textit{Note: Time-LLM was only evaluated on ETT-h1 due to its computational requirements. The domain\_prompt\_content was set to ``Electricity transformer temperature time series data''.}}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\caption{MOMENT Hyperparameter Search Space}
+\label{tab:hyperparam_moment}
+\begin{adjustbox}{max width=\textwidth}
+\begin{small}
+\begin{tabular}{l|ccccc}
+\toprule
+\textbf{Parameter} & \textbf{ETT-h1} & \textbf{BeijingAir} & \textbf{ItalyAir} & \textbf{PeMS} & \textbf{PhysioNet2012} \\
+\midrule
+\multicolumn{6}{l}{\textit{Dataset Properties}} \\
+n\_steps & 48 & 24 & -- & -- & 48 \\
+n\_features & 7 & 132 & -- & -- & 35 \\
+\midrule
+\multicolumn{6}{l}{\textit{Model Architecture}} \\
+add\_positional\_embedding & True & True & -- & -- & True \\
+d\_ffn & \{1024, 2048, 4096\} & \{1024, 2048, 4096\} & -- & -- & \{512, 1024, 2048\} \\
+d\_model & 768 & 768 & -- & -- & 512 \\
+dropout & \{0, 0.1, 0.2\} & \{0, 0.1, 0.2\} & -- & -- & \{0, 0.1, 0.2\} \\
+finetuning\_mode & \{"linear-probing", "end-to-end"\} & \{"linear-probing", "end-to-end"\} & -- & -- & \{"linear-probing", "end-to-end"\} \\
+head\_dropout & \{0, 0.1, 0.2\} & \{0, 0.1, 0.2\} & -- & -- & \{0, 0.1, 0.2\} \\
+mask\_ratio & \{0.1, 0.3, 0.5\} & \{0.1, 0.3, 0.5\} & -- & -- & \{0.1, 0.3, 0.5\} \\
+n\_layers & \{2, 4, 6\} & \{2, 4, 6\} & -- & -- & \{2, 4\} \\
+orth\_gain & 1.41 & 1.41 & -- & -- & 1.41 \\
+patch\_size & \{8, 12, 16\} & \{6, 8, 12\} & -- & -- & \{12, 24\} \\
+patch\_stride & \{8, 12, 16\} & \{6, 8, 12\} & -- & -- & \{12, 24\} \\
+revin\_affine & True & True & -- & -- & True \\
+transformer\_backbone & "t5-base" & "t5-base" & -- & -- & "t5-small" \\
+transformer\_type & "encoder\_only" & "encoder\_only" & -- & -- & "encoder\_only" \\
+value\_embedding\_bias & True & True & -- & -- & True \\
+\midrule
+\multicolumn{6}{l}{\textit{Training Configuration}} \\
+epochs & 1000 & 1000 & -- & -- & 100 \\
+patience & 10 & 10 & -- & -- & 5 \\
+batch\_size & \{8, 16, 32\} & \{2, 4, 8\} & -- & -- & \{8, 16, 32\} \\
+lr & [5e-5, 0.001] (log) & [5e-5, 0.001] (log) & -- & -- & [5e-4, 0.005] (log) \\
+\bottomrule
+\end{tabular}
+\end{small}
+\end{adjustbox}
+\\[2pt]
+\footnotesize{\textit{Note: MOMENT was not evaluated on ItalyAir and PeMS due to sequence length constraints (requires minimum patch count).}}
+\end{table}
+

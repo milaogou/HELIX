@@ -27,3 +27,178 @@ Using eos_token, but it is not set yet.
 2026-01-13 13:03:56 [INFO]: Epoch 016 - training loss (MAE): 0.9127, validation MSE: 0.5762
 2026-01-13 13:14:14 [INFO]: Epoch 017 - training loss (MAE): 0.9168, validation MSE: 0.5866
 2026-01-13 13:24:32 [INFO]: Epoch 018 - training loss (MAE): 0.9129, validation MSE: 0.5763
+2026-01-13 13:34:50 [INFO]: Epoch 019 - training loss (MAE): 0.9155, validation MSE: 0.5772
+2026-01-13 13:45:08 [INFO]: Epoch 020 - training loss (MAE): 0.9129, validation MSE: 0.5829
+2026-01-13 13:55:27 [INFO]: Epoch 021 - training loss (MAE): 0.9183, validation MSE: 0.5734
+2026-01-13 14:05:45 [INFO]: Epoch 022 - training loss (MAE): 0.9158, validation MSE: 0.5851
+2026-01-13 14:16:03 [INFO]: Epoch 023 - training loss (MAE): 0.9132, validation MSE: 0.5817
+2026-01-13 14:26:21 [INFO]: Epoch 024 - training loss (MAE): 0.9119, validation MSE: 0.5756
+2026-01-13 14:36:39 [INFO]: Epoch 025 - training loss (MAE): 0.9116, validation MSE: 0.5815
+2026-01-13 14:46:58 [INFO]: Epoch 026 - training loss (MAE): 0.9088, validation MSE: 0.5782
+2026-01-13 14:46:58 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2026-01-13 14:46:58 [INFO]: Finished training. The best model is from epoch#21.
+2026-01-13 14:46:59 [INFO]: Saved the model to reproduce_imputation/point01_log/PhysioNet2012_log/TimeLLM_PhysioNet2012/round_0/20260113_T101915/TimeLLM.pypots
+2026-01-13 14:59:16 [INFO]: Successfully saved to reproduce_imputation/point01_log/PhysioNet2012_log/TimeLLM_PhysioNet2012/round_0/imputation.pkl
+2026-01-13 14:59:16 [INFO]: Round0 - TimeLLM on PhysioNet2012: MAE=0.4580, MSE=0.4754, MRE=0.6483
+2026-01-13 14:59:16 [INFO]: Have set the random seed as 2025 for numpy and pytorch.
+2026-01-13 14:59:16 [INFO]: Using the given device: cuda:0
+2026-01-13 14:59:16 [INFO]: Model files will be saved to reproduce_imputation/point01_log/PhysioNet2012_log/TimeLLM_PhysioNet2012/round_1/20260113_T145916
+2026-01-13 14:59:16 [INFO]: Tensorboard file will be saved to reproduce_imputation/point01_log/PhysioNet2012_log/TimeLLM_PhysioNet2012/round_1/20260113_T145916/tensorboard
+2026-01-13 14:59:16 [INFO]: Using customized MAE as the training loss function.
+2026-01-13 14:59:16 [INFO]: Using customized MSE as the validation metric function.
+Using eos_token, but it is not set yet.
+2026-01-13 14:59:19 [INFO]: TimeLLM initialized with the given hyperparameters, the number of trainable parameters: 31,132,584
+2026-01-13 15:09:35 [INFO]: Epoch 001 - training loss (MAE): 0.9996, validation MSE: 0.6421
+2026-01-13 15:19:52 [INFO]: Epoch 002 - training loss (MAE): 0.9705, validation MSE: 0.6616
+2026-01-13 15:30:10 [INFO]: Epoch 003 - training loss (MAE): 0.9673, validation MSE: 0.6398
+2026-01-13 15:40:27 [INFO]: Epoch 004 - training loss (MAE): 0.9596, validation MSE: 0.6326
+2026-01-13 15:50:45 [INFO]: Epoch 005 - training loss (MAE): 0.9530, validation MSE: 0.6192
+2026-01-13 16:01:03 [INFO]: Epoch 006 - training loss (MAE): 0.9404, validation MSE: 0.6097
+2026-01-13 16:11:21 [INFO]: Epoch 007 - training loss (MAE): 0.9308, validation MSE: 0.6145
+2026-01-13 16:21:37 [INFO]: Epoch 008 - training loss (MAE): 0.9310, validation MSE: 0.5978
+2026-01-13 16:31:54 [INFO]: Epoch 009 - training loss (MAE): 0.9299, validation MSE: 0.5982
+2026-01-13 16:42:11 [INFO]: Epoch 010 - training loss (MAE): 0.9230, validation MSE: 0.5921
+2026-01-13 16:52:27 [INFO]: Epoch 011 - training loss (MAE): 0.9197, validation MSE: 0.5895
+2026-01-13 17:02:44 [INFO]: Epoch 012 - training loss (MAE): 0.9158, validation MSE: 0.5950
+2026-01-13 17:13:00 [INFO]: Epoch 013 - training loss (MAE): 0.9115, validation MSE: 0.5768
+2026-01-13 17:23:16 [INFO]: Epoch 014 - training loss (MAE): 0.9133, validation MSE: 0.5729
+2026-01-13 17:33:33 [INFO]: Epoch 015 - training loss (MAE): 0.9125, validation MSE: 0.5806
+2026-01-13 17:43:49 [INFO]: Epoch 016 - training loss (MAE): 0.9081, validation MSE: 0.5772
+2026-01-13 17:54:07 [INFO]: Epoch 017 - training loss (MAE): 0.9126, validation MSE: 0.5722
+2026-01-13 18:04:23 [INFO]: Epoch 018 - training loss (MAE): 0.9102, validation MSE: 0.5756
+2026-01-13 18:14:40 [INFO]: Epoch 019 - training loss (MAE): 0.9111, validation MSE: 0.5818
+2026-01-13 18:24:58 [INFO]: Epoch 020 - training loss (MAE): 0.9112, validation MSE: 0.5746
+2026-01-13 18:35:16 [INFO]: Epoch 021 - training loss (MAE): 0.9080, validation MSE: 0.5764
+2026-01-13 18:45:35 [INFO]: Epoch 022 - training loss (MAE): 0.9076, validation MSE: 0.5810
+2026-01-13 18:45:35 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2026-01-13 18:45:35 [INFO]: Finished training. The best model is from epoch#17.
+2026-01-13 18:45:35 [INFO]: Saved the model to reproduce_imputation/point01_log/PhysioNet2012_log/TimeLLM_PhysioNet2012/round_1/20260113_T145916/TimeLLM.pypots
+2026-01-13 18:57:52 [INFO]: Successfully saved to reproduce_imputation/point01_log/PhysioNet2012_log/TimeLLM_PhysioNet2012/round_1/imputation.pkl
+2026-01-13 18:57:52 [INFO]: Round1 - TimeLLM on PhysioNet2012: MAE=0.4586, MSE=0.4743, MRE=0.6492
+2026-01-13 18:57:52 [INFO]: Have set the random seed as 2026 for numpy and pytorch.
+2026-01-13 18:57:52 [INFO]: Using the given device: cuda:0
+2026-01-13 18:57:52 [INFO]: Model files will be saved to reproduce_imputation/point01_log/PhysioNet2012_log/TimeLLM_PhysioNet2012/round_2/20260113_T185752
+2026-01-13 18:57:52 [INFO]: Tensorboard file will be saved to reproduce_imputation/point01_log/PhysioNet2012_log/TimeLLM_PhysioNet2012/round_2/20260113_T185752/tensorboard
+2026-01-13 18:57:52 [INFO]: Using customized MAE as the training loss function.
+2026-01-13 18:57:52 [INFO]: Using customized MSE as the validation metric function.
+Using eos_token, but it is not set yet.
+2026-01-13 18:57:58 [INFO]: TimeLLM initialized with the given hyperparameters, the number of trainable parameters: 31,132,584
+2026-01-13 19:08:16 [INFO]: Epoch 001 - training loss (MAE): 1.0034, validation MSE: 0.6609
+2026-01-13 19:18:34 [INFO]: Epoch 002 - training loss (MAE): 0.9732, validation MSE: 0.6424
+2026-01-13 19:28:52 [INFO]: Epoch 003 - training loss (MAE): 0.9617, validation MSE: 0.6419
+2026-01-13 19:39:10 [INFO]: Epoch 004 - training loss (MAE): 0.9549, validation MSE: 0.6273
+2026-01-13 19:49:28 [INFO]: Epoch 005 - training loss (MAE): 0.9442, validation MSE: 0.6251
+2026-01-13 19:59:47 [INFO]: Epoch 006 - training loss (MAE): 0.9412, validation MSE: 0.6051
+2026-01-13 20:10:06 [INFO]: Epoch 007 - training loss (MAE): 0.9315, validation MSE: 0.6006
+2026-01-13 20:20:26 [INFO]: Epoch 008 - training loss (MAE): 0.9275, validation MSE: 0.6002
+2026-01-13 20:30:44 [INFO]: Epoch 009 - training loss (MAE): 0.9233, validation MSE: 0.5887
+2026-01-13 20:41:04 [INFO]: Epoch 010 - training loss (MAE): 0.9177, validation MSE: 0.5927
+2026-01-13 20:51:23 [INFO]: Epoch 011 - training loss (MAE): 0.9188, validation MSE: 0.5869
+2026-01-13 21:01:42 [INFO]: Epoch 012 - training loss (MAE): 0.9163, validation MSE: 0.5832
+2026-01-13 21:11:59 [INFO]: Epoch 013 - training loss (MAE): 0.9167, validation MSE: 0.5845
+2026-01-13 21:22:17 [INFO]: Epoch 014 - training loss (MAE): 0.9180, validation MSE: 0.5929
+2026-01-13 21:32:35 [INFO]: Epoch 015 - training loss (MAE): 0.9140, validation MSE: 0.5925
+2026-01-13 21:42:53 [INFO]: Epoch 016 - training loss (MAE): 0.9135, validation MSE: 0.5831
+2026-01-13 21:53:11 [INFO]: Epoch 017 - training loss (MAE): 0.9142, validation MSE: 0.5901
+2026-01-13 22:03:29 [INFO]: Epoch 018 - training loss (MAE): 0.9122, validation MSE: 0.5832
+2026-01-13 22:13:48 [INFO]: Epoch 019 - training loss (MAE): 0.9161, validation MSE: 0.5932
+2026-01-13 22:24:06 [INFO]: Epoch 020 - training loss (MAE): 0.9084, validation MSE: 0.5825
+2026-01-13 22:34:23 [INFO]: Epoch 021 - training loss (MAE): 0.9073, validation MSE: 0.5779
+2026-01-13 22:44:39 [INFO]: Epoch 022 - training loss (MAE): 0.9123, validation MSE: 0.5785
+2026-01-13 22:54:56 [INFO]: Epoch 023 - training loss (MAE): 0.9098, validation MSE: 0.5763
+2026-01-13 23:05:13 [INFO]: Epoch 024 - training loss (MAE): 0.9074, validation MSE: 0.5818
+2026-01-13 23:15:30 [INFO]: Epoch 025 - training loss (MAE): 0.9100, validation MSE: 0.5804
+2026-01-13 23:25:48 [INFO]: Epoch 026 - training loss (MAE): 0.9068, validation MSE: 0.5707
+2026-01-13 23:36:07 [INFO]: Epoch 027 - training loss (MAE): 0.9081, validation MSE: 0.5681
+2026-01-13 23:46:24 [INFO]: Epoch 028 - training loss (MAE): 0.9078, validation MSE: 0.5717
+2026-01-13 23:56:41 [INFO]: Epoch 029 - training loss (MAE): 0.9092, validation MSE: 0.5714
+2026-01-14 00:06:57 [INFO]: Epoch 030 - training loss (MAE): 0.9043, validation MSE: 0.5745
+2026-01-14 00:17:13 [INFO]: Epoch 031 - training loss (MAE): 0.9042, validation MSE: 0.5720
+2026-01-14 00:27:29 [INFO]: Epoch 032 - training loss (MAE): 0.9055, validation MSE: 0.5663
+2026-01-14 00:37:44 [INFO]: Epoch 033 - training loss (MAE): 0.9071, validation MSE: 0.5743
+2026-01-14 00:48:00 [INFO]: Epoch 034 - training loss (MAE): 0.9040, validation MSE: 0.5758
+2026-01-14 00:58:16 [INFO]: Epoch 035 - training loss (MAE): 0.9061, validation MSE: 0.5792
+2026-01-14 01:08:33 [INFO]: Epoch 036 - training loss (MAE): 0.9250, validation MSE: 0.5850
+2026-01-14 01:18:51 [INFO]: Epoch 037 - training loss (MAE): 0.9260, validation MSE: 0.5819
+2026-01-14 01:18:51 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2026-01-14 01:18:51 [INFO]: Finished training. The best model is from epoch#32.
+2026-01-14 01:18:51 [INFO]: Saved the model to reproduce_imputation/point01_log/PhysioNet2012_log/TimeLLM_PhysioNet2012/round_2/20260113_T185752/TimeLLM.pypots
+2026-01-14 01:31:08 [INFO]: Successfully saved to reproduce_imputation/point01_log/PhysioNet2012_log/TimeLLM_PhysioNet2012/round_2/imputation.pkl
+2026-01-14 01:31:08 [INFO]: Round2 - TimeLLM on PhysioNet2012: MAE=0.4532, MSE=0.4688, MRE=0.6416
+2026-01-14 01:31:08 [INFO]: Have set the random seed as 2027 for numpy and pytorch.
+2026-01-14 01:31:08 [INFO]: Using the given device: cuda:0
+2026-01-14 01:31:08 [INFO]: Model files will be saved to reproduce_imputation/point01_log/PhysioNet2012_log/TimeLLM_PhysioNet2012/round_3/20260114_T013108
+2026-01-14 01:31:08 [INFO]: Tensorboard file will be saved to reproduce_imputation/point01_log/PhysioNet2012_log/TimeLLM_PhysioNet2012/round_3/20260114_T013108/tensorboard
+2026-01-14 01:31:08 [INFO]: Using customized MAE as the training loss function.
+2026-01-14 01:31:08 [INFO]: Using customized MSE as the validation metric function.
+Using eos_token, but it is not set yet.
+2026-01-14 01:31:10 [INFO]: TimeLLM initialized with the given hyperparameters, the number of trainable parameters: 31,132,584
+2026-01-14 01:41:28 [INFO]: Epoch 001 - training loss (MAE): 1.0019, validation MSE: 0.6439
+2026-01-14 01:51:43 [INFO]: Epoch 002 - training loss (MAE): 0.9730, validation MSE: 0.6488
+2026-01-14 02:01:58 [INFO]: Epoch 003 - training loss (MAE): 0.9636, validation MSE: 0.6496
+2026-01-14 02:12:14 [INFO]: Epoch 004 - training loss (MAE): 0.9532, validation MSE: 0.6364
+2026-01-14 02:22:30 [INFO]: Epoch 005 - training loss (MAE): 0.9416, validation MSE: 0.6194
+2026-01-14 02:32:46 [INFO]: Epoch 006 - training loss (MAE): 0.9400, validation MSE: 0.6207
+2026-01-14 02:43:02 [INFO]: Epoch 007 - training loss (MAE): 0.9336, validation MSE: 0.6247
+2026-01-14 02:53:18 [INFO]: Epoch 008 - training loss (MAE): 0.9304, validation MSE: 0.6096
+2026-01-14 03:03:34 [INFO]: Epoch 009 - training loss (MAE): 0.9288, validation MSE: 0.6006
+2026-01-14 03:13:48 [INFO]: Epoch 010 - training loss (MAE): 0.9275, validation MSE: 0.6046
+2026-01-14 03:24:04 [INFO]: Epoch 011 - training loss (MAE): 0.9272, validation MSE: 0.6054
+2026-01-14 03:34:20 [INFO]: Epoch 012 - training loss (MAE): 0.9297, validation MSE: 0.6058
+2026-01-14 03:44:36 [INFO]: Epoch 013 - training loss (MAE): 0.9247, validation MSE: 0.5974
+2026-01-14 03:54:52 [INFO]: Epoch 014 - training loss (MAE): 0.9211, validation MSE: 0.5978
+2026-01-14 04:05:09 [INFO]: Epoch 015 - training loss (MAE): 0.9199, validation MSE: 0.5914
+2026-01-14 04:15:26 [INFO]: Epoch 016 - training loss (MAE): 0.9204, validation MSE: 0.5914
+2026-01-14 04:25:42 [INFO]: Epoch 017 - training loss (MAE): 0.9215, validation MSE: 0.6065
+2026-01-14 04:35:58 [INFO]: Epoch 018 - training loss (MAE): 0.9242, validation MSE: 0.5987
+2026-01-14 04:46:13 [INFO]: Epoch 019 - training loss (MAE): 0.9256, validation MSE: 0.5969
+2026-01-14 04:56:30 [INFO]: Epoch 020 - training loss (MAE): 0.9247, validation MSE: 0.5934
+2026-01-14 04:56:30 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2026-01-14 04:56:30 [INFO]: Finished training. The best model is from epoch#15.
+2026-01-14 04:56:30 [INFO]: Saved the model to reproduce_imputation/point01_log/PhysioNet2012_log/TimeLLM_PhysioNet2012/round_3/20260114_T013108/TimeLLM.pypots
+2026-01-14 05:08:47 [INFO]: Successfully saved to reproduce_imputation/point01_log/PhysioNet2012_log/TimeLLM_PhysioNet2012/round_3/imputation.pkl
+2026-01-14 05:08:47 [INFO]: Round3 - TimeLLM on PhysioNet2012: MAE=0.4615, MSE=0.4849, MRE=0.6533
+2026-01-14 05:08:47 [INFO]: Have set the random seed as 2028 for numpy and pytorch.
+2026-01-14 05:08:47 [INFO]: Using the given device: cuda:0
+2026-01-14 05:08:47 [INFO]: Model files will be saved to reproduce_imputation/point01_log/PhysioNet2012_log/TimeLLM_PhysioNet2012/round_4/20260114_T050847
+2026-01-14 05:08:47 [INFO]: Tensorboard file will be saved to reproduce_imputation/point01_log/PhysioNet2012_log/TimeLLM_PhysioNet2012/round_4/20260114_T050847/tensorboard
+2026-01-14 05:08:47 [INFO]: Using customized MAE as the training loss function.
+2026-01-14 05:08:47 [INFO]: Using customized MSE as the validation metric function.
+Using eos_token, but it is not set yet.
+2026-01-14 05:08:51 [INFO]: TimeLLM initialized with the given hyperparameters, the number of trainable parameters: 31,132,584
+2026-01-14 05:19:09 [INFO]: Epoch 001 - training loss (MAE): 0.9984, validation MSE: 0.6527
+2026-01-14 05:29:27 [INFO]: Epoch 002 - training loss (MAE): 0.9737, validation MSE: 0.6371
+2026-01-14 05:39:46 [INFO]: Epoch 003 - training loss (MAE): 0.9644, validation MSE: 0.6323
+2026-01-14 05:50:05 [INFO]: Epoch 004 - training loss (MAE): 0.9559, validation MSE: 0.6183
+2026-01-14 06:00:23 [INFO]: Epoch 005 - training loss (MAE): 0.9404, validation MSE: 0.6080
+2026-01-14 06:10:42 [INFO]: Epoch 006 - training loss (MAE): 0.9369, validation MSE: 0.5979
+2026-01-14 06:21:01 [INFO]: Epoch 007 - training loss (MAE): 0.9304, validation MSE: 0.6031
+2026-01-14 06:31:20 [INFO]: Epoch 008 - training loss (MAE): 0.9288, validation MSE: 0.6020
+2026-01-14 06:41:38 [INFO]: Epoch 009 - training loss (MAE): 0.9254, validation MSE: 0.5911
+2026-01-14 06:51:56 [INFO]: Epoch 010 - training loss (MAE): 0.9208, validation MSE: 0.5830
+2026-01-14 07:02:15 [INFO]: Epoch 011 - training loss (MAE): 0.9185, validation MSE: 0.5822
+2026-01-14 07:12:33 [INFO]: Epoch 012 - training loss (MAE): 0.9163, validation MSE: 0.5785
+2026-01-14 07:22:52 [INFO]: Epoch 013 - training loss (MAE): 0.9145, validation MSE: 0.5941
+2026-01-14 07:33:11 [INFO]: Epoch 014 - training loss (MAE): 0.9177, validation MSE: 0.5785
+2026-01-14 07:43:29 [INFO]: Epoch 015 - training loss (MAE): 0.9147, validation MSE: 0.5821
+2026-01-14 07:53:48 [INFO]: Epoch 016 - training loss (MAE): 0.9153, validation MSE: 0.5775
+2026-01-14 08:04:06 [INFO]: Epoch 017 - training loss (MAE): 0.9106, validation MSE: 0.5761
+2026-01-14 08:14:25 [INFO]: Epoch 018 - training loss (MAE): 0.9101, validation MSE: 0.5802
+2026-01-14 08:24:44 [INFO]: Epoch 019 - training loss (MAE): 0.9094, validation MSE: 0.5775
+2026-01-14 08:35:03 [INFO]: Epoch 020 - training loss (MAE): 0.9086, validation MSE: 0.5726
+2026-01-14 08:45:21 [INFO]: Epoch 021 - training loss (MAE): 0.9116, validation MSE: 0.5748
+2026-01-14 08:55:40 [INFO]: Epoch 022 - training loss (MAE): 0.9118, validation MSE: 0.5769
+2026-01-14 09:05:59 [INFO]: Epoch 023 - training loss (MAE): 0.9101, validation MSE: 0.5714
+2026-01-14 09:16:18 [INFO]: Epoch 024 - training loss (MAE): 0.9091, validation MSE: 0.5749
+2026-01-14 09:26:36 [INFO]: Epoch 025 - training loss (MAE): 0.9171, validation MSE: 0.5724
+2026-01-14 09:36:55 [INFO]: Epoch 026 - training loss (MAE): 0.9099, validation MSE: 0.5724
+2026-01-14 09:47:14 [INFO]: Epoch 027 - training loss (MAE): 0.9062, validation MSE: 0.5717
+2026-01-14 09:57:33 [INFO]: Epoch 028 - training loss (MAE): 0.9081, validation MSE: 0.5749
+2026-01-14 09:57:33 [INFO]: Exceeded the training patience. Terminating the training procedure...
+2026-01-14 09:57:33 [INFO]: Finished training. The best model is from epoch#23.
+2026-01-14 09:57:33 [INFO]: Saved the model to reproduce_imputation/point01_log/PhysioNet2012_log/TimeLLM_PhysioNet2012/round_4/20260114_T050847/TimeLLM.pypots
+2026-01-14 10:09:50 [INFO]: Successfully saved to reproduce_imputation/point01_log/PhysioNet2012_log/TimeLLM_PhysioNet2012/round_4/imputation.pkl
+2026-01-14 10:09:50 [INFO]: Round4 - TimeLLM on PhysioNet2012: MAE=0.4542, MSE=0.4684, MRE=0.6430
+2026-01-14 10:09:50 [INFO]: Done! Final results:
+Averaged TimeLLM (31,132,584 params) on PhysioNet2012: MAE=0.4571 ± 0.003029998065106522, MSE=0.4743 ± 0.005972556683159096, MRE=0.6471 ± 0.004289126676655867, average inference time=146.39
+  0%|          | 0/132 [00:00<?, ?it/s] 55%|█████▌    | 73/132 [00:00<00:00, 716.65it/s]100%|██████████| 132/132 [00:00<00:00, 733.52it/s]

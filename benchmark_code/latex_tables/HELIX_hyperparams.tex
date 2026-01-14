@@ -1,0 +1,38 @@
+\begin{table}[H]
+\centering
+\caption{HELIX Hyperparameter Search Space}
+\label{tab:hyperparam_helix}
+\begin{adjustbox}{max width=\textwidth}
+\begin{small}
+\begin{tabular}{l|ccccc}
+\toprule
+\textbf{Parameter} & \textbf{ETT-h1} & \textbf{BeijingAir} & \textbf{ItalyAir} & \textbf{PeMS} & \textbf{PhysioNet2012} \\
+\midrule
+\multicolumn{6}{l}{\textit{Dataset Properties}} \\
+n\_steps & 48 & 24 & 12 & 24 & 48 \\
+n\_features & 7 & 132 & 13 & 862 & 35 \\
+\midrule
+\multicolumn{6}{l}{\textit{Model Architecture}} \\
+d\_model & \{96, 128, 192, 256\} & \{192, 256, 384\} & \{32, 40, 64\} & \{384, 512, 576, 768\} & \{64, 96, 128\} \\
+dropout & \{0, 0.1, 0.2, 0.3\} & \{0, 0.1, 0.2\} & \{0, 0.1, 0.2\} & \{0, 0.1, 0.2\} & \{0, 0.1, 0.2\} \\
+feature\_embed\_dim & \{6, 12, 24\} & \{16, 24, 32\} & \{4, 6, 8\} & \{32, 64, 128\} & \{8, 10, 16\} \\
+n\_heads & \{4, 6, 8\} & \{4, 8, 12\} & \{2, 4, 8\} & \{6, 8, 12\} & \{2, 4, 8\} \\
+n\_layers & \{1, 2, 3\} & \{1, 2, 3\} & \{1, 2, 3\} & \{1, 2, 3\} & \{1, 2, 3\} \\
+pe\_dim & \{12, 24, 48\} & \{6, 12, 24\} & \{3, 4, 6\} & \{6, 12, 24\} & \{8, 12, 16\} \\
+\midrule
+\multicolumn{6}{l}{\textit{Training Configuration}} \\
+epochs & 1000 & 1000 & 1000 & 1000 & 1000 \\
+patience & 10 & 10 & 10 & 10 & 10 \\
+batch\_size & \{8, 16, 32\} & \{4, 8, 16\} & \{8, 16, 32\} & \{1, 2\} & \{8, 16, 32\} \\
+lr & [1e-4, 0.01] (log) & [1e-4, 0.01] (log) & [1e-4, 0.01] (log) & [1e-4, 0.005] (log) & [1e-4, 0.01] (log) \\
+\midrule
+\multicolumn{6}{l}{\textit{Loss Weights}} \\
+ORT\_weight & -- & 1.0 & 1.0 & -- & 1.0 \\
+MIT\_weight & -- & 1.0 & 1.0 & -- & 1.0 \\
+\bottomrule
+\end{tabular}
+\end{small}
+\end{adjustbox}
+\\[2pt]
+\footnotesize{\textit{Note: The ablation variants (w/o Rotary PE, w/o Feature Identity Embedding, w/o Hybrid Encoding, w/o Multi-level Fusion) use the same search space.}}
+\end{table}

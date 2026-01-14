@@ -1,0 +1,33 @@
+\begin{table}[H]
+\centering
+\caption{TOTEM Hyperparameter Search Space}
+\label{tab:hyperparam_totem}
+\begin{adjustbox}{max width=\textwidth}
+\begin{small}
+\begin{tabular}{l|ccccc}
+\toprule
+\textbf{Parameter} & \textbf{ETT-h1} & \textbf{BeijingAir} & \textbf{ItalyAir} & \textbf{PeMS} & \textbf{PhysioNet2012} \\
+\midrule
+\multicolumn{6}{l}{\textit{Dataset Properties}} \\
+n\_steps & 48 & 24 & 12 & 24 & 48 \\
+n\_features & 7 & 132 & 13 & 862 & 35 \\
+\midrule
+\multicolumn{6}{l}{\textit{Model Architecture}} \\
+commitment\_cost & \{0.1, 0.25, 0.5\} & \{0.1, 0.25, 0.5\} & \{0.1, 0.25, 0.5\} & \{0.1, 0.25, 0.5\} & \{0.1, 0.25, 0.5\} \\
+compression\_factor & \{2, 4, 8\} & \{2, 3, 4\} & \{2, 3, 4\} & \{2, 4, 8\} & \{2, 3, 4\} \\
+d\_block\_hidden & \{16, 32, 64\} & \{48, 64, 96\} & \{16, 24, 32\} & \{64, 128, 256\} & \{32, 48, 64\} \\
+d\_embedding & \{16, 32, 64\} & \{48, 64, 96\} & \{16, 24, 32\} & \{64, 128, 256\} & \{32, 48, 64\} \\
+d\_residual\_hidden & \{8, 16, 32\} & \{24, 32, 48\} & \{8, 12, 16\} & \{32, 64, 128\} & \{16, 24, 32\} \\
+n\_embeddings & \{128, 256, 512\} & \{256, 512, 768\} & \{64, 128, 256\} & \{256, 512, 1024\} & \{128, 256, 512\} \\
+n\_residual\_layers & \{1, 2, 3\} & \{1, 2, 3\} & \{1, 2, 3\} & \{1, 2, 3\} & \{1, 2, 3\} \\
+\midrule
+\multicolumn{6}{l}{\textit{Training Configuration}} \\
+epochs & 1000 & 1000 & 1000 & 1000 & 1000 \\
+patience & 10 & 10 & 10 & 10 & 10 \\
+batch\_size & \{8, 16, 32\} & \{4, 8, 16\} & \{8, 16, 32\} & \{1, 2\} & \{8, 16, 32\} \\
+lr & [1e-4, 0.01] (log) & [1e-4, 0.01] (log) & [5e-5, 0.001] (log) & [1e-4, 0.005] (log) & [1e-4, 0.01] (log) \\
+\bottomrule
+\end{tabular}
+\end{small}
+\end{adjustbox}
+\end{table}

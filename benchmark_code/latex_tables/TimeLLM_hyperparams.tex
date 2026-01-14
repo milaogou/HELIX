@@ -1,0 +1,38 @@
+\begin{table}[H]
+\centering
+\caption{TimeLLM Hyperparameter Search Space}
+\label{tab:hyperparam_timellm}
+\begin{adjustbox}{max width=\textwidth}
+\begin{small}
+\begin{tabular}{l|ccccc}
+\toprule
+\textbf{Parameter} & \textbf{ETT-h1} & \textbf{BeijingAir} & \textbf{ItalyAir} & \textbf{PeMS} & \textbf{PhysioNet2012} \\
+\midrule
+\multicolumn{6}{l}{\textit{Dataset Properties}} \\
+n\_steps & 48 & -- & -- & -- & -- \\
+n\_features & 7 & -- & -- & -- & -- \\
+\midrule
+\multicolumn{6}{l}{\textit{Model Architecture}} \\
+d\_ffn & \{32, 64, 128\} & -- & -- & -- & -- \\
+d\_llm & 768 & -- & -- & -- & -- \\
+d\_model & \{16, 32, 64\} & -- & -- & -- & -- \\
+domain\_prompt\_content & (see note) & -- & -- & -- & -- \\
+dropout & \{0, 0.1, 0.2\} & -- & -- & -- & -- \\
+llm\_model\_type & "BERT" & -- & -- & -- & -- \\
+n\_heads & \{2, 4, 8\} & -- & -- & -- & -- \\
+n\_layers & \{1, 2, 3\} & -- & -- & -- & -- \\
+patch\_size & \{8, 12, 16\} & -- & -- & -- & -- \\
+patch\_stride & \{8, 12, 16\} & -- & -- & -- & -- \\
+\midrule
+\multicolumn{6}{l}{\textit{Training Configuration}} \\
+epochs & 1000 & -- & -- & -- & -- \\
+patience & 10 & -- & -- & -- & -- \\
+batch\_size & \{8, 16, 32\} & -- & -- & -- & -- \\
+lr & [5e-5, 0.001] (log) & -- & -- & -- & -- \\
+\bottomrule
+\end{tabular}
+\end{small}
+\end{adjustbox}
+\\[2pt]
+\footnotesize{\textit{Note: Time-LLM was only evaluated on ETT-h1 due to its computational requirements. The domain\_prompt\_content was set to ``Electricity transformer temperature time series data''.}}
+\end{table}

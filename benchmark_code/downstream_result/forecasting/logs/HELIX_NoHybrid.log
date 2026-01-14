@@ -1,1 +1,21 @@
-python: can't open file '/home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/downstream_forecasting.py': [Errno 2] No such file or directory
+[34m
+████████╗██╗███╗   ███╗███████╗    ███████╗███████╗██████╗ ██╗███████╗███████╗    █████╗ ██╗
+╚══██╔══╝██║████╗ ████║██╔════╝    ██╔════╝██╔════╝██╔══██╗██║██╔════╝██╔════╝   ██╔══██╗██║
+   ██║   ██║██╔████╔██║█████╗█████╗███████╗█████╗  ██████╔╝██║█████╗  ███████╗   ███████║██║
+   ██║   ██║██║╚██╔╝██║██╔══╝╚════╝╚════██║██╔══╝  ██╔══██╗██║██╔══╝  ╚════██║   ██╔══██║██║
+   ██║   ██║██║ ╚═╝ ██║███████╗    ███████║███████╗██║  ██║██║███████╗███████║██╗██║  ██║██║
+   ╚═╝   ╚═╝╚═╝     ╚═╝╚══════╝    ╚══════╝╚══════╝╚═╝  ╚═╝╚═╝╚══════╝╚══════╝╚═╝╚═╝  ╚═╝╚═╝
+ai4ts v0.0.3 - building AI for unified time-series analysis, https://time-series.ai [0m
+
+2026-01-14 17:58:36 [WARNING]: ‼️ `pypots.utils.metrics` is deprecated. Please import from `pypots.nn.functional` instead.
+2026-01-14 17:58:36 [INFO]: Have set the random seed as 2024 for numpy and pytorch.
+2026-01-14 17:58:39 [INFO]: Have set the random seed as 2025 for numpy and pytorch.
+2026-01-14 17:58:41 [INFO]: Have set the random seed as 2026 for numpy and pytorch.
+2026-01-14 17:58:44 [INFO]: Have set the random seed as 2027 for numpy and pytorch.
+2026-01-14 17:58:46 [INFO]: Have set the random seed as 2028 for numpy and pytorch.
+2026-01-14 17:58:48 [INFO]: 
+XGB (without imputation) regression MAE: 1.2037±0.0000, MSE: 1.8063±0.0000, MRE: 1.0661±0.0000
+XGB (with HELIX_NoHybrid imputation) regression MAE: 1.2105±0.0000, MSE: 1.7583±0.0000, MRE: 1.0721±0.0000
+RNN (with HELIX_NoHybrid imputation) regression MAE: 1.2370±0.0612, MSE: 1.9040±0.1237, MRE: 1.0956±0.0542
+Transformer (with HELIX_NoHybrid imputation) regression MAE: 1.1176±0.0338, MSE: 1.4238±0.0724, MRE: 0.9898±0.0299
+

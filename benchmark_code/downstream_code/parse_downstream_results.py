@@ -48,29 +48,38 @@ def parse_classification_log(log_path):
     with open(log_path, 'r') as f:
         content = f.read()
     
-    # Look for "=== Average Results ===" section
+    # 方式1: 尝试解析标准格式 "=== Average Results ==="
     avg_section = re.search(r'=== Average Results ===(.*)', content, re.DOTALL)
-    if not avg_section:
-        return None
+    if avg_section:
+        avg_content = avg_section.group(1)
+        patterns = {
+            'XGB_ROC_AUC': r'XGB_ROC_AUC:\s*([\d.]+)',
+            'XGB_PR_AUC': r'XGB_PR_AUC:\s*([\d.]+)',
+            'RNN_ROC_AUC': r'RNN_ROC_AUC:\s*([\d.]+)',
+            'RNN_PR_AUC': r'RNN_PR_AUC:\s*([\d.]+)',
+            'Transformer_ROC_AUC': r'Transformer_ROC_AUC:\s*([\d.]+)',
+            'Transformer_PR_AUC': r'Transformer_PR_AUC:\s*([\d.]+)',
+        }
+        for key, pattern in patterns.items():
+            match = re.search(pattern, avg_content)
+            if match:
+                results[key] = float(match.group(1))
+        if results:
+            return results
     
-    avg_content = avg_section.group(1)
-    
-    # Parse metrics: XGB_ROC_AUC, XGB_PR_AUC, RNN_ROC_AUC, RNN_PR_AUC, Transformer_ROC_AUC, Transformer_PR_AUC
-    patterns = {
-        'XGB_ROC_AUC': r'XGB_ROC_AUC:\s*([\d.]+)',
-        'XGB_PR_AUC': r'XGB_PR_AUC:\s*([\d.]+)',
-        'RNN_ROC_AUC': r'RNN_ROC_AUC:\s*([\d.]+)',
-        'RNN_PR_AUC': r'RNN_PR_AUC:\s*([\d.]+)',
-        'Transformer_ROC_AUC': r'Transformer_ROC_AUC:\s*([\d.]+)',
-        'Transformer_PR_AUC': r'Transformer_PR_AUC:\s*([\d.]+)',
+    # 方式2: 尝试解析HELIX格式 "XGB with XXX imputation PR_AUC: x.xxxx±x.xxxx, ROC_AUC: x.xxxx±x.xxxx"
+    helix_patterns = {
+        ('XGB_PR_AUC', 'XGB_ROC_AUC'): r'XGB with \w+ imputation PR_AUC:\s*([\d.]+)[±\+\-][\d.]+,\s*ROC_AUC:\s*([\d.]+)',
+        ('RNN_PR_AUC', 'RNN_ROC_AUC'): r'RNN with \w+ imputation PR_AUC:\s*([\d.]+)[±\+\-][\d.]+,\s*ROC_AUC:\s*([\d.]+)',
+        ('Transformer_PR_AUC', 'Transformer_ROC_AUC'): r'Transformer with \w+ imputation PR_AUC:\s*([\d.]+)[±\+\-][\d.]+,\s*ROC_AUC:\s*([\d.]+)',
     }
-    
-    for key, pattern in patterns.items():
-        match = re.search(pattern, avg_content)
+    for (pr_key, roc_key), pattern in helix_patterns.items():
+        match = re.search(pattern, content)
         if match:
-            results[key] = float(match.group(1))
+            results[pr_key] = float(match.group(1))
+            results[roc_key] = float(match.group(2))
     
-    return results
+    return results if results else None
 
 
 def parse_forecasting_log(log_path):
@@ -83,30 +92,42 @@ def parse_forecasting_log(log_path):
     with open(log_path, 'r') as f:
         content = f.read()
     
+    # 方式1: 尝试解析标准格式 "=== Average Results ==="
     avg_section = re.search(r'=== Average Results ===(.*)', content, re.DOTALL)
-    if not avg_section:
-        return None
+    if avg_section:
+        avg_content = avg_section.group(1)
+        patterns = {
+            'XGB_MAE': r'XGB_MAE:\s*([\d.]+)',
+            'XGB_MSE': r'XGB_MSE:\s*([\d.]+)',
+            'XGB_MRE': r'XGB_MRE:\s*([\d.]+)',
+            'RNN_MAE': r'RNN_MAE:\s*([\d.]+)',
+            'RNN_MSE': r'RNN_MSE:\s*([\d.]+)',
+            'RNN_MRE': r'RNN_MRE:\s*([\d.]+)',
+            'Transformer_MAE': r'Transformer_MAE:\s*([\d.]+)',
+            'Transformer_MSE': r'Transformer_MSE:\s*([\d.]+)',
+            'Transformer_MRE': r'Transformer_MRE:\s*([\d.]+)',
+        }
+        for key, pattern in patterns.items():
+            match = re.search(pattern, avg_content)
+            if match:
+                results[key] = float(match.group(1))
+        if results:
+            return results
     
-    avg_content = avg_section.group(1)
-    
-    patterns = {
-        'XGB_MAE': r'XGB_MAE:\s*([\d.]+)',
-        'XGB_MSE': r'XGB_MSE:\s*([\d.]+)',
-        'XGB_MRE': r'XGB_MRE:\s*([\d.]+)',
-        'RNN_MAE': r'RNN_MAE:\s*([\d.]+)',
-        'RNN_MSE': r'RNN_MSE:\s*([\d.]+)',
-        'RNN_MRE': r'RNN_MRE:\s*([\d.]+)',
-        'Transformer_MAE': r'Transformer_MAE:\s*([\d.]+)',
-        'Transformer_MSE': r'Transformer_MSE:\s*([\d.]+)',
-        'Transformer_MRE': r'Transformer_MRE:\s*([\d.]+)',
+    # 方式2: 尝试解析HELIX格式 "XGB (with XXX imputation) regression MAE: x.xxxx±x.xxxx, MSE: x.xxxx±x.xxxx, MRE: x.xxxx±x.xxxx"
+    helix_patterns = {
+        ('XGB_MAE', 'XGB_MSE', 'XGB_MRE'): r'XGB \(with \w+ imputation\) (?:regression|forecasting) MAE:\s*([\d.]+)[±\+\-][\d.]+,\s*MSE:\s*([\d.]+)[±\+\-][\d.]+,\s*MRE:\s*([\d.]+)',
+        ('RNN_MAE', 'RNN_MSE', 'RNN_MRE'): r'RNN \(with \w+ imputation\) (?:regression|forecasting) MAE:\s*([\d.]+)[±\+\-][\d.]+,\s*MSE:\s*([\d.]+)[±\+\-][\d.]+,\s*MRE:\s*([\d.]+)',
+        ('Transformer_MAE', 'Transformer_MSE', 'Transformer_MRE'): r'Transformer \(with \w+ imputation\) (?:regression|forecasting) MAE:\s*([\d.]+)[±\+\-][\d.]+,\s*MSE:\s*([\d.]+)[±\+\-][\d.]+,\s*MRE:\s*([\d.]+)',
     }
-    
-    for key, pattern in patterns.items():
-        match = re.search(pattern, avg_content)
+    for (mae_key, mse_key, mre_key), pattern in helix_patterns.items():
+        match = re.search(pattern, content)
         if match:
-            results[key] = float(match.group(1))
+            results[mae_key] = float(match.group(1))
+            results[mse_key] = float(match.group(2))
+            results[mre_key] = float(match.group(3))
     
-    return results
+    return results if results else None
 
 
 def parse_regression_log(log_path):

@@ -378,15 +378,19 @@ ItalyAir = {
       'lr': 0.005637211820454757
    },
    'StemGNN': {
-      'n_steps': 12,
-      'n_features': 13,
-      'epochs': 100, 
-      'patience': 10, 
-      'n_layers': 2, 
-      'n_stacks': 1, 
-      'd_model': 512,
-      'dropout': 0.3, 
-      'lr': 0.00526615473656503
+       'n_steps': 12,
+       'n_features': 13,
+       'epochs': 1000,
+       'patience': 10,
+       'n_layers': 2,
+       'n_stacks': 2,
+       'd_model': 64,
+       'dropout': 0.5,
+       'leaky_rate': 0.3,
+       'ORT_weight': 1.0,
+       'MIT_weight': 1.0,
+       'batch_size': 32,
+       'lr': 0.0026161824545914893,
    },
    'iTransformer': {
       'n_steps': 12, 

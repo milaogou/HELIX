@@ -376,15 +376,19 @@ BeijingAir = {
         'lr': 0.00024042971963822373
     },
     'StemGNN': {
-        'n_steps': 24, 
+        'n_steps': 24,
         'n_features': 132,
-        'epochs': 100,
-        'patience': 10, 
-        'n_layers': 3, 
-        'n_stacks': 2, 
-        'd_model': 512,
-        'dropout': 0, 
-        'lr': 0.002346769078880226
+        'epochs': 1000,
+        'patience': 10,
+        'n_layers': 3,
+        'n_stacks': 1,
+        'd_model': 256,
+        'dropout': 0.5,
+        'leaky_rate': 0.2,
+        'ORT_weight': 1.0,
+        'MIT_weight': 1.0,
+        'batch_size': 4,
+        'lr': 0.0010886262066077059,
     },
     'iTransformer': {
         'n_steps': 24,

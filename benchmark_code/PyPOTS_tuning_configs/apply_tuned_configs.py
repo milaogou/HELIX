@@ -26,6 +26,7 @@ MODEL_MAPPING = {
     'TimeMixerPP': 'TimeMixerPP',
     'TimeMixer': 'TimeMixer',
     'ModernTCN': 'ModernTCN',
+    'StemGNN': 'StemGNN',
     'ImputeFormer': 'ImputeFormer',
     'MOMENT': 'MOMENT',
     'TOTEM': 'TOTEM',

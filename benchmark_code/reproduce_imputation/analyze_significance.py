@@ -25,6 +25,7 @@ COMPARISON_PAIRS = [
     ('HELIX', 'TimeMixer'),
     ('HELIX', 'TimeMixerPP'),
     ('HELIX', 'ModernTCN'),
+    ('HELIX', 'StemGNN'),
     ('HELIX', 'TOTEM'),
     # HELIX vs Transformer
     ('HELIX', 'iTransformer'),

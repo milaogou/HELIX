@@ -7,21 +7,21 @@
 % ----------------------------------------------------------------------
 % Model, point01, point05, point09, block05, subseq05, Avg, Std
 %
-% HELIX (Ours)                  : pt01=2.40, pt05=2.25, pt09=2.58, block=2.33, subseq=1.67, avg=2.25, std=0.31
-% w/o Multi-level Fusion        : pt01=1.87, pt05=2.75, pt09=2.50, block=2.25, subseq=3.58, avg=2.59, std=0.57
-% w/o Rotary PE                 : pt01=2.93, pt05=2.42, pt09=2.75, block=3.00, subseq=5.58, avg=3.34, std=1.14
-% w/o Hybrid Encoding           : pt01=3.80, pt05=2.58, pt09=3.67, block=2.75, subseq=4.25, avg=3.41, std=0.64
-% ImputeFormer                  : pt01=6.53, pt05=7.08, pt09=6.92, block=5.17, subseq=4.92, avg=6.12, std=0.90
-% SAITS                         : pt01=7.27, pt05=7.17, pt09=5.50, block=6.50, subseq=5.50, avg=6.39, std=0.77
-% w/o Feature Identity Emb.     : pt01=5.73, pt05=6.00, pt09=8.33, block=6.50, subseq=8.92, avg=7.10, std=1.29
-% PatchTST                      : pt01=10.33, pt05=10.08, pt09=9.08, block=10.75, subseq=8.83, avg=9.81, std=0.74
-% FreTS                         : pt01=12.13, pt05=11.25, pt09=7.92, block=9.92, subseq=8.17, avg=9.88, std=1.66
-% Linear Interpolation          : pt01=7.53, pt05=7.75, pt09=13.00, block=11.33, subseq=12.33, avg=10.39, std=2.31
-% Nonstationary Trans.          : pt01=11.33, pt05=11.17, pt09=10.83, block=10.08, subseq=9.92, avg=10.67, std=0.57
-% iTransformer                  : pt01=9.93, pt05=9.58, pt09=12.25, block=11.58, subseq=13.92, avg=11.45, std=1.59
-% TEFN                          : pt01=10.60, pt05=12.25, pt09=12.92, block=13.00, subseq=12.50, avg=12.25, std=0.87
-% Time-LLM                      : pt01=14.58, pt05=14.33, pt09=12.78, block=16.22, subseq=16.56, avg=14.89, std=1.37
-% TimeMixer                     : pt01=16.93, pt05=16.42, pt09=14.50, block=15.08, subseq=13.42, avg=15.27, std=1.28
+% HELIX (Ours)                  : pt01=2.40, pt05=2.25, pt09=2.83, block=2.33, subseq=1.67, avg=2.30, std=0.37
+% w/o Multi-level Fusion        : pt01=1.80, pt05=2.75, pt09=2.75, block=2.25, subseq=3.83, avg=2.68, std=0.68
+% w/o Rotary PE                 : pt01=3.00, pt05=2.42, pt09=3.00, block=3.00, subseq=6.08, avg=3.50, std=1.31
+% w/o Hybrid Encoding           : pt01=3.80, pt05=2.58, pt09=3.92, block=2.75, subseq=4.58, avg=3.53, std=0.75
+% ImputeFormer                  : pt01=6.53, pt05=7.17, pt09=7.25, block=5.17, subseq=5.17, avg=6.26, std=0.92
+% SAITS                         : pt01=7.27, pt05=7.33, pt09=6.00, block=6.58, subseq=5.75, avg=6.59, std=0.64
+% w/o Feature Identity Emb.     : pt01=5.73, pt05=6.00, pt09=9.08, block=6.58, subseq=9.58, avg=7.39, std=1.61
+% StemGNN                       : pt01=13.20, pt05=10.42, pt09=5.83, block=8.58, subseq=6.67, avg=8.94, std=2.66
+% PatchTST                      : pt01=10.60, pt05=10.67, pt09=9.83, block=11.58, subseq=9.75, avg=10.49, std=0.67
+% FreTS                         : pt01=12.53, pt05=11.92, pt09=8.92, block=10.83, subseq=9.08, avg=10.66, std=1.46
+% Linear Interpolation          : pt01=7.60, pt05=7.92, pt09=14.00, block=12.08, subseq=13.08, avg=10.94, std=2.67
+% Nonstationary Trans.          : pt01=11.67, pt05=11.92, pt09=11.67, block=10.92, subseq=10.58, avg=11.35, std=0.51
+% iTransformer                  : pt01=9.93, pt05=10.08, pt09=13.25, block=12.58, subseq=14.92, avg=12.15, std=1.91
+% TEFN                          : pt01=10.80, pt05=13.00, pt09=13.92, block=13.83, subseq=13.33, avg=12.98, std=1.14
+% Time-LLM                      : pt01=15.50, pt05=15.22, pt09=13.78, block=17.22, subseq=17.56, avg=15.86, std=1.39
 
 % ======================================================================
 % SUMMARY: KEY POINTS FOR PAPER

@@ -31,6 +31,7 @@ MODEL_DISPLAY = {
     'TimeMixer': ('TimeMixer', 'Recent (2024)'),
     'TimeMixerPP': ('TimeMixer++', 'Recent (2024)'),
     'ModernTCN': ('ModernTCN', 'Recent (2024)'),
+    'StemGNN': ('StemGNN', 'Graph Neural Network'),
     'TOTEM': ('TOTEM', 'Recent (2024)'),
     'iTransformer': ('iTransformer', 'Transformer'),
     'NonstationaryTransformer': ('Nonstationary Trans.', 'Transformer'),
@@ -43,14 +44,66 @@ MODEL_DISPLAY = {
     'Naive_LOCF': ('LOCF', 'Naive'),
     'Naive_LinearInterp': ('Linear Interpolation', 'Naive'),
 }
+# Model categories (fine-grained)
+MODEL_CATEGORY = {
+    'HELIX': 'Ours',
+    'HELIX_NoFusion': 'Ablation',
+    'HELIX_NoRotaryPE': 'Ablation',
+    'HELIX_NoHybrid': 'Ablation',
+    'HELIX_NoFeatureEmbed': 'Ablation',
+    'ImputeFormer': 'Low-rank Attention',
+    'SAITS': 'Masked Attention',
+    'PatchTST': 'Patch-based',
+    'FreTS': 'Frequency Domain',
+    'NonstationaryTransformer': 'Non-stationary Attn',
+    'iTransformer': 'Variate Attention',
+    'TEFN': 'Evidence Fusion',
+    'TimeLLM': 'LLM Adaptation',
+    'TimeMixer': 'Multi-scale Mixing',
+    'TimeMixerPP': 'Multi-scale Mixing',
+    'ModernTCN': 'Modern Convolution',
+    'TOTEM': 'Tokenization',
+    'MOMENT': 'Foundation Model',
+    'StemGNN': 'Graph Neural Network',
+    'Naive_Mean': 'Naive',
+    'Naive_Median': 'Naive',
+    'Naive_LOCF': 'Naive',
+    'Naive_LinearInterp': 'Naive',
+}
 
+# Model publication venues
+MODEL_VENUE = {
+    'HELIX': '--',
+    'HELIX_NoFusion': '--',
+    'HELIX_NoRotaryPE': '--',
+    'HELIX_NoHybrid': '--',
+    'HELIX_NoFeatureEmbed': '--',
+    'ImputeFormer': "KDD'24",
+    'SAITS': "ESWA'23",
+    'PatchTST': "ICLR'23",
+    'FreTS': "NeurIPS'23",
+    'NonstationaryTransformer': "NeurIPS'22",
+    'iTransformer': "ICLR'24",
+    'TEFN': "TPAMI'25",
+    'TimeLLM': "ICLR'24",
+    'TimeMixer': "ICLR'24",
+    'TimeMixerPP': "ICLR'25",
+    'ModernTCN': "ICLR'24",
+    'TOTEM': "TMLR'24",
+    'MOMENT': "ICML'24",
+    'StemGNN': "NeurIPS'20",
+    'Naive_Mean': '--',
+    'Naive_Median': '--',
+    'Naive_LOCF': '--',
+    'Naive_LinearInterp': '--',
+}
 # Order for display (HELIX first, then ablations, then baselines by category)
 MODEL_ORDER = [
     'HELIX',
     'HELIX_NoFusion', 'HELIX_NoRotaryPE', 'HELIX_NoHybrid', 'HELIX_NoFeatureEmbed',
     'ImputeFormer', 'SAITS',
     'NonstationaryTransformer', 'PatchTST', 'iTransformer',
-    'TEFN', 'TimeMixer', 'TimeMixerPP', 'ModernTCN', 'TOTEM',
+    'TEFN', 'TimeMixer', 'TimeMixerPP', 'ModernTCN', 'StemGNN', 'TOTEM',
     'FreTS',
     'TimeLLM', 'MOMENT',
     'Naive_LinearInterp', 'Naive_LOCF', 'Naive_Median', 'Naive_Mean',
@@ -88,6 +141,17 @@ def get_category(model):
         return MODEL_DISPLAY[model][1]
     return 'Other'
 
+def get_fine_category(model):
+    """Get fine-grained category for model."""
+    if model in MODEL_CATEGORY:
+        return MODEL_CATEGORY[model]
+    return 'Other'
+
+def get_venue(model):
+    """Get publication venue for model."""
+    if model in MODEL_VENUE:
+        return MODEL_VENUE[model]
+    return '--'
 def format_metric(value_str):
     """Format metric string for LaTeX."""
     if pd.isna(value_str) or value_str == '0' or value_str == 'N/A':
@@ -198,43 +262,36 @@ def format_by_rank(value_str, rank):
 # =============================================================================
 
 def generate_table1_overall_ranking(base_path, output_dir):
-    """Generate Table 1: Overall Ranking (22 methods)."""
+    """Generate Table 1: Overall Ranking - sorted by Global Rank."""
     
     csv_path = os.path.join(base_path, 'rankings_global_with_naive.csv')
     df = pd.read_csv(csv_path)
     
-    # Sort by Avg_Rank
-    df = df.sort_values('Avg_Rank')
+    # Sort by Global_Rank (not by category)
+    df = df.sort_values('Global_Rank')
     
     latex = []
     latex.append(r"\begin{table*}[t]")
-    latex.append(r"    \caption{Overall ranking across all 26 experimental settings (6 datasets $\times$ 5 missing patterns, excluding PhysioNet2012 which only has Point-10\%). Lower average rank is better. $\dagger$ indicates models that could not run on all settings due to computational constraints.}")
+    latex.append(r"    \caption{Overall ranking across all experimental settings. Lower average rank indicates better performance. $\dagger$ indicates models that could not run on all settings due to computational or architectural constraints.}")
     latex.append(r"    \label{tab:main_ranking}")
     latex.append(r"    \centering")
     latex.append(r"    \begin{small}")
-    latex.append(r"    \begin{tabular}{l|ccc|l}")
+    latex.append(r"    \begin{tabular}{l|ccc|ll}")
     latex.append(r"        \toprule")
-    latex.append(r"        \textbf{Model} & \textbf{Avg. Rank} $\downarrow$ & \textbf{Valid Exps.} & \textbf{Global Rank} & \textbf{Category} \\")
+    latex.append(r"        \textbf{Model} & \textbf{Avg. Rank} $\downarrow$ & \textbf{Valid Exps.} & \textbf{Global Rank} & \textbf{Category} & \textbf{Venue} \\")
     latex.append(r"        \midrule")
     
-    prev_category = None
     for _, row in df.iterrows():
         model = row['Model']
         display_name = get_display_name(model)
-        category = get_category(model)
+        category = get_fine_category(model)
+        venue = get_venue(model)
         avg_rank = row['Avg_Rank']
         valid_exps = row['Valid_Experiments']
         total_exps = row['Total_Experiments']
         global_rank = int(row['Global_Rank'])
         
-        # Add midrule between categories
-        if prev_category is not None and category != prev_category:
-            if prev_category == 'Ours':
-                latex.append(r"        \midrule")
-            elif prev_category == 'Ablation' and category != 'Ablation':
-                latex.append(r"        \midrule")
-        
-        # Format model name
+        # Format model name based on type
         if model == 'HELIX':
             model_str = f"\\textbf{{{display_name}}}"
             rank_str = f"\\textbf{{{avg_rank:.2f}}}"
@@ -252,8 +309,7 @@ def generate_table1_overall_ranking(base_path, output_dir):
         if valid_exps < total_exps:
             model_str += "$^\\dagger$"
         
-        latex.append(f"        {model_str} & {rank_str} & {valid_exps}/{total_exps} & {global_str} & {category} \\\\")
-        prev_category = category
+        latex.append(f"        {model_str} & {rank_str} & {valid_exps}/{total_exps} & {global_str} & {category} & {venue} \\\\")
     
     latex.append(r"        \bottomrule")
     latex.append(r"    \end{tabular}")
@@ -294,7 +350,7 @@ def generate_table2_detailed_results(base_path, output_dir):
         'HELIX', 'HELIX_NoFusion', 'HELIX_NoRotaryPE', 'HELIX_NoHybrid', 'HELIX_NoFeatureEmbed',
         'ImputeFormer', 'SAITS',
         'NonstationaryTransformer', 'PatchTST', 'iTransformer',
-        'TEFN', 'TimeMixer', 'TimeMixerPP', 'ModernTCN', 'TOTEM',
+        'TEFN', 'TimeMixer', 'TimeMixerPP', 'ModernTCN', 'StemGNN', 'TOTEM',
         'FreTS', 'TimeLLM', 'MOMENT',
     ]
     

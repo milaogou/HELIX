@@ -10,7 +10,7 @@ Layout:
     Row 2: Quantitative analysis (3 panels)
         - (d) Error distribution (violin plot)
         - (e) Boundary analysis (MAE at missing region edges)
-        - (f) Cross-station correlation utilization
+        - (f) Cross-station Spatial Correlation Benefit
 
 Author: Generated for HELIX ICML 2026 submission
 """
@@ -332,12 +332,8 @@ def plot_time_series_panel(ax, X_ori, X_obs, missing_mask, imputations,
     ax.set_xlabel('Time Step')
     ax.set_ylabel('Normalized Value')
     
-    # Get station name from feature index
-    station_idx = feature_idx // N_FEATURES_PER_STATION
-    station_name = STATION_NAMES[station_idx] if station_idx < len(STATION_NAMES) else f'Station {station_idx}'
-    
-    ax.set_title(f'({chr(97 + list(PATTERN_CONFIG.keys()).index(pattern_name))}) {pattern_name}\n'
-                 f'Station: {station_name}', fontweight='bold')
+    ax.set_title(f'({chr(97 + list(PATTERN_CONFIG.keys()).index(pattern_name))}) {pattern_name}', 
+                 fontsize=9, fontweight='bold')
     
     ax.grid(True, alpha=0.3, linestyle='-', linewidth=0.3)
 
@@ -370,10 +366,11 @@ def plot_error_distribution(ax, errors_by_pattern, methods):
                capsize=3, error_kw={'linewidth': 1})
     
     ax.set_xticks(x)
-    ax.set_xticklabels(pattern_names, fontsize=9)
+    short_labels = [p.replace('-50%', '').replace('%', '') for p in pattern_names]
+    ax.set_xticklabels(short_labels, fontsize=6)
     ax.set_xlabel('Missing Pattern')
     ax.set_ylabel('Mean Absolute Error')
-    ax.set_title('(d) Imputation Error Comparison', fontweight='bold')
+    ax.set_title('(d) Error by Pattern', fontsize=9, fontweight='bold')
     # ax.legend(loc='upper right', fontsize=6)
     ax.grid(True, alpha=0.3, axis='y')
     ax.set_ylim(0, None)
@@ -476,11 +473,10 @@ def plot_error_by_gap_length(ax, gap_errors, length_bins, methods):
                label=label, alpha=0.85)
     
     ax.set_xticks(x)
-    ax.set_xticklabels(['1-2', '3-5', '6-10', '11+'], fontsize=9)
-    ax.set_xlabel('Missing Region Length (time steps)')
+    ax.set_xticklabels(['1-2', '3-5', '6-10', '11+'], fontsize=6)
+    ax.set_xlabel('Missing Length')
     ax.set_ylabel('Mean Absolute Error')
-    ax.set_title('(e) Error vs Gap Length', fontweight='bold')
-    # ax.legend(loc='upper right', fontsize=6)
+    ax.set_title('(e) Error by Gap Length', fontsize=9, fontweight='bold')
     ax.grid(True, alpha=0.3, axis='y')
 
 
@@ -582,9 +578,9 @@ def plot_correlation_analysis(ax, corr_results, methods):
                    linewidth=1.5, capsize=3, label=label,
                    linestyle=LINE_STYLES[method])
     
-    ax.set_xlabel('Avg. Correlation with Observed Stations')
+    ax.set_xlabel('Inter-Station Correlation')
     ax.set_ylabel('Mean Absolute Error')
-    ax.set_title('(f) Cross-Station Correlation Utilization', fontweight='bold')
+    ax.set_title('(f) Spatial Correlation Benefit', fontsize=9, fontweight='bold')
     # ax.legend(loc='upper right', fontsize=6)
     ax.grid(True, alpha=0.3)
     ax.set_xlim(0, 1)
@@ -650,13 +646,13 @@ def generate_figure5(output_dir):
     print("\n" + "-" * 70)
     print("Creating figure...")
     
-    fig = plt.figure(figsize=(6.75, 4.2))
+    fig = plt.figure(figsize=(6.75, 4.0))
     
     # Create grid: 2 rows, 3 columns
     gs = gridspec.GridSpec(2, 3, figure=fig, 
-                       height_ratios=[1, 1],
-                       hspace=0.40, wspace=0.30,
-                       left=0.08, right=0.97, top=0.85, bottom=0.10)
+               height_ratios=[1, 1],
+               hspace=0.50, wspace=0.38,
+               left=0.08, right=0.94, top=0.85, bottom=0.12)
     
     # Row 1: Time series panels
     print("  Plotting time series panels...")
@@ -691,8 +687,9 @@ def generate_figure5(output_dir):
         Rectangle((0, 0), 1, 1, facecolor=COLORS['missing_region'], 
                   edgecolor=COLORS['missing_border'], label='Missing Region'),
     ]
-    fig.legend(handles=handles, loc='upper center', ncol=5, fontsize=6,
-           bbox_to_anchor=(0.5, 1.02), frameon=True, framealpha=0.9)
+    fig.legend(handles=handles, loc='upper center', ncol=5, fontsize=6.5,
+   bbox_to_anchor=(0.52, 0.97), frameon=True, framealpha=0.9,
+   handlelength=1.2, handletextpad=0.3, columnspacing=0.8)
     
     # Row 2: Quantitative analysis
     print("  Computing quantitative metrics...")
@@ -757,10 +754,6 @@ def generate_figure5(output_dir):
     print("  Plotting correlation analysis...")
     ax_f = fig.add_subplot(gs[1, 2])
     plot_correlation_analysis(ax_f, corr_results, MODEL_NAMES)
-    
-    # Main title
-    fig.suptitle('Figure 5: Imputation Quality Comparison Across Missing Patterns',
-             fontsize=9, fontweight='bold', y=0.995)
     
     # Save
     output_pdf = os.path.join(output_dir, 'figure5_imputation.pdf')

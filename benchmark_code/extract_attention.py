@@ -189,16 +189,16 @@ def plot_figure3_feature_attention(attn_dict, geo_dist, stations, output_dir,
     # ==========================================================================
     
     # Increased height: 2.8 -> 3.3 to accommodate title and x-axis labels
-    fig = plt.figure(figsize=(6.5, 3.3))
+    fig = plt.figure(figsize=(6.5, 3.0))
     
     # GridSpec: reserve space for shared colorbar on the right
-    gs = GridSpec(1, n_layers + 1, 
-                  width_ratios=[1]*n_layers + [0.05],
-                  wspace=0.35,  # Increased spacing between subplots
-                  left=0.06, right=0.92, top=0.82, bottom=0.20)
-    
+    gs = GridSpec(1, n_layers, 
+              wspace=0.25,
+              left=0.08, right=0.88, top=0.88, bottom=0.15)
+
     axes = [fig.add_subplot(gs[0, i]) for i in range(n_layers)]
-    cax = fig.add_subplot(gs[0, -1])  # Colorbar axis
+    # Colorbar axis: 手动定位，比主图短 (shrink ~70%)
+    cax = fig.add_axes([0.90, 0.28, 0.015, 0.48])  # [left, bottom, width, height]
     
     # Unified color range across all subplots
     all_values = [data[1] for data in feature_data]
@@ -241,10 +241,6 @@ def plot_figure3_feature_attention(attn_dict, geo_dist, stations, output_dir,
     cbar.ax.tick_params(labelsize=6)
     cbar.set_label('Attention', fontsize=7)
     
-    # Main title
-    fig.suptitle('Feature Attention Increasingly Captures Spatial Structure', 
-                 fontsize=10, fontweight='bold', y=0.96)
-    
     plt.savefig(os.path.join(output_dir, 'figure3_feature_attention.pdf'), 
                 bbox_inches='tight', pad_inches=0.02)
     plt.savefig(os.path.join(output_dir, 'figure3_feature_attention.png'), 
@@ -281,13 +277,13 @@ def plot_appendix_temporal_attention(attn_dict, output_dir):
     
     fig = plt.figure(figsize=(6.5, 3.0))  # Increased height
     
-    gs = GridSpec(1, n_layers + 1, 
-                  width_ratios=[1]*n_layers + [0.05],
-                  wspace=0.25,
-                  left=0.08, right=0.92, top=0.78, bottom=0.15)
-    
+    gs = GridSpec(1, n_layers, 
+              wspace=0.35,
+              left=0.06, right=0.88, top=0.88, bottom=0.18)
+
     axes = [fig.add_subplot(gs[0, i]) for i in range(n_layers)]
-    cax = fig.add_subplot(gs[0, -1])
+    # Colorbar axis: 手动定位，比主图短 (shrink ~70%)
+    cax = fig.add_axes([0.90, 0.30, 0.015, 0.46])  # [left, bottom, width, height]
     
     # Unified color range
     all_values = [data[1].mean(axis=0) for data in temporal_attns]
@@ -317,17 +313,13 @@ def plot_appendix_temporal_attention(attn_dict, output_dir):
     cbar.ax.tick_params(labelsize=6)
     cbar.set_label('Attention', fontsize=7)
     
-    # Main title - adjusted y position
-    fig.suptitle('Appendix A1: Temporal Attention Evolution\n(From local focus to broader context)', 
-                 fontsize=10, fontweight='bold', y=0.98)
-    
-    plt.savefig(os.path.join(output_dir, 'appendix_a1_attention.pdf'), 
+    plt.savefig(os.path.join(output_dir, 'figure4_temporal_attention.pdf'), 
                 bbox_inches='tight', pad_inches=0.02)
-    plt.savefig(os.path.join(output_dir, 'appendix_a1_attention.png'), 
+    plt.savefig(os.path.join(output_dir, 'figure4_temporal_attention.png'), 
                 dpi=300, bbox_inches='tight', pad_inches=0.02)
     plt.close()
     
-    print(f"Saved: {output_dir}/appendix_a1_attention.pdf")
+    print(f"Saved: {output_dir}/figure4_temporal_attention.pdf")
 
 
 # =============================================================================
@@ -404,7 +396,7 @@ def main():
     print(f"\nKey insight: Correlation increases with depth!")
     print(f"\nOutput files:")
     print(f"  - {args.output_dir}/figure3_feature_attention.pdf (Main text)")
-    print(f"  - {args.output_dir}/appendix_a1_attention.pdf (Appendix)")
+    print(f"  - {args.output_dir}/figure4_temporal_attention.pdf (Appendix)")
     print("=" * 70)
 
 

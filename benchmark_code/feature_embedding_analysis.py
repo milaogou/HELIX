@@ -356,18 +356,18 @@ def create_figure2(similarity_matrix, distance_matrix, stations,
     
     for i, j, sim in top_connections:
         color = cmap(norm(sim))
-        width = 1.5 + 0.5 * (sim - sim_min) / (sim_max - sim_min + 1e-8)
+        width = 0.5 + 0.5 * (sim - sim_min) / (sim_max - sim_min + 1e-8)
         ax1.plot([lons[i], lons[j]], [lats[i], lats[j]], 
                 color=color, linewidth=width, alpha=1, zorder=2)
     
     # Stations
-    ax1.scatter(lons, lats, c='white', s=150, edgecolors='black',  # s从250改为150
-       linewidths=0.8, zorder=4)
+    ax1.scatter(lons, lats, c='white', s=60, edgecolors='black',  # s从250改为150
+       linewidths=0.3, zorder=4)
     
     # Labels
     for i, station in enumerate(stations):
         ax1.annotate(STATION_SHORT[station], (lons[i], lats[i]), 
-                fontsize=5, ha='center', va='center',  # 6改为5
+                fontsize=4, ha='center', va='center',  # 6改为5
                 fontweight='bold', zorder=5)
     
     # Colorbar for map
@@ -419,7 +419,7 @@ def create_figure2(similarity_matrix, distance_matrix, stations,
     p_str = f'p = {p:.4f}' if p >= 0.0001 else 'p < 0.0001'
     ax2.set_title(f'(b) r = {r:.3f}, {p_str}', fontsize=9)  # 大幅简化标题
     ax2.grid(True, alpha=0.3, linestyle='-', linewidth=0.4)
-    ax2.legend(loc='upper right', fontsize=8, framealpha=0.9)
+    ax2.legend(loc='upper right', fontsize=6, framealpha=0.9)
     ymin, ymax = ax2.get_ylim()
     ax2.set_ylim(ymin - 0.02, ymax + 0.02)
     
@@ -472,10 +472,10 @@ def create_figure2(similarity_matrix, distance_matrix, stations,
     
     # Annotations
     ax3.text(0.25, 0.92, 'Upper: Learned', transform=ax3.transAxes, 
-            fontsize=7, fontweight='bold', ha='center',
+            fontsize=6, fontweight='bold', ha='center',
             bbox=dict(boxstyle='round,pad=0.2', facecolor='wheat', alpha=0.8))
     ax3.text(0.75, 0.08, 'Lower: Geo.', transform=ax3.transAxes,  # 缩短文字
-            fontsize=7, fontweight='bold', ha='center',
+            fontsize=6, fontweight='bold', ha='center',
             bbox=dict(boxstyle='round,pad=0.2', facecolor='lightblue', alpha=0.8))
     
     # Correlation for heatmap title

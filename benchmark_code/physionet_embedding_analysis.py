@@ -111,7 +111,7 @@ def plot_figure6(embedding, output_path):
     """
     Create Figure 6: Boxplot comparing within-group vs between-group similarity.
     """
-    fig, ax = plt.subplots(figsize=(5, 4.5))
+    fig, ax = plt.subplots(figsize=(3.5, 3.2))
     
     within_sims, between_sims = compute_within_between_stats(embedding)
     
@@ -140,8 +140,8 @@ def plot_figure6(embedding, output_path):
     ax.grid(True, alpha=0.3, axis='y')
     
     plt.tight_layout()
-    plt.savefig(output_path, bbox_inches='tight')
-    plt.savefig(output_path.replace('.pdf', '.png'), dpi=300, bbox_inches='tight')
+    plt.savefig(output_path, bbox_inches='tight', pad_inches=0.02)
+    plt.savefig(output_path.replace('.pdf', '.png'), dpi=300, bbox_inches='tight', pad_inches=0.02)
     print(f"Saved: {output_path}")
     plt.close()
     

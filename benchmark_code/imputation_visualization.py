@@ -40,12 +40,12 @@ from pypots.data.saving import pickle_load
 plt.rcParams.update({
     'font.family': 'serif',
     'font.serif': ['Times New Roman', 'Times', 'DejaVu Serif'],
-    'font.size': 9,
-    'axes.labelsize': 10,
-    'axes.titlesize': 11,
-    'xtick.labelsize': 8,
-    'ytick.labelsize': 8,
-    'legend.fontsize': 8,
+    'font.size': 7,
+    'axes.labelsize': 8,
+    'axes.titlesize': 8,
+    'legend.fontsize': 6,
+    'xtick.labelsize': 6,
+    'ytick.labelsize': 6,
     'figure.dpi': 150,
     'savefig.dpi': 300,
     'savefig.bbox': 'tight',
@@ -374,7 +374,7 @@ def plot_error_distribution(ax, errors_by_pattern, methods):
     ax.set_xlabel('Missing Pattern')
     ax.set_ylabel('Mean Absolute Error')
     ax.set_title('(d) Imputation Error Comparison', fontweight='bold')
-    ax.legend(loc='upper left', fontsize=7)
+    # ax.legend(loc='upper right', fontsize=6)
     ax.grid(True, alpha=0.3, axis='y')
     ax.set_ylim(0, None)
 
@@ -480,7 +480,7 @@ def plot_error_by_gap_length(ax, gap_errors, length_bins, methods):
     ax.set_xlabel('Missing Region Length (time steps)')
     ax.set_ylabel('Mean Absolute Error')
     ax.set_title('(e) Error vs Gap Length', fontweight='bold')
-    ax.legend(loc='upper left', fontsize=7)
+    # ax.legend(loc='upper right', fontsize=6)
     ax.grid(True, alpha=0.3, axis='y')
 
 
@@ -585,7 +585,7 @@ def plot_correlation_analysis(ax, corr_results, methods):
     ax.set_xlabel('Avg. Correlation with Observed Stations')
     ax.set_ylabel('Mean Absolute Error')
     ax.set_title('(f) Cross-Station Correlation Utilization', fontweight='bold')
-    ax.legend(loc='upper right', fontsize=7)
+    # ax.legend(loc='upper right', fontsize=6)
     ax.grid(True, alpha=0.3)
     ax.set_xlim(0, 1)
 
@@ -650,13 +650,13 @@ def generate_figure5(output_dir):
     print("\n" + "-" * 70)
     print("Creating figure...")
     
-    fig = plt.figure(figsize=(15, 9))
+    fig = plt.figure(figsize=(6.75, 4.2))
     
     # Create grid: 2 rows, 3 columns
     gs = gridspec.GridSpec(2, 3, figure=fig, 
-                           height_ratios=[1, 1],
-                           hspace=0.35, wspace=0.25,
-                           left=0.06, right=0.98, top=0.93, bottom=0.08)
+                       height_ratios=[1, 1],
+                       hspace=0.40, wspace=0.30,
+                       left=0.08, right=0.97, top=0.85, bottom=0.10)
     
     # Row 1: Time series panels
     print("  Plotting time series panels...")
@@ -691,8 +691,8 @@ def generate_figure5(output_dir):
         Rectangle((0, 0), 1, 1, facecolor=COLORS['missing_region'], 
                   edgecolor=COLORS['missing_border'], label='Missing Region'),
     ]
-    fig.legend(handles=handles, loc='upper center', ncol=5, fontsize=9,
-               bbox_to_anchor=(0.5, 0.99), frameon=True, framealpha=0.9)
+    fig.legend(handles=handles, loc='upper center', ncol=5, fontsize=6,
+           bbox_to_anchor=(0.5, 1.02), frameon=True, framealpha=0.9)
     
     # Row 2: Quantitative analysis
     print("  Computing quantitative metrics...")
@@ -760,7 +760,7 @@ def generate_figure5(output_dir):
     
     # Main title
     fig.suptitle('Figure 5: Imputation Quality Comparison Across Missing Patterns',
-                 fontsize=13, fontweight='bold', y=1.02)
+             fontsize=9, fontweight='bold', y=0.995)
     
     # Save
     output_pdf = os.path.join(output_dir, 'figure5_imputation.pdf')

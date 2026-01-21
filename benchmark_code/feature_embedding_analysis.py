@@ -27,6 +27,7 @@ from matplotlib.cm import ScalarMappable
 from matplotlib.patches import Polygon as MplPolygon
 from matplotlib.collections import PatchCollection, LineCollection
 from sklearn.metrics.pairwise import cosine_similarity
+from mpl_toolkits.axes_grid1.inset_locator import inset_axes
 from scipy.stats import pearsonr
 import warnings
 warnings.filterwarnings('ignore')
@@ -297,18 +298,17 @@ def create_figure2(similarity_matrix, distance_matrix, stations,
     from mpl_toolkits.axes_grid1 import make_axes_locatable
     import matplotlib.gridspec as gridspec
     
-    fig = plt.figure(figsize=(16, 4.2))
-    # 外层GridSpec：a单独，b+c一起
-    outer_gs = gridspec.GridSpec(1, 2, figure=fig, width_ratios=[1, 2.1], 
-                                  wspace=0.16, left=0.04, right=0.92,
-                                  top=0.92, bottom=0.02)
+    fig = plt.figure(figsize=(6.5, 2.8))  # 减少高度，b会自动变扁
+    outer_gs = gridspec.GridSpec(1, 2, figure=fig, width_ratios=[1.1, 2.5],
+                wspace=0.15, left=0.02, right=0.96,
+                top=0.88, bottom=0.32)  # 增加底部空间给colorbar
     
     # a单独占左边
     ax1 = fig.add_subplot(outer_gs[0, 0])
     
     # b和c用内层GridSpec，间距更小
     inner_gs = gridspec.GridSpecFromSubplotSpec(1, 2, subplot_spec=outer_gs[0, 1],
-                                                 wspace=0.13)  # b和c之间更小的间距
+                                 wspace=0.25, width_ratios=[1, 1])
     ax2 = fig.add_subplot(inner_gs[0, 0])
     ax3 = fig.add_subplot(inner_gs[0, 1])
     
@@ -361,27 +361,30 @@ def create_figure2(similarity_matrix, distance_matrix, stations,
                 color=color, linewidth=width, alpha=1, zorder=2)
     
     # Stations
-    ax1.scatter(lons, lats, c='white', s=250, edgecolors='black', 
-           linewidths=1.0, zorder=4)
+    ax1.scatter(lons, lats, c='white', s=150, edgecolors='black',  # s从250改为150
+       linewidths=0.8, zorder=4)
     
     # Labels
     for i, station in enumerate(stations):
         ax1.annotate(STATION_SHORT[station], (lons[i], lats[i]), 
-                    fontsize=6, ha='center', va='center',
-                    fontweight='bold', zorder=5)
+                fontsize=5, ha='center', va='center',  # 6改为5
+                fontweight='bold', zorder=5)
     
     # Colorbar for map
     sm = ScalarMappable(cmap=cmap, norm=norm)
     sm.set_array([])
-    cbar1 = fig.colorbar(sm, ax=ax1, fraction=0.046, pad=0.02)
-    cbar1.set_label('Embedding Similarity', fontsize=9)
-    cbar1.ax.tick_params(labelsize=8)
+    cax1 = inset_axes(ax1, width="75%", height="4%", loc='lower center',
+                  bbox_to_anchor=(0, -0.3, 1, 1), bbox_transform=ax1.transAxes)
+    cbar1 = fig.colorbar(sm, cax=cax1, orientation='horizontal')
+    cbar1.set_label('Embedding Similarity', fontsize=7, labelpad=1)
+    cbar1.ax.tick_params(labelsize=6)
     
-    ax1.set_xlabel('Longitude (°E)', fontsize=10)
-    ax1.set_ylabel('Latitude (°N)', fontsize=10)
-    ax1.set_title(f'(a) Beijing Air Quality Stations (Top {top_n} Connections)', fontsize=11)
+    ax1.set_xlabel('Longitude (°E)', fontsize=8, labelpad=1)  # 减少间距
+    ax1.set_ylabel('Latitude (°N)', fontsize=8, labelpad=1)  # 减少留白
+    ax1.set_title(f'(a) Beijing Stations', fontsize=10)  # 简化标题
     ax1.set_xlim(116.10, 116.72)
     ax1.set_ylim(39.82, 40.38)
+    ax1.tick_params(axis='both', labelsize=7)  # 添加这行
     ax1.set_facecolor('#FAFAFA')
     ax1.set_aspect('auto')
     
@@ -410,19 +413,13 @@ def create_figure2(similarity_matrix, distance_matrix, stations,
                     p_line(x_line) + 1.96*std_err, 
                     color='red', alpha=0.1, label='95% CI')
     
-    ax2.set_xlabel('Geographic Distance (km)', fontsize=10)
-    ax2.set_ylabel('Embedding Cosine Similarity', fontsize=10)
+    ax2.set_xlabel('Geographic Distance (km)', fontsize=9)
+    ax2.set_ylabel('Embedding Similarity', fontsize=8, labelpad=0)  # labelpad增大使标签右移
+    ax2.tick_params(axis='y', labelsize=7, pad=1)
     p_str = f'p = {p:.4f}' if p >= 0.0001 else 'p < 0.0001'
-    ax2.set_title(f'(b) Similarity vs Distance (r = {r:.3f}, {p_str})', fontsize=11)
+    ax2.set_title(f'(b) r = {r:.3f}, {p_str}', fontsize=9)  # 大幅简化标题
     ax2.grid(True, alpha=0.3, linestyle='-', linewidth=0.4)
     ax2.legend(loc='upper right', fontsize=8, framealpha=0.9)
-    
-    # 恢复colorbar，使用与c相同的方式
-    cbar2 = fig.colorbar(scatter, ax=ax2, fraction=0.046, pad=0.02)
-    cbar2.set_label('Distance (km)', fontsize=9)
-    cbar2.ax.tick_params(labelsize=8)
-    
-    # 扩展y轴范围，增加上下边距（不用aspect='equal'）
     ymin, ymax = ax2.get_ylim()
     ax2.set_ylim(ymin - 0.02, ymax + 0.02)
     
@@ -452,7 +449,7 @@ def create_figure2(similarity_matrix, distance_matrix, stations,
     cmap_heat = plt.cm.YlOrRd.copy()
     cmap_heat.set_bad(color='white')
     
-    im = ax3.imshow(combined, cmap=cmap_heat, vmin=0, vmax=1, aspect='equal')
+    im = ax3.imshow(combined, cmap=cmap_heat, vmin=0, vmax=1, aspect='auto')
     ax3.set_anchor('N')
     
     for i in range(n + 1):
@@ -467,24 +464,26 @@ def create_figure2(similarity_matrix, distance_matrix, stations,
     
     # Colorbar - 使用fig.colorbar手动定位，避免从subplot借空间
     # 获取ax3的位置后，在其右侧添加colorbar
-    cbar3 = fig.colorbar(im, ax=ax3, fraction=0.046, pad=0.02)
-    cbar3.set_label('Normalized Value (0-1)', fontsize=9)
-    cbar3.ax.tick_params(labelsize=8)
+    cax3 = inset_axes(ax3, width="75%", height="4%", loc='lower center',
+                  bbox_to_anchor=(0, -0.3, 1, 1), bbox_transform=ax3.transAxes)
+    cbar3 = fig.colorbar(im, cax=cax3, orientation='horizontal')
+    cbar3.set_label('Normalized Value', fontsize=7, labelpad=1)
+    cbar3.ax.tick_params(labelsize=6)
     
     # Annotations
     ax3.text(0.25, 0.92, 'Upper: Learned', transform=ax3.transAxes, 
-            fontsize=9, fontweight='bold', ha='center',
-            bbox=dict(boxstyle='round,pad=0.3', facecolor='wheat', alpha=0.8))
-    ax3.text(0.75, 0.08, 'Lower: Geographic', transform=ax3.transAxes, 
-            fontsize=9, fontweight='bold', ha='center',
-            bbox=dict(boxstyle='round,pad=0.3', facecolor='lightblue', alpha=0.8))
+            fontsize=7, fontweight='bold', ha='center',
+            bbox=dict(boxstyle='round,pad=0.2', facecolor='wheat', alpha=0.8))
+    ax3.text(0.75, 0.08, 'Lower: Geo.', transform=ax3.transAxes,  # 缩短文字
+            fontsize=7, fontweight='bold', ha='center',
+            bbox=dict(boxstyle='round,pad=0.2', facecolor='lightblue', alpha=0.8))
     
     # Correlation for heatmap title
     r_heat, p_heat = pearsonr(geo_proximity[triu_idx], similarity_matrix[triu_idx])
-    ax3.set_title(f'(c) Geographic Proximity vs Learned Similarity (r = {r_heat:.3f})', fontsize=11)
+    ax3.set_title(f'(c) Geo. vs Learned (r = {r_heat:.3f})', fontsize=9)  # 简化
     
-    plt.savefig(output_path, format='pdf', bbox_inches='tight')
-    plt.savefig(output_path.replace('.pdf', '.png'), format='png', dpi=300, bbox_inches='tight')
+    plt.savefig(output_path, format='pdf', bbox_inches='tight', pad_inches=0.05)
+    plt.savefig(output_path.replace('.pdf', '.png'), format='png', dpi=300, bbox_inches='tight', pad_inches=0.05)
     print(f"Saved: {output_path}")
     plt.close()
     

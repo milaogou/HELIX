@@ -1,35 +1,35 @@
-2026-01-11 14:23:12 [INFO]: Using the given device: cuda:0
-2026-01-11 14:23:12 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
-2026-01-11 14:23:12 [INFO]: Using customized MAE as the training loss function.
-2026-01-11 14:23:12 [INFO]: Using customized MSE as the validation metric function.
-2026-01-11 14:23:12 [WARNING]: ‼️ d_model (256) must be divisible by n_heads (12)
-2026-01-11 14:23:12 [WARNING]: ⚠️ d_model is adjusted to 252
-2026-01-11 14:23:12 [INFO]: ============================================================
-2026-01-11 14:23:12 [INFO]: HELIX Model Configuration:
-2026-01-11 14:23:12 [INFO]: ============================================================
-2026-01-11 14:23:12 [INFO]: Data dimensions:
-2026-01-11 14:23:12 [INFO]:   - n_steps: 24
-2026-01-11 14:23:12 [INFO]:   - n_features: 132
-2026-01-11 14:23:12 [INFO]: Model architecture:
-2026-01-11 14:23:12 [INFO]:   - pe_dim: 12
-2026-01-11 14:23:12 [INFO]:   - feature_embed_dim: 24
-2026-01-11 14:23:12 [INFO]:   - d_model: 252
-2026-01-11 14:23:12 [INFO]:   - n_heads: 12
-2026-01-11 14:23:12 [INFO]:   - n_layers: 3
-2026-01-11 14:23:12 [INFO]:   - dropout: 0.2
-2026-01-11 14:23:12 [INFO]: Training configuration:
-2026-01-11 14:23:12 [INFO]:   - ORT_weight: 1.0
-2026-01-11 14:23:12 [INFO]:   - MIT_weight: 1.0
-2026-01-11 14:23:12 [INFO]:   - batch_size: 4
-2026-01-11 14:23:12 [INFO]:   - epochs: 1000
-2026-01-11 14:23:12 [INFO]:   - patience: 10
-2026-01-11 14:23:12 [INFO]: Optimizer configuration:
-2026-01-11 14:23:12 [INFO]:   - initial_lr: 0.001
-2026-01-11 14:23:12 [INFO]:   - lr_decay: disabled
-2026-01-11 14:23:12 [INFO]: Other settings:
-2026-01-11 14:23:12 [INFO]:   - num_workers: 0
-2026-01-11 14:23:12 [INFO]:   - device: cuda:0
-2026-01-11 14:23:12 [INFO]:   - model_saving_strategy: None
-2026-01-11 14:23:12 [INFO]: ============================================================
-2026-01-11 14:23:12 [INFO]: HELIX initialized with the given hyperparameters, the number of trainable parameters: 4,615,311
-2026-01-11 14:23:12 [INFO]: Learning rate scheduler disabled (lr_decay_patience not set)
+2026-01-20 22:52:33 [INFO]: Using the given device: cuda:0
+2026-01-20 22:52:33 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+2026-01-20 22:52:33 [INFO]: Using customized MAE as the training loss function.
+2026-01-20 22:52:33 [INFO]: Using customized MSE as the validation metric function.
+2026-01-20 22:52:33 [WARNING]: ‼️ d_model (256) must be divisible by n_heads (12)
+2026-01-20 22:52:33 [WARNING]: ⚠️ d_model is adjusted to 252
+2026-01-20 22:52:33 [INFO]: ============================================================
+2026-01-20 22:52:33 [INFO]: HELIX Model Configuration:
+2026-01-20 22:52:33 [INFO]: ============================================================
+2026-01-20 22:52:33 [INFO]: Data dimensions:
+2026-01-20 22:52:33 [INFO]:   - n_steps: 24
+2026-01-20 22:52:33 [INFO]:   - n_features: 132
+2026-01-20 22:52:33 [INFO]: Model architecture:
+2026-01-20 22:52:33 [INFO]:   - pe_dim: 12
+2026-01-20 22:52:33 [INFO]:   - feature_embed_dim: 24
+2026-01-20 22:52:33 [INFO]:   - d_model: 252
+2026-01-20 22:52:33 [INFO]:   - n_heads: 12
+2026-01-20 22:52:33 [INFO]:   - n_layers: 3
+2026-01-20 22:52:33 [INFO]:   - dropout: 0.2
+2026-01-20 22:52:33 [INFO]: Training configuration:
+2026-01-20 22:52:33 [INFO]:   - ORT_weight: 1.0
+2026-01-20 22:52:33 [INFO]:   - MIT_weight: 1.0
+2026-01-20 22:52:33 [INFO]:   - batch_size: 4
+2026-01-20 22:52:33 [INFO]:   - epochs: 1000
+2026-01-20 22:52:33 [INFO]:   - patience: 10
+2026-01-20 22:52:33 [INFO]: Optimizer configuration:
+2026-01-20 22:52:33 [INFO]:   - initial_lr: 0.001
+2026-01-20 22:52:33 [INFO]:   - lr_decay: disabled
+2026-01-20 22:52:33 [INFO]: Other settings:
+2026-01-20 22:52:33 [INFO]:   - num_workers: 0
+2026-01-20 22:52:33 [INFO]:   - device: cuda:0
+2026-01-20 22:52:33 [INFO]:   - model_saving_strategy: None
+2026-01-20 22:52:33 [INFO]: ============================================================
+2026-01-20 22:52:33 [INFO]: HELIX initialized with the given hyperparameters, the number of trainable parameters: 4,615,311
+2026-01-20 22:52:33 [INFO]: Learning rate scheduler disabled (lr_decay_patience not set)

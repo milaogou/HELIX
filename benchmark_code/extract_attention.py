@@ -3,6 +3,12 @@ Extract Feature Attention Weights from HELIX model
 Generates Figure 3 (Feature Attention) and Appendix A1 (Temporal Attention)
 
 Author: Generated for HELIX ICML 2026 submission
+
+FIXED VERSION: Resolves element overlapping issues for ICML 2026 format
+- Increased figure height
+- Used GridSpec for precise layout control
+- Adjusted font sizes and label rotations
+- Fixed colorbar positioning
 """
 
 import os
@@ -13,6 +19,8 @@ import h5py
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+from matplotlib.gridspec import GridSpec
+from mpl_toolkits.axes_grid1 import make_axes_locatable
 from scipy.stats import pearsonr
 import warnings
 warnings.filterwarnings('ignore')
@@ -50,15 +58,15 @@ STATION_SHORT = {
 N_STATIONS = 12
 N_FEATURES_PER_STATION = 11
 
-# Matplotlib style
+# Matplotlib style - 减小默认字体以适应ICML格式
 plt.rcParams.update({
     'font.family': 'serif',
     'font.serif': ['Times New Roman', 'Times', 'DejaVu Serif'],
-    'font.size': 9,
-    'axes.labelsize': 10,
-    'axes.titlesize': 11,
-    'xtick.labelsize': 8,
-    'ytick.labelsize': 8,
+    'font.size': 8,
+    'axes.labelsize': 8,
+    'axes.titlesize': 9,
+    'xtick.labelsize': 6,
+    'ytick.labelsize': 6,
     'figure.dpi': 150,
     'savefig.dpi': 300,
     'savefig.bbox': 'tight',
@@ -141,7 +149,7 @@ def aggregate_to_stations(attn, n_stations=12, n_features=11):
 
 
 # =============================================================================
-# Plotting Functions
+# Plotting Functions (FIXED for ICML format)
 # =============================================================================
 
 def plot_figure3_feature_attention(attn_dict, geo_dist, stations, output_dir, 
@@ -149,6 +157,12 @@ def plot_figure3_feature_attention(attn_dict, geo_dist, stations, output_dir,
     """
     Generate Figure 3: Feature Attention captures spatial structure.
     Shows feature attention heatmaps with r/p values indicating correlation with geography.
+    
+    FIXED: 
+    - Increased figure height (2.8 -> 3.3)
+    - Used GridSpec with shared colorbar
+    - Adjusted font sizes and rotation angles
+    - Fixed spacing parameters
     """
     short_names = [STATION_SHORT[s] for s in stations]
     
@@ -168,47 +182,73 @@ def plot_figure3_feature_attention(attn_dict, geo_dist, stations, output_dir,
             r, p = pearsonr(geo_prox[triu], station_attn[triu])
             feature_data.append((key, station_attn, r, p))
     
-    # Create figure
     n_layers = len(feature_data)
-    fig, axes = plt.subplots(1, n_layers, figsize=(4.5 * n_layers, 4.2))
-    if n_layers == 1:
-        axes = [axes]
+    
+    # ==========================================================================
+    # FIXED: Use GridSpec with shared colorbar for better layout control
+    # ==========================================================================
+    
+    # Increased height: 2.8 -> 3.3 to accommodate title and x-axis labels
+    fig = plt.figure(figsize=(6.5, 3.3))
+    
+    # GridSpec: reserve space for shared colorbar on the right
+    gs = GridSpec(1, n_layers + 1, 
+                  width_ratios=[1]*n_layers + [0.05],
+                  wspace=0.35,  # Increased spacing between subplots
+                  left=0.06, right=0.92, top=0.82, bottom=0.20)
+    
+    axes = [fig.add_subplot(gs[0, i]) for i in range(n_layers)]
+    cax = fig.add_subplot(gs[0, -1])  # Colorbar axis
+    
+    # Unified color range across all subplots
+    all_values = [data[1] for data in feature_data]
+    vmin = min(arr.min() for arr in all_values)
+    vmax = max(arr.max() for arr in all_values)
     
     for idx, (key, station_attn, r, p) in enumerate(feature_data):
         ax = axes[idx]
         
-        im = ax.imshow(station_attn, cmap='YlOrRd', aspect='equal')
+        im = ax.imshow(station_attn, cmap='YlOrRd', aspect='equal',
+                       vmin=vmin, vmax=vmax)
         
-        # Grid
+        # Grid lines
         for i in range(n_stations + 1):
             ax.axhline(i - 0.5, color='white', linewidth=0.3)
             ax.axvline(i - 0.5, color='white', linewidth=0.3)
         
-        # Labels
+        # Labels - reduced font size, increased rotation angle
         ax.set_xticks(range(n_stations))
         ax.set_yticks(range(n_stations))
-        ax.set_xticklabels(short_names, fontsize=7, rotation=45, ha='right')
-        ax.set_yticklabels(short_names, fontsize=7)
-        ax.set_xlabel('Key Station', fontsize=9)
-        ax.set_ylabel('Query Station', fontsize=9)
+        ax.set_xticklabels(short_names, fontsize=5, rotation=60, ha='right')
         
-        # Title with r and p
+        # Only show y-axis labels on the first subplot
+        if idx == 0:
+            ax.set_yticklabels(short_names, fontsize=5)
+            ax.set_ylabel('Query Station', fontsize=8)
+        else:
+            ax.set_yticklabels([])
+        
+        ax.set_xlabel('Key Station', fontsize=8)
+        
+        # Title - two lines with reduced font size
         layer_num = key.replace('layer', '').replace('_feature', '')
         p_str = 'p < 0.0001' if p < 0.0001 else f'p = {p:.4f}'
         ax.set_title(f'Layer {layer_num} Feature Attention\n(r = {r:.3f}, {p_str})', 
-                    fontsize=10, fontweight='bold')
-        
-        plt.colorbar(im, ax=ax, shrink=0.8)
+                    fontsize=8, fontweight='bold', pad=4)
     
-    # 主标题：降低 y 值，减少顶部留白
-    plt.suptitle('Feature Attention Increasingly Captures Spatial Structure', 
-                 fontsize=12, fontweight='bold', y=0.98)
+    # Shared colorbar
+    cbar = fig.colorbar(im, cax=cax)
+    cbar.ax.tick_params(labelsize=6)
+    cbar.set_label('Attention', fontsize=7)
     
-    # 使用 subplots_adjust 精细控制边距
-    plt.subplots_adjust(top=0.88, bottom=0.15, left=0.05, right=0.95, wspace=0.3)
+    # Main title
+    fig.suptitle('Feature Attention Increasingly Captures Spatial Structure', 
+                 fontsize=10, fontweight='bold', y=0.96)
     
-    plt.savefig(os.path.join(output_dir, 'figure3_feature_attention.pdf'), bbox_inches='tight')
-    plt.savefig(os.path.join(output_dir, 'figure3_feature_attention.png'), dpi=300, bbox_inches='tight')
+    plt.savefig(os.path.join(output_dir, 'figure3_feature_attention.pdf'), 
+                bbox_inches='tight', pad_inches=0.02)
+    plt.savefig(os.path.join(output_dir, 'figure3_feature_attention.png'), 
+                dpi=300, bbox_inches='tight', pad_inches=0.02)
     plt.close()
     
     print(f"Saved: {output_dir}/figure3_feature_attention.pdf")
@@ -219,6 +259,11 @@ def plot_appendix_temporal_attention(attn_dict, output_dir):
     """
     Generate Appendix A1: Temporal Attention Heatmaps.
     Shows how temporal attention evolves from local to broader context.
+    
+    FIXED:
+    - Increased figure height (2.8 -> 3.0)
+    - Used GridSpec with shared colorbar
+    - Adjusted suptitle position
     """
     # Collect temporal attentions
     temporal_attns = []
@@ -228,29 +273,58 @@ def plot_appendix_temporal_attention(attn_dict, output_dir):
             attn_np = attn.cpu().numpy() if torch.is_tensor(attn) else attn
             temporal_attns.append((key, attn_np))
     
-    # Create figure
     n_layers = len(temporal_attns)
-    fig, axes = plt.subplots(1, n_layers, figsize=(4.5 * n_layers, 4))
-    if n_layers == 1:
-        axes = [axes]
+    
+    # ==========================================================================
+    # FIXED: Use GridSpec with shared colorbar
+    # ==========================================================================
+    
+    fig = plt.figure(figsize=(6.5, 3.0))  # Increased height
+    
+    gs = GridSpec(1, n_layers + 1, 
+                  width_ratios=[1]*n_layers + [0.05],
+                  wspace=0.25,
+                  left=0.08, right=0.92, top=0.78, bottom=0.15)
+    
+    axes = [fig.add_subplot(gs[0, i]) for i in range(n_layers)]
+    cax = fig.add_subplot(gs[0, -1])
+    
+    # Unified color range
+    all_values = [data[1].mean(axis=0) for data in temporal_attns]
+    vmin = min(arr.min() for arr in all_values)
+    vmax = max(arr.max() for arr in all_values)
     
     for idx, (key, attn) in enumerate(temporal_attns):
         ax = axes[idx]
         attn_avg = attn.mean(axis=0)  # [T, T]
         
-        im = ax.imshow(attn_avg, cmap='Blues', aspect='equal')
+        im = ax.imshow(attn_avg, cmap='Blues', aspect='equal',
+                       vmin=vmin, vmax=vmax)
         
         layer_num = key.replace('layer', '').replace('_time', '')
-        ax.set_title(f'Layer {layer_num} Temporal Attention\n(averaged over samples)', fontsize=10)
-        ax.set_xlabel('Key Time Step', fontsize=9)
-        ax.set_ylabel('Query Time Step', fontsize=9)
-        plt.colorbar(im, ax=ax, shrink=0.8)
+        ax.set_title(f'Layer {layer_num} Temporal Attention\n(averaged over samples)', 
+                    fontsize=8, fontweight='bold', pad=4)
+        ax.set_xlabel('Key Time Step', fontsize=8)
+        
+        if idx == 0:
+            ax.set_ylabel('Query Time Step', fontsize=8)
+        
+        # Reduce number of ticks to avoid crowding
+        ax.locator_params(axis='both', nbins=6)
     
-    plt.suptitle('Appendix A1: Temporal Attention Evolution\n(From local focus to broader context)', 
-                 fontsize=12, fontweight='bold', y=1.02)
-    plt.tight_layout()
-    plt.savefig(os.path.join(output_dir, 'appendix_a1_attention.pdf'), bbox_inches='tight')
-    plt.savefig(os.path.join(output_dir, 'appendix_a1_attention.png'), dpi=300, bbox_inches='tight')
+    # Shared colorbar
+    cbar = fig.colorbar(im, cax=cax)
+    cbar.ax.tick_params(labelsize=6)
+    cbar.set_label('Attention', fontsize=7)
+    
+    # Main title - adjusted y position
+    fig.suptitle('Appendix A1: Temporal Attention Evolution\n(From local focus to broader context)', 
+                 fontsize=10, fontweight='bold', y=0.98)
+    
+    plt.savefig(os.path.join(output_dir, 'appendix_a1_attention.pdf'), 
+                bbox_inches='tight', pad_inches=0.02)
+    plt.savefig(os.path.join(output_dir, 'appendix_a1_attention.png'), 
+                dpi=300, bbox_inches='tight', pad_inches=0.02)
     plt.close()
     
     print(f"Saved: {output_dir}/appendix_a1_attention.pdf")

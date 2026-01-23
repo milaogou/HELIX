@@ -356,9 +356,11 @@ def create_figure2(similarity_matrix, distance_matrix, stations,
     
     for i, j, sim in top_connections:
         color = cmap(norm(sim))
-        width = 0.5 + 0.5 * (sim - sim_min) / (sim_max - sim_min + 1e-8)
+        # 增加非线性宽度和透明度，突出核心拓扑
+        width = 0.3 + 1.2 * ((sim - sim_min) / (sim_max - sim_min))**2 
+        alpha = 0.4 + 0.6 * ((sim - sim_min) / (sim_max - sim_min))
         ax1.plot([lons[i], lons[j]], [lats[i], lats[j]], 
-                color=color, linewidth=width, alpha=1, zorder=2)
+                color=color, linewidth=width, alpha=alpha, zorder=2)
     
     # Stations
     ax1.scatter(lons, lats, c='white', s=60, edgecolors='black',  # s从250改为150
@@ -417,7 +419,10 @@ def create_figure2(similarity_matrix, distance_matrix, stations,
     ax2.set_ylabel('Embedding Similarity', fontsize=8, labelpad=0)  # labelpad增大使标签右移
     ax2.tick_params(axis='y', labelsize=7, pad=1)
     p_str = f'p = {p:.4f}' if p >= 0.0001 else 'p < 0.0001'
-    ax2.set_title(f'(b) r = {r:.3f}, {p_str}', fontsize=9)  # 大幅简化标题
+    ax2.text(0.05, 0.05, f'$r = {r:.3f}$\n$p < 0.0001$', 
+         transform=ax2.transAxes, fontsize=8, 
+         verticalalignment='bottom', bbox=dict(facecolor='white', alpha=0.7, edgecolor='none'))
+    ax2.set_title('(b) Embedding vs. Geography', fontsize=10)
     ax2.grid(True, alpha=0.3, linestyle='-', linewidth=0.4)
     ax2.legend(loc='upper right', fontsize=6, framealpha=0.9)
     ymin, ymax = ax2.get_ylim()

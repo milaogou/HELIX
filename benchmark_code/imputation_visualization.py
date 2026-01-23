@@ -555,6 +555,9 @@ def plot_correlation_analysis(ax, corr_results, methods):
     bin_edges = np.linspace(0, 1, n_bins + 1)
     bin_centers = (bin_edges[:-1] + bin_edges[1:]) / 2
     
+    # 存储所有方法的binned数据，用于日志输出
+    all_bin_data = {}
+    
     for method in methods:
         if method not in corr_results:
             continue
@@ -563,14 +566,23 @@ def plot_correlation_analysis(ax, corr_results, methods):
         
         bin_means = []
         bin_stds = []
+        bin_counts = []
         for i in range(n_bins):
             mask = (corrs >= bin_edges[i]) & (corrs < bin_edges[i+1])
             if mask.sum() > 0:
                 bin_means.append(np.mean(errs[mask]))
                 bin_stds.append(np.std(errs[mask]) / np.sqrt(mask.sum()))
+                bin_counts.append(mask.sum())
             else:
                 bin_means.append(np.nan)
                 bin_stds.append(np.nan)
+                bin_counts.append(0)
+        
+        all_bin_data[method] = {
+            'means': bin_means,
+            'stds': bin_stds,
+            'counts': bin_counts
+        }
         
         label = method if method != 'HELIX' else 'HELIX (Ours)'
         ax.errorbar(bin_centers, bin_means, yerr=bin_stds,
@@ -581,9 +593,74 @@ def plot_correlation_analysis(ax, corr_results, methods):
     ax.set_xlabel('Inter-Station Correlation')
     ax.set_ylabel('Mean Absolute Error')
     ax.set_title('(f) Spatial Correlation Benefit', fontsize=9, fontweight='bold')
-    # ax.legend(loc='upper right', fontsize=6)
     ax.grid(True, alpha=0.3)
     ax.set_xlim(0, 1)
+    
+    # ==================== 日志输出 ====================
+    print("\n" + "=" * 70)
+    print("Figure 5(f) - Spatial Correlation Benefit: Detailed Values")
+    print("=" * 70)
+    
+    # 输出每个bin的具体数值
+    print(f"\n{'Correlation Bin':<18}", end="")
+    for method in methods:
+        if method in all_bin_data:
+            print(f"{method:>15}", end="")
+    print(f"{'Samples':>12}")
+    print("-" * 70)
+    
+    for i in range(n_bins):
+        bin_label = f"[{bin_edges[i]:.2f}, {bin_edges[i+1]:.2f})"
+        print(f"{bin_label:<18}", end="")
+        for method in methods:
+            if method in all_bin_data:
+                mae = all_bin_data[method]['means'][i]
+                print(f"{mae:>15.4f}", end="")
+        # 样本数（取第一个方法的，因为都一样）
+        first_method = [m for m in methods if m in all_bin_data][0]
+        print(f"{all_bin_data[first_method]['counts'][i]:>12}")
+    
+    # 计算误差下降百分比（从最低相关性bin到最高相关性bin）
+    print("\n" + "-" * 70)
+    print("Error Reduction with Increasing Spatial Correlation:")
+    print("-" * 70)
+    
+    for method in methods:
+        if method not in all_bin_data:
+            continue
+        means = all_bin_data[method]['means']
+        # 找到第一个和最后一个有效的bin
+        valid_indices = [i for i, m in enumerate(means) if not np.isnan(m)]
+        if len(valid_indices) >= 2:
+            first_idx, last_idx = valid_indices[0], valid_indices[-1]
+            first_mae = means[first_idx]
+            last_mae = means[last_idx]
+            reduction = (first_mae - last_mae) / first_mae * 100
+            print(f"  {method}:")
+            print(f"    Low corr [{bin_edges[first_idx]:.2f}-{bin_edges[first_idx+1]:.2f}] MAE: {first_mae:.4f}")
+            print(f"    High corr [{bin_edges[last_idx]:.2f}-{bin_edges[last_idx+1]:.2f}] MAE: {last_mae:.4f}")
+            print(f"    Error reduction: {reduction:.1f}%")
+    
+    # 计算HELIX相对其他方法的优势
+    print("\n" + "-" * 70)
+    print("HELIX Advantage over Baselines (by correlation bin):")
+    print("-" * 70)
+    
+    if 'HELIX' in all_bin_data:
+        helix_means = all_bin_data['HELIX']['means']
+        for method in methods:
+            if method == 'HELIX' or method not in all_bin_data:
+                continue
+            baseline_means = all_bin_data[method]['means']
+            print(f"\n  vs {method}:")
+            print(f"    {'Correlation':<18} {'HELIX MAE':>12} {method + ' MAE':>15} {'Improvement':>12}")
+            for i in range(n_bins):
+                if not np.isnan(helix_means[i]) and not np.isnan(baseline_means[i]):
+                    improvement = (baseline_means[i] - helix_means[i]) / baseline_means[i] * 100
+                    bin_label = f"[{bin_edges[i]:.2f}, {bin_edges[i+1]:.2f})"
+                    print(f"    {bin_label:<18} {helix_means[i]:>12.4f} {baseline_means[i]:>15.4f} {improvement:>11.1f}%")
+    
+    print("=" * 70 + "\n")
 
 
 # =============================================================================

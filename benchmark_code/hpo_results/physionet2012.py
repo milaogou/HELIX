@@ -80,7 +80,7 @@ PhysioNet2012 = {
     'epochs': 100,
     'patience': 5,
     'patch_size': 24,
-    'patch_stride': 24,
+    'patch_stride': 12,
     'transformer_backbone': 't5-small',
     'transformer_type': 'encoder_only',
     'd_model': 512,

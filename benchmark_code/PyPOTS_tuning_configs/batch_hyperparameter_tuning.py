@@ -20,27 +20,27 @@ CONFIG_BASE_PATH = "PyPOTS_tuning_configs"
 # 调优配置 - 每个模型25个trials
 TUNING_CONFIG = {
     'ETT_h1': {
-        'models': ['StemGNN'],#'HELIX_NoRotaryPE','HELIX','HELIX_NoFeatureEmbed', 'HELIX_NoHybrid', 'HELIX_NoFusion','ModernTCN', 'TEFN', 'TimeMixer','MOMENT', 'ImputeFormer', ,'TOTEM','TimeMixerPP',   'TimeLLM', 
-        'dataset_path': 'ett_rate01_step48_point',
+        'models': ['HELIX',],#'HELIX_NoRotaryPE','HELIX','StemGNN','HELIX_NoFeatureEmbed', 'HELIX_NoHybrid', 'HELIX_NoFusion','ModernTCN', 'TEFN', 'TimeMixer','MOMENT', 'ImputeFormer', ,'TOTEM','TimeMixerPP',   'TimeLLM', 
+        'dataset_path': 'ett_rate05_step48_subseq_seqlen36',
         'max_trials_per_model': 25,
     },
     'PeMS': {
-        'models': ['StemGNN'],#'HELIX_NoRotaryPE','HELIX', 'HELIX_NoFeatureEmbed', 'HELIX_NoHybrid', 'HELIX_NoFusion','ModernTCN', 'TEFN','TimeMixer','ImputeFormer','TOTEM','TimeMixerPP'
+        'models': [],#'HELIX_NoRotaryPE','HELIX','StemGNN', 'HELIX_NoFeatureEmbed', 'HELIX_NoHybrid', 'HELIX_NoFusion','ModernTCN', 'TEFN','TimeMixer','ImputeFormer','TOTEM','TimeMixerPP'
         'dataset_path': 'pems_traffic_rate01_step24_point',
         'max_trials_per_model': 25,
     },
     'BeijingAir': {
-        'models': ['StemGNN'],#'HELIX_NoRotaryPE','HELIX', 'HELIX_NoFeatureEmbed', 'HELIX_NoHybrid', 'HELIX_NoFusion','ModernTCN','MOMENT','TOTEM','TEFN', 'TimeMixer','TimeMixerPP',   'ImputeFormer',  
+        'models': [],#'HELIX_NoRotaryPE','HELIX','StemGNN', 'HELIX_NoFeatureEmbed', 'HELIX_NoHybrid', 'HELIX_NoFusion','ModernTCN','MOMENT','TOTEM','TEFN', 'TimeMixer','TimeMixerPP',   'ImputeFormer',  
         'dataset_path': 'beijing_air_quality_rate01_step24_point',
         'max_trials_per_model': 25,
     },
     'PhysioNet2012': {
-        'models': ['StemGNN'],#'HELIX_NoRotaryPE','HELIX', 'HELIX_NoFeatureEmbed', 'HELIX_NoHybrid', 'HELIX_NoFusion','MOMENT','TOTEM', 'TEFN', 'TimeMixer', 'ModernTCN','TimeMixerPP', 'ImputeFormer',  
+        'models': [],#'HELIX_NoRotaryPE','HELIX', 'StemGNN','HELIX_NoFeatureEmbed', 'HELIX_NoHybrid', 'HELIX_NoFusion','MOMENT','TOTEM', 'TEFN', 'TimeMixer', 'ModernTCN','TimeMixerPP', 'ImputeFormer',  
         'dataset_path': 'physionet_2012_rate01_point',
         'max_trials_per_model': 25,
     },
     'ItalyAir': {
-        'models': ['StemGNN'],# 'TEFN','HELIX', 'HELIX_NoRotaryPE', 'HELIX_NoFeatureEmbed', 'HELIX_NoHybrid', 'HELIX_NoFusion','TimeMixerPP''ModernTCN','TOTEM','TimeMixer','TimeMixerPP',  'ImputeFormer', 
+        'models': [],# 'TEFN','HELIX', 'HELIX_NoRotaryPE','StemGNN', 'HELIX_NoFeatureEmbed', 'HELIX_NoHybrid', 'HELIX_NoFusion','TimeMixerPP''ModernTCN','TOTEM','TimeMixer','TimeMixerPP',  'ImputeFormer', 
         'dataset_path': 'italy_air_quality_rate01_step12_point',
         'max_trials_per_model': 25,
     }

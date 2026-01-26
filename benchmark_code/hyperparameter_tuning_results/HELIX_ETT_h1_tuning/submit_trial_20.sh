@@ -4,7 +4,6 @@
 #SBATCH -o /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyperparameter_tuning_results/HELIX_ETT_h1_tuning/trial_20.out
 #SBATCH -e /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyperparameter_tuning_results/HELIX_ETT_h1_tuning/trial_20.err
 #SBATCH --gpus=1
-#SBATCH --time=06:00:00
 
 module purge
 module load miniforge3/24.1 
@@ -33,11 +32,11 @@ cat > /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyper
 }
 EOF
 
-# 运行训练 - 使用新的 train_model_tuning.py
+# 运行训练
 python -u train_model_tuning.py \
     --model HELIX \
     --dataset ETT_h1 \
-    --dataset_fold_path data/generated_datasets/ett_rate01_step48_point \
+    --dataset_fold_path data/generated_datasets/ett_rate05_step48_subseq_seqlen36 \
     --saving_path /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyperparameter_tuning_results/HELIX_ETT_h1_tuning/trial_20 \
     --device cuda:0 \
     --n_rounds 1 \

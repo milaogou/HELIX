@@ -1,5 +1,5 @@
 \begin{table}[h]
-    \caption{Complete MAE results on BeijingAir across all missing patterns. Mean $\pm$ std over 5 runs. Ranking: \underline{\textbf{1st}}, \textbf{2nd}, \textcolor{gray}{\textbf{\textit{3rd}}}, \underline{4th}, \textit{5th}.}
+    \caption{Complete MAE results on BeijingAir across all missing patterns. Mean $\pm$ std over 5 runs. Ranking: \textbf{1st}, \underline{2nd}.}
     \label{tab:full_beijingair}
     \centering
     \begin{footnotesize}
@@ -14,13 +14,9 @@
         Mean Imputation & 0.721$\pm$N/A & 0.708$\pm$N/A & 0.716$\pm$N/A & 0.714$\pm$N/A & 0.711$\pm$N/A & N/A & N/A \\
         \midrule
         \multicolumn{8}{l}{\textit{Deep Learning Methods}} \\
-        \textbf{HELIX (Ours)} & \underline{\textbf{0.073$\pm$0.004}} & \underline{\textbf{0.102$\pm$0.005}} & \textbf{0.190$\pm$0.005} & \underline{\textbf{0.131$\pm$0.005}} & \underline{\textbf{0.166$\pm$0.009}} & 4.6M & 2.44s \\
-        w/o Multi-level Fusion & \textbf{0.073$\pm$0.006} & \textbf{0.104$\pm$0.006} & \underline{0.194$\pm$0.006} & \underline{0.147$\pm$0.019} & \textbf{0.173$\pm$0.014} & 4.8M & 1.64s \\
-        w/o Rotary PE & \textcolor{gray}{\textbf{\textit{0.080$\pm$0.005}}} & \underline{0.107$\pm$0.002} & \textcolor{gray}{\textbf{\textit{0.190$\pm$0.003}}} & \textcolor{gray}{\textbf{\textit{0.139$\pm$0.004}}} & \textit{0.275$\pm$0.123} & 1.8M & 0.81s \\
-        w/o Hybrid Encoding & \underline{0.080$\pm$0.003} & \textcolor{gray}{\textbf{\textit{0.104$\pm$0.004}}} & \underline{\textbf{0.184$\pm$0.002}} & \textbf{0.137$\pm$0.004} & 0.294$\pm$0.101 & 10.7M & 2.26s \\
-        w/o Feature Identity Emb. & 0.113$\pm$0.003 & 0.144$\pm$0.006 & 0.321$\pm$0.007 & 0.223$\pm$0.009 & 0.398$\pm$0.016 & 2.7M & 1.20s \\
-        ImputeFormer & \textit{0.095$\pm$0.005} & \textit{0.122$\pm$0.002} & \textit{0.245$\pm$0.004} & \textit{0.158$\pm$0.004} & 0.322$\pm$0.009 & 3.4M & 0.56s \\
-        SAITS & 0.151$\pm$0.001 & 0.190$\pm$0.003 & 0.312$\pm$0.015 & 0.207$\pm$0.005 & \textcolor{gray}{\textbf{\textit{0.217$\pm$0.005}}} & 7.2M & 0.06s \\
+        \textbf{HELIX (Ours)} & \textbf{0.073$\pm$0.004} & \textbf{0.102$\pm$0.005} & \textbf{0.190$\pm$0.005} & \textbf{0.131$\pm$0.005} & \textbf{0.166$\pm$0.009} & 4.6M & 2.44s \\
+        ImputeFormer & \underline{0.095$\pm$0.005} & \underline{0.122$\pm$0.002} & \underline{0.245$\pm$0.004} & \underline{0.158$\pm$0.004} & 0.322$\pm$0.009 & 3.4M & 0.56s \\
+        SAITS & 0.151$\pm$0.001 & 0.190$\pm$0.003 & 0.312$\pm$0.015 & 0.207$\pm$0.005 & \underline{0.217$\pm$0.005} & 7.2M & 0.06s \\
         Nonstationary Trans. & 0.178$\pm$0.003 & 0.201$\pm$0.002 & 0.355$\pm$0.001 & 0.275$\pm$0.003 & 0.331$\pm$0.009 & 7.0M & 0.05s \\
         PatchTST & 0.181$\pm$0.002 & 0.214$\pm$0.005 & 0.297$\pm$0.001 & 0.273$\pm$0.002 & 0.301$\pm$0.003 & 30.3M & 4.68s \\
         iTransformer & 0.124$\pm$0.004 & 0.160$\pm$0.003 & 0.353$\pm$0.003 & 0.349$\pm$0.061 & 0.626$\pm$0.010 & 8.3M & 0.13s \\
@@ -28,7 +24,7 @@
         TimeMixer & 0.278$\pm$0.007 & 0.293$\pm$0.010 & 0.327$\pm$0.003 & 0.300$\pm$0.007 & 0.311$\pm$0.003 & 168.7K & 0.32s \\
         TimeMixer++ & 0.532$\pm$0.061 & 0.615$\pm$0.020 & 0.731$\pm$0.013 & 0.734$\pm$0.010 & 0.738$\pm$0.010 & 33.5M & 9.82s \\
         ModernTCN & 0.257$\pm$0.012 & 0.371$\pm$0.017 & 0.716$\pm$0.004 & 0.492$\pm$0.020 & 0.590$\pm$0.014 & 14.1M & 0.23s \\
-        StemGNN & 0.170$\pm$0.004 & 0.185$\pm$0.003 & 0.249$\pm$0.002 & 0.233$\pm$0.007 & \underline{0.270$\pm$0.007} & 1.1M & 0.49s \\
+        StemGNN & 0.170$\pm$0.004 & 0.185$\pm$0.003 & 0.249$\pm$0.002 & 0.233$\pm$0.007 & 0.270$\pm$0.007 & 1.1M & 0.49s \\
         TOTEM & 0.322$\pm$0.206 & 0.452$\pm$0.013 & 0.743$\pm$0.002 & 0.682$\pm$0.007 & 0.725$\pm$0.015 & 98.9K & 0.08s \\
         FreTS & 0.193$\pm$0.006 & 0.217$\pm$0.005 & 0.265$\pm$0.022 & 0.260$\pm$0.016 & 0.294$\pm$0.002 & 909.9K & 0.04s \\
         Time-LLM & 0.211$\pm$0.005 & 0.223$\pm$0.013 & 0.385$\pm$0.006 & 0.469$\pm$0.055 & 0.607$\pm$0.024 & 31.8M & 221.62s \\

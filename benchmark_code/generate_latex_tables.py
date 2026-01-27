@@ -18,6 +18,20 @@ from collections import defaultdict
 # Configuration
 # =============================================================================
 
+# =============================================================================
+# Main comparison set (A-method): HELIX + baselines only (exclude Ablation + Naive)
+# =============================================================================
+
+EXCLUDE_CATEGORIES_FOR_MAIN = {'Ablation', 'Naive'}
+
+def is_main_model(model: str) -> bool:
+    """True if model participates in main ranking/comparison."""
+    cat = get_category(model)  # from MODEL_DISPLAY second field
+    if model == 'HELIX':
+        return True
+    return cat not in EXCLUDE_CATEGORIES_FOR_MAIN
+
+
 # Model display names and categories
 MODEL_DISPLAY = {
     'HELIX': ('HELIX (Ours)', 'Ours'),
@@ -129,6 +143,84 @@ PATTERN_NAMES = {
 # Helper Functions
 # =============================================================================
 
+def compute_main_global_ranking_from_setting_csvs(base_path):
+    """
+    Compute global ranking (Avg_Rank, Global_Rank, Valid_Experiments, Total_Experiments)
+    over ALL dataset x pattern settings, ranking among main models only:
+    HELIX + baselines (exclude Ablation + Naive).
+    """
+    datasets_patterns = {
+        'BeijingAir': ['point01', 'point05', 'point09', 'block05', 'subseq05'],
+        'ETT_h1': ['point01', 'point05', 'point09', 'block05', 'subseq05'],
+        'ItalyAir': ['point01', 'point05', 'point09', 'block05', 'subseq05'],
+        'PeMS': ['point01', 'point05', 'point09', 'block05', 'subseq05'],
+        'PhysioNet2012': ['point01'],
+    }
+
+    # Collect per-model ranks across settings
+    rank_lists = defaultdict(list)
+    valid_counts = defaultdict(int)
+    total_settings = 0
+
+    for dataset, patterns in datasets_patterns.items():
+        for pattern in patterns:
+            csv_path = os.path.join(base_path, pattern, f'{dataset}_with_naive.csv')
+            if not os.path.exists(csv_path):
+                continue
+
+            df = pd.read_csv(csv_path)
+
+            # Filter to main models only
+            df_main = df[df['Model'].apply(is_main_model)].copy()
+            if len(df_main) == 0:
+                continue
+
+            total_settings += 1
+
+            # Extract numeric MAE (lower is better)
+            maes = []
+            models = []
+            for _, row in df_main.iterrows():
+                models.append(row['Model'])
+                maes.append(extract_numeric_value(row['MAE']))
+
+            # Rank within this setting (skip inf)
+            indexed = [(i, maes[i]) for i in range(len(maes)) if maes[i] != float('inf')]
+            indexed_sorted = sorted(indexed, key=lambda x: x[1])
+
+            # Assign 1..K ranks (no ties handling here; if you need ties, add tie-aware ranking)
+            setting_ranks = {}
+            for r, (i, _) in enumerate(indexed_sorted, start=1):
+                setting_ranks[models[i]] = r
+
+            # Append
+            for m in models:
+                if m in setting_ranks:
+                    rank_lists[m].append(setting_ranks[m])
+                    valid_counts[m] += 1
+                else:
+                    # missing / invalid MAE in this setting
+                    pass
+
+    # Build summary df
+    rows = []
+    for m, ranks in rank_lists.items():
+        if len(ranks) == 0:
+            continue
+        avg_rank = sum(ranks) / len(ranks)
+        rows.append({
+            'Model': m,
+            'Avg_Rank': avg_rank,
+            'Valid_Experiments': valid_counts[m],
+            'Total_Experiments': total_settings,
+        })
+
+    out = pd.DataFrame(rows)
+    out = out.sort_values('Avg_Rank', ascending=True).reset_index(drop=True)
+    out['Global_Rank'] = out.index + 1
+    return out
+
+
 def get_display_name(model):
     """Get display name for model."""
     if model in MODEL_DISPLAY:
@@ -192,27 +284,45 @@ def format_time(time_str):
         return str(time_str)
 
 def extract_numeric_value(value_str):
-    """Extract numeric value from formatted string for ranking."""
-    if pd.isna(value_str) or '--' in str(value_str) or 'N/A' in str(value_str):
+    if pd.isna(value_str):
         return float('inf')
+    s = str(value_str).strip()
+
+    # 统一缺失符号
+    if s in {'--', 'N/A', ''}:
+        return float('inf')
+
+    # 显式处理 nan/inf 字符串
+    low = s.lower()
+    if low in {'nan', 'inf', '+inf', '-inf'}:
+        return float('inf')
+
+    # 去掉 ±/pm/括号等
+    if '$' in s:
+        s = s.split('$')[0]
+    if '±' in s:
+        s = s.split('±')[0]
+    if '(' in s:
+        s = s.split('(')[0]
+    s = s.strip().replace('s', '')
+
     try:
-        s = str(value_str)
-        # Handle "0.215$\pm$0.003" or "0.215±0.003"
-        if '$' in s:
-            s = s.split('$')[0]
-        if '±' in s:
-            s = s.split('±')[0]
-        if '(' in s:
-            s = s.split('(')[0]
-        # Handle "1.5M" or "100K"
-        s = s.strip().replace('s', '')  # remove 's' from time
+        # 处理 K/M
         if s.endswith('M'):
-            return float(s[:-1]) * 1e6
-        if s.endswith('K'):
-            return float(s[:-1]) * 1e3
-        return float(s)
+            v = float(s[:-1]) * 1e6
+        elif s.endswith('K'):
+            v = float(s[:-1]) * 1e3
+        else:
+            v = float(s)
+
+        # 关键：把 0 当成缺失（避免失败写 0 的情况）
+        if v == 0.0:
+            return float('inf')
+
+        return v
     except:
         return float('inf')
+
 
 def get_column_ranks(values):
     """
@@ -237,23 +347,14 @@ def get_column_ranks(values):
 
 def format_by_rank(value_str, rank):
     """
-    Format value string based on rank.
-    1st: bold + underline
-    2nd: bold
-    3rd: gray italic bold
-    4th: underline
-    5th: italic
+    Format value string based on rank (ICML Style).
+    1st: bold
+    2nd: underline
     """
     if rank == 1:
-        return f"\\underline{{\\textbf{{{value_str}}}}}"
+        return f"\\textbf{{{value_str}}}"       # 第一名：加粗
     elif rank == 2:
-        return f"\\textbf{{{value_str}}}"
-    elif rank == 3:
-        return f"\\textcolor{{gray}}{{\\textbf{{\\textit{{{value_str}}}}}}}"
-    elif rank == 4:
-        return f"\\underline{{{value_str}}}"
-    elif rank == 5:
-        return f"\\textit{{{value_str}}}"
+        return f"\\underline{{{value_str}}}"    # 第二名：下划线
     else:
         return value_str
 
@@ -262,17 +363,13 @@ def format_by_rank(value_str, rank):
 # =============================================================================
 
 def generate_table1_overall_ranking(base_path, output_dir):
-    """Generate Table 1: Overall Ranking - sorted by Global Rank."""
-    
-    csv_path = os.path.join(base_path, 'rankings_global_with_naive.csv')
-    df = pd.read_csv(csv_path)
-    
-    # Sort by Global_Rank (not by category)
-    df = df.sort_values('Global_Rank')
-    
+    """Generate Table 1: Overall Ranking over main models only (exclude Ablation + Naive)."""
+
+    df = compute_main_global_ranking_from_setting_csvs(base_path)
+
     latex = []
     latex.append(r"\begin{table*}[t]")
-    latex.append(r"    \caption{Overall ranking across all experimental settings. Lower average rank indicates better performance. $\dagger$ indicates models that could not run on all settings due to computational or architectural constraints.}")
+    latex.append(r"    \caption{Overall ranking across all experimental settings, computed among HELIX and 16 competitive baselines only (excluding ablations and naive methods). Lower average rank indicates better performance. $\dagger$ indicates models that could not run on all settings due to computational or architectural constraints.}")
     latex.append(r"    \label{tab:main_ranking}")
     latex.append(r"    \centering")
     latex.append(r"    \begin{small}")
@@ -280,46 +377,43 @@ def generate_table1_overall_ranking(base_path, output_dir):
     latex.append(r"        \toprule")
     latex.append(r"        \textbf{Model} & \textbf{Avg. Rank} $\downarrow$ & \textbf{Valid Exps.} & \textbf{Global Rank} & \textbf{Category} & \textbf{Venue} \\")
     latex.append(r"        \midrule")
-    
+
     for _, row in df.iterrows():
         model = row['Model']
         display_name = get_display_name(model)
         category = get_fine_category(model)
         venue = get_venue(model)
         avg_rank = row['Avg_Rank']
-        valid_exps = row['Valid_Experiments']
-        total_exps = row['Total_Experiments']
+        valid_exps = int(row['Valid_Experiments'])
+        total_exps = int(row['Total_Experiments'])
         global_rank = int(row['Global_Rank'])
-        
-        # Format model name based on type
+
+        # Format model name
         if model == 'HELIX':
             model_str = f"\\textbf{{{display_name}}}"
             rank_str = f"\\textbf{{{avg_rank:.2f}}}"
             global_str = f"\\textbf{{{global_rank}}}"
-        elif category == 'Ablation':
-            model_str = f"\\textit{{{display_name}}}"
-            rank_str = f"\\textit{{{avg_rank:.2f}}}"
-            global_str = f"\\textit{{{global_rank}}}"
         else:
             model_str = display_name
             rank_str = f"{avg_rank:.2f}"
             global_str = str(global_rank)
-        
+
         # Add dagger for incomplete experiments
         if valid_exps < total_exps:
             model_str += "$^\\dagger$"
-        
+
         latex.append(f"        {model_str} & {rank_str} & {valid_exps}/{total_exps} & {global_str} & {category} & {venue} \\\\")
-    
+
     latex.append(r"        \bottomrule")
     latex.append(r"    \end{tabular}")
     latex.append(r"    \end{small}")
     latex.append(r"\end{table*}")
-    
+
     output_path = os.path.join(output_dir, 'table1_overall_ranking.tex')
     with open(output_path, 'w') as f:
         f.write('\n'.join(latex))
     print(f"✓ Generated: {output_path}")
+
 
 # =============================================================================
 # Table 2: ETT-h1 Detailed Results (5 patterns + #Params + Time)
@@ -347,7 +441,8 @@ def generate_table2_detailed_results(base_path, output_dir):
         # Naive first
         'Naive_Mean', 'Naive_Median', 'Naive_LOCF', 'Naive_LinearInterp',
         # Then DL methods
-        'HELIX', 'HELIX_NoFusion', 'HELIX_NoRotaryPE', 'HELIX_NoHybrid', 'HELIX_NoFeatureEmbed',
+        'HELIX', 
+        # 'HELIX_NoFusion', 'HELIX_NoRotaryPE', 'HELIX_NoHybrid', 'HELIX_NoFeatureEmbed',
         'ImputeFormer', 'SAITS',
         'NonstationaryTransformer', 'PatchTST', 'iTransformer',
         'TEFN', 'TimeMixer', 'TimeMixerPP', 'ModernTCN', 'StemGNN', 'TOTEM',
@@ -371,7 +466,7 @@ def generate_table2_detailed_results(base_path, output_dir):
     
     latex = []
     latex.append(r"\begin{table*}[t]")
-    latex.append(r"    \caption{Detailed MAE results on ETT-h1 (48 steps, 7 features) across all missing patterns. Mean $\pm$ std over 5 runs. Ranking: \underline{\textbf{1st}}, \textbf{2nd}, \textcolor{gray}{\textbf{\textit{3rd}}}, \underline{4th}, \textit{5th}.}")
+    latex.append(r"    \caption{Detailed MAE results on ETT-h1 (48 steps, 7 features) across all missing patterns. Mean $\pm$ std over 5 runs. Ranking: \textbf{1st}, \underline{2nd}.}")
     latex.append(r"    \label{tab:detailed_results}")
     latex.append(r"    \centering")
     latex.append(r"    \begin{small}")
@@ -394,7 +489,7 @@ def generate_table2_detailed_results(base_path, output_dir):
         for pattern in patterns:
             val = columns_data[pattern][idx]
             rank = column_ranks[pattern].get(idx, 999)
-            formatted_val = format_by_rank(val, rank) if rank <= 5 else val
+            formatted_val = format_by_rank(val, rank) if rank <= 2 else val
             row_parts.append(formatted_val)
         
         # Add Size column (no ranking)
@@ -530,7 +625,7 @@ def generate_appendix_tables(base_path, output_dir):
         
         latex.append(r"\begin{table}[h]")
         dataset_escaped = dataset.replace('_', '\\_')
-        latex.append(f"    \\caption{{Complete MAE results on {dataset_escaped} across all missing patterns. Mean $\\pm$ std over 5 runs. Ranking: \\underline{{\\textbf{{1st}}}}, \\textbf{{2nd}}, \\textcolor{{gray}}{{\\textbf{{\\textit{{3rd}}}}}}, \\underline{{4th}}, \\textit{{5th}}.}}")
+        latex.append(fr"    \caption{{Complete MAE results on {dataset_escaped} across all missing patterns. Mean $\pm$ std over 5 runs. Ranking: \textbf{{1st}}, \underline{{2nd}}.}}")
         latex.append(f"    \\label{{tab:full_{dataset.lower()}}}")
         latex.append(r"    \centering")
         latex.append(r"    \begin{footnotesize}")
@@ -554,6 +649,8 @@ def generate_appendix_tables(base_path, output_dir):
                 df = pd.read_csv(csv_path)
                 for _, row in df.iterrows():
                     model = row['Model']
+                    if get_category(model) == 'Ablation':
+                        continue
                     if model not in all_data:
                         all_data[model] = {
                             'Size': row.get('Size', 'N/A'),
@@ -561,8 +658,12 @@ def generate_appendix_tables(base_path, output_dir):
                         }
                     all_data[model][pattern] = format_metric(row['MAE'])
         
-        # Define display order
-        display_order = [m for m in MODEL_ORDER if m in all_data]
+        # Define display order (A-method Appendix方案1: completely hide ablations)
+        display_order = [
+            m for m in MODEL_ORDER
+            if (m in all_data) and (get_category(m) != 'Ablation')
+        ]
+
         
         # Prepare column data for ranking
         columns_data = {}
@@ -587,7 +688,7 @@ def generate_appendix_tables(base_path, output_dir):
             for p in patterns:
                 val = columns_data[p][idx]
                 rank = column_ranks[p].get(idx, 999)
-                formatted_val = format_by_rank(val, rank) if rank <= 5 else val
+                formatted_val = format_by_rank(val, rank) if rank <= 2 else val
                 row_parts.append(formatted_val)
             
             # Add Size column (no ranking)
@@ -613,7 +714,7 @@ def generate_appendix_tables(base_path, output_dir):
             for p in patterns:
                 val = columns_data[p][idx]
                 rank = column_ranks[p].get(idx, 999)
-                formatted_val = format_by_rank(val, rank) if rank <= 5 else val
+                formatted_val = format_by_rank(val, rank) if rank <= 2 else val
                 row_parts.append(formatted_val)
             
             # Add Size column (no ranking)

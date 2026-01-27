@@ -1,5 +1,5 @@
 \begin{table}[h]
-    \caption{Complete MAE results on PhysioNet2012 across all missing patterns. Mean $\pm$ std over 5 runs. Ranking: \underline{\textbf{1st}}, \textbf{2nd}, \textcolor{gray}{\textbf{\textit{3rd}}}, \underline{4th}, \textit{5th}.}
+    \caption{Complete MAE results on PhysioNet2012 across all missing patterns. Mean $\pm$ std over 5 runs. Ranking: \textbf{1st}, \underline{2nd}.}
     \label{tab:full_physionet2012}
     \centering
     \begin{footnotesize}
@@ -15,11 +15,7 @@
         \midrule
         \multicolumn{4}{l}{\textit{Deep Learning Methods}} \\
         \textbf{HELIX (Ours)} & \textbf{0.215$\pm$0.002} & 454.9K & 0.74s \\
-        w/o Multi-level Fusion & \textcolor{gray}{\textbf{\textit{0.216$\pm$0.004}}} & 678.5K & 1.19s \\
-        w/o Rotary PE & \underline{0.216$\pm$0.001} & 800.6K & 0.59s \\
-        w/o Hybrid Encoding & \underline{\textbf{0.207$\pm$0.004}} & 1.2M & 0.79s \\
-        w/o Feature Identity Emb. & \textit{0.235$\pm$0.006} & 674.1K & 1.21s \\
-        ImputeFormer & 0.240$\pm$0.009 & 1.4M & 0.89s \\
+        ImputeFormer & \underline{0.240$\pm$0.009} & 1.4M & 0.89s \\
         SAITS & 0.247$\pm$0.010 & 44.3M & 0.31s \\
         Nonstationary Trans. & 0.316$\pm$0.002 & 1.6M & 0.15s \\
         PatchTST & 0.282$\pm$0.010 & 644.1K & 0.45s \\

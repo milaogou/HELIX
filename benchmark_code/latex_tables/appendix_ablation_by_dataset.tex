@@ -1,0 +1,98 @@
+% Auto-generated: Ablation appendix tables grouped by dataset (horizontal).
+% Each dataset is a separate table; tables are stacked vertically in this file.
+
+\begin{table*}[t]
+    \centering
+    \caption{Ablation results (MAE) on BeijingAir (24 steps, 132 features). Ranking per row among ablations: \textbf{1st}, \underline{2nd}.}
+    \label{tab:ablation_beijingair_appendix}
+    \begin{footnotesize}
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{l|ccccc}
+        \toprule
+        \textbf{Pattern} & \textbf{\textbf{HELIX (Ours)}} & \textbf{w/o Multi-level Fusion} & \textbf{w/o Rotary PE} & \textbf{w/o Hybrid Encoding} & \textbf{w/o Feature Identity Emb.} \\
+        \midrule
+        \textbf{Point-10\%} & \textbf{0.073$\pm$0.004} & \underline{0.073$\pm$0.006} & 0.080$\pm$0.005 & 0.080$\pm$0.003 & 0.113$\pm$0.003 \\
+        \textbf{Point-50\%} & \textbf{0.102$\pm$0.005} & \underline{0.104$\pm$0.006} & 0.107$\pm$0.002 & 0.104$\pm$0.004 & 0.144$\pm$0.006 \\
+        \textbf{Point-90\%} & \underline{0.190$\pm$0.005} & 0.194$\pm$0.006 & 0.190$\pm$0.003 & \textbf{0.184$\pm$0.002} & 0.321$\pm$0.007 \\
+        \textbf{Block-50\%} & \textbf{0.131$\pm$0.005} & 0.147$\pm$0.019 & 0.139$\pm$0.004 & \underline{0.137$\pm$0.004} & 0.223$\pm$0.009 \\
+        \textbf{Subseq-50\%} & \textbf{0.166$\pm$0.009} & \underline{0.173$\pm$0.014} & 0.275$\pm$0.123 & 0.294$\pm$0.101 & 0.398$\pm$0.016 \\
+        \bottomrule
+    \end{tabular}}
+    \end{footnotesize}
+\end{table*}
+
+\begin{table*}[t]
+    \centering
+    \caption{Ablation results (MAE) on ETT-h1 (48 steps, 7 features). Ranking per row among ablations: \textbf{1st}, \underline{2nd}.}
+    \label{tab:ablation_ett_h1_appendix}
+    \begin{footnotesize}
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{l|ccccc}
+        \toprule
+        \textbf{Pattern} & \textbf{\textbf{HELIX (Ours)}} & \textbf{w/o Multi-level Fusion} & \textbf{w/o Rotary PE} & \textbf{w/o Hybrid Encoding} & \textbf{w/o Feature Identity Emb.} \\
+        \midrule
+        \textbf{Point-10\%} & 0.128$\pm$0.005 & \textbf{0.123$\pm$0.002} & \underline{0.126$\pm$0.003} & 0.138$\pm$0.014 & 0.193$\pm$0.010 \\
+        \textbf{Point-50\%} & 0.189$\pm$0.012 & 0.192$\pm$0.011 & \textbf{0.188$\pm$0.011} & \underline{0.188$\pm$0.007} & 0.241$\pm$0.012 \\
+        \textbf{Point-90\%} & 0.429$\pm$0.011 & \textbf{0.411$\pm$0.015} & 0.421$\pm$0.010 & \underline{0.413$\pm$0.017} & 0.446$\pm$0.009 \\
+        \textbf{Block-50\%} & \underline{0.372$\pm$0.015} & \textbf{0.352$\pm$0.014} & 0.383$\pm$0.008 & 0.373$\pm$0.005 & 0.395$\pm$0.006 \\
+        \textbf{Subseq-50\%} & \underline{0.489$\pm$0.014} & \textbf{0.487$\pm$0.009} & 0.556$\pm$0.030 & 0.548$\pm$0.012 & 0.607$\pm$0.021 \\
+        \bottomrule
+    \end{tabular}}
+    \end{footnotesize}
+\end{table*}
+
+\begin{table*}[t]
+    \centering
+    \caption{Ablation results (MAE) on ItalyAir (12 steps, 13 features). Ranking per row among ablations: \textbf{1st}, \underline{2nd}.}
+    \label{tab:ablation_italyair_appendix}
+    \begin{footnotesize}
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{l|ccccc}
+        \toprule
+        \textbf{Pattern} & \textbf{\textbf{HELIX (Ours)}} & \textbf{w/o Multi-level Fusion} & \textbf{w/o Rotary PE} & \textbf{w/o Hybrid Encoding} & \textbf{w/o Feature Identity Emb.} \\
+        \midrule
+        \textbf{Point-10\%} & \underline{0.122$\pm$0.010} & \textbf{0.109$\pm$0.013} & 0.123$\pm$0.020 & 0.142$\pm$0.076 & 0.133$\pm$0.005 \\
+        \textbf{Point-50\%} & \underline{0.203$\pm$0.009} & \textbf{0.185$\pm$0.013} & 0.214$\pm$0.008 & 0.207$\pm$0.012 & 0.242$\pm$0.010 \\
+        \textbf{Point-90\%} & \textbf{0.463$\pm$0.014} & 0.472$\pm$0.014 & \underline{0.469$\pm$0.008} & 0.517$\pm$0.016 & 0.541$\pm$0.006 \\
+        \textbf{Block-50\%} & \underline{0.332$\pm$0.011} & \textbf{0.317$\pm$0.028} & 0.345$\pm$0.012 & 0.339$\pm$0.023 & 0.403$\pm$0.017 \\
+        \textbf{Subseq-50\%} & \underline{0.297$\pm$0.015} & \textbf{0.284$\pm$0.022} & 0.323$\pm$0.022 & 0.308$\pm$0.025 & 0.388$\pm$0.006 \\
+        \bottomrule
+    \end{tabular}}
+    \end{footnotesize}
+\end{table*}
+
+\begin{table*}[t]
+    \centering
+    \caption{Ablation results (MAE) on PeMS (24 steps, 862 features). Ranking per row among ablations: \textbf{1st}, \underline{2nd}.}
+    \label{tab:ablation_pems_appendix}
+    \begin{footnotesize}
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{l|ccccc}
+        \toprule
+        \textbf{Pattern} & \textbf{\textbf{HELIX (Ours)}} & \textbf{w/o Multi-level Fusion} & \textbf{w/o Rotary PE} & \textbf{w/o Hybrid Encoding} & \textbf{w/o Feature Identity Emb.} \\
+        \midrule
+        \textbf{Point-10\%} & 0.097$\pm$0.002 & \textbf{0.095$\pm$0.003} & \underline{0.096$\pm$0.001} & 0.098$\pm$0.005 & 0.152$\pm$0.003 \\
+        \textbf{Point-50\%} & 0.134$\pm$0.001 & \underline{0.133$\pm$0.002} & \textbf{0.127$\pm$0.004} & 0.136$\pm$0.003 & 0.196$\pm$0.002 \\
+        \textbf{Point-90\%} & \underline{0.256$\pm$0.008} & \textbf{0.250$\pm$0.006} & 0.266$\pm$0.004 & 0.256$\pm$0.005 & 0.363$\pm$0.004 \\
+        \textbf{Block-50\%} & 0.203$\pm$0.004 & \underline{0.198$\pm$0.002} & \textbf{0.195$\pm$0.006} & 0.202$\pm$0.004 & 0.331$\pm$0.004 \\
+        \textbf{Subseq-50\%} & \textbf{0.311$\pm$0.092} & 0.542$\pm$0.009 & 0.468$\pm$0.102 & \underline{0.355$\pm$0.113} & 0.457$\pm$0.014 \\
+        \bottomrule
+    \end{tabular}}
+    \end{footnotesize}
+\end{table*}
+
+\begin{table*}[t]
+    \centering
+    \caption{Ablation results (MAE) on PhysioNet2012 (48 steps, 37 features). Ranking per row among ablations: \textbf{1st}, \underline{2nd}.}
+    \label{tab:ablation_physionet2012_appendix}
+    \begin{footnotesize}
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{l|ccccc}
+        \toprule
+        \textbf{Pattern} & \textbf{\textbf{HELIX (Ours)}} & \textbf{w/o Multi-level Fusion} & \textbf{w/o Rotary PE} & \textbf{w/o Hybrid Encoding} & \textbf{w/o Feature Identity Emb.} \\
+        \midrule
+        \textbf{Point-10\%} & \underline{0.215$\pm$0.002} & 0.216$\pm$0.004 & 0.216$\pm$0.001 & \textbf{0.207$\pm$0.004} & 0.235$\pm$0.006 \\
+        \bottomrule
+    \end{tabular}}
+    \end{footnotesize}
+\end{table*}

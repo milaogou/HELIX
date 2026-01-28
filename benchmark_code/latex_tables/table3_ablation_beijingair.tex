@@ -1,0 +1,18 @@
+\begin{table}[t]
+    \caption{Ablation on BeijingAir across missing patterns (MAE). Ranking per column among ablations: \textbf{1st}, \underline{2nd}.}
+    \label{tab:ablation_beijingair}
+    \centering
+    \begin{small}
+    \begin{tabular}{l|ccc}
+        \toprule
+        \textbf{Model} & \textbf{Point-50\%} & \textbf{Block-50\%} & \textbf{Subseq-50\%} \\
+        \midrule
+        \textbf{HELIX (Ours)} & \textbf{0.102$\pm$0.005} & \textbf{0.131$\pm$0.005} & \textbf{0.166$\pm$0.009} \\
+        w/o Fusion & \underline{0.104$\pm$0.006} & 0.147$\pm$0.019 & \underline{0.173$\pm$0.014} \\
+        w/o Rotary & 0.107$\pm$0.002 & 0.139$\pm$0.004 & 0.275$\pm$0.123 \\
+        w/o Hybrid & 0.104$\pm$0.004 & \underline{0.137$\pm$0.004} & 0.294$\pm$0.101 \\
+        w/o FeatEmb & 0.144$\pm$0.006 & 0.223$\pm$0.009 & 0.398$\pm$0.016 \\
+        \bottomrule
+    \end{tabular}
+    \end{small}
+\end{table}

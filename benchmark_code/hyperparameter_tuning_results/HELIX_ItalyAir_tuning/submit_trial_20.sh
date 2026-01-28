@@ -21,16 +21,16 @@ cat > /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyper
   "n_features": 13,
   "epochs": 1000,
   "patience": 10,
-  "pe_dim": 6,
+  "pe_dim": 4,
   "feature_embed_dim": 8,
-  "d_model": 64,
+  "d_model": 40,
   "n_heads": 2,
   "n_layers": 1,
-  "dropout": 0,
+  "dropout": 0.1,
   "ORT_weight": 1.0,
   "MIT_weight": 1.0,
-  "batch_size": 32,
-  "lr": 0.0015174502609732773
+  "batch_size": 16,
+  "lr": 0.003528884668692574
 }
 EOF
 
@@ -38,11 +38,11 @@ EOF
 python -u train_model_tuning.py \
     --model HELIX \
     --dataset ItalyAir \
-    --dataset_fold_path data/generated_datasets/italy_air_quality_rate01_step12_point \
+    --dataset_fold_path data/generated_datasets/italy_air_quality_rate09_step12_point \
     --saving_path /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyperparameter_tuning_results/HELIX_ItalyAir_tuning/trial_20 \
     --device cuda:0 \
     --n_rounds 1 \
-    --n_steps 12 --n_features 13 --epochs 1000 --patience 10 --pe_dim 6 --feature_embed_dim 8 --d_model 64 --n_heads 2 --n_layers 1 --dropout 0 --ORT_weight 1.000000 --MIT_weight 1.000000 --batch_size 32 --lr 0.001517
+    --n_steps 12 --n_features 13 --epochs 1000 --patience 10 --pe_dim 4 --feature_embed_dim 8 --d_model 40 --n_heads 2 --n_layers 1 --dropout 0.100000 --ORT_weight 1.000000 --MIT_weight 1.000000 --batch_size 16 --lr 0.003529
 
 # 标记完成
 echo "Trial 20 completed at $(date)" >> /home/bingxing2/home/scx7644/HELIX/Awesome_Imputation/benchmark_code/hyperparameter_tuning_results/HELIX_ItalyAir_tuning/trial_20_status.txt

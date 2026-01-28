@@ -20,7 +20,7 @@ CONFIG_BASE_PATH = "PyPOTS_tuning_configs"
 # 调优配置 - 每个模型25个trials
 TUNING_CONFIG = {
     'ETT_h1': {
-        'models': ['HELIX',],#'HELIX_NoRotaryPE','HELIX','StemGNN','HELIX_NoFeatureEmbed', 'HELIX_NoHybrid', 'HELIX_NoFusion','ModernTCN', 'TEFN', 'TimeMixer','MOMENT', 'ImputeFormer', ,'TOTEM','TimeMixerPP',   'TimeLLM', 
+        'models': [],#'HELIX','HELIX_NoRotaryPE','HELIX','StemGNN','HELIX_NoFeatureEmbed', 'HELIX_NoHybrid', 'HELIX_NoFusion','ModernTCN', 'TEFN', 'TimeMixer','MOMENT', 'ImputeFormer', ,'TOTEM','TimeMixerPP',   'TimeLLM', 
         'dataset_path': 'ett_rate05_step48_subseq_seqlen36',
         'max_trials_per_model': 25,
     },
@@ -40,8 +40,8 @@ TUNING_CONFIG = {
         'max_trials_per_model': 25,
     },
     'ItalyAir': {
-        'models': [],# 'TEFN','HELIX', 'HELIX_NoRotaryPE','StemGNN', 'HELIX_NoFeatureEmbed', 'HELIX_NoHybrid', 'HELIX_NoFusion','TimeMixerPP''ModernTCN','TOTEM','TimeMixer','TimeMixerPP',  'ImputeFormer', 
-        'dataset_path': 'italy_air_quality_rate01_step12_point',
+        'models': ['HELIX',],# 'TEFN', 'HELIX_NoRotaryPE','StemGNN', 'HELIX_NoFeatureEmbed', 'HELIX_NoHybrid', 'HELIX_NoFusion','TimeMixerPP''ModernTCN','TOTEM','TimeMixer','TimeMixerPP',  'ImputeFormer', 
+        'dataset_path': 'italy_air_quality_rate09_step12_point',
         'max_trials_per_model': 25,
     }
 }
@@ -413,7 +413,7 @@ echo "Trial {trial_id} completed at $(date)" >> {output_dir}/trial_{trial_id}_st
 # ==================== 主函数 ====================
 
 def main():
-    random.seed(42)
+    random.seed(0)
     
     total_submitted = 0
     total_trials = 0

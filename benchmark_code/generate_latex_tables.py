@@ -323,6 +323,21 @@ def extract_numeric_value(value_str):
     except:
         return float('inf')
 
+def get_mae_from_csv(base_path, pattern, dataset, model):
+    """
+    Read MAE (formatted for LaTeX) for a given model from:
+      base_path/pattern/{dataset}_with_naive.csv
+    Return '--' if not found.
+    """
+    csv_path = os.path.join(base_path, pattern, f'{dataset}_with_naive.csv')
+    if not os.path.exists(csv_path):
+        return '--'
+    df = pd.read_csv(csv_path)
+    row = df[df['Model'] == model]
+    if len(row) == 0:
+        return '--'
+    return format_metric(row.iloc[0].get('MAE', '--'))
+
 
 def get_column_ranks(values):
     """
@@ -741,6 +756,163 @@ def generate_appendix_tables(base_path, output_dir):
             f.write('\n'.join(latex))
         print(f"✓ Generated: {output_path}")
 
+def generate_ablation_appendix_all_datasets(base_path, output_dir):
+    """
+    Appendix Ablation Tables (grouped by dataset, stacked vertically):
+      - One table per dataset
+      - Models are COLUMNS (horizontal)
+      - Patterns are ROWS
+      - Rank per row among ablations only: 1st bold, 2nd underline
+    Output: appendix_ablation_by_dataset.tex
+    """
+
+    datasets_patterns = {
+        'BeijingAir': ['point01', 'point05', 'point09', 'block05', 'subseq05'],
+        'ETT_h1': ['point01', 'point05', 'point09', 'block05', 'subseq05'],
+        'ItalyAir': ['point01', 'point05', 'point09', 'block05', 'subseq05'],
+        'PeMS': ['point01', 'point05', 'point09', 'block05', 'subseq05'],
+        'PhysioNet2012': ['point01'],
+    }
+
+    ablation_models = [
+        'HELIX',
+        'HELIX_NoFusion',
+        'HELIX_NoRotaryPE',
+        'HELIX_NoHybrid',
+        'HELIX_NoFeatureEmbed'
+    ]
+    ablation_display = {
+        'HELIX': 'HELIX (Ours)',
+        'HELIX_NoFusion': 'w/o Multi-level Fusion',
+        'HELIX_NoRotaryPE': 'w/o Rotary PE',
+        'HELIX_NoHybrid': 'w/o Hybrid Encoding',
+        'HELIX_NoFeatureEmbed': 'w/o Feature Identity Emb.',
+    }
+
+    out = []
+    out.append("% Auto-generated: Ablation appendix tables grouped by dataset (horizontal).")
+    out.append("% Each dataset is a separate table; tables are stacked vertically in this file.")
+    out.append("")
+
+    for dataset, patterns in datasets_patterns.items():
+        # Build matrix: rows=patterns, cols=models
+        row_values = {}  # p -> [val_model1, ...]
+        for p in patterns:
+            row_values[p] = [get_mae_from_csv(base_path, p, dataset, m) for m in ablation_models]
+
+        # Rank per row (pattern): among ablation models only
+        row_ranks = {p: get_column_ranks(row_values[p]) for p in patterns}
+
+        dataset_title = DATASET_NAMES.get(dataset, dataset).replace('_', '\\_')
+
+        out.append(r"\begin{table*}[t]")
+        out.append(r"    \centering")
+        out.append(fr"    \caption{{Ablation results (MAE) on {dataset_title}. Ranking per row among ablations: \textbf{{1st}}, \underline{{2nd}}.}}")
+        out.append(fr"    \label{{tab:ablation_{dataset.lower()}_appendix}}")
+        out.append(r"    \begin{footnotesize}")
+        out.append(r"    \resizebox{\textwidth}{!}{%")
+
+        # 1st col for pattern name + 5 model cols
+        col_spec = "l|" + "c" * len(ablation_models)
+        out.append(f"    \\begin{{tabular}}{{{col_spec}}}")
+        out.append(r"        \toprule")
+
+        # Header
+        header = [r"\textbf{Pattern}"]
+        for m in ablation_models:
+            name = ablation_display.get(m, get_display_name(m))
+            if m == 'HELIX':
+                name = r"\textbf{" + name + r"}"
+            header.append(r"\textbf{" + name + r"}")
+        out.append("        " + " & ".join(header) + r" \\")
+        out.append(r"        \midrule")
+
+        # Body: each pattern is a row
+        for p in patterns:
+            row = [r"\textbf{" + PATTERN_NAMES.get(p, p) + r"}"]
+            ranks = row_ranks[p]  # {idx: rank}
+            for j, m in enumerate(ablation_models):
+                val = row_values[p][j]
+                rank = ranks.get(j, 999)
+                val = format_by_rank(val, rank) if rank <= 2 else val
+                row.append(val)
+            out.append("        " + " & ".join(row) + r" \\")
+
+        out.append(r"        \bottomrule")
+        out.append(r"    \end{tabular}}")  # end resizebox
+        out.append(r"    \end{footnotesize}")
+        out.append(r"\end{table*}")
+        out.append("")  # blank line between dataset blocks
+
+    output_path = os.path.join(output_dir, 'appendix_ablation_by_dataset.tex')
+    with open(output_path, 'w') as f:
+        f.write('\n'.join(out))
+    print(f"✓ Generated: {output_path}")
+
+
+def generate_ablation_beijingair_main(base_path, output_dir):
+    """
+    Main paper small ablation table on BeijingAir only (5 patterns).
+    Rows: HELIX + 4 ablations
+    Cols: 5 missing patterns
+    """
+    dataset = 'BeijingAir'
+    patterns = [ 'point05', 'block05', 'subseq05']#'point01', 'point09',
+
+    ablation_models = ['HELIX', 'HELIX_NoFusion', 'HELIX_NoRotaryPE', 'HELIX_NoHybrid', 'HELIX_NoFeatureEmbed']
+    ablation_display = {
+        'HELIX': 'HELIX (Ours)',
+        'HELIX_NoFusion': 'w/o Fusion',
+        'HELIX_NoRotaryPE': 'w/o Rotary',
+        'HELIX_NoHybrid': 'w/o Hybrid',
+        'HELIX_NoFeatureEmbed': 'w/o FeatEmb',
+    }
+
+    # Collect values
+    all_data = {m: {} for m in ablation_models}
+    for p in patterns:
+        for m in ablation_models:
+            all_data[m][p] = get_mae_from_csv(base_path, p, dataset, m)
+
+    # Column-wise ranks among ablations only
+    columns_data = {p: [all_data[m][p] for m in ablation_models] for p in patterns}
+    column_ranks = {p: get_column_ranks(columns_data[p]) for p in patterns}
+
+    latex = []
+    latex.append(r"\begin{table}[t]")
+    latex.append(r"    \caption{Ablation on BeijingAir across missing patterns (MAE). Ranking per column among ablations: \textbf{1st}, \underline{2nd}.}")
+    latex.append(r"    \label{tab:ablation_beijingair}")
+    latex.append(r"    \centering")
+    latex.append(r"    \begin{small}")
+    latex.append(r"    \begin{tabular}{l|ccc}")
+    latex.append(r"        \toprule")
+    latex.append(r"        \textbf{Model} & \textbf{Point-50\%} & \textbf{Block-50\%} & \textbf{Subseq-50\%} \\")
+    latex.append(r"        \midrule")
+
+    for i, m in enumerate(ablation_models):
+        name = ablation_display.get(m, get_display_name(m))
+        if m == 'HELIX':
+            name = r"\textbf{" + name + r"}"
+
+        row = [name]
+        for p in patterns:
+            val = columns_data[p][i]
+            rank = column_ranks[p].get(i, 999)
+            val = format_by_rank(val, rank) if rank <= 2 else val
+            row.append(val)
+
+        latex.append("        " + " & ".join(row) + r" \\")
+
+    latex.append(r"        \bottomrule")
+    latex.append(r"    \end{tabular}")
+    latex.append(r"    \end{small}")
+    latex.append(r"\end{table}")
+
+    output_path = os.path.join(output_dir, 'table3_ablation_beijingair.tex')
+    with open(output_path, 'w') as f:
+        f.write('\n'.join(latex))
+    print(f"✓ Generated: {output_path}")
+
 # =============================================================================
 # Additional: vs Naive Summary
 # =============================================================================
@@ -865,11 +1037,14 @@ def main():
     print("\nGenerating Table 2: ETT-h1 Detailed Results...")
     generate_table2_detailed_results(args.base_path, args.output_dir)
     
-    print("\nGenerating Table 3: Ablation Study (Transposed)...")
-    generate_table3_ablation(args.base_path, args.output_dir)
+    print("\nGenerating Ablation Table (Main): BeijingAir 5 patterns...")
+    generate_ablation_beijingair_main(args.base_path, args.output_dir)
     
     print("\nGenerating Appendix Tables (6 datasets)...")
     generate_appendix_tables(args.base_path, args.output_dir)
+    
+    print("\nGenerating Ablation Table (Appendix): All datasets (wide)...")
+    generate_ablation_appendix_all_datasets(args.base_path, args.output_dir)
     
     print("\nGenerating vs Naive Summary...")
     generate_vs_naive_summary(args.base_path, args.output_dir)

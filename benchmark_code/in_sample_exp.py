@@ -48,7 +48,7 @@ MODELS = [
     # 'TimeMixer',
     # 'ModernTCN',
     # 'StemGNN',
-    'ImputeFormer',
+    # 'ImputeFormer',
     # 'TOTEM',
     # 'iTransformer',
     # 'SAITS',
@@ -71,13 +71,13 @@ dataset_folders = [
     # 'ett_rate01_step48_point',
     # 'ett_rate03_step48_block_blocklen6',
     # 'ett_rate05_step48_point',
-    'ett_rate05_step48_subseq_seqlen36',
+    # 'ett_rate05_step48_subseq_seqlen36',
     # 'ett_rate09_step48_point',
     # 'italy_air_quality_rate00_step12_block_blocklen4',
     # 'italy_air_quality_rate01_step12_point',
     # 'italy_air_quality_rate05_step12_point',
     # 'italy_air_quality_rate05_step12_subseq_seqlen8',
-    # 'italy_air_quality_rate09_step12_point',
+    'italy_air_quality_rate09_step12_point',
     # 'pems_traffic_rate00_step24_block_blocklen6',
     # 'pems_traffic_rate01_step24_point',
     # 'pems_traffic_rate05_step24_point',
@@ -127,7 +127,7 @@ export PYTHONUNBUFFERED=1
 export http_proxy=http://u-cEoRwn:EDvFuZTe@172.16.4.9:3128
 export https_proxy=http://u-cEoRwn:EDvFuZTe@172.16.4.9:3128   
 export LD_PRELOAD=$LD_PRELOAD:/home/bingxing2/home/scx7644/.conda/envs/py310pots/lib/python3.10/site-packages/sklearn/utils/../../scikit_learn.libs/libgomp-947d5fa1.so.1.0.0
-python -u train_model.py --model {model_name} --dataset {dataset_name} --dataset_fold_path {DATA_BASE_PATH}/{folder_name} --saving_path {OUTPUT_BASE_PATH}/{dataset_log_dir} --device cuda:0 --n_rounds 25
+python -u train_model.py --model {model_name} --dataset {dataset_name} --dataset_fold_path {DATA_BASE_PATH}/{folder_name} --saving_path {OUTPUT_BASE_PATH}/{dataset_log_dir} --device cuda:0 --n_rounds 5
 """
     return script_content, dataset_log_dir
 # --impute_all_sets

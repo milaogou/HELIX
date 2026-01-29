@@ -1,5 +1,5 @@
 \begin{table*}[t]
-    \caption{Overall ranking across all experimental settings, computed among HELIX and 16 competitive baselines only (excluding ablations and naive methods). Lower average rank indicates better performance. $\dagger$ indicates models that could not run on all settings due to computational or architectural constraints.}
+    \caption{Overall ranking across all experimental settings, computed among HELIX and competitive baselines (excluding ablations and most naive methods), while additionally reporting two strong naive references (LOCF and Linear Interpolation). Lower average rank indicates better performance. $\dagger$ indicates models that could not run on all settings due to computational or architectural constraints.}
     \label{tab:main_ranking}
     \centering
     \begin{small}
@@ -8,20 +8,22 @@
         \textbf{Model} & \textbf{Avg. Rank} $\downarrow$ & \textbf{Valid Exps.} & \textbf{Global Rank} & \textbf{Category} & \textbf{Venue} \\
         \midrule
         \textbf{HELIX (Ours)} & \textbf{1.00} & 21/21 & \textbf{1} & Ours & -- \\
-        ImputeFormer & 2.95 & 21/21 & 2 & Low-rank Attention & KDD'24 \\
-        SAITS & 3.43 & 21/21 & 3 & Masked Attention & ESWA'23 \\
-        StemGNN & 5.19 & 21/21 & 4 & Graph Neural Network & NeurIPS'20 \\
-        PatchTST & 6.62 & 21/21 & 5 & Patch-based & ICLR'23 \\
-        FreTS & 6.81 & 21/21 & 6 & Frequency Domain & NeurIPS'23 \\
-        Nonstationary Trans. & 6.81 & 21/21 & 7 & Non-stationary Attn & NeurIPS'22 \\
-        iTransformer & 7.24 & 21/21 & 8 & Variate Attention & ICLR'24 \\
-        TEFN & 7.86 & 21/21 & 9 & Evidence Fusion & TPAMI'25 \\
-        Time-LLM$^\dagger$ & 10.31 & 16/21 & 10 & LLM Adaptation & ICLR'24 \\
-        TimeMixer & 10.57 & 21/21 & 11 & Multi-scale Mixing & ICLR'24 \\
-        ModernTCN & 10.86 & 21/21 & 12 & Modern Convolution & ICLR'24 \\
-        TimeMixer++$^\dagger$ & 11.56 & 16/21 & 13 & Multi-scale Mixing & ICLR'25 \\
-        TOTEM & 12.67 & 21/21 & 14 & Tokenization & TMLR'24 \\
-        MOMENT$^\dagger$ & 14.82 & 11/21 & 15 & Foundation Model & ICML'24 \\
+        ImputeFormer & 3.29 & 21/21 & 2 & Low-rank Attention & KDD'24 \\
+        SAITS & 3.76 & 21/21 & 3 & Masked Attention & ESWA'23 \\
+        StemGNN & 5.71 & 21/21 & 4 & Graph Neural Network & NeurIPS'20 \\
+        Linear Interpolation & 6.67 & 21/21 & 5 & Naive & -- \\
+        PatchTST & 7.24 & 21/21 & 6 & Patch-based & ICLR'23 \\
+        Nonstationary Trans. & 7.33 & 21/21 & 7 & Non-stationary Attn & NeurIPS'22 \\
+        FreTS & 7.48 & 21/21 & 8 & Frequency Domain & NeurIPS'23 \\
+        iTransformer & 7.95 & 21/21 & 9 & Variate Attention & ICLR'24 \\
+        TEFN & 8.67 & 21/21 & 10 & Evidence Fusion & TPAMI'25 \\
+        Time-LLM$^\dagger$ & 11.75 & 16/21 & 11 & LLM Adaptation & ICLR'24 \\
+        TimeMixer & 11.86 & 21/21 & 12 & Multi-scale Mixing & ICLR'24 \\
+        LOCF & 12.05 & 21/21 & 13 & Naive & -- \\
+        ModernTCN & 12.43 & 21/21 & 14 & Modern Convolution & ICLR'24 \\
+        TimeMixer++$^\dagger$ & 13.06 & 16/21 & 15 & Multi-scale Mixing & ICLR'25 \\
+        TOTEM & 14.38 & 21/21 & 16 & Tokenization & TMLR'24 \\
+        MOMENT$^\dagger$ & 16.82 & 11/21 & 17 & Foundation Model & ICML'24 \\
         \bottomrule
     \end{tabular}
     \end{small}

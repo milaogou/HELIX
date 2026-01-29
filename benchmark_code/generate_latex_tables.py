@@ -23,13 +23,21 @@ from collections import defaultdict
 # =============================================================================
 
 EXCLUDE_CATEGORIES_FOR_MAIN = {'Ablation', 'Naive'}
+# Only include these two naive baselines in Table 1 for reference
+TABLE1_ALLOW_NAIVE = {'Naive_LOCF', 'Naive_LinearInterp'}
 
 def is_main_model(model: str) -> bool:
-    """True if model participates in main ranking/comparison."""
-    cat = get_category(model)  # from MODEL_DISPLAY second field
+    """True if model participates in main ranking/comparison (Table 1)."""
     if model == 'HELIX':
         return True
+
+    # Special-case: allow two strong naive baselines for Table 1 comparison
+    if model in TABLE1_ALLOW_NAIVE:
+        return True
+
+    cat = get_category(model)  # from MODEL_DISPLAY second field
     return cat not in EXCLUDE_CATEGORIES_FOR_MAIN
+
 
 
 # Model display names and categories
@@ -128,7 +136,7 @@ DATASET_NAMES = {
     'ETT_h1': 'ETT-h1 (48 steps, 7 features)',
     'ItalyAir': 'ItalyAir (12 steps, 13 features)',
     'PeMS': 'PeMS (24 steps, 862 features)',
-    'PhysioNet2012': 'PhysioNet2012 (48 steps, 37 features)',
+    'PhysioNet2012': 'PhysioNet2012 (48 steps, 35 features)',
 }
 
 PATTERN_NAMES = {
@@ -384,7 +392,7 @@ def generate_table1_overall_ranking(base_path, output_dir):
 
     latex = []
     latex.append(r"\begin{table*}[t]")
-    latex.append(r"    \caption{Overall ranking across all experimental settings, computed among HELIX and 16 competitive baselines only (excluding ablations and naive methods). Lower average rank indicates better performance. $\dagger$ indicates models that could not run on all settings due to computational or architectural constraints.}")
+    latex.append(r"    \caption{Overall ranking across all experimental settings, computed among HELIX and competitive baselines (excluding ablations and most naive methods), while additionally reporting two strong naive references (LOCF and Linear Interpolation). Lower average rank indicates better performance. $\dagger$ indicates models that could not run on all settings due to computational or architectural constraints.}")
     latex.append(r"    \label{tab:main_ranking}")
     latex.append(r"    \centering")
     latex.append(r"    \begin{small}")

@@ -55,6 +55,48 @@ STATION_SHORT = {
     'Guanyuan': 'GY', 'Gucheng': 'GC'
 }
 
+STATION_SHORT_CN = {
+    'Huairou': '怀柔', 'Shunyi': '顺义', 'Wanliu': '万柳', 'Dingling': '定陵',
+    'Nongzhanguan': '农展馆', 'Dongsi': '东四', 'Tiantan': '天坛',
+    'Wanshouxigong': '万寿西宫', 'Aotizhongxin': '奥体中心', 'Changping': '昌平',
+    'Guanyuan': '官园', 'Gucheng': '古城'
+}
+
+LABELS = {
+    'en': {
+        'query_station': 'Query Station',
+        'key_station': 'Key Station',
+        'attention': 'Attention',
+        'layer_feature': 'Layer {} Feature Attention',
+        'query_time': 'Query Time Step',
+        'key_time': 'Key Time Step',
+        'layer_temporal': 'Layer {} Temporal Attention',
+        'avg_samples': '(averaged over samples)',
+    },
+    'cn': {
+        'query_station': '查询站点',
+        'key_station': '键站点',
+        'attention': '注意力',
+        'layer_feature': '第{}层特征注意力',
+        'query_time': '查询时间步',
+        'key_time': '键时间步',
+        'layer_temporal': '第{}层时间注意力',
+        'avg_samples': '(样本平均)',
+    },
+}
+
+def set_cn_font():
+    import matplotlib as mpl
+    mpl.rcParams['font.sans-serif'] = ['SimHei']
+    mpl.rcParams['axes.unicode_minus'] = False
+    mpl.rcParams['font.family'] = 'sans-serif'
+
+def reset_en_font():
+    plt.rcParams.update({
+        'font.family': 'serif',
+        'font.serif': ['Times New Roman', 'Times', 'DejaVu Serif'],
+    })
+    
 N_STATIONS = 12
 N_FEATURES_PER_STATION = 11
 
@@ -153,7 +195,7 @@ def aggregate_to_stations(attn, n_stations=12, n_features=11):
 # =============================================================================
 
 def plot_figure3_feature_attention(attn_dict, geo_dist, stations, output_dir, 
-                                    n_stations=12, n_features=11):
+                                    n_stations=12, n_features=11, lang='en'):
     """
     Generate Figure 3: Feature Attention captures spatial structure.
     Shows feature attention heatmaps with r/p values indicating correlation with geography.
@@ -164,7 +206,9 @@ def plot_figure3_feature_attention(attn_dict, geo_dist, stations, output_dir,
     - Adjusted font sizes and rotation angles
     - Fixed spacing parameters
     """
-    short_names = [STATION_SHORT[s] for s in stations]
+    short_name_map = STATION_SHORT_CN if lang == 'cn' else STATION_SHORT
+    short_names = [short_name_map[s] for s in stations]
+    _tick_fs = 4 if lang == 'cn' else 5
     
     # Compute geographic proximity
     geo_prox = np.zeros_like(geo_dist)
@@ -219,39 +263,41 @@ def plot_figure3_feature_attention(attn_dict, geo_dist, stations, output_dir,
         # Labels - reduced font size, increased rotation angle
         ax.set_xticks(range(n_stations))
         ax.set_yticks(range(n_stations))
-        ax.set_xticklabels(short_names, fontsize=5, rotation=60, ha='right')
+        ax.set_xticklabels(short_names, fontsize=_tick_fs, rotation=60, ha='right')
         
         # Only show y-axis labels on the first subplot
         if idx == 0:
-            ax.set_yticklabels(short_names, fontsize=5)
-            ax.set_ylabel('Query Station', fontsize=8)
+            ax.set_yticklabels(short_names, fontsize=_tick_fs)
+            ax.set_ylabel(LABELS[lang]['query_station'], fontsize=8)
         else:
             ax.set_yticklabels([])
         
-        ax.set_xlabel('Key Station', fontsize=8)
+        ax.set_xlabel(LABELS[lang]['key_station'], fontsize=8)
         
         # Title - two lines with reduced font size
         layer_num = key.replace('layer', '').replace('_feature', '')
         p_str = 'p < 0.0001' if p < 0.0001 else f'p = {p:.4f}'
-        ax.set_title(f'Layer {layer_num} Feature Attention\n(r = {r:.3f}, {p_str})', 
+        title_line1 = LABELS[lang]['layer_feature'].format(layer_num)
+        ax.set_title(f'{title_line1}\n(r = {r:.3f}, {p_str})', 
                     fontsize=8, fontweight='bold', pad=4)
     
     # Shared colorbar
     cbar = fig.colorbar(im, cax=cax)
     cbar.ax.tick_params(labelsize=6)
-    cbar.set_label('Attention', fontsize=7)
+    cbar.set_label(LABELS[lang]['attention'], fontsize=7)
     
-    plt.savefig(os.path.join(output_dir, 'figure3_feature_attention.pdf'), 
+    suffix = '_cn' if lang == 'cn' else ''
+    plt.savefig(os.path.join(output_dir, f'figure3_feature_attention{suffix}.pdf'), 
                 bbox_inches='tight', pad_inches=0.02)
-    plt.savefig(os.path.join(output_dir, 'figure3_feature_attention.png'), 
+    plt.savefig(os.path.join(output_dir, f'figure3_feature_attention{suffix}.png'), 
                 dpi=300, bbox_inches='tight', pad_inches=0.02)
     plt.close()
     
-    print(f"Saved: {output_dir}/figure3_feature_attention.pdf")
+    print(f"Saved: {output_dir}/figure3_feature_attention{suffix}.pdf")
     return feature_data
 
 
-def plot_appendix_temporal_attention(attn_dict, output_dir):
+def plot_appendix_temporal_attention(attn_dict, output_dir, lang='en'):
     """
     Generate Appendix A1: Temporal Attention Heatmaps.
     Shows how temporal attention evolves from local to broader context.
@@ -298,12 +344,13 @@ def plot_appendix_temporal_attention(attn_dict, output_dir):
                        vmin=vmin, vmax=vmax)
         
         layer_num = key.replace('layer', '').replace('_time', '')
-        ax.set_title(f'Layer {layer_num} Temporal Attention\n(averaged over samples)', 
+        title_line1 = LABELS[lang]['layer_temporal'].format(layer_num)
+        ax.set_title(f'{title_line1}\n{LABELS[lang]["avg_samples"]}', 
                     fontsize=8, fontweight='bold', pad=4)
-        ax.set_xlabel('Key Time Step', fontsize=8)
+        ax.set_xlabel(LABELS[lang]['key_time'], fontsize=8)
         
         if idx == 0:
-            ax.set_ylabel('Query Time Step', fontsize=8)
+            ax.set_ylabel(LABELS[lang]['query_time'], fontsize=8)
         
         # Reduce number of ticks to avoid crowding
         ax.locator_params(axis='both', nbins=6)
@@ -311,15 +358,16 @@ def plot_appendix_temporal_attention(attn_dict, output_dir):
     # Shared colorbar
     cbar = fig.colorbar(im, cax=cax)
     cbar.ax.tick_params(labelsize=6)
-    cbar.set_label('Attention', fontsize=7)
+    cbar.set_label(LABELS[lang]['attention'], fontsize=7)
     
-    plt.savefig(os.path.join(output_dir, 'figure4_temporal_attention.pdf'), 
+    suffix = '_cn' if lang == 'cn' else ''
+    plt.savefig(os.path.join(output_dir, f'figure4_temporal_attention{suffix}.pdf'), 
                 bbox_inches='tight', pad_inches=0.02)
-    plt.savefig(os.path.join(output_dir, 'figure4_temporal_attention.png'), 
+    plt.savefig(os.path.join(output_dir, f'figure4_temporal_attention{suffix}.png'), 
                 dpi=300, bbox_inches='tight', pad_inches=0.02)
     plt.close()
     
-    print(f"Saved: {output_dir}/figure4_temporal_attention.pdf")
+    print(f"Saved: {output_dir}/figure4_temporal_attention{suffix}.pdf")
 
 
 # =============================================================================
@@ -373,17 +421,32 @@ def main():
     # Compute geographic distance
     geo_dist = compute_geo_distance(STATION_ORDER, BEIJING_STATION_COORDS)
     
-    # Generate Figure 3: Feature Attention
+    # Generate Figure 3: Feature Attention (EN)
     print("\n" + "-" * 70)
-    print("Generating Figure 3: Feature Attention...")
+    print("Generating Figure 3: Feature Attention (EN)...")
     feature_results = plot_figure3_feature_attention(
-        attn_dict, geo_dist, STATION_ORDER, args.output_dir, N_STATIONS, N_FEATURES_PER_STATION
+        attn_dict, geo_dist, STATION_ORDER, args.output_dir, N_STATIONS, N_FEATURES_PER_STATION, lang='en'
     )
     
-    # Generate Appendix A1: Temporal Attention
+    # Generate Appendix A1: Temporal Attention (EN)
     print("\n" + "-" * 70)
-    print("Generating Appendix A1: Temporal Attention...")
-    plot_appendix_temporal_attention(attn_dict, args.output_dir)
+    print("Generating Appendix A1: Temporal Attention (EN)...")
+    plot_appendix_temporal_attention(attn_dict, args.output_dir, lang='en')
+    
+    # Generate CN versions
+    set_cn_font()
+    
+    print("\n" + "-" * 70)
+    print("Generating Figure 3: Feature Attention (CN)...")
+    plot_figure3_feature_attention(
+        attn_dict, geo_dist, STATION_ORDER, args.output_dir, N_STATIONS, N_FEATURES_PER_STATION, lang='cn'
+    )
+    
+    print("\n" + "-" * 70)
+    print("Generating Appendix A1: Temporal Attention (CN)...")
+    plot_appendix_temporal_attention(attn_dict, args.output_dir, lang='cn')
+    
+    reset_en_font()
     
     # Summary
     print("\n" + "=" * 70)

@@ -92,6 +92,37 @@ STATION_SHORT = {
     'Guanyuan': 'GY', 'Gucheng': 'GC'
 }
 
+LABELS = {
+    'en': {
+        'time_step': 'Time Step',
+        'norm_value': 'Normalized Value',
+        'ground_truth': 'Ground Truth',
+        'helix': 'HELIX (Ours)',
+        'missing_region': 'Missing Region',
+        'missing_pattern': 'Missing Pattern',
+        'mae': 'Mean Absolute Error',
+        'missing_length': 'Missing Length',
+        'inter_corr': 'Inter-Station Correlation',
+        'title_d': '(d) Error by Pattern',
+        'title_e': '(e) Error by Gap Length',
+        'title_f': '(f) Spatial Correlation Benefit',
+    },
+    'cn': {
+        'time_step': '时间步',
+        'norm_value': '归一化值',
+        'ground_truth': '真实值',
+        'helix': 'HELIX (本文)',
+        'missing_region': '缺失区域',
+        'missing_pattern': '缺失模式',
+        'mae': '平均绝对误差',
+        'missing_length': '缺失长度',
+        'inter_corr': '站间相关性',
+        'title_d': '(d) 各模式误差',
+        'title_e': '(e) 各缺失长度误差',
+        'title_f': '(f) 空间相关性收益',
+    },
+}
+
 N_STATIONS = 12
 N_FEATURES_PER_STATION = 11
 N_STEPS = 24
@@ -283,7 +314,7 @@ def find_missing_regions(mask_1d):
 # =============================================================================
 
 def plot_time_series_panel(ax, X_ori, X_obs, missing_mask, imputations, 
-                           feature_idx, pattern_name, sample_idx):
+                           feature_idx, pattern_name, sample_idx, lang='en'):
     """
     Plot a single time series comparison panel.
     
@@ -315,7 +346,7 @@ def plot_time_series_panel(ax, X_ori, X_obs, missing_mask, imputations,
     ax.plot(t, gt, color=COLORS['ground_truth'], 
             linestyle=LINE_STYLES['ground_truth'],
             linewidth=LINE_WIDTHS['ground_truth'],
-            label='Ground Truth', zorder=3)
+            label=LABELS[lang]['ground_truth'], zorder=3)
     
     # Plot imputations
     for model_name in ['HELIX', 'ImputeFormer', 'SAITS']:
@@ -324,13 +355,13 @@ def plot_time_series_panel(ax, X_ori, X_obs, missing_mask, imputations,
             ax.plot(t, imp, color=COLORS[model_name],
                    linestyle=LINE_STYLES[model_name],
                    linewidth=LINE_WIDTHS[model_name],
-                   label=model_name if model_name != 'HELIX' else 'HELIX (Ours)',
+                   label=model_name if model_name != 'HELIX' else LABELS[lang]['helix'],
                    zorder=4 if model_name == 'HELIX' else 2)
     
     # Formatting
     ax.set_xlim(-0.5, T - 0.5)
-    ax.set_xlabel('Time Step')
-    ax.set_ylabel('Normalized Value')
+    ax.set_xlabel(LABELS[lang]['time_step'])
+    ax.set_ylabel(LABELS[lang]['norm_value'])
     
     ax.set_title(f'({chr(97 + list(PATTERN_CONFIG.keys()).index(pattern_name))}) {pattern_name}', 
                  fontsize=9, fontweight='bold')
@@ -338,7 +369,7 @@ def plot_time_series_panel(ax, X_ori, X_obs, missing_mask, imputations,
     ax.grid(True, alpha=0.3, linestyle='-', linewidth=0.3)
 
 
-def plot_error_distribution(ax, errors_by_pattern, methods):
+def plot_error_distribution(ax, errors_by_pattern, methods, lang='en'):
     """Plot grouped bar chart with error bars."""
     pattern_names = list(errors_by_pattern.keys())
     n_patterns = len(pattern_names)
@@ -360,7 +391,7 @@ def plot_error_distribution(ax, errors_by_pattern, methods):
                 stds.append(0)
         
         offset = (m_idx - n_methods/2 + 0.5) * width
-        label = 'HELIX (Ours)' if method == 'HELIX' else method
+        label = LABELS[lang]['helix'] if method == 'HELIX' else method
         ax.bar(x + offset, means, width * 0.9, yerr=stds,
                color=COLORS[method], label=label, alpha=0.85,
                capsize=3, error_kw={'linewidth': 1})
@@ -368,9 +399,9 @@ def plot_error_distribution(ax, errors_by_pattern, methods):
     ax.set_xticks(x)
     short_labels = [p.replace('-50%', '').replace('%', '') for p in pattern_names]
     ax.set_xticklabels(short_labels, fontsize=6)
-    ax.set_xlabel('Missing Pattern')
-    ax.set_ylabel('Mean Absolute Error')
-    ax.set_title('(d) Error by Pattern', fontsize=9, fontweight='bold')
+    ax.set_xlabel(LABELS[lang]['missing_pattern'])
+    ax.set_ylabel(LABELS[lang]['mae'])
+    ax.set_title(LABELS[lang]['title_d'], fontsize=9, fontweight='bold')
     # ax.legend(loc='upper right', fontsize=6)
     ax.grid(True, alpha=0.3, axis='y')
     ax.set_ylim(0, None)
@@ -460,7 +491,7 @@ def compute_error_by_gap_length(X_ori, imputations, missing_mask, valid_mask):
     return final, length_bins
 
 
-def plot_error_by_gap_length(ax, gap_errors, length_bins, methods):
+def plot_error_by_gap_length(ax, gap_errors, length_bins, methods, lang='en'):
     """Plot error vs gap length - shows HELIX advantage in longer gaps."""
     x = np.arange(len(length_bins))
     width = 0.25
@@ -468,15 +499,15 @@ def plot_error_by_gap_length(ax, gap_errors, length_bins, methods):
     for m_idx, method in enumerate(methods):
         values = [gap_errors[method][b] for b in length_bins]
         offset = (m_idx - len(methods)/2 + 0.5) * width
-        label = 'HELIX (Ours)' if method == 'HELIX' else method
+        label = LABELS[lang]['helix'] if method == 'HELIX' else method
         ax.bar(x + offset, values, width * 0.9, color=COLORS[method], 
                label=label, alpha=0.85)
     
     ax.set_xticks(x)
     ax.set_xticklabels(['1-2', '3-5', '6-10', '11+'], fontsize=6)
-    ax.set_xlabel('Missing Length')
-    ax.set_ylabel('Mean Absolute Error')
-    ax.set_title('(e) Error by Gap Length', fontsize=9, fontweight='bold')
+    ax.set_xlabel(LABELS[lang]['missing_length'])
+    ax.set_ylabel(LABELS[lang]['mae'])
+    ax.set_title(LABELS[lang]['title_e'], fontsize=9, fontweight='bold')
     ax.grid(True, alpha=0.3, axis='y')
 
 
@@ -546,7 +577,7 @@ def compute_station_correlation_benefit(X_ori, imputations, missing_mask, valid_
     return results
 
 
-def plot_correlation_analysis(ax, corr_results, methods):
+def plot_correlation_analysis(ax, corr_results, methods, lang='en'):
     """
     Plot scatter/binned analysis of error vs correlation.
     """
@@ -584,17 +615,18 @@ def plot_correlation_analysis(ax, corr_results, methods):
             'counts': bin_counts
         }
         
-        label = method if method != 'HELIX' else 'HELIX (Ours)'
+        label = method if method != 'HELIX' else LABELS[lang]['helix']
         ax.errorbar(bin_centers, bin_means, yerr=bin_stds,
                    color=COLORS[method], marker='o', markersize=6,
                    linewidth=1.5, capsize=3, label=label,
                    linestyle=LINE_STYLES[method])
     
-    ax.set_xlabel('Inter-Station Correlation')
-    ax.set_ylabel('Mean Absolute Error')
-    ax.set_title('(f) Spatial Correlation Benefit', fontsize=9, fontweight='bold')
+    ax.set_xlabel(LABELS[lang]['inter_corr'])
+    ax.set_ylabel(LABELS[lang]['mae'])
+    ax.set_title(LABELS[lang]['title_f'], fontsize=9, fontweight='bold')
     ax.grid(True, alpha=0.3)
     ax.set_xlim(0, 1)
+    ax.set_ylim(0, None)
     
     # ==================== 日志输出 ====================
     print("\n" + "=" * 70)
@@ -667,7 +699,7 @@ def plot_correlation_analysis(ax, corr_results, methods):
 # Main Figure Generation
 # =============================================================================
 
-def generate_figure5(output_dir):
+def generate_figure5(output_dir, lang='en'):
     """Generate the complete Figure 5."""
     
     os.makedirs(output_dir, exist_ok=True)
@@ -722,7 +754,11 @@ def generate_figure5(output_dir):
     # Create figure
     print("\n" + "-" * 70)
     print("Creating figure...")
-    
+    if lang == 'cn':
+        import matplotlib as mpl
+        mpl.rcParams['font.sans-serif'] = ['SimHei']
+        mpl.rcParams['axes.unicode_minus'] = False
+        mpl.rcParams['font.family'] = 'sans-serif'
     fig = plt.figure(figsize=(6.75, 4.0))
     
     # Create grid: 2 rows, 3 columns
@@ -749,20 +785,20 @@ def generate_figure5(output_dir):
                 sample_imputations[model_name] = full_imp[sample_idx]
         
         plot_time_series_panel(ax, X_ori, None, missing_mask, 
-                              sample_imputations, feature_idx, pattern_name, sample_idx)
+                              sample_imputations, feature_idx, pattern_name, sample_idx, lang=lang)
     
     # Add shared legend for Row 1
     handles = [
         Line2D([0], [0], color=COLORS['ground_truth'], linestyle=LINE_STYLES['ground_truth'],
-               linewidth=LINE_WIDTHS['ground_truth'], label='Ground Truth'),
+               linewidth=LINE_WIDTHS['ground_truth'], label=LABELS[lang]['ground_truth']),
         Line2D([0], [0], color=COLORS['HELIX'], linestyle=LINE_STYLES['HELIX'],
-               linewidth=LINE_WIDTHS['HELIX'], label='HELIX (Ours)'),
+               linewidth=LINE_WIDTHS['HELIX'], label=LABELS[lang]['helix']),
         Line2D([0], [0], color=COLORS['ImputeFormer'], linestyle=LINE_STYLES['ImputeFormer'],
                linewidth=LINE_WIDTHS['ImputeFormer'], label='ImputeFormer'),
         Line2D([0], [0], color=COLORS['SAITS'], linestyle=LINE_STYLES['SAITS'],
                linewidth=LINE_WIDTHS['SAITS'], label='SAITS'),
         Rectangle((0, 0), 1, 1, facecolor=COLORS['missing_region'], 
-                  edgecolor=COLORS['missing_border'], label='Missing Region'),
+                  edgecolor=COLORS['missing_border'], label=LABELS[lang]['missing_region']),
     ]
     fig.legend(handles=handles, loc='upper center', ncol=5, fontsize=6.5,
    bbox_to_anchor=(0.52, 0.97), frameon=True, framealpha=0.9,
@@ -791,7 +827,7 @@ def generate_figure5(output_dir):
     # (d) Error distribution
     print("  Plotting error distribution...")
     ax_d = fig.add_subplot(gs[1, 0])
-    plot_error_distribution(ax_d, errors_by_pattern, MODEL_NAMES)
+    plot_error_distribution(ax_d, errors_by_pattern, MODEL_NAMES, lang=lang)
     
     # Compute boundary errors
     print("  Computing boundary errors...")
@@ -816,7 +852,7 @@ def generate_figure5(output_dir):
     
     print("  Plotting error by gap length...")
     ax_e = fig.add_subplot(gs[1, 1])
-    plot_error_by_gap_length(ax_e, gap_errors, length_bins, MODEL_NAMES)
+    plot_error_by_gap_length(ax_e, gap_errors, length_bins, MODEL_NAMES, lang=lang)
     
     # Compute correlation benefit
     print("  Computing correlation analysis...")
@@ -830,11 +866,12 @@ def generate_figure5(output_dir):
     # (f) Correlation analysis
     print("  Plotting correlation analysis...")
     ax_f = fig.add_subplot(gs[1, 2])
-    plot_correlation_analysis(ax_f, corr_results, MODEL_NAMES)
+    plot_correlation_analysis(ax_f, corr_results, MODEL_NAMES, lang=lang)
     
     # Save
-    output_pdf = os.path.join(output_dir, 'figure5_imputation.pdf')
-    output_png = os.path.join(output_dir, 'figure5_imputation.png')
+    suffix = '_cn' if lang == 'cn' else ''
+    output_pdf = os.path.join(output_dir, f'figure5_imputation{suffix}.pdf')
+    output_png = os.path.join(output_dir, f'figure5_imputation{suffix}.png')
     
     plt.savefig(output_pdf, format='pdf', bbox_inches='tight', pad_inches=0.1)
     plt.savefig(output_png, format='png', dpi=300, bbox_inches='tight', pad_inches=0.1)
@@ -876,4 +913,5 @@ if __name__ == "__main__":
                         help='Output directory')
     args = parser.parse_args()
     
-    generate_figure5(args.output_dir)
+    generate_figure5(args.output_dir, lang='en')
+    generate_figure5(args.output_dir, lang='cn')

@@ -123,6 +123,29 @@ STATION_SHORT = {
     'Guanyuan': 'GY', 'Gucheng': 'GC'
 }
 
+STATION_SHORT_CN = {
+    'Huairou': '怀柔', 'Shunyi': '顺义', 'Wanliu': '万柳', 'Dingling': '定陵',
+    'Nongzhanguan': '农展馆', 'Dongsi': '东四', 'Tiantan': '天坛',
+    'Wanshouxigong': '万寿西宫', 'Aotizhongxin': '奥体中心', 'Changping': '昌平',
+    'Guanyuan': '官园', 'Gucheng': '古城'
+}
+
+CN_LABELS = {
+    'colorbar_sim': '嵌入相似度',
+    'xlabel_lon': '经度 (°E)',
+    'ylabel_lat': '纬度 (°N)',
+    'title_a': '(a) 北京监测站点',
+    'xlabel_dist': '地理距离 (km)',
+    'ylabel_sim': '嵌入相似度',
+    'title_b': '(b) 嵌入相似度与地理距离',
+    'legend_fit': '线性拟合',
+    'legend_ci': '95% 置信区间',
+    'colorbar_norm': '归一化数值',
+    'upper_label': '上三角: 学习嵌入',
+    'lower_label': '下三角: 地理',
+    'title_c_prefix': '(c) 地理 vs 学习嵌入',
+}
+
 N_STATIONS = 12
 N_FEATURES_PER_STATION = 11
 
@@ -288,7 +311,7 @@ def compute_geographic_distance_matrix(stations, coords_dict):
 # Visualization Functions
 # =============================================================================
 def create_figure2(similarity_matrix, distance_matrix, stations, 
-                            output_path, district_boundaries=None, top_n=20):
+                            output_path, district_boundaries=None, top_n=20, lang='en'):
     """
     Create combined Figure 2 with 3 subplots in HORIZONTAL layout: 
     (a) Map, (b) Scatter, (c) Heatmap
@@ -298,6 +321,27 @@ def create_figure2(similarity_matrix, distance_matrix, stations,
     from mpl_toolkits.axes_grid1 import make_axes_locatable
     import matplotlib.gridspec as gridspec
     
+    # Select labels based on language
+    if lang == 'cn':
+        L = CN_LABELS
+        short_name_map = STATION_SHORT_CN
+    else:
+        L = {
+            'colorbar_sim': 'Embedding Similarity',
+            'xlabel_lon': 'Longitude (°E)',
+            'ylabel_lat': 'Latitude (°N)',
+            'title_a': '(a) Beijing Stations',
+            'xlabel_dist': 'Geographic Distance (km)',
+            'ylabel_sim': 'Embedding Similarity',
+            'title_b': '(b) Embedding vs. Geography',
+            'legend_fit': 'Linear fit',
+            'legend_ci': '95% CI',
+            'colorbar_norm': 'Normalized Value',
+            'upper_label': 'Upper: Learned',
+            'lower_label': 'Lower: Geo.',
+            'title_c_prefix': '(c) Geo. vs Learned',
+        }
+        short_name_map = STATION_SHORT
     fig = plt.figure(figsize=(6.5, 2.8))  # 减少高度，b会自动变扁
     outer_gs = gridspec.GridSpec(1, 2, figure=fig, width_ratios=[1.1, 2.5],
                 wspace=0.15, left=0.02, right=0.96,
@@ -315,7 +359,7 @@ def create_figure2(similarity_matrix, distance_matrix, stations,
     lons = np.array([BEIJING_STATION_COORDS[s]['longitude'] for s in stations])
     lats = np.array([BEIJING_STATION_COORDS[s]['latitude'] for s in stations])
     n = len(stations)
-    short_names = [STATION_SHORT[s] for s in stations]
+    short_names = [short_name_map[s] for s in stations]
     
     # ===================
     # (a) Beijing Map
@@ -368,7 +412,7 @@ def create_figure2(similarity_matrix, distance_matrix, stations,
     
     # Labels
     for i, station in enumerate(stations):
-        ax1.annotate(STATION_SHORT[station], (lons[i], lats[i]), 
+        ax1.annotate(short_name_map[station], (lons[i], lats[i]), 
                 fontsize=4, ha='center', va='center',  # 6改为5
                 fontweight='bold', zorder=5)
     
@@ -378,12 +422,12 @@ def create_figure2(similarity_matrix, distance_matrix, stations,
     cax1 = inset_axes(ax1, width="75%", height="4%", loc='lower center',
                   bbox_to_anchor=(0, -0.3, 1, 1), bbox_transform=ax1.transAxes)
     cbar1 = fig.colorbar(sm, cax=cax1, orientation='horizontal')
-    cbar1.set_label('Embedding Similarity', fontsize=7, labelpad=1)
+    cbar1.set_label(L['colorbar_sim'], fontsize=7, labelpad=1)
     cbar1.ax.tick_params(labelsize=6)
     
-    ax1.set_xlabel('Longitude (°E)', fontsize=8, labelpad=1)  # 减少间距
-    ax1.set_ylabel('Latitude (°N)', fontsize=8, labelpad=1)  # 减少留白
-    ax1.set_title(f'(a) Beijing Stations', fontsize=10)  # 简化标题
+    ax1.set_xlabel(L['xlabel_lon'], fontsize=8, labelpad=1)  # 减少间距
+    ax1.set_ylabel(L['ylabel_lat'], fontsize=8, labelpad=1)  # 减少留白
+    ax1.set_title(L['title_a'], fontsize=10)  # 简化标题
     ax1.set_xlim(116.10, 116.72)
     ax1.set_ylim(39.82, 40.38)
     ax1.tick_params(axis='both', labelsize=7)  # 添加这行
@@ -407,22 +451,22 @@ def create_figure2(similarity_matrix, distance_matrix, stations,
     z = np.polyfit(distances, similarities, 1)
     p_line = np.poly1d(z)
     x_line = np.linspace(distances.min(), distances.max(), 100)
-    ax2.plot(x_line, p_line(x_line), 'r-', linewidth=1.5, label='Linear fit')
+    ax2.plot(x_line, p_line(x_line), 'r-', linewidth=1.5, label=L['legend_fit'])
     
     residuals = similarities - p_line(distances)
     std_err = np.std(residuals)
     ax2.fill_between(x_line, p_line(x_line) - 1.96*std_err, 
                     p_line(x_line) + 1.96*std_err, 
-                    color='red', alpha=0.1, label='95% CI')
+                    color='red', alpha=0.1, label=L['legend_ci'])
     
-    ax2.set_xlabel('Geographic Distance (km)', fontsize=9)
-    ax2.set_ylabel('Embedding Similarity', fontsize=8, labelpad=0)  # labelpad增大使标签右移
+    ax2.set_xlabel(L['xlabel_dist'], fontsize=9)
+    ax2.set_ylabel(L['ylabel_sim'], fontsize=8, labelpad=0)  # labelpad增大使标签右移
     ax2.tick_params(axis='y', labelsize=7, pad=1)
     p_str = f'p = {p:.4f}' if p >= 0.0001 else 'p < 0.0001'
     ax2.text(0.05, 0.05, f'$r = {r:.3f}$\n$p < 0.0001$', 
          transform=ax2.transAxes, fontsize=8, 
          verticalalignment='bottom', bbox=dict(facecolor='white', alpha=0.7, edgecolor='none'))
-    ax2.set_title('(b) Embedding vs. Geography', fontsize=10)
+    ax2.set_title(L['title_b'], fontsize=10)
     ax2.grid(True, alpha=0.3, linestyle='-', linewidth=0.4)
     ax2.legend(loc='upper right', fontsize=6, framealpha=0.9)
     ymin, ymax = ax2.get_ylim()
@@ -464,28 +508,29 @@ def create_figure2(similarity_matrix, distance_matrix, stations,
     
     ax3.set_xticks(range(n))
     ax3.set_yticks(range(n))
-    ax3.set_xticklabels(short_names, fontsize=8, rotation=45, ha='right', rotation_mode='anchor')
-    ax3.set_yticklabels(short_names, fontsize=8)
+    _heat_fs = 5.5 if lang == 'cn' else 8
+    ax3.set_xticklabels(short_names, fontsize=_heat_fs, rotation=45, ha='right', rotation_mode='anchor')
+    ax3.set_yticklabels(short_names, fontsize=_heat_fs)
     
     # Colorbar - 使用fig.colorbar手动定位，避免从subplot借空间
     # 获取ax3的位置后，在其右侧添加colorbar
     cax3 = inset_axes(ax3, width="75%", height="4%", loc='lower center',
                   bbox_to_anchor=(0, -0.3, 1, 1), bbox_transform=ax3.transAxes)
     cbar3 = fig.colorbar(im, cax=cax3, orientation='horizontal')
-    cbar3.set_label('Normalized Value', fontsize=7, labelpad=1)
+    cbar3.set_label(L['colorbar_norm'], fontsize=7, labelpad=1)
     cbar3.ax.tick_params(labelsize=6)
     
     # Annotations
-    ax3.text(0.25, 0.92, 'Upper: Learned', transform=ax3.transAxes, 
+    ax3.text(0.25, 0.92, L['upper_label'], transform=ax3.transAxes, 
             fontsize=6, fontweight='bold', ha='center',
             bbox=dict(boxstyle='round,pad=0.2', facecolor='wheat', alpha=0.8))
-    ax3.text(0.75, 0.08, 'Lower: Geo.', transform=ax3.transAxes,  # 缩短文字
+    ax3.text(0.75, 0.08, L['lower_label'], transform=ax3.transAxes,  # 缩短文字
             fontsize=6, fontweight='bold', ha='center',
             bbox=dict(boxstyle='round,pad=0.2', facecolor='lightblue', alpha=0.8))
     
     # Correlation for heatmap title
     r_heat, p_heat = pearsonr(geo_proximity[triu_idx], similarity_matrix[triu_idx])
-    ax3.set_title(f'(c) Geo. vs Learned (r = {r_heat:.3f})', fontsize=9)  # 简化
+    ax3.set_title(f'{L["title_c_prefix"]} (r = {r_heat:.3f})', fontsize=9)  # 简化
     
     plt.savefig(output_path, format='pdf', bbox_inches='tight', pad_inches=0.05)
     plt.savefig(output_path.replace('.pdf', '.png'), format='png', dpi=300, bbox_inches='tight', pad_inches=0.05)
@@ -541,7 +586,24 @@ def main():
                                      os.path.join(OUTPUT_DIR, "figure2.pdf"),
                                      district_boundaries=district_boundaries,
                                      top_n=TOP_N_CONNECTIONS)
-    
+    # === Chinese version ===
+    import matplotlib as mpl
+    _orig_family = mpl.rcParams['font.family']
+    _orig_serif = mpl.rcParams['font.serif']
+    mpl.rcParams['font.family'] = 'sans-serif'
+    mpl.rcParams['font.sans-serif'] = ['SimHei', 'WenQuanYi Micro Hei', 'Noto Sans CJK SC']
+    mpl.rcParams['axes.unicode_minus'] = False
+
+    print("\n5. Generating Chinese version...")
+    create_figure2(similarity_matrix, distance_matrix, STATION_ORDER,
+                   os.path.join(OUTPUT_DIR, "figure2_cn.pdf"),
+                   district_boundaries=district_boundaries,
+                   top_n=TOP_N_CONNECTIONS, lang='cn')
+
+    # Restore font settings
+    mpl.rcParams['font.family'] = _orig_family
+    mpl.rcParams['font.serif'] = _orig_serif
+    mpl.rcParams['axes.unicode_minus'] = True
     # Summary
     print("\n" + "=" * 70)
     print("Summary")
@@ -553,6 +615,7 @@ def main():
     # print(f"  - {OUTPUT_DIR}/beijing_scatter.pdf (+ .png)")
     # print(f"  - {OUTPUT_DIR}/beijing_heatmap.pdf (+ .png)")
     print(f"  - {OUTPUT_DIR}/figure2.pdf (+ .png) <- horizontal figure for paper")
+    print(f"  - {OUTPUT_DIR}/figure2_cn.pdf (+ .png) <- 中文版")
     print("=" * 70)
 
 

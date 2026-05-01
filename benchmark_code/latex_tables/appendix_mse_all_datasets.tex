@@ -1,0 +1,186 @@
+% Auto-generated: MSE appendix tables
+
+\begin{table}[H]
+    \caption{Complete MSE results on BeijingAir across all missing patterns. Mean $\pm$ std over 5 runs. Ranking: \textbf{1st}, \underline{2nd}.}
+    \label{tab:mse_beijingair}
+    \centering
+    \begin{footnotesize}
+    \begin{tabular}{l|ccccc}
+        \toprule
+        \textbf{Model} & \textbf{Point-10\%} & \textbf{Point-50\%} & \textbf{Point-90\%} & \textbf{Block-50\%} & \textbf{Subseq-50\%} \\
+        \midrule
+        \multicolumn{6}{l}{\textit{Naive Baselines}} \\
+        Linear Interpolation & \underline{0.114$\pm$N/A} & 0.231$\pm$N/A & 0.608$\pm$N/A & 0.418$\pm$N/A & 0.588$\pm$N/A \\
+        LOCF & 0.243$\pm$N/A & 0.429$\pm$N/A & 0.835$\pm$N/A & 0.715$\pm$N/A & 0.832$\pm$N/A \\
+        Median Imputation & 1.093$\pm$N/A & 1.143$\pm$N/A & 1.165$\pm$N/A & 1.175$\pm$N/A & 1.155$\pm$N/A \\
+        Mean Imputation & 1.035$\pm$N/A & 1.078$\pm$N/A & 1.099$\pm$N/A & 1.114$\pm$N/A & 1.102$\pm$N/A \\
+        \midrule
+        \multicolumn{6}{l}{\textit{Deep Learning Methods}} \\
+        \textbf{HELIX (Ours)} & 0.151$\pm$0.009 & \underline{0.172$\pm$0.010} & \textbf{0.293$\pm$0.005} & \underline{0.204$\pm$0.008} & \textbf{0.233$\pm$0.010} \\
+        ImputeFormer & \textbf{0.095$\pm$0.021} & \textbf{0.156$\pm$0.017} & \underline{0.357$\pm$0.005} & \textbf{0.203$\pm$0.010} & 0.470$\pm$0.013 \\
+        SAITS & 0.129$\pm$0.008 & 0.180$\pm$0.007 & 0.429$\pm$0.017 & 0.217$\pm$0.009 & \underline{0.237$\pm$0.014} \\
+        Nonstationary Trans. & 0.227$\pm$0.004 & 0.252$\pm$0.004 & 0.530$\pm$0.002 & 0.365$\pm$0.004 & 0.451$\pm$0.021 \\
+        PatchTST & 0.138$\pm$0.004 & 0.235$\pm$0.005 & 0.380$\pm$0.002 & 0.339$\pm$0.003 & 0.383$\pm$0.003 \\
+        iTransformer & 0.218$\pm$0.004 & 0.255$\pm$0.004 & 0.525$\pm$0.010 & 0.472$\pm$0.080 & 0.914$\pm$0.009 \\
+        TEFN & 0.194$\pm$0.015 & 0.252$\pm$0.003 & 0.600$\pm$0.001 & 0.430$\pm$0.003 & 0.517$\pm$0.002 \\
+        TimeMixer & 0.381$\pm$0.008 & 0.386$\pm$0.007 & 0.434$\pm$0.004 & 0.404$\pm$0.005 & 0.427$\pm$0.003 \\
+        TimeMixer++ & 0.664$\pm$0.112 & 0.829$\pm$0.033 & 1.087$\pm$0.024 & 1.116$\pm$0.015 & 1.122$\pm$0.023 \\
+        ModernTCN & 0.297$\pm$0.013 & 0.437$\pm$0.024 & 1.094$\pm$0.015 & 0.633$\pm$0.033 & 0.821$\pm$0.024 \\
+        StemGNN & 0.272$\pm$0.009 & 0.292$\pm$0.004 & 0.359$\pm$0.002 & 0.348$\pm$0.007 & 0.393$\pm$0.006 \\
+        TOTEM & 0.461$\pm$0.353 & 0.570$\pm$0.024 & 1.125$\pm$0.006 & 1.008$\pm$0.006 & 1.106$\pm$0.038 \\
+        FreTS & 0.179$\pm$0.014 & 0.260$\pm$0.012 & 0.368$\pm$0.015 & 0.320$\pm$0.019 & 0.384$\pm$0.003 \\
+        Time-LLM & 0.232$\pm$0.005 & 0.272$\pm$0.010 & 0.551$\pm$0.008 & 0.625$\pm$0.082 & 0.893$\pm$0.039 \\
+        MOMENT & 2.981$\pm$5.308 & 6.680$\pm$8.829 & 1.136$\pm$0.031 & 1.549$\pm$0.141 & 1.446$\pm$0.509 \\
+        \bottomrule
+    \end{tabular}
+    \end{footnotesize}
+\end{table}
+\clearpage
+
+\begin{table}[H]
+    \caption{Complete MSE results on ETT\_h1 across all missing patterns. Mean $\pm$ std over 5 runs. Ranking: \textbf{1st}, \underline{2nd}.}
+    \label{tab:mse_ett_h1}
+    \centering
+    \begin{footnotesize}
+    \begin{tabular}{l|ccccc}
+        \toprule
+        \textbf{Model} & \textbf{Point-10\%} & \textbf{Point-50\%} & \textbf{Point-90\%} & \textbf{Block-50\%} & \textbf{Subseq-50\%} \\
+        \midrule
+        \multicolumn{6}{l}{\textit{Naive Baselines}} \\
+        Linear Interpolation & 0.106$\pm$N/A & 0.178$\pm$N/A & 1.014$\pm$N/A & 0.699$\pm$N/A & 1.322$\pm$N/A \\
+        LOCF & 0.277$\pm$N/A & 0.491$\pm$N/A & 1.337$\pm$N/A & 1.317$\pm$N/A & 1.619$\pm$N/A \\
+        Median Imputation & 1.044$\pm$N/A & 1.022$\pm$N/A & 1.052$\pm$N/A & 1.079$\pm$N/A & 1.337$\pm$N/A \\
+        Mean Imputation & 0.990$\pm$N/A & 0.971$\pm$N/A & 0.992$\pm$N/A & 0.973$\pm$N/A & 1.194$\pm$N/A \\
+        \midrule
+        \multicolumn{6}{l}{\textit{Deep Learning Methods}} \\
+        \textbf{HELIX (Ours)} & \textbf{0.049$\pm$0.004} & \textbf{0.094$\pm$0.009} & \textbf{0.387$\pm$0.013} & \textbf{0.320$\pm$0.030} & \textbf{0.659$\pm$0.029} \\
+        ImputeFormer & 0.100$\pm$0.039 & 0.199$\pm$0.047 & 0.505$\pm$0.014 & \underline{0.352$\pm$0.029} & \underline{0.712$\pm$0.037} \\
+        SAITS & \underline{0.054$\pm$0.004} & \underline{0.102$\pm$0.007} & \underline{0.388$\pm$0.014} & 0.375$\pm$0.033 & 0.851$\pm$0.055 \\
+        Nonstationary Trans. & 0.190$\pm$0.015 & 0.268$\pm$0.009 & 0.574$\pm$0.018 & 0.478$\pm$0.011 & 0.817$\pm$0.027 \\
+        PatchTST & 0.115$\pm$0.009 & 0.152$\pm$0.024 & 0.469$\pm$0.022 & 0.544$\pm$0.025 & 1.024$\pm$0.106 \\
+        iTransformer & 0.153$\pm$0.003 & 0.224$\pm$0.005 & 0.669$\pm$0.015 & 0.461$\pm$0.006 & 1.105$\pm$0.019 \\
+        TEFN & 0.231$\pm$0.005 & 0.509$\pm$0.047 & 0.887$\pm$0.056 & 0.718$\pm$0.046 & 1.173$\pm$0.076 \\
+        TimeMixer & 0.684$\pm$0.428 & 0.909$\pm$0.252 & 1.209$\pm$0.017 & 1.061$\pm$0.086 & 1.396$\pm$0.029 \\
+        TimeMixer++ & 0.215$\pm$0.005 & 0.266$\pm$0.006 & 0.636$\pm$0.006 & 0.499$\pm$0.012 & 0.870$\pm$0.026 \\
+        ModernTCN & 0.182$\pm$0.012 & 0.362$\pm$0.019 & 1.113$\pm$0.031 & 0.671$\pm$0.020 & 1.143$\pm$0.009 \\
+        StemGNN & 0.155$\pm$0.006 & 0.191$\pm$0.015 & 0.504$\pm$0.047 & 0.358$\pm$0.018 & 0.815$\pm$0.027 \\
+        TOTEM & 0.313$\pm$0.305 & 0.525$\pm$0.048 & 1.167$\pm$0.045 & 0.976$\pm$0.022 & 1.364$\pm$0.006 \\
+        FreTS & 0.140$\pm$0.019 & 0.169$\pm$0.022 & 0.533$\pm$0.029 & 0.507$\pm$0.030 & 0.944$\pm$0.056 \\
+        Time-LLM & 0.168$\pm$0.002 & 0.321$\pm$0.039 & 0.620$\pm$0.020 & 0.681$\pm$0.018 & 1.180$\pm$0.004 \\
+        MOMENT & 0.584$\pm$0.322 & 0.997$\pm$0.322 & 1.257$\pm$0.047 & 1.258$\pm$0.070 & 1.524$\pm$0.097 \\
+        \bottomrule
+    \end{tabular}
+    \end{footnotesize}
+\end{table}
+\clearpage
+
+\begin{table}[H]
+    \caption{Complete MSE results on ItalyAir across all missing patterns. Mean $\pm$ std over 5 runs. Ranking: \textbf{1st}, \underline{2nd}.}
+    \label{tab:mse_italyair}
+    \centering
+    \begin{footnotesize}
+    \begin{tabular}{l|ccccc}
+        \toprule
+        \textbf{Model} & \textbf{Point-10\%} & \textbf{Point-50\%} & \textbf{Point-90\%} & \textbf{Block-50\%} & \textbf{Subseq-50\%} \\
+        \midrule
+        \multicolumn{6}{l}{\textit{Naive Baselines}} \\
+        Linear Interpolation & 0.106$\pm$N/A & 0.252$\pm$N/A & 0.750$\pm$N/A & 0.478$\pm$N/A & 0.407$\pm$N/A \\
+        LOCF & 0.220$\pm$N/A & 0.511$\pm$N/A & 1.110$\pm$N/A & 0.736$\pm$N/A & 0.900$\pm$N/A \\
+        Median Imputation & 1.045$\pm$N/A & 1.116$\pm$N/A & 1.151$\pm$N/A & 1.192$\pm$N/A & 1.151$\pm$N/A \\
+        Mean Imputation & 1.034$\pm$N/A & 1.096$\pm$N/A & 1.125$\pm$N/A & 1.163$\pm$N/A & 1.130$\pm$N/A \\
+        \midrule
+        \multicolumn{6}{l}{\textit{Deep Learning Methods}} \\
+        \textbf{HELIX (Ours)} & \textbf{0.066$\pm$0.015} & \textbf{0.149$\pm$0.012} & 0.669$\pm$0.065 & \textbf{0.322$\pm$0.027} & \textbf{0.301$\pm$0.024} \\
+        ImputeFormer & 0.140$\pm$0.016 & 0.253$\pm$0.026 & 0.897$\pm$0.017 & 0.444$\pm$0.045 & 0.378$\pm$0.036 \\
+        SAITS & \underline{0.088$\pm$0.004} & \underline{0.204$\pm$0.009} & \underline{0.604$\pm$0.024} & \underline{0.406$\pm$0.031} & \underline{0.373$\pm$0.018} \\
+        Nonstationary Trans. & 0.184$\pm$0.011 & 0.289$\pm$0.008 & 0.862$\pm$0.034 & 0.534$\pm$0.027 & 0.472$\pm$0.011 \\
+        PatchTST & 0.188$\pm$0.021 & 0.302$\pm$0.021 & 0.944$\pm$0.240 & 0.600$\pm$0.020 & 0.615$\pm$0.005 \\
+        iTransformer & 0.173$\pm$0.009 & 0.322$\pm$0.009 & 0.900$\pm$0.009 & 0.652$\pm$0.027 & 0.712$\pm$0.046 \\
+        TEFN & 0.115$\pm$0.003 & 0.285$\pm$0.006 & 0.869$\pm$0.008 & 0.550$\pm$0.003 & 0.483$\pm$0.010 \\
+        TimeMixer & 0.945$\pm$0.361 & 1.208$\pm$0.279 & 1.450$\pm$0.040 & 1.551$\pm$0.126 & 1.431$\pm$0.090 \\
+        TimeMixer++ & 1.002$\pm$0.091 & 1.120$\pm$0.082 & 1.284$\pm$0.095 & 1.390$\pm$0.068 & 1.311$\pm$0.036 \\
+        ModernTCN & 0.368$\pm$0.029 & 0.605$\pm$0.037 & 1.292$\pm$0.080 & 0.961$\pm$0.041 & 0.940$\pm$0.025 \\
+        StemGNN & 0.215$\pm$0.032 & 0.262$\pm$0.008 & \textbf{0.577$\pm$0.046} & 0.478$\pm$0.017 & 0.455$\pm$0.023 \\
+        TOTEM & 1.202$\pm$0.445 & 1.258$\pm$0.257 & 1.487$\pm$0.015 & 1.614$\pm$0.052 & 1.464$\pm$0.055 \\
+        FreTS & 0.189$\pm$0.017 & 0.281$\pm$0.012 & 0.670$\pm$0.022 & 0.592$\pm$0.040 & 0.504$\pm$0.023 \\
+        Time-LLM & 0.282$\pm$0.021 & 0.533$\pm$0.021 & 0.921$\pm$0.007 & 1.173$\pm$0.014 & 1.028$\pm$0.025 \\
+        MOMENT & -- & -- & -- & -- & -- \\
+        \bottomrule
+    \end{tabular}
+    \end{footnotesize}
+\end{table}
+\clearpage
+
+\begin{table}[H]
+    \caption{Complete MSE results on PeMS across all missing patterns. Mean $\pm$ std over 5 runs. Ranking: \textbf{1st}, \underline{2nd}.}
+    \label{tab:mse_pems}
+    \centering
+    \begin{footnotesize}
+    \begin{tabular}{l|ccccc}
+        \toprule
+        \textbf{Model} & \textbf{Point-10\%} & \textbf{Point-50\%} & \textbf{Point-90\%} & \textbf{Block-50\%} & \textbf{Subseq-50\%} \\
+        \midrule
+        \multicolumn{6}{l}{\textit{Naive Baselines}} \\
+        Linear Interpolation & \underline{0.240$\pm$N/A} & 0.539$\pm$N/A & 1.944$\pm$N/A & 1.585$\pm$N/A & 2.489$\pm$N/A \\
+        LOCF & 0.600$\pm$N/A & 1.094$\pm$N/A & 1.939$\pm$N/A & 2.266$\pm$N/A & 2.963$\pm$N/A \\
+        Median Imputation & 1.492$\pm$N/A & 1.476$\pm$N/A & 1.487$\pm$N/A & 1.790$\pm$N/A & 1.877$\pm$N/A \\
+        Mean Imputation & 1.423$\pm$N/A & 1.416$\pm$N/A & 1.425$\pm$N/A & 1.618$\pm$N/A & 1.681$\pm$N/A \\
+        \midrule
+        \multicolumn{6}{l}{\textit{Deep Learning Methods}} \\
+        \textbf{HELIX (Ours)} & \textbf{0.221$\pm$0.007} & \textbf{0.325$\pm$0.009} & \textbf{0.545$\pm$0.012} & \textbf{0.512$\pm$0.009} & \textbf{0.708$\pm$0.186} \\
+        ImputeFormer & 0.340$\pm$0.013 & \underline{0.410$\pm$0.016} & \underline{0.571$\pm$0.006} & \underline{0.603$\pm$0.005} & \underline{0.734$\pm$0.017} \\
+        SAITS & 0.559$\pm$0.002 & 0.581$\pm$0.001 & 0.629$\pm$0.001 & 0.707$\pm$0.001 & 0.750$\pm$0.001 \\
+        Nonstationary Trans. & 0.541$\pm$0.014 & 0.617$\pm$0.006 & 1.535$\pm$0.006 & 1.304$\pm$0.016 & 2.143$\pm$0.008 \\
+        PatchTST & 0.542$\pm$0.010 & 0.566$\pm$0.003 & 0.678$\pm$0.017 & 0.734$\pm$0.010 & 0.806$\pm$0.018 \\
+        iTransformer & 0.326$\pm$0.004 & 0.437$\pm$0.005 & 0.730$\pm$0.018 & 0.878$\pm$0.114 & 1.320$\pm$0.041 \\
+        TEFN & 0.499$\pm$0.005 & 0.647$\pm$0.012 & 1.640$\pm$0.005 & 1.395$\pm$0.005 & 2.213$\pm$0.008 \\
+        TimeMixer & 0.630$\pm$0.004 & 0.633$\pm$0.004 & 0.685$\pm$0.005 & 0.762$\pm$0.003 & 0.811$\pm$0.016 \\
+        TimeMixer++ & -- & -- & -- & -- & -- \\
+        ModernTCN & 0.805$\pm$0.045 & 1.040$\pm$0.041 & 1.303$\pm$0.026 & 1.265$\pm$0.017 & 1.354$\pm$0.019 \\
+        StemGNN & 0.589$\pm$0.010 & 0.604$\pm$0.011 & 0.642$\pm$0.002 & 0.744$\pm$0.003 & 0.779$\pm$0.006 \\
+        TOTEM & 0.397$\pm$0.024 & 1.064$\pm$0.023 & 1.403$\pm$0.024 & 1.486$\pm$0.014 & 1.660$\pm$0.009 \\
+        FreTS & 0.577$\pm$0.019 & 0.606$\pm$0.012 & 0.686$\pm$0.015 & 0.791$\pm$0.013 & 0.849$\pm$0.015 \\
+        Time-LLM & -- & -- & -- & -- & -- \\
+        MOMENT & -- & -- & -- & -- & -- \\
+        \bottomrule
+    \end{tabular}
+    \end{footnotesize}
+\end{table}
+\clearpage
+
+\begin{table}[H]
+    \caption{Complete MSE results on PhysioNet2012 across all missing patterns. Mean $\pm$ std over 5 runs. Ranking: \textbf{1st}, \underline{2nd}.}
+    \label{tab:mse_physionet2012}
+    \centering
+    \begin{footnotesize}
+    \begin{tabular}{l|c}
+        \toprule
+        \textbf{Model} & \textbf{Point-10\%} \\
+        \midrule
+        \multicolumn{2}{l}{\textit{Naive Baselines}} \\
+        Linear Interpolation & 0.425$\pm$N/A \\
+        LOCF & 0.604$\pm$N/A \\
+        Median Imputation & 1.000$\pm$N/A \\
+        Mean Imputation & 0.967$\pm$N/A \\
+        \midrule
+        \multicolumn{2}{l}{\textit{Deep Learning Methods}} \\
+        \textbf{HELIX (Ours)} & \textbf{0.206$\pm$0.003} \\
+        ImputeFormer & \underline{0.229$\pm$0.008} \\
+        SAITS & 0.229$\pm$0.009 \\
+        Nonstationary Trans. & 0.300$\pm$0.003 \\
+        PatchTST & 0.274$\pm$0.015 \\
+        iTransformer & 0.360$\pm$0.005 \\
+        TEFN & 0.376$\pm$0.002 \\
+        TimeMixer & 0.450$\pm$0.006 \\
+        TimeMixer++ & 0.410$\pm$0.003 \\
+        ModernTCN & 0.573$\pm$0.016 \\
+        StemGNN & 0.392$\pm$0.048 \\
+        TOTEM & 0.519$\pm$0.017 \\
+        FreTS & 0.314$\pm$0.016 \\
+        Time-LLM & 0.474$\pm$0.006 \\
+        MOMENT & 0.752$\pm$0.269 \\
+        \bottomrule
+    \end{tabular}
+    \end{footnotesize}
+\end{table}
+\clearpage

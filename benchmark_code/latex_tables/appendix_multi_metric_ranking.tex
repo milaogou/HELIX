@@ -1,0 +1,30 @@
+\begin{table}[h]
+    \caption{Multi-metric ranking consistency. Average rank across all 21 settings for MAE, MSE, and MRE (lower is better). HELIX achieves the best average rank on all three metrics. $\dagger$: incomplete settings.}
+    \label{tab:multi_metric_ranking}
+    \centering
+    \begin{small}
+    \begin{tabular}{l|ccc|c}
+        \toprule
+        \textbf{Model} & \textbf{MAE Rank}$\downarrow$ & \textbf{MSE Rank}$\downarrow$ & \textbf{MRE Rank}$\downarrow$ & \textbf{Valid} \\
+        \midrule
+        \textbf{HELIX (Ours)} & \textbf{1.00} & \textbf{1.38} & \textbf{1.00} & 21/21 \\
+        ImputeFormer & 3.29 & 3.29 & 3.29 & 21/21 \\
+        SAITS & 3.76 & 3.24 & 3.76 & 21/21 \\
+        StemGNN & 5.71 & 6.00 & 5.71 & 21/21 \\
+        Linear Interpolation & 6.67 & 7.57 & 6.67 & 21/21 \\
+        PatchTST & 7.19 & 6.05 & 7.19 & 21/21 \\
+        Nonstationary Trans. & 7.29 & 7.71 & 7.33 & 21/21 \\
+        FreTS & 7.48 & 6.57 & 7.43 & 21/21 \\
+        iTransformer & 7.95 & 8.10 & 7.90 & 21/21 \\
+        TEFN & 8.67 & 9.38 & 8.67 & 21/21 \\
+        Time-LLM & 11.75 & 11.19 & 11.75 & 21/21 \\
+        TimeMixer & 11.86 & 12.00 & 11.86 & 21/21 \\
+        LOCF & 12.05 & 13.33 & 12.10 & 21/21 \\
+        ModernTCN & 12.43 & 12.05 & 12.43 & 21/21 \\
+        TimeMixer++ & 13.06 & 12.56 & 13.06 & 21/21 \\
+        TOTEM & 14.38 & 13.90 & 14.38 & 21/21 \\
+        MOMENT & 16.82 & 16.64 & 16.82 & 21/21 \\
+        \bottomrule
+    \end{tabular}
+    \end{small}
+\end{table}

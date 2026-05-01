@@ -1,9 +1,0 @@
-2026-04-07 23:00:47 [WARNING]: ‼️ `pypots.utils.metrics` is deprecated. Please import from `pypots.nn.functional` instead.
-usage: train_model.py [-h] --model
-                      {Autoformer,BRITS,Crossformer,CSDI,DLinear,ETSformer,FiLM,FreTS,GPVAE,GRUD,HELIX,HELIX_NoRotaryPE,HELIX_NoFeatureEmbed,HELIX_NoHybrid,HELIX_NoFusion,Informer,iTransformer,ImputeFormer,Koopa,MICN,MOMENT,ModernTCN,MRNN,NonstationaryTransformer,PatchTST,Pyraformer,SAITS,SCINet,StemGNN,TEFN,TimeLLM,TimeMixer,TimeMixerPP,TimesNet,TOTEM,Transformer,USGAN}
-                      --dataset
-                      {Pedestrian,PeMS,PhysioNet2012,PhysioNet2019,Electricity,ETT_h1,BeijingAir,ItalyAir}
-                      --dataset_fold_path DATASET_FOLD_PATH --saving_path
-                      SAVING_PATH --device DEVICE [--n_rounds N_ROUNDS]
-                      [--impute_all_sets] [--config_version CONFIG_VERSION]
-train_model.py: error: argument --dataset: invalid choice: 'DianchiWater' (choose from 'Pedestrian', 'PeMS', 'PhysioNet2012', 'PhysioNet2019', 'Electricity', 'ETT_h1', 'BeijingAir', 'ItalyAir')

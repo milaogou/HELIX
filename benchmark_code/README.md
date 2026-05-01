@@ -1,42 +1,111 @@
-# TSI-Bench 
-The code scripts, configurations, and logs here are for TSI-Bench, 
-the first comprehensive benchmark for time series imputation.
+# Experiment Code for HELIX
 
-## ❖ Python Environment Creation
-A proper Python environment is necessary to reproduce the results. 
-Please ensure that all the below library requirements are satisfied.
+This directory contains all code to reproduce the experiments in the HELIX paper (ICML 2026).
 
-For Linux OS, it is able to create the environment with Conda by running `conda create -f conda_env.yml`.
-For other OS, library version requirements can also be checked out in `conda_env.yml`.
+## Prerequisites
 
+- Linux aarch64 cluster with SLURM and NVIDIA A100 GPUs
+- Conda environment: `conda env create -f conda_env.yml`
+- PyPOTS (latest): `pip install pypots`
 
-## ❖ Datasets Generation
-Please refer to [`data/README.md`](data/README.md).
+## Workflow
 
+### 1. Dataset Generation
 
-## ❖ Results Reproduction
-### Neural network training 
-For example, to reproduce the results of SAITS on the dataset Pedestrian, please execute the following command.
-
-```shell
-nohup python train_model.py \
-  --model SAITS \
-  --dataset Pedestrian \
-  --dataset_fold_path data/generated_datasets/melbourne_pedestrian_rate01_step24_point \
-  --saving_path results_point_rate01 \
-  --device cuda:2 \
-  > results_point_rate01/SAITS_pedestrian.log &
+```bash
+cd data/
+python dataset_generating_point01.py
+python dataset_generating_point05.py
+python dataset_generating_point09.py
+python dataset_generating_block05.py
+python dataset_generating_subseq05.py
+# Verify missing rates
+python validate_missing_rate.py
 ```
 
-After the execution finished, please check out the logging information in the according `.log` file.
+Generated datasets are saved to `data/generated_datasets/` (gitignored due to size).
 
-Additionally, as claimed in the paper, hyperparameters of all models get optimized by the tuning functionality in 
-[PyPOTS](https://github.com/WenjieDu/PyPOTS). Hence, tuning configurations are available in the directory `PyPOTS_tuning_configs`.
-If you'd like to explore this feature, please check out the details there.
+### 2. Hyperparameter Search (Optional)
 
-### Naive methods
-To obtain the results of the naive methods, check out the commands in the shell script `naive_imputation.sh`.
+Pre-tuned hyperparameters are already provided in `hpo_results/`. To re-run HPO:
 
+```bash
+cd PyPOTS_tuning_configs/
+# Each model subfolder contains tuning configs
+# Submit HPO jobs via:
+python batch_hyperparameter_tuning.py
+# Analyze results:
+python analyze_tuning_results.py
+# Apply best configs to hpo_results/:
+python apply_tuned_configs.py
+```
 
-## ❖ Downstream Tasks
-We're cleaning up the code for the downstream tasks. Will release the scripts soon.
+The tuning script calls `train_model_tuning.py` (different from the main experiment script).
+
+### 3. Main Experiments
+
+`in_sample_exp.py` reads hyperparameters from `hpo_results/` and submits SLURM jobs:
+
+```bash
+python in_sample_exp.py
+```
+
+Each job calls `train_model.py` which trains a model with 5 random seeds and reports mean±std. Adjust the `MODELS` and `dataset_folders` lists in `in_sample_exp.py` to select which experiments to run.
+
+### 4. Result Collection & Analysis
+
+```bash
+cd reproduce_imputation/
+# Parse training logs into CSV tables
+python merge_naive_and_rank.py
+# Statistical significance tests
+python analyze_significance.py
+# Advanced analysis (by-pattern, vs-naive, win-rate)
+python analyze_advanced.py
+```
+
+Results are saved to `reproduce_imputation/results_csv/`.
+
+### 5. LaTeX Table & Figure Generation
+
+```bash
+# Main paper and appendix tables (MAE)
+python generate_latex_tables.py
+# Multi-metric ranking table (MAE/MSE/MRE)
+python generate_multi_metric_table.py
+# MSE appendix tables
+python generate_mse_appendix.py
+```
+
+### 6. Visualization & Analysis Scripts
+
+| Script | Description |
+|--------|-------------|
+| `feature_embedding_analysis.py` | BeijingAir embedding structure (Fig. 2) |
+| `extract_attention.py` | Attention pattern extraction (Fig. 3, 4) |
+| `imputation_visualization.py` | Imputation quality visualization (Fig. 5) |
+| `physionet_embedding_analysis.py` | PhysioNet2012 clinical grouping analysis (Fig. 6) |
+
+## Directory Structure
+
+```
+benchmark_code/
+├── train_model.py                 # Main training script (5 seeds)
+├── train_model_tuning.py          # HPO training script
+├── in_sample_exp.py               # Batch SLURM job submission
+├── global_config.py               # Global configuration
+├── utils.py                       # Utilities
+├── data/                          # Dataset generation scripts
+├── hpo_results/                   # Selected hyperparameters per dataset
+├── PyPOTS_tuning_configs/         # HPO search spaces and scripts
+├── reproduce_imputation/
+│   ├── results_csv/               # Collected results (MAE/MSE/MRE)
+│   ├── merge_naive_and_rank.py
+│   ├── analyze_significance.py
+│   └── analyze_advanced.py
+├── generate_latex_tables.py       # LaTeX table generation
+├── generate_multi_metric_table.py
+├── generate_mse_appendix.py
+├── latex_tables/                  # Generated .tex files
+└── [analysis scripts]             # Figure generation scripts
+```

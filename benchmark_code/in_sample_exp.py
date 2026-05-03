@@ -40,7 +40,7 @@ MODELS = [
     # 'HELIX_NoFeatureEmbed',
     # 'HELIX_NoFusion',
     # 'HELIX_NoHybrid',
-    # 'HELIX_NoRotaryPE',
+    # 'HELIX_NoSinusoidalPE',
     # 'TEFN',
     # 'TimeMixerPP',
     # 'TimeLLM',

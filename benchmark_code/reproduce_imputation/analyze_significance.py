@@ -37,7 +37,7 @@ COMPARISON_PAIRS = [
     ('HELIX', 'HELIX_NoFeatureEmbed'),
     ('HELIX', 'HELIX_NoFusion'),
     ('HELIX', 'HELIX_NoHybrid'),
-    ('HELIX', 'HELIX_NoRotaryPE'),
+    ('HELIX', 'HELIX_NoSinusoidalPE'),
 ]
 
 def parse_round_results(log_path):

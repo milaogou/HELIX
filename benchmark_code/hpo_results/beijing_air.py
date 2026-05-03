@@ -522,7 +522,7 @@ BeijingAir = {
         'batch_size': 16,
         'lr': 0.0002765021292041315,
     },
-    'HELIX_NoRotaryPE': {
+    'HELIX_NoSinusoidalPE': {
         'n_steps': 24,
         'n_features': 132,
         'epochs': 1000,

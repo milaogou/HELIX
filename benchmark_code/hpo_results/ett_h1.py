@@ -500,7 +500,7 @@ ETT_h1 = {
         'batch_size': 8,
         'lr': 0.0004566750943348358,
     },
-    'HELIX_NoRotaryPE': {
+    'HELIX_NoSinusoidalPE': {
         'n_steps': 48,
         'n_features': 7,
         'epochs': 1000,

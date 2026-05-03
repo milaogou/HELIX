@@ -27,7 +27,7 @@ EXPERIMENTS = {
 }
 
 EXCLUDE_MODELS = {
-    'HELIX_NoFeatureEmbed', 'HELIX_NoFusion', 'HELIX_NoHybrid', 'HELIX_NoRotaryPE',
+    'HELIX_NoFeatureEmbed', 'HELIX_NoFusion', 'HELIX_NoHybrid', 'HELIX_NoSinusoidalPE',
     'Naive_Mean', 'Naive_Median',
 }
 

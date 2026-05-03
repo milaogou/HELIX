@@ -21,7 +21,7 @@ MODEL_MAPPING = {
     'HELIX_NoFeatureEmbed': 'HELIX_NoFeatureEmbed',
     'HELIX_NoFusion': 'HELIX_NoFusion',
     'HELIX_NoHybrid': 'HELIX_NoHybrid',
-    'HELIX_NoRotaryPE': 'HELIX_NoRotaryPE',
+    'HELIX_NoSinusoidalPE': 'HELIX_NoSinusoidalPE',
     'TEFN': 'TEFN',
     'TimeMixerPP': 'TimeMixerPP',
     'TimeMixer': 'TimeMixer',

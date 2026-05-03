@@ -39,7 +39,7 @@ MODEL_ORDER = [
 ]
 
 # HELIX变体列表（共享相同搜索空间）
-HELIX_VARIANTS = ['HELIX_NoRotaryPE', 'HELIX_NoFeatureEmbed', 'HELIX_NoHybrid', 'HELIX_NoFusion']
+HELIX_VARIANTS = ['HELIX_NoSinusoidalPE', 'HELIX_NoFeatureEmbed', 'HELIX_NoHybrid', 'HELIX_NoFusion']
 
 # 从generate_tuning_configs.py复制的完整配置
 TUNING_SPACES = {
@@ -121,7 +121,7 @@ TUNING_SPACES = {
             "lr": {"_type": "loguniform", "_value": [0.0001, 0.01]},
         },
     },
-    'HELIX_NoRotaryPE': {
+    'HELIX_NoSinusoidalPE': {
         'ETT_h1': {
             "n_steps": {"_type": "choice", "_value": [48]},
             "n_features": {"_type": "choice", "_value": [7]},
@@ -1167,7 +1167,7 @@ def generate_table_for_model(model_name, model_config, is_helix=False):
     # 表格标题和脚注
     if is_helix:
         caption = f"{model_name} Hyperparameter Search Space"
-        footnote = "The ablation variants (w/o Rotary PE, w/o Feature Identity Embedding, w/o Hybrid Encoding, w/o Multi-level Fusion) use the same search space."
+        footnote = "The ablation variants (w/o Sinusoidal PE, w/o Feature Identity Embedding, w/o Hybrid Encoding, w/o Multi-level Fusion) use the same search space."
     elif model_name == 'TimeLLM':
         caption = f"{model_name} Hyperparameter Search Space"
         footnote = "Time-LLM was only evaluated on ETT-h1 due to its computational requirements. The domain\\_prompt\\_content was set to ``Electricity transformer temperature time series data''."

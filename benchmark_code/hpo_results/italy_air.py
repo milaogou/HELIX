@@ -524,7 +524,7 @@ ItalyAir = {
         'batch_size': 16,
         'lr': 0.002009795500303784,
     },
-    'HELIX_NoRotaryPE': {
+    'HELIX_NoSinusoidalPE': {
         'n_steps': 12,
         'n_features': 13,
         'epochs': 1000,

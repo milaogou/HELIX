@@ -502,7 +502,7 @@ PeMS = {
         'batch_size': 2,
         'lr': 0.000320032476956248,
     },
-    'HELIX_NoRotaryPE': {
+    'HELIX_NoSinusoidalPE': {
         'n_steps': 24,
         'n_features': 862,
         'epochs': 1000,

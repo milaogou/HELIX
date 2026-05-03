@@ -88,7 +88,7 @@ TUNING_SPACES = {
             "lr": {"_type": "loguniform", "_value": [0.0001, 0.01]},
         },
     },
-    'HELIX_NoRotaryPE': {
+    'HELIX_NoSinusoidalPE': {
         'ETT_h1': {
             "n_steps": {"_type": "choice", "_value": [48]},
             "n_features": {"_type": "choice", "_value": [7]},

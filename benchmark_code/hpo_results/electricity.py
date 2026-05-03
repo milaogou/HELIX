@@ -514,7 +514,7 @@ Electricity = {
         'batch_size': 1,
         'lr': 0.0002765021292041315,
     },
-    'HELIX_NoRotaryPE': {
+    'HELIX_NoSinusoidalPE': {
         'n_steps': 96,
         'n_features': 370,
         'epochs': 1000,

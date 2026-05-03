@@ -20,7 +20,7 @@ LOG_DIR_MAP = {
 
 # 模型列表
 MODEL_NAMES = [
-    "HELIX", "HELIX_NoFeatureEmbed", "HELIX_NoFusion", "HELIX_NoHybrid", "HELIX_NoRotaryPE",
+    "HELIX", "HELIX_NoFeatureEmbed", "HELIX_NoFusion", "HELIX_NoHybrid", "HELIX_NoSinusoidalPE",
     "TEFN", "TimeMixerPP", "TimeLLM", "MOMENT", "TimeMixer", "ModernTCN",'StemGNN',
     "ImputeFormer", "TOTEM", "iTransformer", "SAITS", "FreTS",
     "NonstationaryTransformer", "PatchTST"

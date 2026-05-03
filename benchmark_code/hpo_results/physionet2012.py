@@ -519,7 +519,7 @@ PhysioNet2012 = {
         'batch_size': 8,
         'lr': 0.00015553632841656416,
     },
-    'HELIX_NoRotaryPE': {
+    'HELIX_NoSinusoidalPE': {
         'n_steps': 48,
         'n_features': 35,
         'epochs': 1000,

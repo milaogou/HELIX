@@ -46,7 +46,7 @@ EXPERIMENTS = {
     'subseq05': ["BeijingAir", "ETT_h1", "ItalyAir", "PeMS"],
 }
 
-ABLATION_MODELS = ['HELIX', 'HELIX_NoFeatureEmbed', 'HELIX_NoFusion', 'HELIX_NoHybrid', 'HELIX_NoRotaryPE']
+ABLATION_MODELS = ['HELIX', 'HELIX_NoFeatureEmbed', 'HELIX_NoFusion', 'HELIX_NoHybrid', 'HELIX_NoSinusoidalPE']
 KEY_BASELINES = ['ImputeFormer', 'SAITS', 'NonstationaryTransformer', 'PatchTST']
 
 def parse_metric_value(value_str):
@@ -198,7 +198,7 @@ def analysis_ablation_by_dataset(all_results):
     for (_, dataset) in all_results.keys():
         datasets_all.add(dataset)
     
-    for ablation in ['HELIX_NoFeatureEmbed', 'HELIX_NoFusion', 'HELIX_NoHybrid', 'HELIX_NoRotaryPE']:
+    for ablation in ['HELIX_NoFeatureEmbed', 'HELIX_NoFusion', 'HELIX_NoHybrid', 'HELIX_NoSinusoidalPE']:
         row = {'Ablation': ablation.replace('HELIX_', 'w/o ')}
         
         for dataset in sorted(datasets_all):
@@ -236,7 +236,7 @@ def analysis_ablation_by_pattern(all_results):
     """
     results = []
     
-    for ablation in ['HELIX_NoFeatureEmbed', 'HELIX_NoFusion', 'HELIX_NoHybrid', 'HELIX_NoRotaryPE']:
+    for ablation in ['HELIX_NoFeatureEmbed', 'HELIX_NoFusion', 'HELIX_NoHybrid', 'HELIX_NoSinusoidalPE']:
         row = {'Ablation': ablation.replace('HELIX_', 'w/o ')}
         
         for pattern in ['point01', 'point05', 'point09', 'block05', 'subseq05']:
@@ -276,7 +276,7 @@ def analysis_vs_naive(all_results):
     'HELIX_NoFeatureEmbed',
     'HELIX_NoFusion',
     'HELIX_NoHybrid',
-    'HELIX_NoRotaryPE',
+    'HELIX_NoSinusoidalPE',
     'TEFN',
     'TimeMixerPP',
     'TimeLLM',

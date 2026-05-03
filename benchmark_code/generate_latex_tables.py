@@ -46,7 +46,7 @@ MODEL_DISPLAY = {
     'HELIX_NoFeatureEmbed': ('w/o Feature Identity Emb.', 'Ablation'),
     'HELIX_NoFusion': ('w/o Multi-level Fusion', 'Ablation'),
     'HELIX_NoHybrid': ('w/o Hybrid Encoding', 'Ablation'),
-    'HELIX_NoRotaryPE': ('w/o Rotary PE', 'Ablation'),
+    'HELIX_NoSinusoidalPE': ('w/o Sinusoidal PE', 'Ablation'),
     'ImputeFormer': ('ImputeFormer', 'Imputation-specific'),
     'SAITS': ('SAITS', 'Imputation-specific'),
     'TEFN': ('TEFN', 'Recent (2024)'),
@@ -70,7 +70,7 @@ MODEL_DISPLAY = {
 MODEL_CATEGORY = {
     'HELIX': 'Ours',
     'HELIX_NoFusion': 'Ablation',
-    'HELIX_NoRotaryPE': 'Ablation',
+    'HELIX_NoSinusoidalPE': 'Ablation',
     'HELIX_NoHybrid': 'Ablation',
     'HELIX_NoFeatureEmbed': 'Ablation',
     'ImputeFormer': 'Low-rank Attention',
@@ -97,7 +97,7 @@ MODEL_CATEGORY = {
 MODEL_VENUE = {
     'HELIX': '--',
     'HELIX_NoFusion': '--',
-    'HELIX_NoRotaryPE': '--',
+    'HELIX_NoSinusoidalPE': '--',
     'HELIX_NoHybrid': '--',
     'HELIX_NoFeatureEmbed': '--',
     'ImputeFormer': "KDD'24",
@@ -122,7 +122,7 @@ MODEL_VENUE = {
 # Order for display (HELIX first, then ablations, then baselines by category)
 MODEL_ORDER = [
     'HELIX',
-    'HELIX_NoFusion', 'HELIX_NoRotaryPE', 'HELIX_NoHybrid', 'HELIX_NoFeatureEmbed',
+    'HELIX_NoFusion', 'HELIX_NoSinusoidalPE', 'HELIX_NoHybrid', 'HELIX_NoFeatureEmbed',
     'ImputeFormer', 'SAITS',
     'NonstationaryTransformer', 'PatchTST', 'iTransformer',
     'TEFN', 'TimeMixer', 'TimeMixerPP', 'ModernTCN', 'StemGNN', 'TOTEM',
@@ -465,7 +465,7 @@ def generate_table2_detailed_results(base_path, output_dir):
         'Naive_Mean', 'Naive_Median', 'Naive_LOCF', 'Naive_LinearInterp',
         # Then DL methods
         'HELIX', 
-        # 'HELIX_NoFusion', 'HELIX_NoRotaryPE', 'HELIX_NoHybrid', 'HELIX_NoFeatureEmbed',
+        # 'HELIX_NoFusion', 'HELIX_NoSinusoidalPE', 'HELIX_NoHybrid', 'HELIX_NoFeatureEmbed',
         'ImputeFormer', 'SAITS',
         'NonstationaryTransformer', 'PatchTST', 'iTransformer',
         'TEFN', 'TimeMixer', 'TimeMixerPP', 'ModernTCN', 'StemGNN', 'TOTEM',
@@ -547,7 +547,7 @@ def generate_table3_ablation(base_path, output_dir):
     df_pattern = pd.read_csv(pattern_path)
     
     # Ablation models in order
-    ablation_models = ['HELIX', 'HELIX_NoFusion', 'HELIX_NoRotaryPE', 'HELIX_NoHybrid', 'HELIX_NoFeatureEmbed']
+    ablation_models = ['HELIX', 'HELIX_NoFusion', 'HELIX_NoSinusoidalPE', 'HELIX_NoHybrid', 'HELIX_NoFeatureEmbed']
     ablation_display = ['HELIX', 'w/o Fusion', 'w/o Rotary', 'w/o Hybrid', 'w/o FeatEmb']
     
     # Get HELIX baseline
@@ -785,14 +785,14 @@ def generate_ablation_appendix_all_datasets(base_path, output_dir):
     ablation_models = [
         'HELIX',
         'HELIX_NoFusion',
-        'HELIX_NoRotaryPE',
+        'HELIX_NoSinusoidalPE',
         'HELIX_NoHybrid',
         'HELIX_NoFeatureEmbed'
     ]
     ablation_display = {
         'HELIX': 'HELIX (Ours)',
         'HELIX_NoFusion': 'w/o Multi-level Fusion',
-        'HELIX_NoRotaryPE': 'w/o Rotary PE',
+        'HELIX_NoSinusoidalPE': 'w/o Sinusoidal PE',
         'HELIX_NoHybrid': 'w/o Hybrid Encoding',
         'HELIX_NoFeatureEmbed': 'w/o Feature Identity Emb.',
     }
@@ -867,11 +867,11 @@ def generate_ablation_beijingair_main(base_path, output_dir):
     dataset = 'BeijingAir'
     patterns = [ 'point05', 'block05', 'subseq05']#'point01', 'point09',
 
-    ablation_models = ['HELIX', 'HELIX_NoFusion', 'HELIX_NoRotaryPE', 'HELIX_NoHybrid', 'HELIX_NoFeatureEmbed']
+    ablation_models = ['HELIX', 'HELIX_NoFusion', 'HELIX_NoSinusoidalPE', 'HELIX_NoHybrid', 'HELIX_NoFeatureEmbed']
     ablation_display = {
         'HELIX': 'HELIX (Ours)',
         'HELIX_NoFusion': 'w/o Fusion',
-        'HELIX_NoRotaryPE': 'w/o Rotary',
+        'HELIX_NoSinusoidalPE': 'w/o Rotary',
         'HELIX_NoHybrid': 'w/o Hybrid',
         'HELIX_NoFeatureEmbed': 'w/o FeatEmb',
     }

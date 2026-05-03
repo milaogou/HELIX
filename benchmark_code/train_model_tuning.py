@@ -33,7 +33,7 @@ SUPPORT_MODELS = {
     "GPVAE": GPVAE,
     "GRUD": GRUD,
     "HELIX": HELIX,
-    "HELIX_NoRotaryPE": HELIX_NoRotaryPE,
+    "HELIX_NoSinusoidalPE": HELIX_NoSinusoidalPE,
     "HELIX_NoFeatureEmbed": HELIX_NoFeatureEmbed,
     "HELIX_NoHybrid": HELIX_NoHybrid,
     "HELIX_NoFusion": HELIX_NoFusion,

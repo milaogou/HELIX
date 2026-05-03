@@ -548,7 +548,7 @@ def generate_table3_ablation(base_path, output_dir):
     
     # Ablation models in order
     ablation_models = ['HELIX', 'HELIX_NoFusion', 'HELIX_NoSinusoidalPE', 'HELIX_NoHybrid', 'HELIX_NoFeatureEmbed']
-    ablation_display = ['HELIX', 'w/o Fusion', 'w/o Rotary', 'w/o Hybrid', 'w/o FeatEmb']
+    ablation_display = ['HELIX', 'w/o Fusion', 'w/o Sinusoidal', 'w/o Hybrid', 'w/o FeatEmb']
     
     # Get HELIX baseline
     helix_row = df_pattern[df_pattern['Model'] == 'HELIX'].iloc[0]
@@ -871,7 +871,7 @@ def generate_ablation_beijingair_main(base_path, output_dir):
     ablation_display = {
         'HELIX': 'HELIX (Ours)',
         'HELIX_NoFusion': 'w/o Fusion',
-        'HELIX_NoSinusoidalPE': 'w/o Rotary',
+        'HELIX_NoSinusoidalPE': 'w/o Sinusoidal',
         'HELIX_NoHybrid': 'w/o Hybrid',
         'HELIX_NoFeatureEmbed': 'w/o FeatEmb',
     }

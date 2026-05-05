@@ -136,7 +136,7 @@ HELIX/
 If HELIX is helpful to your research, please cite our paper as below and ⭐️star this repository.
 🤗 Thank you!
 
-` ` `bibtex
+```bibtex
 @inproceedings{zhang2026helix,
     title     = {{HELIX}: Hybrid Encoding with Learnable Identity and Cross-dimensional Synthesis for Time Series Imputation},
     author    = {Fengming Zhang and Wenjie Du and Huan Zhang and Ke Yu and Shen Qu},
@@ -144,7 +144,7 @@ If HELIX is helpful to your research, please cite our paper as below and ⭐️s
     year      = {2026},
     url       = {https://arxiv.org/abs/2605.02278}
 }
-` ` `
+```
 
 or
 

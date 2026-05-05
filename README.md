@@ -57,11 +57,11 @@ within a unified framework.
 > 📖 Full parameter documentation:
 > [pypots.imputation.helix](https://docs.pypots.com/en/dev/pypots.imputation.html#module-pypots.imputation.helix)
 
-` ` `bash
+```bash
 pip install pypots  # v1.5+ when released; for now install from main branch
-` ` `
+```
 
-` ` `python
+```python
 from pypots.imputation import HELIX
 
 # initialize the model
@@ -77,7 +77,7 @@ helix.fit(train_set, val_set)
 
 # impute
 imputation = helix.impute(test_set)
-` ` `
+```
 
 > [!NOTE]
 > **Parameter naming difference**: The experiment code in this repo uses `pe_dim` and `feature_embed_dim`,
@@ -109,7 +109,7 @@ See [`benchmark_code/`](benchmark_code/) for full details.
 
 ## ❖ Repository Structure
 
-` ` `
+```
 HELIX/
 ├── benchmark_code/                    # Full experiment code and evaluation
 │   ├── train_model.py                 # Main training script (5 seeds)
@@ -129,8 +129,7 @@ HELIX/
 │   └── README.md                      # Detailed experiment instructions
 ├── LICENSE                            # MIT License
 └── README.md                          # This file
-` ` `
-
+```
 ## ❖ Citing HELIX
 
 If HELIX is helpful to your research, please cite our paper as below and ⭐️star this repository.

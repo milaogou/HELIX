@@ -1,7 +1,7 @@
 <a id="HELIX"></a>
 
 <p align="center">
-    <b> <a href="https://arxiv.org/abs/xxxx.xxxxx">HELIX: Hybrid Encoding with Learnable Identity and Cross-dimensional Synthesis for Time Series Imputation</a></b>
+    <b> <a href="https://arxiv.org/abs/2605.02278">HELIX: Hybrid Encoding with Learnable Identity and Cross-dimensional Synthesis for Time Series Imputation</a></b>
 </p>
 
 <p align="center">
@@ -15,13 +15,13 @@
         <img src="https://img.shields.io/badge/License-MIT-3C7699?logo=opensourceinitiative&logoColor=white" alt="MIT License">
     </a>
     <a href="https://icml.cc/virtual/2026/">
-        <img src="https://img.shields.io/badge/ICML-2026-blue" alt="ICML 2026">
+        <img src="https://img.shields.io/badge/ICML_2026-Spotlight-blue" alt="ICML 2026 Spotlight">
     </a>
 </p>
 
 The official experiment code for the paper
 **HELIX: Hybrid Encoding with Learnable Identity and Cross-dimensional Synthesis for Time Series Imputation**,
-which has been accepted by the
+which has been accepted as a **Spotlight** paper at the
 *[International Conference on Machine Learning (ICML)](https://icml.cc/) 2026*.
 
 > Fengming Zhang, Wenjie Du, Huan Zhang, Ke Yu, Shen Qu.
@@ -51,21 +51,23 @@ within a unified framework.
 
 > [!IMPORTANT]
 > <a href="https://github.com/WenjieDu/PyPOTS"><img src="https://pypots.com/figs/pypots_logos/PyPOTS/logo_FFBG.svg" width="128" align="right"></a>
-> **📣 HELIX is now available in [PyPOTS](https://github.com/WenjieDu/PyPOTS)!**
+> **📣 HELIX has been merged into [PyPOTS](https://github.com/WenjieDu/PyPOTS) main branch
+> and will be officially released in PyPOTS v1.5!**
 >
-> You can easily train and use HELIX for time series imputation with just a few lines of code:
+> 📖 Full parameter documentation:
+> [pypots.imputation.helix](https://docs.pypots.com/en/dev/pypots.imputation.html#module-pypots.imputation.helix)
 
-```bash
-pip install pypots
-```
+` ` `bash
+pip install pypots  # v1.5+ when released; for now install from main branch
+` ` `
 
-```python
+` ` `python
 from pypots.imputation import HELIX
 
 # initialize the model
 helix = HELIX(
-    n_steps=48,        # number of time steps
-    n_features=37,     # number of features
+    n_steps=48,           # number of time steps
+    n_features=37,        # number of features
     # ... (refer to PyPOTS documentation for full parameter list)
     epochs=100,
 )
@@ -75,10 +77,17 @@ helix.fit(train_set, val_set)
 
 # impute
 imputation = helix.impute(test_set)
-```
+` ` `
 
-**Ablation variants** (w/o FeatID, w/o Fusion, w/o Hybrid, w/o Sinusoidal PE) are available at:
-👉 https://github.com/milaogou/PyPOTS/tree/add-helix-model
+> [!NOTE]
+> **Parameter naming difference**: The experiment code in this repo uses `pe_dim` and `feature_embed_dim`,
+> while PyPOTS uses `d_pe` and `d_feature_embed` to follow its naming convention.
+> If you run the benchmark code directly, please rename these two parameters accordingly.
+
+**Additional variants available at
+[milaogou/PyPOTS@add-helix-model](https://github.com/milaogou/PyPOTS/tree/add-helix-model):**
+- Ablation variants (w/o FeatID, w/o Fusion, w/o Hybrid, w/o Sinusoidal PE)
+- Gated fusion variant with learnable gate mechanism
 
 ## ❖ Reproducing Experiments
 
@@ -100,34 +109,48 @@ See [`benchmark_code/`](benchmark_code/) for full details.
 
 ## ❖ Repository Structure
 
-```
+` ` `
 HELIX/
-├── benchmark_code/       # Full experiment code, configs, and evaluation scripts
-│   ├── ...
-│   └── ...
-├── LICENSE               # MIT License
-└── README.md             # This file
-```
+├── benchmark_code/                    # Full experiment code and evaluation
+│   ├── train_model.py                 # Main training script (5 seeds)
+│   ├── train_model_tuning.py          # HPO training script
+│   ├── in_sample_exp.py               # Batch SLURM job submission
+│   ├── global_config.py               # Global configuration
+│   ├── utils.py                       # Utilities
+│   ├── data/                          # Dataset generation scripts
+│   ├── hpo_results/                   # Tuned hyperparameters per dataset
+│   ├── PyPOTS_tuning_configs/         # HPO search spaces and scripts
+│   ├── reproduce_imputation/          # Result collection and analysis
+│   ├── generate_latex_tables.py       # LaTeX table generation
+│   ├── feature_embedding_analysis.py  # Embedding analysis (Fig. 2)
+│   ├── extract_attention.py           # Attention patterns (Fig. 3, 4)
+│   ├── imputation_visualization.py    # Imputation visualization (Fig. 5)
+│   ├── physionet_embedding_analysis.py# Clinical grouping analysis (Fig. 6)
+│   └── README.md                      # Detailed experiment instructions
+├── LICENSE                            # MIT License
+└── README.md                          # This file
+` ` `
 
 ## ❖ Citing HELIX
 
 If HELIX is helpful to your research, please cite our paper as below and ⭐️star this repository.
 🤗 Thank you!
 
-```bibtex
+` ` `bibtex
 @inproceedings{zhang2026helix,
-    title   = {{HELIX: Hybrid Encoding with Learnable Identity and Cross-dimensional Synthesis for Time Series Imputation}},
-    author  = {Zhang, Fengming and Du, Wenjie and Zhang, Huan and Yu, Ke and Qu, Shen},
-    booktitle = {Proceedings of the International Conference on Machine Learning (ICML)},
-    year    = {2026}
+    title     = {{HELIX}: Hybrid Encoding with Learnable Identity and Cross-dimensional Synthesis for Time Series Imputation},
+    author    = {Fengming Zhang and Wenjie Du and Huan Zhang and Ke Yu and Shen Qu},
+    booktitle = {Forty-third International Conference on Machine Learning},
+    year      = {2026},
+    url       = {https://arxiv.org/abs/2605.02278}
 }
-```
+` ` `
 
 or
 
 > Fengming Zhang, Wenjie Du, Huan Zhang, Ke Yu, and Shen Qu.
 > HELIX: Hybrid Encoding with Learnable Identity and Cross-dimensional Synthesis for Time Series Imputation.
-> In Proceedings of the International Conference on Machine Learning (ICML), 2026.
+> In Proceedings of the Forty-third International Conference on Machine Learning (ICML), 2026.
 
 ### 🔥 If you use PyPOTS in your research, please also cite:
 

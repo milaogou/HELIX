@@ -8,6 +8,13 @@ This directory contains all code to reproduce the experiments in the HELIX paper
 - Conda environment: `conda env create -f conda_env.yml`
 - PyPOTS (latest): `pip install pypots`
 
+## ⚠️ Parameter Naming Note
+
+The experiment code in this repo uses the parameter names `pe_dim` and `feature_embed_dim`.
+In the official PyPOTS release, these have been renamed to `d_pe` and `d_feature_embed`
+to follow PyPOTS naming conventions. If you switch between this repo and PyPOTS,
+please adjust accordingly.
+
 ## Workflow
 
 ### 1. Dataset Generation
